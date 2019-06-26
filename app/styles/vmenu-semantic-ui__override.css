@@ -1,0 +1,27 @@
+/* override the color for the accordion in the vertical menu */
+.v-menu__wrapper .ui.accordion .title:not(.ui) {
+  color: #a7a4a4;
+}
+
+.ui.menu {
+  font-family: "openSanse", "helveticaNeue";
+  font-size: 1.15rem;
+}
+
+.ui.vertical.menu .menu .item {
+  color: #a7a4a4;
+  font-family: "openSanse", "helveticaNeue";
+}
+
+.ui.vertical.menu .item .menu .active.item {
+  color: #fff;
+  font-family: "openSanse", "helveticaNeue";
+}
+
+.ui.vertical.text.menu .item:not(.dropdown) > .menu > .item {
+  padding: 0.5em 1.5em;
+}
+
+.ui.vertical.menu .item .menu a.item:hover, .ui.vertical.menu .item .menu .link.item:hover {
+  color: #fff;
+}

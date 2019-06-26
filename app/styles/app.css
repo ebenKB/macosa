@@ -1,0 +1,23 @@
+@import 'grid.css';
+@import 'vertical-menu.css';
+@import 'vmenu-semantic-ui__override.css';
+@import 'semantic-ui__override.css';
+@import 'header.css';
+
+/* include custom fonts */
+@font-face {
+  font-family: "openSans";
+  src: url("/fonts/OpenSans-Regular.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "maisonNeue";
+  src: url("/fonts/maisonneueweb-book-webfont.woff2") format("woff2");
+}
+body {
+  font-family: "openSanse", "helveticaNeue";
+}
+
+.full-width {
+  width: 100%;
+}

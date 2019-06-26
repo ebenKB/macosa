@@ -1,0 +1,11 @@
+.v-menu__wrapper {
+  background: #000;
+  height: 100vh;;
+  color: #fff;
+  padding: 20px;
+}
+
+.v-menu__wrapper .content.menu .item {
+  padding: 10px 0;
+  color: red;
+}
