@@ -1,4 +1,5 @@
 @import 'grid.css';
+@import '_variables.css';
 @import 'vertical-menu.css';
 @import 'vmenu-semantic-ui__override.css';
 @import 'semantic-ui__override.css';
@@ -15,9 +16,20 @@
   src: url("/fonts/maisonneueweb-book-webfont.woff2") format("woff2");
 }
 body {
-  font-family: "openSanse", "helveticaNeue";
+  font-family: "openSans", "helveticaNeue";
 }
 
 .full-width {
   width: 100%;
+}
+
+.icon-text span {
+  padding-right: 10px;
+}
+
+a {
+  color: #fff;
+}
+a:hover {
+  color: var(--off-dark);
 }
