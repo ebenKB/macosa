@@ -17,10 +17,15 @@
 }
 body {
   font-family: "openSans", "helveticaNeue";
+  color: var(--dark)
 }
 
 .full-width {
   width: 100%;
+}
+
+.icon-text svg {
+  fill: var(--off-dark);
 }
 
 .icon-text span {
@@ -30,6 +35,11 @@ body {
 a {
   color: #fff;
 }
+
 a:hover {
   color: var(--off-dark);
+}
+
+.bold-caption {
+  font-weight: 600;
 }

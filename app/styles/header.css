@@ -1,4 +1,9 @@
 /* override semantic ui for the header  */
 .header-wrapper .ui.menu:not(.vertical)  .right.menu {
-  margin-left: 90% !important;
+    margin-left: 90% !important;
+}
+
+/* override hearder style for semantic ui */
+.header-wrapper .ui.dropdown {
+    padding: 12px 0;
 }
