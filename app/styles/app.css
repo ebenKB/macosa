@@ -43,3 +43,7 @@ a:hover {
 .bold-caption {
   font-weight: 600;
 }
+
+.main-content {
+  padding: 20px 40px;
+}

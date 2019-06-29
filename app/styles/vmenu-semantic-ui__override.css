@@ -3,23 +3,23 @@
   color: var(--off-dark);
 }
 
-.ui.menu {
-  font-family: "openSanse", "helveticaNeue";
+.v-menu__wrapper .ui.menu {
+  font-family:  "helveticaNeue", "openSans";
   font-size: 1.15rem;
 }
 
 .ui.vertical.menu .menu .item {
   color: var(--off-dark);
-  font-family: "openSanse", "helveticaNeue";
+  font-family: "openSans", "helveticaNeue";
 }
 
 .ui.vertical.menu .item .menu .active.item {
   color: #fff;
-  font-family: "openSanse", "helveticaNeue";
+  font-family: "openSans", "helveticaNeue";
 }
 
 .ui.vertical.text.menu .item:not(.dropdown) > .menu > .item {
-  padding: 0.5em 1.5em;
+  padding: 1.0em 1.5em;
 }
 
 .ui.vertical.menu .item .menu a.item:hover, .ui.vertical.menu .item .menu .link.item:hover {

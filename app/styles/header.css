@@ -3,7 +3,31 @@
     margin-left: 90% !important;
 }
 
-/* override hearder style for semantic ui */
-.header-wrapper .ui.dropdown {
-    padding: 12px 0;
+.header-wrapper svg {
+  fill: var(--off-dark);
+}
+
+/* override semantic ui for header */
+.header-wrapper .ui.top.right.pointing.dropdown > .menu {
+  margin: 0.25em -0.3em 0em;
+}
+
+.header-wrapper .ui.dropdown .menu {
+  font-size: 1rem;
+  font-family: "openSans"
+}
+
+.header-wrapper .ui.dropdown .menu > .header {
+  font-size: 1rem;
+}
+
+.header-wrapper .ui.menu .ui.dropdown .menu > .item.footer {
+  background: var(--off-dark__light)!important;
+  border-radius: 0;
+}
+
+/* override semantic ui label size */
+.header-wrapper .ui.circular.label {
+  min-width: 1em;
+  min-height: 1em;
 }
