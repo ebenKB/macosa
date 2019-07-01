@@ -1,11 +1,11 @@
-  {{input
-      class=classNames
-      type=type
-      placeholder=placeholder
-      keyUp=(action 'onChange' changeset)
-      value=(get changeset property)
-      changeset=changeset
-  }}
+{{input
+    class=classNames
+    type=type
+    placeholder=placeholder
+    keyUp=(action 'onChange' changeset)
+    value=(get changeset property)
+    changeset=changeset
+}}
 
 {{#if (get changeset.error property)}}
   <small>

@@ -1,10 +1,12 @@
 @import 'grid.css';
 @import '_variables.css';
+@import 'util.css';
 @import 'vertical-menu.css';
 @import 'vmenu-semantic-ui__override.css';
 @import 'semantic-ui__override.css';
 @import 'header.css';
-
+@import 'form-fields.css';
+@import 'user-form.css';
 /* include custom fonts */
 @font-face {
   font-family: "openSans";
@@ -32,10 +34,6 @@ body {
   padding-right: 10px;
 }
 
-a {
-  color: #fff;
-}
-
 a:hover {
   color: var(--off-dark);
 }
@@ -46,4 +44,8 @@ a:hover {
 
 .main-content {
   padding: 20px 40px;
+}
+
+.full-height {
+  height: 100vh;
 }

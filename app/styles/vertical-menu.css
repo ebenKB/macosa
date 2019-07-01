@@ -7,5 +7,8 @@
 
 .v-menu__wrapper .content.menu .item {
   padding: 10px 0;
-  color: red;
+}
+
+.v-menu__wrapper a {
+  color: #fff;
 }

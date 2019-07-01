@@ -1,0 +1,18 @@
+input[type=text] {
+    width: 100%;
+}
+
+.ui.input > input {
+    border-radius: 0.1rem;
+}
+
+/* override the default input width */
+.ui.input.custom {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* override lable colour for semantic ui */
+.ui.form .field > label {
+    color: var(--dark);
+}
