@@ -2,8 +2,12 @@
   <MainHeader />
   <div class="main-content">
     <div class="grid columns-13__3">
-      <div>one</div>
-      <div>Help Section</div>
+        <div> {{yield}} </div>
+        <div> 
+              <Aside 
+                  @data={{aside}}
+              />
+        </div>
     </div>
   </div>
 </div>

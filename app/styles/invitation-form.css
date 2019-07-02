@@ -1,0 +1,18 @@
+.invitation__form {
+  width: 90%;
+  border-radius: 5px;
+}
+
+.invitation-form__header {
+    background: rgba(237, 244, 247, 0.5);
+    padding: 20px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.header-caption {
+  padding: 20px 30px;
+}
+
+.invitation-form__body {
+  padding: 20px 30px;
+}

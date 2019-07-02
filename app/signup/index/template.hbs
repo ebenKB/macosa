@@ -5,10 +5,28 @@
         </div>
         <div class="user-form__body">
             <div class="user-form__header text-center">
-                <h3>Log in to macosa</h3>
+                <h3>Create a new Account </h3>
             </div>
             <form action="" class="ui form">
                 {{#with (changeset model UserValidator) as |changeset|}}
+                    <div class="field">
+                        <label for="">First name</label>
+                        <FormFields::Input 
+                            @changeset={{changeset}} 
+                            @placeholder="Enter your your first name"
+                            @onChange={{action "validate" changeset}}
+                            @property="firstname"
+                        />
+                    </div>
+                    <div class="field">
+                        <label for="">Last name</label>
+                        <FormFields::Input 
+                            @changeset={{changeset}} 
+                            @placeholder="Enter your last name"
+                            @onChange={{action "validate" changeset}}
+                            @property="lastname"
+                        />
+                    </div>
                     <div class="field">
                         <label for="">Email</label>
                         <FormFields::Input 
@@ -24,7 +42,16 @@
                             @changeset={{changeset}} 
                             @placeholder="Enter your password"
                             @onChange={{action "validate" changeset}}
-                            @property="email"
+                            @property="password"
+                        />
+                    </div>
+                    <div class="field">
+                        <label for="">Confirm Password</label>
+                        <FormFields::Password 
+                            @changeset={{changeset}} 
+                            @placeholder="Confirm your password"
+                            @onChange={{action "validate" changeset}}
+                            @property="confirmPassword"
                         />
                     </div>
                     <div class="field form-actions text-right">

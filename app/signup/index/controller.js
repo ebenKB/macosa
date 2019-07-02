@@ -3,6 +3,7 @@ import UserValidator from '../../validations/user';
 
 export default Controller.extend({
   UserValidator,
+  confirmPass: null,
 
   actions: {
     createNewUser(changeset) {

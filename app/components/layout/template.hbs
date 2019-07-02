@@ -3,6 +3,10 @@
     <VerticalMenu />
   </div>
   <div>
-    <ContentPane />
+    <ContentPane
+        @aside={{aside}}
+    >
+        {{yield}}
+    </ContentPane>
   </div>
 </div>

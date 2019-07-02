@@ -7,6 +7,8 @@
 @import 'header.css';
 @import 'form-fields.css';
 @import 'user-form.css';
+@import 'invitation-form.css';
+
 /* include custom fonts */
 @font-face {
   font-family: "openSans";
@@ -48,4 +50,8 @@ a:hover {
 
 .full-height {
   height: 100vh;
+}
+
+.small-form {
+  width: 600px;
 }

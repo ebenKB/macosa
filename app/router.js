@@ -10,8 +10,9 @@ Router.map(function() {
   this.route('authenticated', {path: '/'});
   this.route('login');
 
-  this.route('user', function() {
-    this.route('new');
+  this.route('user', function() {});
+  this.route('signup', function() {
+    this.route('invitation');
   });
 });
 
