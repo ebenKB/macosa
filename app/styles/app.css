@@ -57,8 +57,8 @@ a:hover {
   padding: 40px 0;
 }
 
-.divider {
-  border-bottom: 1px solid #cacdd2;
+.mc-divider {
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   padding: 10px 0;
   font-weight: 900;
 }
