@@ -7,7 +7,7 @@
 @import 'header.css';
 @import 'form-fields.css';
 @import 'user-form.css';
-@import 'invitation-form.css';
+@import 'mc-form.css';
 
 /* include custom fonts */
 @font-face {
@@ -45,14 +45,20 @@ a:hover {
 }
 
 .main-content {
-  padding: 20px 40px;
+  padding: 40px;
 }
 
 .full-height {
   height: 100vh;
 }
 
-.small-form {
+.form-group {
   width: 600px;
   padding: 40px 0;
+}
+
+.divider {
+  border-bottom: 1px solid #cacdd2;
+  padding: 10px 0;
+  font-weight: 900;
 }

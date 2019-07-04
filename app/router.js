@@ -14,6 +14,9 @@ Router.map(function() {
   this.route('signup', function() {
     this.route('invitation');
   });
+  this.route('company', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

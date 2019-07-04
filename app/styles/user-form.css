@@ -1,14 +1,12 @@
 .user-form__wrapper {
-    width: 25%;
-    margin: auto;
-    padding: 35px;
-
+  width: 25%;
+  margin: auto;
+  padding: 35px;
 }
 
 .user-form__body {
-    /* background: green; */
-    box-shadow: 0 1px 3px 0 #bfbfbf;
-    border-radius: 2.5px;
+  box-shadow: 0 1px 3px 0 #bfbfbf;
+  border-radius: 2.5px;
 }
 
 .user-form__header {
@@ -16,11 +14,12 @@
 }
 
 .user-form__body, .user-form__caption {
-    padding: 30px;
+  padding: 30px;
 }
 
 /* override border-radius for form texts */
-.ui.form input[type="text"] {
+.ui.form input[type="text"], 
+.ui.form input[type="password"] {
   border-radius: 0.1rem;
 }
 .ui.form input[type="text"]:focus {

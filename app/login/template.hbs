@@ -30,6 +30,7 @@
                 <a href="/">Forgot password</a>
                 </div>
                 <FormFields::Submit
+                    @title="Login"
                     @classess="ui large green fluid submit button {{if model.isAuthenticating "loading"}}"
                     @action={{action "login" model }}
                 />

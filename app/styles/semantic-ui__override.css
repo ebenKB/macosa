@@ -1,3 +1,9 @@
 .ui.segment {
   border-radius: 0;
 }
+
+.ui.form .inline.field > label {
+    color: var(--dark);
+    font-weight: 900;
+    font-size: 14px;
+}

@@ -1,0 +1,58 @@
+.mc__form {
+  width: 65%;
+  border-radius: 5px;
+  margin: auto;
+  box-shadow: 0 1px 3px 0 #bfbfbf;
+
+}
+
+.mc-form__header {
+  background: rgba(237, 244, 247, 0.5);
+  padding: 10px 0;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #d9e2e8;
+}
+
+.mc-form__footer {
+  background: rgba(237, 244, 247, 0.5);
+  border-top: 1px solid #d9e2e8;
+}
+
+.header-caption {
+  padding: 20px 30px;
+}
+
+.mc-form__body {
+  padding: 20px 30px;
+}
+
+/* override semantic ui button size  */
+.mc__form .ui.fluid.button {
+  width: auto;
+}
+
+.mc__form .button-group.inline.fields {
+  margin: 0 0 0 60%;
+  display: inline-flex;
+  padding: 20px;
+}
+
+.mc__form .ui.form .field {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+}
+
+/* override text input size for semantic ui */
+.mc__form .ui.form input[type="text"] {
+  padding: 1rem;
+}
+
+.mc-form__roles {
+  /* float: right; */
+  /* margin-left: 80%; */
+}
+
+.mc-form__roles div {
+  padding: 2.5px 0;
+}
