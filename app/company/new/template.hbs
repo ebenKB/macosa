@@ -3,6 +3,7 @@
   <McForm
     @heading="Add new company"
     @role="Add this company">
+    <div class="mc-divider">Company Details</div>
     <div class="form-group">
       <div class="inline field">
         <label for="company name">Company name</label>
@@ -36,8 +37,20 @@
       </div>
       <div class="inline field">
         <label for="Compnany Type">Company Type</label>
-        <FormFields::Dropdown />
+        <FormFields::Dropdown 
+          @options={{types}}
+        />
       </div> 
     </div>
+      <div class="mc-divider">Background Information <span class="faint" >(bio, history, etc)</span> </div>
+      <div class="form-group">
+        <div class="">
+        <FormFields::Textarea
+          @value={{model.background}}
+          @columns=""
+          @rows={{5}}
+        />
+        </div>
+      </div>
   </McForm>
 </Layout>

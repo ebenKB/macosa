@@ -2,8 +2,13 @@
   <div class="ui segment">
     <div class="ui secondary menu ">
       <div class="right menu">
+
+        <div class="right" style="margin-right: 20px; align-self:center">
+          {{svg-jar "alarm" width="20px" height="20px"}}
+        </div>
+
         <div class="ui icon top right pointing dropdown">
-          {{svg-jar "icon-user" width="30px" }}
+          {{svg-jar "user-options" width="30px" height="40px"}}
           <div class="menu">
             <div class="header icon-text">
               <span class="ui small green circular label"></span>
@@ -45,7 +50,7 @@
                 <span>Remove Account</span>
               </div>
             </div>
-            <div class="item footer">
+            <div class="item footer action-highlight">
               <div class="icon-text"> 
                 <span>{{svg-jar "logout" width="20px" height="20px"}}</span>
                 <span>Logout</span>

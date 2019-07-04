@@ -1,8 +1,12 @@
-<div class="ui checkbox">
+{{!-- <div class="ui checkbox">
   {{#if checked }}
     <input type="checkbox" name="example" checked>
     {{else}}
       <input type="checkbox" name="example" >
   {{/if}}
     <label>{{label}} </label>
-</div>
+</div> --}}
+
+<Ui-Checkbox @label={{label}} checked={{checked}} onChange={{action (mut checked)}} />
+
+

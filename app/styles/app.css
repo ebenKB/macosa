@@ -62,3 +62,7 @@ a:hover {
   padding: 10px 0;
   font-weight: 900;
 }
+
+.faint {
+  color: var(--faint-dark)
+}

@@ -1,12 +1,12 @@
-<div class="grid columns-2__14">
-  <div> 
+<div class="mc-wrapper grid columns-2__14">
+  <div class="left"> 
     <VerticalMenu />
   </div>
-  <div>
+  <div class="main">
     <ContentPane
-        @aside={{aside}}
+      @aside={{aside}}
     >
-        {{yield}}
+      {{yield}}
     </ContentPane>
   </div>
 </div>

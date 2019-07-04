@@ -1,7 +1,8 @@
 :root {
   --white: #fff;
   --black: #000;
-  --dark: #4E5C6E;
+  --dark: #4e5c6e;
   --off-dark: #a7a4a4;
   --off-dark__light: rgba(167, 164, 164, 0.15);
+  --faint-dark: rgba(78, 92, 110, 0.5);
 }
