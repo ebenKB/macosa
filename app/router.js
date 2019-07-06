@@ -6,16 +6,24 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
+// eslint-disable-next-line array-callback-return
 Router.map(function() {
-  this.route('authenticated', {path: '/'});
   this.route('login');
-
-  this.route('user', function() {});
   this.route('signup', function() {
     this.route('invitation');
   });
+  this.route('authenticated', {path: '', function() {
+    this.route('user', { resetNamespace: true },
+      function() {});
+  }});
+
+
   this.route('company', function() {
     this.route('new');
+  });
+
+  this.route('invitation', function() {
+    this.route('confirm', { path: '/:token'});
   });
 });
 

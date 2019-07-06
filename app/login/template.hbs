@@ -1,45 +1,46 @@
 <div class="full-height grid grid-center">
-    <div class="user-form__wrapper">
-        <div class="user-form__caption">
-            <img src="/highrise_logo.png" alt="" class="ui centered medium image">
-        </div>
-        <div class="user-form__body">
-            <div class="user-form__header text-center">
-                <h3>Log in to macosa</h3>
-            </div>
-            <form action="" class="ui form">
-                <div class="field">
-                    <label for="">Email</label>
-                    {{input
-                        class=classNames
-                        type=type
-                        placeholder="Enter your email"
-                        value=model.email
-                    }}
-                </div>
-                <div class="field">
-                    <label for="">Password</label>
-                    {{input
-                        class=classNames
-                        type=type
-                        placeholder="Enter your password"
-                        value=model.password
-                    }}
-                </div>
-                <div class="field form-actions text-right">
-                <a href="/">Forgot password</a>
-                </div>
-                <FormFields::Submit
-                    @title="Login"
-                    @classess="ui large green fluid submit button {{if model.isAuthenticating "loading"}}"
-                    @action={{action "login" model }}
-                />
-          </form>
-        </div>
-        <div class="field text-center m-t-20">New to Macosa? 
-              {{#link-to "user"}}
-                  create new account
-              {{/link-to}}
-        </div>
+  <div class="user-form__wrapper">
+    <div class="user-form__caption">
+      <img src="/highrise_logo.png" alt="" class="ui centered medium image">
     </div>
+    <div class="user-form__body">
+      <div class="user-form__header text-center">
+        <h3>Log in to macosa</h3>
+      </div>
+      <form action="" class="ui form">
+        <div class="field">
+          <label for="">Email</label>
+          {{input
+            class=classNames
+            type=type
+            placeholder="Enter your email"
+            value=model.email
+          }}
+        </div>
+        <div class="field">
+          <label for="">Password</label>
+          {{input
+            class=classNames
+            type=type
+            placeholder="Enter your password"
+            value=model.password
+          }}
+        </div>
+        <div class="field form-actions text-right">
+          <a href="/">Forgot password</a>
+        </div>
+        <FormFields::Submit
+          @title="Login"
+          @classess="ui large green fluid submit button {{if model.isAuthenticating "loading"}}"
+          @action={{action "login" model }}
+        />
+      </form>
+    </div>
+    <div class="field text-center m-t-20">
+      New to Macosa? 
+      {{#link-to "user"}}
+        create new account
+      {{/link-to}}
+    </div>
+  </div>
 </div>

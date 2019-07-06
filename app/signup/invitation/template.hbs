@@ -3,39 +3,39 @@
   <McForm
     @heading="Invite new user"
     @role="Send invite">
-      <div class="mc-divider">User Information</div>
-      <div class="form-group">
-        <div class="inline field">
-          <label for="company name">First name</label>
-          <FormFields::Input
-            @placeholder="What is the name of the company?" 
-          />
-        </div>
-        <div class="inline field">
-          <label for="company name">Last name</label>
-          <FormFields::Input
-            @placeholder="What is the phone number for the company?" 
-          />
-        </div>
-        <div class="inline field">
-          <label for="company name">Email</label>
-          <FormFields::Input
-            @placeholder="What is the email for the company?" 
-          />
-        </div>
+    <div class="mc-divider">User Information</div>
+    <div class="form-group">
+      <div class="inline field">
+        <label for="company name">First name</label>
+        <FormFields::Input
+          @placeholder="What is the name of the company?" 
+        />
       </div>
-      <div class="mc-divider">User Roles</div>
-      <div class="form-group" >
-        <div class="mc-form__roles">
-          <FormFields::Checkbox
-            @label="Regular user"
-            @checked={{true}}
-          />
-          <FormFields::Checkbox
-            @label="Admin"
-            @checked={{false}}
-          />
-        </div>
-      </div>    
+      <div class="inline field">
+        <label for="company name">Last name</label>
+        <FormFields::Input
+          @placeholder="What is the phone number for the company?" 
+        />
+      </div>
+      <div class="inline field">
+        <label for="company name">Email</label>
+        <FormFields::Input
+          @placeholder="What is the email for the company?" 
+        />
+      </div>
+    </div>
+    <div class="mc-divider">User Roles</div>
+    <div class="form-group" >
+      <div class="mc-form__roles">
+        <FormFields::Checkbox
+          @label="Regular user"
+          @checked={{true}}
+        />
+        <FormFields::Checkbox
+          @label="Admin"
+          @checked={{false}}
+        />
+      </div>
+    </div>    
   </McForm>
 </Layout>

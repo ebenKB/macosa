@@ -6,12 +6,16 @@ export default Controller.extend({
   confirmPass: null,
 
   actions: {
-    createNewUser(changeset) {
-        console.log('we want to create a new user', changeset);
+    createOwner(changeset) {
+      if (changeset.get('isValid')) {
+        changeset.save();
+      }
     },
+
     cancel() {
-        console.log('we want to cancel the create action');
+      console.log('we want to cancel the create action');
     },
+
     validate(changeset) {
       console.log('you want to validate the changeset');
     }

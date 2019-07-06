@@ -1,56 +1,73 @@
 <Layout 
   @aside={{help}}>
-  <McForm
-    @heading="Add new company"
-    @role="Add this company">
-    <div class="mc-divider">Company Details</div>
-    <div class="form-group">
-      <div class="inline field">
-        <label for="company name">Company name</label>
-        <FormFields::Input
-          @placeholder="What is the name of the company?" 
-        />
+  {{#with (changeset model (action "validate")) as |changesetObj|}}
+    <McForm
+      @heading="Add new company"
+      @role="Add this company">
+      <div class="mc-divider">Company Details</div>
+      <div class="form-group">
+        <div class="inline field">
+          <label for="company name">Company name</label>
+          <FormFields::Input
+            @placeholder="What is the name of the company?"
+            @changeset={{changesetObj}}
+            @property="name"
+            @onChange={{action "validate" changesetObj}}
+          />
+        </div>
+        <div class="inline field">
+          <label for="company name">Company Phone</label>
+          <FormFields::Input
+            @placeholder="What is the phone number for the company?"
+            @changeset={{changesetObj}}
+            @property="phone"
+            @onChange={{action "validate" changesetObj}}
+          />
+        </div>
+        <div class="inline field">
+          <label for="company name">Company Email</label>
+          <FormFields::Input
+            @placeholder="What is the email for the company?"
+            @changeset={{changesetObj}} 
+            @property="email"
+            @onChange={{action "validate" changesetObj}}
+          />
+        </div>
+        <div class="inline field">
+          <label for="company name">Company Website</label>
+          <FormFields::Input
+            @placeholder="Enter the website url for the company"
+            @changeset={{changesetObj}}
+            @property="website"
+            @onChange={{action "validate" changesetObj}} 
+          />
+        </div>
+        <div class="inline field">
+          <label for="company name">Address</label>
+          <FormFields::Input 
+            @placeholder="Enter the address for the compnay"
+            @changeset={{changesetObj}}
+            @onChange={{action "validate" changesetObj}}
+            @property="address"
+          />
+        </div>
+        <div class="inline field">
+          <label for="Compnany Type">Company Type</label>
+          <FormFields::Dropdown 
+            @options={{types}}
+          />
+        </div> 
       </div>
-      <div class="inline field">
-        <label for="company name">Company Phone</label>
-        <FormFields::Input
-          @placeholder="What is the phone number for the company?" 
-        />
-      </div>
-      <div class="inline field">
-        <label for="company name">Company Email</label>
-        <FormFields::Input
-          @placeholder="What is the email for the company?" 
-        />
-      </div>
-      <div class="inline field">
-        <label for="company name">Company Website</label>
-        <FormFields::Input
-          @placeholder="Enter the website url for the company" 
-        />
-      </div>
-      <div class="inline field">
-        <label for="company name">Address</label>
-        <FormFields::Input 
-          @placeholder="Enter the address for the compnay"
-        />
-      </div>
-      <div class="inline field">
-        <label for="Compnany Type">Company Type</label>
-        <FormFields::Dropdown 
-          @options={{types}}
-        />
-      </div> 
-    </div>
       <div class="mc-divider">Background Information <span class="faint" >(bio, history, etc)</span> </div>
       <div class="form-group">
         <div class="">
-        <FormFields::Textarea
-          @value={{model.background}}
-          @columns=""
-          @rows={{5}}
-        />
+          <FormFields::Textarea
+            @value={{model.background}}
+            @columns=""
+            @rows={{5}}
+          />
         </div>
       </div>
-  </McForm>
+    </McForm>
+  {{/with}}
 </Layout>

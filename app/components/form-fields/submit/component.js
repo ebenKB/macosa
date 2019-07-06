@@ -3,9 +3,11 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   title: '',
-      actions: {
-          action() {
-              get(this, 'action')();
-          }
-      }
+  actions: {
+    perform(e) {
+      e.preventDefault();
+      console.log('we want to perform the action');
+      get(this, 'perform')();
+    }
+  }
 });

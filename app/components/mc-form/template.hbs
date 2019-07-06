@@ -1,65 +1,28 @@
-  <div class="mc__form">
-      <div class="mc-form__header">
-          <div class="header-caption ui form">
-              <h3>{{heading}} </h3>
-          </div>
+<div class="mc__form">
+  <div class="mc-form__header">
+    <div class="header-caption ui form">
+      <h3>{{heading}} </h3>
+    </div>
+  </div>
+  <div class="mc-form__body">
+    <form action="" class="ui form">
+      {{yield}}
+    </form>
+  </div>
+  <div class="mc-form__footer ">
+    <div class="button-group inline fields">
+      <div class="inline" >
+        <FormFields::Submit
+          @classess="ui large default fluid submit button"
+          @title="Cancel" 
+        />
       </div>
-      <div class="mc-form__body">
-        <form action="" class="ui form">
-            {{!-- <div class="form-group"> --}}
-
-              {{yield}}
-                {{!-- <div class="inline field">
-                      <label for="company name">Company name</label>
-                      <FormFields::Input
-                          @placeholder="What is the name of the company?" 
-                      />
-                </div>
-                <div class="inline field">
-                      <label for="company name">Company Phone</label>
-                      <FormFields::Input
-                          @placeholder="What is the phone number for the company?" 
-                      />
-                </div>
-                <div class="inline field">
-                      <label for="company name">Company Email</label>
-                      <FormFields::Input
-                          @placeholder="What is the email for the company?" 
-                      />
-                </div>
-                <div class="inline field">
-                      <label for="company name">Company Website</label>
-                      <FormFields::Input
-                          @placeholder="Enter the website url for the company" 
-                      />
-                </div>
-                <div class="inline field">
-                      <label for="company name">Address</label>
-                      <FormFields::Input 
-                          @placeholder="Enter the address for the compnay"
-                      />
-                </div>
-                <div class="inline field">
-                  <label for="Compnany Type"> Company Type</label>
-                  <FormFields::Dropdown />
-                </div> --}}
-            {{!-- </div> --}}
-        </form>
-      </div>
-      <div class="mc-form__footer ">
-          <div class="button-group inline fields">
-              <div class="inline" >
-                <FormFields::Submit
-                      @classess="ui large default fluid submit button"
-                      @title="Cancel" 
-                />
-              </div>
-              <div class="inline">
-                  <FormFields::Submit
-                        @classess="ui large green fluid submit button"
-                        @title= {{role}}
-                  />
-              </div>
-          </div>
+      <div class="inline">
+        <FormFields::Submit
+          @classess="ui large green fluid submit button"
+          @title= {{role}}
+        />
       </div>
     </div>
+  </div>
+</div>

@@ -5,21 +5,20 @@ import RSVP from 'rsvp';
 import { isEmpty } from '@ember/utils';
 
 export default Service.extend({
-    session: service('session'),
-    store: service(),
+  session: service('session'),
+  store: service(),
 
-    load() {
-        console.log('we want to load the current user');
-        let userId = get(this, 'session.data.authenticated.user._id');
-        // check if the userId actually exists
-        if (!isEmpty(userId)) {
-          return get(this, 'store').findRecord('user', userId)
-            .then((user) => {
-                set(this, 'user', user);
-            })
-        } else {
-            console.log('sorry the user is empty');
-            return RSVP.resolve();
-        }
+  load() {
+    const userId = get(this, 'session.data.authenticated.user._id');
+    // check if the userId actually exists
+    if (!isEmpty(userId)) {
+      return get(this, 'store').findRecord('user', userId)
+        .then((user) => {
+          set(this, 'user', user);
+        });
+    } else {
+      // console.log('sorry the user is empty');
+      return RSVP.resolve();
     }
+  }
 });

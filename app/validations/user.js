@@ -7,12 +7,12 @@ import {
 
 export default {
   password: [
-      validatePresence(true),
-      validateLength({min: 4}),
+    validatePresence(true),
+    validateLength({min: 4}),
   ],
 
   email: [
-      validatePresence(true),
-      validateLength({min: 3})
+    validatePresence(true),
+    validateLength({min: 3})
   ]
-}
+};
