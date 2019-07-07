@@ -17,12 +17,12 @@ export default Component.extend({
           name: 'Macosa',
           submenus: [
             {
-              name: 'Add item',
-              link: 'item',
+              name: 'Add new Company',
+              link: 'company.new',
             },
             {
-              name: 'Review item',
-              link: 'Review',
+              name: 'Add new purchase',
+              link: 'company.new',
             }
           ]
         },
@@ -31,7 +31,7 @@ export default Component.extend({
           submenus: [
             {
               name: 'New Sales',
-              link: 'sales',
+              link: 'company.new',
             }
           ]
         }

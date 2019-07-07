@@ -5,7 +5,11 @@
   <div class="ui vertical accordion text menu">
     <div class="p-t-20 p-b-20">
       <a href="#" class="icon-text"> 
-        <span>Home</span>
+        <span>
+          {{#link-to "authenticated"}}
+            Home
+          {{/link-to}}
+        </span>
       </a>
     </div>
     {{#each menus as |menu| }}
@@ -16,9 +20,9 @@
         </a>
         <div class="content menu">
           {{#each menu.submenus as |sub|}}
-            <a class="item">
+            {{#link-to sub.link  class="item"}}
               {{sub.name}}
-            </a>
+            {{/link-to}}
           {{/each}}
         </div>
       </div>

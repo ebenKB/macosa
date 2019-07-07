@@ -7,8 +7,11 @@ export default Controller.extend({
 
   actions: {
     createOwner(changeset) {
+      console.log('we are creating an owner');
       if (changeset.get('isValid')) {
         changeset.save();
+      } else {
+        console.log('NOT VALID CHANGESET');
       }
     },
 

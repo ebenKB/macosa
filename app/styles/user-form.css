@@ -1,5 +1,6 @@
 .user-form__wrapper {
   width: 25%;
+  min-width: 450px;
   margin: auto;
   padding: 35px;
 }

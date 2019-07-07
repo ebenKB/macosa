@@ -12,11 +12,11 @@ Router.map(function() {
   this.route('signup', function() {
     this.route('invitation');
   });
+
   this.route('authenticated', {path: '', function() {
     this.route('user', { resetNamespace: true },
       function() {});
   }});
-
 
   this.route('company', function() {
     this.route('new');

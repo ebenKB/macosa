@@ -3,7 +3,7 @@
     <div class="ui secondary menu ">
       <div class="right menu">
         <div class="right" style="margin-right: 20px; align-self:center">
-          {{svg-jar "alarm" width="20px" height="20px"}}
+          {{!-- {{svg-jar "alarm" width="20px" height="20px"}} --}}
         </div>
         <div class="ui icon top right pointing dropdown">
           {{svg-jar "user-options" width="30px" height="40px"}}
@@ -16,19 +16,19 @@
             <div class="item">
               <div class="icon-text"> 
                 <span>{{svg-jar "icon-user" width="20px" height="20px"}}</span>
-                <span>Profile</span>
+                <span>View your profile</span>
               </div>
             </div>
             <div class="item">
               <div class="icon-text"> 
                 <span>{{svg-jar "new-user" width="20px" height="20px"}}</span>
-                <span>New user</span>
+                <span> {{#link-to "signup.invitation" }}Invite new user {{/link-to}} </span>
               </div>
             </div>
             <div class="item">
               <div class="icon-text"> 
                 <span>{{svg-jar "icon-user" width="20px" height="20px"}}</span>
-                <span>All users</span>
+                <span>View all users</span>
               </div>
             </div>
             <div class="divider"></div>

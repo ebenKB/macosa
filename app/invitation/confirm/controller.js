@@ -9,9 +9,11 @@ export default Controller.extend({
     createNewUser(changeset) {
       console.log('we want to create a new user', changeset);
     },
+
     cancel() {
       console.log('we want to cancel the create action');
     },
+
     validate(changeset) {
       console.log('you want to validate the changeset');
     }
