@@ -14,13 +14,15 @@
       <div class="inline" >
         <FormFields::Submit
           @classess="ui large default fluid submit button"
-          @title="Cancel" 
+          @title="Cancel"
+          @perform={{action "decline"}} 
         />
       </div>
       <div class="inline">
         <FormFields::Submit
           @classess="ui large green fluid submit button"
-          @title= {{role}}
+          @title={{role}}
+          @perform={{action "perform" }}
         />
       </div>
     </div>

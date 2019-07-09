@@ -8,6 +8,7 @@
 @import 'form-fields.css';
 @import 'user-form.css';
 @import 'mc-form.css';
+@import 'user-label.css';
 
 /* include custom fonts */
 @font-face {
@@ -65,4 +66,9 @@ a:hover {
 
 .faint {
   color: var(--faint-dark)
+}
+
+.round-img {
+  border-radius: 100%;
+  width: 100%
 }

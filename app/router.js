@@ -13,9 +13,10 @@ Router.map(function() {
     this.route('invitation');
   });
 
+
   this.route('authenticated', {path: '', function() {
-    this.route('user', { resetNamespace: true },
-      function() {});
+    // this.route('user', { resetNamespace: true },
+    //   function() {});
   }});
 
   this.route('company', function() {
@@ -25,6 +26,7 @@ Router.map(function() {
   this.route('invitation', function() {
     this.route('confirm', { path: '/:token'});
   });
+  this.route('user', function() {});
 });
 
 export default Router;

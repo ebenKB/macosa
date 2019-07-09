@@ -1,27 +1,24 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { get, set } from '@ember/object';
+// import config from '../config/environment';
+// import { get, set } from '@ember/object';
 
 export default Controller.extend({
   session: service(),
-  password: null,
-  email: null,
+  password: '',
+  email: '',
   isAuthenticating: false,
 
   actions: {
-    login(model) {
-      console.log('you want to login');
-      get(this, 'model').save();
-      set(model, 'isAuthenticating', true);
-    },
-    authentiate(model) {
-      const { email, password } = this.getProperties('email, password');
-      this.get(this, 'session').authenticate('authenticator:oauth2-custom', email, password)
+    authenticate() {
+      // const params = { email: this.password, password: this.password };
+      this.get('session').authenticate('authenticator:jwt', { email: this.email, password: this.password})
         .then(() => {
           console.log('we have authenticated');
         })
         .catch((reason) => {
           console.log('an error occured with the reason', reason.error || reason);
+          this.get('session').invalidate();
         });
     }
   }

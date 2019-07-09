@@ -30,6 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiEndpoint = 'https://macosa-api.herokuapp.com';
+    // ENV.apiEndpoint = 'https://macosa2-api.herokuapp.com';
     ENV.apiNamespace = 'api/v1';
   }
 
@@ -51,7 +52,8 @@ module.exports = function(environment) {
 
   ENV['ember-simple-auth'] = {
     routeAfterAuthentication: '/',
-    routeIfAlreadyAuthenticated: 'authenticated'
+    routeIfAlreadyAuthenticated: 'authenticated',
+    identificationAttributeName: 'email',
   };
 
   return ENV;

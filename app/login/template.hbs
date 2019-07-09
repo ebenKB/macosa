@@ -14,16 +14,16 @@
             class=classNames
             type=type
             placeholder="Enter your email"
-            value=model.email
+            value=email
           }}
         </div>
         <div class="field">
           <label for="">Password</label>
           {{input
             class=classNames
-            type=type
+            type="password"
             placeholder="Enter your password"
-            value=model.password
+            value=password
           }}
         </div>
         <div class="field form-actions text-right">
@@ -32,7 +32,7 @@
         <FormFields::Submit
           @title="Login"
           @classess="ui large green fluid submit button {{if model.isAuthenticating "loading"}}"
-          @action={{action "login" model }}
+          @perform={{action "authenticate"}}
         />
       </form>
     </div>

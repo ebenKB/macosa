@@ -1,1 +1,25 @@
-{{textarea value=value cols=columns rows=rows}}
+{{textarea
+  class=classNames
+  value=(get changeset property)
+  property=property
+  cols=columns 
+  rows=rows
+  changeset=changeset
+}}
+
+{{!-- {{textarea
+  class=classNames
+  value=value 
+  cols=columns 
+  rows=rows
+}} --}}
+
+
+  {{!-- {{input
+      class=classNames
+      type=type
+      placeholder=placeholder
+      keyUp=(action "onChange" changeset)
+      value=(get changeset property)
+      changeset=changeset
+  }} --}}

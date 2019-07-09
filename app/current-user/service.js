@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-imports */
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';

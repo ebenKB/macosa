@@ -1,11 +1,14 @@
 import Controller from '@ember/controller';
-import { set } from '@ember/object';
+import { set, get } from '@ember/object';
 import CompanyValidations from '../../validations/company';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   CompanyValidations,
-  help: 'Add a new company as a client or partner. This compnay will be added to your company lists. If you want to edit an existing company, go to Edit Company from the menu',
-  background: null,
+  company_type_id: '',
+  appOwner: service(),
+  // eslint-disable-next-line max-len
+  help: 'Add a new company as a client or partner. This compnay will be added to your company lists.',
 
   init() {
     this._super(...arguments);
@@ -21,19 +24,28 @@ export default Controller.extend({
   },
   actions: {
     validate(changeset) {
-      changeset.validate()
-        .then(() => {
-          console.log(changeset.get('isValid'));
-        });
-      // return changeset.validate();
+      // changeset.validate();
+      // console.log('you want to validate');
+      console.log(changeset);
     },
 
     cancel(changeset) {
+      // console.log('you want to cancel');
       return changeset.rollback();
     },
 
     createNewCompany(changeset) {
-      console.log('we are creating a new company');
+      set(changeset, 'owner_id', get(this, 'appOwner').owner);
+      // console.log('you want to create a company', changeset);
+      // changeset.save();
+
+      if (changeset.get('isValid')) {
+        changeset.save()
+          .then(() => {
+            changeset.rollback();
+            this.transitionToRoute('/');
+          });
+      }
     }
   }
 });

@@ -1,0 +1,29 @@
+.user-label {
+  height: 95px;
+  width: 95px;
+}
+
+.ui.red.labels .label {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+.user-label__wrapper h2 {
+  margin: 0 0 5px 0;
+  color: var(--black);
+}
+
+.user-label__wrapper span {
+  display: block;
+  margin: 10px 0;
+}
+
+.user-label__wrapper .ui.checkbox { 
+  margin-bottom: 10px;
+}
+
+.user-label__wrapper .ui.label > img {
+  width: 100% !important;
+  height: 100% !important;
+}

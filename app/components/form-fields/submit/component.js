@@ -4,10 +4,9 @@ import { get } from '@ember/object';
 export default Component.extend({
   title: '',
   actions: {
-    perform(e) {
+    perform(changeset, e) {
       e.preventDefault();
-      console.log('we want to perform the action');
-      get(this, 'perform')();
+      get(this, 'perform')(changeset);
     }
   }
 });

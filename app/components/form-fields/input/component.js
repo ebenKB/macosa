@@ -9,9 +9,10 @@ export default Component.extend({
   changeset: null,
   property: null,
   actions: {
-    onChange(changeset) {
-      console.log('the property has changed');
-      this.get('onChange')(changeset);
+    validate(changeset) {
+      console.log('you want to validate the changeset');
+      // console.log('the property has changed');
+      this.get('didValidate')(changeset);
     }
   }
 });

@@ -6,6 +6,8 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   website: DS.attr('string'),
   address: DS.attr('string'),
-  company_type: DS.attr('string'),
-  background: DS.attr('string')
+  // type_id: DS.belongsTo('type'),
+  type_id: DS.attr(),
+  background: DS.attr('string'),
+  owner_id: DS.attr()
 });

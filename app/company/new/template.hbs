@@ -1,9 +1,11 @@
 <Layout 
   @aside={{help}}>
-  {{#with (changeset model (action "validate")) as |changesetObj|}}
+  {{#with (changeset model.company (action "validate")) as |changesetObj|}}
     <McForm
       @heading="Add new company"
-      @role="Add this company">
+      @role="Add this company"
+      @didPerform={{action "createNewCompany" changesetObj}}
+      @didDecline={{action "cancel" changesetObj}}>
       <div class="mc-divider">Company Details</div>
       <div class="form-group">
         <div class="inline field">
@@ -12,7 +14,8 @@
             @placeholder="What is the name of the company?"
             @changeset={{changesetObj}}
             @property="name"
-            @onChange={{action "validate" changesetObj}}
+            @didValidate={{action "validate" changesetObj}}
+            
           />
         </div>
         <div class="inline field">
@@ -54,7 +57,9 @@
         <div class="inline field">
           <label for="Compnany Type">Company Type</label>
           <FormFields::Dropdown 
-            @options={{types}}
+            @options={{model.types}}
+            @changeset={{changesetObj}}
+            @property="type_id"
           />
         </div> 
       </div>
@@ -62,9 +67,11 @@
       <div class="form-group">
         <div class="">
           <FormFields::Textarea
-            @value={{model.background}}
+            {{!-- @value={{model.company.background}} --}}
             @columns=""
             @rows={{5}}
+            @property="background"
+            @changeset={{changesetObj}}
           />
         </div>
       </div>
