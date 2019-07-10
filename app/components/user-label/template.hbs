@@ -1,0 +1,31 @@
+<div class="grid columns-13__3 user-label__wrapper">
+  <div class="grid columns-2__14 grid-gap__10">
+    <div class="ui circular label user-label">
+      <img class="round-img" src={{userImage}} alt="">
+    </div>
+    <div>
+      <h2>{{name}}</h2>
+      <span>{{email}}</span>
+      <span> {{emailAlt}} </span>
+    </div>
+  </div>
+  <div class="">
+    <FormFields::Checkbox
+      @label="Admin"
+      @check={{check}}
+      @didChange={{action "didCheck" }}
+    />
+    <FormFields::Checkbox
+      @label="Regular user"
+      @check={{true}}
+      @didChange={{action "didCheck" }}
+      @disabled={{true}}
+    />
+    <span>
+      <a href="" {{action "resetUser" }} >Reset Password</a>
+    </span>
+    <span>
+      <a href="" class="danger" {{action "deleteUser" }} >Delete User</a>
+    </span>
+  </div>
+</div>

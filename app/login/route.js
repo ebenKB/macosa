@@ -9,10 +9,14 @@ export default Route.extend({
           this.transitionTo('signup');
         } else {
           // get the owner id and save to local storage
+          // eslint-disable-next-line array-callback-return
           owner.map((o) => {
             localStorage.setItem('owner_id', o.id);
           });
         }
+      })
+      .catch((err) => {
+        console.log('an error occured',err);
       });
   }
 });

@@ -27,3 +27,20 @@
   width: 100% !important;
   height: 100% !important;
 }
+
+.user-label__wrapper .ui.checkbox input:checked ~ .box:before, 
+.ui.checkbox input:checked ~ label:before {
+  background: #0495f2;
+  border-color: #0495f2;
+}
+
+.user-label__wrapper .ui.checkbox input:checked ~ .box:after, 
+.ui.checkbox input:checked ~ label:after {
+  opacity: 1;
+  color: var(--white);
+}
+
+.ui.checkbox input:checked ~ .box:after, .ui.checkbox input:checked ~ label:after {
+  opacity: 1;
+  color: #fff;
+}

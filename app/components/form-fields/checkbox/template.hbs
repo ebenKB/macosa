@@ -7,6 +7,6 @@
     <label>{{label}} </label>
 </div> --}}
 
-<Ui-Checkbox @label={{label}} checked={{checked}} onChange={{action (mut checked)}} />
+<Ui-Checkbox @label={{label}} @checked={{check}} onChange={{action 'change'}} @disabled={{disabled}}/>
 
 

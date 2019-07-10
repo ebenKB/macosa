@@ -42,7 +42,6 @@ export default Controller.extend({
       if (changeset.get('isValid')) {
         changeset.save()
           .then(() => {
-            changeset.rollback();
             this.transitionToRoute('/');
           });
       }

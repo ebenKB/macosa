@@ -37,6 +37,10 @@ body {
   padding-right: 10px;
 }
 
+a.danger {
+  color: var(--red);
+}
+
 a:hover {
   color: var(--off-dark);
 }
@@ -62,6 +66,10 @@ a:hover {
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   padding: 10px 0;
   font-weight: 900;
+}
+
+.left {
+  background: var(--black);
 }
 
 .faint {
