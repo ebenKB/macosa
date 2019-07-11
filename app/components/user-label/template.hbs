@@ -29,3 +29,8 @@
     </span>
   </div>
 </div>
+<Modal::Confirmation
+  @canShowModal={{didAttemptDelete}}
+  @didConfirm={{action "confirmDelete"}}
+  @didDecline={{action "cancelDelete"}}
+/>

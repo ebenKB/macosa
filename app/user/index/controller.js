@@ -3,6 +3,7 @@ import { set,get } from '@ember/object';
 
 export default Controller.extend({
   check: false,
+  didAttemptDelete: false,
 
   title: 'Invite a new user',
   help: 'All registerd users are displayed here',
@@ -19,14 +20,26 @@ export default Controller.extend({
         console.log('this is the user', user);
       } else {
         set(user, 'is_admin', false);
-        
         console.log('ELSE this is the user', get(user, 'is_admin'));
       }
       user.save();
     },
 
-    deleteUser() {
-      console.log('you want to delete a user');
+    attemptDelete() {
+      set(this, 'didAttemptDelete', true);
     },
+
+    cancelDelete(){
+      set(this, 'didAttemptDelete', false);
+    },
+
+    deleteUser(user) {
+      console.log('you have deleted the user');
+    },
+
+    destroyUser(user) {
+      console.log('you have destroyed the user');
+      user.destroyRecord();
+    }
   }
 });
