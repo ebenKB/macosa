@@ -17,6 +17,8 @@ export default Route.extend({
       })
       .catch((err) => {
         console.log('an error occured',err);
+        const error = get(err, 'error')[0];
+        console.log('this is the error that we have obtained from the ahsed', error.title);
       });
   }
 });

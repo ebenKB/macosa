@@ -18,7 +18,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your your first name"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="firstname"
             />
           </div>
@@ -27,7 +27,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your last name"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="lastname"
             />
           </div>
@@ -36,17 +36,17 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your email"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="email"
             />
           </div>
           <div class="field">
-            <label for="">Company name</label>
+            <label for="">Phone</label>
             <FormFields::Input 
               @changeset={{changeset}} 
-              @placeholder="Which company are you from?"
-              @onChange={{action "validate" changeset}}
-              @property="name"
+              @placeholder="Please provide a phone number"
+              @didValidate={{action "validate" changeset}}
+              @property="phone"
             />
           </div>
           <div class="field">
@@ -64,7 +64,7 @@
               @changeset={{changeset}} 
               @placeholder="Confirm your password"
               @onChange={{action "validate" changeset}}
-              @property="confirmPassword"
+              @property="password_confirmation"
             />
           </div>
           <FormFields::Submit

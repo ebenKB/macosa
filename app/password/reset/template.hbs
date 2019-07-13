@@ -1,0 +1,27 @@
+<Forms::User-Form
+  @heading="Reset your password"
+  @footNote="We will send you a link to reset your password"
+>
+  <form action="" class="ui form">
+    <div class="field">
+      <label for="">Email</label>
+      {{input
+        class=classNames
+        type=type
+        placeholder="Enter your email"
+        value=email
+      }}
+    </div>
+    <FormFields::Submit
+      @title="Login"
+      @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
+      @perform={{action "resetPassword"}}
+    />
+  </form>
+  <div class="field text-center m-t-20">
+    <span>Already have an account?</span>
+    {{#link-to "signup"}}
+      login
+    {{/link-to}}
+  </div>
+</Forms::User-Form>>

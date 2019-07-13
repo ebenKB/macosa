@@ -1,6 +1,6 @@
 import Base from 'ember-simple-auth/authenticators/base';
 import { isEmpty } from '@ember/utils';
-import config from '../config/environment';
+import config from 'macosa/config/environment';
 import { run } from '@ember/runloop';
 
 export default Base.extend({
@@ -30,9 +30,9 @@ export default Base.extend({
       mode: 'cors',
       body: data,
       dataType: JSON,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
     };
 
     return new Promise((resolve, reject) => {
@@ -44,6 +44,8 @@ export default Base.extend({
               run(() => {
                 if (! data.error) {
                   resolve({token: data.access_token});
+                } else {
+                  reject(data.error);
                 }
               });
             }, (error) => {

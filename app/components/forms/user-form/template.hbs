@@ -1,0 +1,19 @@
+<div class="full-height grid grid-center">
+  <div class="user-form__wrapper">
+    <div class="user-form__caption">
+      <img src="/highrise_logo.png" alt="" class="ui centered medium image">
+    </div>
+    <div class="user-form__body">
+      <div class="user-form__header text-center">
+        <h3> {{heading}} </h3>
+        {{#if hasError}}
+          <span class="error">{{ error }}</span>
+        {{/if}}
+      </div>
+      {{yield}}
+    </div>
+    <div class="field text-center m-t-20">
+      {{footNote}}
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="full-height grid grid-center">
+{{!-- <div class="full-height grid grid-center">
   <div class="user-form__wrapper">
     <div class="user-form__caption">
       <img src="/highrise_logo.png" alt="" class="ui centered medium image">
@@ -6,6 +6,9 @@
     <div class="user-form__body">
       <div class="user-form__header text-center">
         <h3>Log in to macosa</h3>
+        {{#if hasError}}
+          <span class="error">{{ error }}</span>
+        {{/if}}
       </div>
       <form action="" class="ui form">
         <div class="field">
@@ -27,20 +30,58 @@
           }}
         </div>
         <div class="field form-actions text-right">
-          <a href="/">Forgot password</a>
+          {{#link-to "password.reset"}}
+            Forgot password
+          {{/link-to}}
         </div>
         <FormFields::Submit
           @title="Login"
-          @classess="ui large green fluid submit button {{if model.isAuthenticating "loading"}}"
+          @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
           @perform={{action "authenticate"}}
         />
       </form>
     </div>
     <div class="field text-center m-t-20">
-      New to Macosa? 
-      {{#link-to "user"}}
+      
+      {{#link-to "signup"}}
         create new account
       {{/link-to}}
     </div>
   </div>
-</div>
+</div> --}}
+
+<Forms::UserForm
+  @heading="Login to Macosa"
+  @footNote="New to Macosa? ask your administrator to invite you."
+>
+  <form action="" class="ui form">
+    <div class="field">
+      <label for="">Email</label>
+      {{input
+        class=classNames
+        type=type
+        placeholder="Enter your email"
+        value=email
+      }}
+    </div>
+    <div class="field">
+      <label for="">Password</label>
+      {{input
+        class=classNames
+        type="password"
+        placeholder="Enter your password"
+        value=password
+      }}
+    </div>
+    <div class="field form-actions text-right">
+      {{#link-to "password.reset"}}
+        Forgot password
+      {{/link-to}}
+    </div>
+    <FormFields::Submit
+      @title="Login"
+      @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
+      @perform={{action "authenticate"}}
+    />
+  </form>
+</Forms::UserForm>

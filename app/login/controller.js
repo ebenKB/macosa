@@ -1,25 +1,35 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-// import config from '../config/environment';
-// import { get, set } from '@ember/object';
+// import config from 'macosa/config/environment';
+import { set } from '@ember/object';
 
 export default Controller.extend({
   session: service(),
   password: '',
   email: '',
   isAuthenticating: false,
+  hasError: false,
+  error: '',
 
   actions: {
     authenticate() {
-      // const params = { email: this.password, password: this.password };
-      this.get('session').authenticate('authenticator:jwt', { email: this.email, password: this.password})
+      set(this, 'isAuthenticating', true);
+      // call authenticator to validate the session
+      this.get('session').authenticate('authenticator:jwt',
+        { email: this.email, password: this.password})
         .then(() => {
-          console.log('we have authenticated');
+          set(this, 'isAuthenticating', false);
         })
-        .catch((reason) => {
-          console.log('an error occured with the reason', reason.error || reason);
+        .catch(() => {
+          // show error and invalidate the session
+          this._showError('Sorry, no record matches your credentials');
           this.get('session').invalidate();
         });
     }
+  },
+  _showError(msg) {
+    set(this, 'isAuthenticating', false);
+    set(this, 'hasError', true);
+    set(this, 'error', msg);
   }
 });

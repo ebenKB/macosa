@@ -19,7 +19,7 @@
         @userImage="https://pbs.twimg.com/media/C1BQ_RmVEAE3ng4.jpg"
         @didCheckBox={{action "updateUser" user}}
         @attemptDelete={{action "attemptDelete"}}
-        @check={{check}}
+        @check={{user.is_admin}}
         @didAttemptDelete={{didAttemptDelete}}
         @didCancelDelete={{action "cancelDelete"}}
         @didDeleteUser={{action "deleteUser" user}}

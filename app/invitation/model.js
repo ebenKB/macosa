@@ -5,4 +5,8 @@ export default DS.Model.extend({
   firstname: DS.attr('string'),
   lastname: DS.attr('string'),
   is_admin: DS.attr('boolean'),
+  phone: DS.attr('string'),
+
+  password: DS.attr('string'),
+  password_confirmation: DS.attr('string'),
 });

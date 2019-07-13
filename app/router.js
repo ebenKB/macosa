@@ -12,21 +12,24 @@ Router.map(function() {
   this.route('signup', function() {
     this.route('invitation');
   });
-
-
-  this.route('authenticated', {path: '', function() {
-    // this.route('user', { resetNamespace: true },
-    //   function() {});
-  }});
-
-  this.route('company', function() {
-    this.route('new');
-  });
-
   this.route('invitation', function() {
     this.route('confirm', { path: '/:token'});
   });
-  this.route('user', function() {});
+  this.route('password', function() {
+    this.route('reset');
+  });
+
+  this.route('authenticated', { path: ''}, function() {
+    this.route('user', {
+      resetNamespace: true,
+    });
+
+    this.route('company', {
+      resetNamespace: true,
+    },function() {
+      this.route('new');
+    });
+  });
 });
 
 export default Router;
