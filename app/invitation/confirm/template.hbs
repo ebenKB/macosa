@@ -67,6 +67,15 @@
               @property="password_confirmation"
             />
           </div>
+          <div class="field">
+            <label for="">Access code</label>
+            <FormFields::Password 
+              @changeset={{changeset}} 
+              @placeholder="Paste your code here"
+              @onChange={{action "validate" changeset}}
+              @property="access_token"
+            />
+          </div>
           <FormFields::Submit
             @title="OK, Let's go"
             @classess="ui large green fluid button"

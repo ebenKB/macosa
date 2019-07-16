@@ -14,5 +14,10 @@ export default {
   email: [
     validatePresence(true),
     validateLength({min: 3})
+  ],
+
+  access_toekn: [
+    validatePresence(true),
+    validateLength({min: 8})
   ]
 };

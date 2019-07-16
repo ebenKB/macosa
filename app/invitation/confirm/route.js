@@ -4,15 +4,14 @@ import { get } from '@ember/object';
 export default Route.extend({
   model({ token }) {
     console.log('we want to confirm');
-    console.log('this is the token', token)
+    console.log('this is the token', token);
     return get(this, 'store').queryRecord('invitation', {
       token
     })
       .catch((err) => {
-        console.log('an error occurred', err);
-        // alert('an error occured', err);
+        alert('sorry! token is invalid or expired');
       // show error message
-        // this.transitionTo('login');
+        this.transitionTo('login');
       });
   }
 });
