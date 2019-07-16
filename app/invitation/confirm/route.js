@@ -6,7 +6,8 @@ export default Route.extend({
     return get(this, 'store').queryRecord('invitation', {
       token
     })
-      .catch(() => {
+      .catch((err) => {
+        alert('an error occured', err);
       // show error message
         this.transitionTo('login');
       });
