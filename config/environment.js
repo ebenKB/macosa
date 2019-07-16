@@ -48,6 +48,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.apiEndpoint = 'https://macosa-api.herokuapp.com';
+    ENV.apiNamespace = 'api/v1';
   }
 
   ENV['ember-simple-auth'] = {

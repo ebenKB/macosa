@@ -3,6 +3,7 @@ import { get } from '@ember/object';
 
 export default Route.extend({
   model({ token }) {
+    console.log('we want to confirm');
     console.log('this is the token', token)
     return get(this, 'store').queryRecord('invitation', {
       token
