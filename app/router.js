@@ -12,9 +12,15 @@ Router.map(function() {
   this.route('signup', function() {
     this.route('invitation');
   });
-  this.route('invitation', function() {
+
+  this.route('invitation', { path: '/invitations'}, function() {
     this.route('confirm', { path: '/:token'});
   });
+
+  // this.route('invitations', function() {
+  //   this.route('confirm', { path: '/:token'});
+  // });
+
   this.route('password', function() {
     this.route('reset');
     this.route('new', { path: '/:token'});

@@ -7,9 +7,10 @@ export default Route.extend({
       token
     })
       .catch((err) => {
-        alert('an error occured', err);
+        console.log('an error occurred', err);
+        // alert('an error occured', err);
       // show error message
-        this.transitionTo('login');
+        // this.transitionTo('login');
       });
   }
 });
