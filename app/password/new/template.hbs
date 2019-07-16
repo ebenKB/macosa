@@ -1,0 +1,36 @@
+<Forms::User-Form
+  @heading="Create a new password for you account"
+  @footNote=""
+>
+  <form action="" class="ui form">
+    <div class="field">
+      <label for="">New password</label>
+      {{input
+        class=classNames
+        type="password"
+        placeholder="Enter your password"
+        value=password
+      }}
+    </div>
+    <div class="field">
+      <label for="">Confirm your password</label>
+      {{input
+        class=classNames
+        type="password"
+        placeholder="Confirm your password"
+        value=password_confirmation
+      }}
+    </div>
+    <FormFields::Submit
+      @title="Reset password"
+      @classess="ui large green fluid submit button {{if isSaving "loading"}}"
+      @perform={{action "updatePassword"}}
+    />
+  </form>
+  <div class="field text-center m-t-20">
+    <span>Already have an account?</span>
+    {{#link-to "login"}}
+      Login
+    {{/link-to}}
+  </div>
+</Forms::User-Form>>

@@ -17,6 +17,7 @@ Router.map(function() {
   });
   this.route('password', function() {
     this.route('reset');
+    this.route('new', { path: '/:token'});
   });
 
   this.route('authenticated', { path: ''}, function() {
@@ -30,6 +31,7 @@ Router.map(function() {
       this.route('new');
     });
   });
+  this.route('user', function() {});
 });
 
 export default Router;

@@ -64,7 +64,9 @@
             />
           </div>
           <div class="field form-actions text-right">
-            <a href="/">Forgot password</a>
+            {{#link-to "password.reset"}}
+              Forgot password
+            {{/link-to}}
           </div>
           <FormFields::Submit
             @title="Create New Account"

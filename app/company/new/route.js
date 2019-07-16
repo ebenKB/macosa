@@ -29,6 +29,7 @@ export default Route.extend({
   afterModel() {
     console.log('This is after login');
   },
+
   _loadCurrentOwner() {
     return get(this, 'appOwner').load();
   }

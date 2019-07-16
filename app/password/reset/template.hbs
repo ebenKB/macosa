@@ -9,18 +9,18 @@
         class=classNames
         type=type
         placeholder="Enter your email"
-        value=email
+        value=model.email
       }}
     </div>
     <FormFields::Submit
-      @title="Login"
+      @title="Get recovery link"
       @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
       @perform={{action "resetPassword"}}
     />
   </form>
   <div class="field text-center m-t-20">
     <span>Already have an account?</span>
-    {{#link-to "signup"}}
+    {{#link-to "login"}}
       login
     {{/link-to}}
   </div>

@@ -30,9 +30,9 @@ export default Base.extend({
       mode: 'cors',
       body: data,
       dataType: JSON,
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     };
 
     return new Promise((resolve, reject) => {
