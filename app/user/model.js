@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   lastname: DS.attr(),
@@ -9,4 +10,9 @@ export default DS.Model.extend({
   password_confirmation: DS.attr('string'),
   owner_id: DS.attr(),
   is_admin: DS.attr('boolean'),
+  access_token: DS.attr('string'),
+
+  fullname: computed('firstname', 'lastname', function() {
+    return `${this.firstname} ${this.lastname}` ;
+  })
 });

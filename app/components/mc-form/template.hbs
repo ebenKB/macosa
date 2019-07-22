@@ -20,7 +20,7 @@
       </div>
       <div class="inline">
         <FormFields::Submit
-          @classess="ui large green fluid submit button"
+          @classess="ui large green fluid submit button {{if isSaving "loading"}} "
           @title={{role}}
           @perform={{action "perform" }}
         />

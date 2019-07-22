@@ -47,6 +47,7 @@
               @placeholder="Please provide a phone number"
               @didValidate={{action "validate" changeset}}
               @property="phone"
+              @type="tel"
             />
           </div>
           <div class="field">
@@ -78,7 +79,7 @@
           </div>
           <FormFields::Submit
             @title="OK, Let's go"
-            @classess="ui large green fluid button"
+            @classess="ui large green fluid button {{if isSaving "loading"}}"
             @perform={{action "createNewUser" changeset}}
           />
         {{/with}}

@@ -5,6 +5,7 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   session: service(),
+  currentUser: service(),
 
   didInsertElement() {
     $('.ui.dropdown').dropdown();

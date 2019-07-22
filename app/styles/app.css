@@ -9,7 +9,7 @@
 @import 'user-form.css';
 @import 'mc-form.css';
 @import 'user-label.css';
-
+@import 'company-list-view.css';
 /* include custom fonts */
 @font-face {
   font-family: "openSans";
@@ -68,6 +68,12 @@ a:hover {
   font-weight: 900;
 }
 
+.mc-divider.thick {
+  border-bottom: 3px solid rgba(34, 36, 38, 0.1);
+  padding: 10px 0;
+  font-weight: 900;
+}
+
 .left {
   background: var(--black);
 }
@@ -83,4 +89,36 @@ a:hover {
 
 .error {
   color: var(--red);
+}
+
+.green {
+  color: green;
+}
+
+.align-end {
+  align-self: end;
+}
+
+@media only screen and (max-width: 768px) {
+  /* override layout for smaller viewport */
+.mc-wrapper.grid.columns-2__14 {
+    grid-template-areas: "left" "main";
+    /* display: none; */
+  }
+
+  .columns-2__14 {
+    grid-template-columns: 1fr;
+  }
+
+  #mc-wrapper > left {
+    background: gray;
+  }
+
+  #mc-wrapper > main {
+    /* display: none; */
+  }
+
+  body {
+    background: red;
+  }
 }

@@ -43,7 +43,8 @@ export default Base.extend({
             // use run to wrapp asyn operation in ember
               run(() => {
                 if (! data.error) {
-                  resolve({token: data.access_token});
+                  const [token, id] = data.access_token;
+                  resolve({token, user_id: id});
                 } else {
                   reject(data.error);
                 }

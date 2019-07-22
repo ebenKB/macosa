@@ -7,6 +7,7 @@ export default Controller.extend({
   CompanyValidations,
   company_type_id: '',
   appOwner: service(),
+  isSaving: false,
   // eslint-disable-next-line max-len
   help: 'Add a new company as a client or partner. This compnay will be added to your company lists.',
 
@@ -36,14 +37,15 @@ export default Controller.extend({
 
     createNewCompany(changeset) {
       set(changeset, 'owner_id', get(this, 'appOwner').owner);
-      // console.log('you want to create a company', changeset);
-      // changeset.save();
 
       if (changeset.get('isValid')) {
+        set(this, 'isSaving', true);
         changeset.save()
           .then(() => {
+            set(this, 'isSaving', false);
             this.transitionToRoute('/');
-          });
+          })
+          .catch(() => set(this, 'isSaving', false));
       }
     }
   }

@@ -5,7 +5,8 @@
       @heading="Add new company"
       @role="Add this company"
       @didPerform={{action "createNewCompany" changesetObj}}
-      @didDecline={{action "cancel" changesetObj}}>
+      @didDecline={{action "cancel" changesetObj}}
+      @isSaving={{isSaving}}>
       <div class="mc-divider">Company Details</div>
       <div class="form-group">
         <div class="inline field">
@@ -15,7 +16,6 @@
             @changeset={{changesetObj}}
             @property="name"
             @didValidate={{action "validate" changesetObj}}
-            
           />
         </div>
         <div class="inline field">

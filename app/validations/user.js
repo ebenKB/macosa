@@ -16,7 +16,7 @@ export default {
     validateLength({min: 3})
   ],
 
-  access_toekn: [
+  access_token: [
     validatePresence(true),
     validateLength({min: 8})
   ]

@@ -9,5 +9,5 @@ export default DS.Model.extend({
 
   password: DS.attr('string'),
   password_confirmation: DS.attr('string'),
-  access_token: DS.attr('string'),
+  // access_token: DS.attr('string'),
 });

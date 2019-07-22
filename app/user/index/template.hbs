@@ -13,8 +13,8 @@
     {{#each model as |user| }}
       <div class="mc-divider m-b-15"></div>
       <UserLabel
-        @name="Dorcas Dashie"
-        @email="dorcas@email.com"
+        @name={{user.fullname}}
+        @email={{user.email}}
         @emailAlt="dashie@dropbox.com.macosa"
         @userImage="https://pbs.twimg.com/media/C1BQ_RmVEAE3ng4.jpg"
         @didCheckBox={{action "updateUser" user}}

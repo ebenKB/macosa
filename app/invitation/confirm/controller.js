@@ -7,12 +7,12 @@ export default Controller.extend({
   session: service(),
   UserValidator,
   confirmPass: null,
+  isSaving: true,
 
   actions: {
     createNewUser(changeset) {
       if (get(changeset, 'isValid')) {
-        // changeset.save();
-
+        this.isSaving = true;
         // create a new user
         const user = get(this, 'store').createRecord('user',{
           email: get(changeset, 'email'),
@@ -20,11 +20,13 @@ export default Controller.extend({
           lastname: get(changeset, 'lastname'),
           phone: get(changeset, 'phone'),
           password: get(changeset, 'password'),
-          password_confirmation: get(changeset, 'password_confirmation')
+          password_confirmation: get(changeset, 'password_confirmation'),
+          access_token: get(changeset, 'access_token'),
         });
         user.save()
           .then(() => {
             //authenticate the session for the user
+            this.isSaving = false;
           });
       }
     },

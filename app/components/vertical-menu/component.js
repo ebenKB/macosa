@@ -21,8 +21,8 @@ export default Component.extend({
               link: 'company.new',
             },
             {
-              name: 'Add new purchase',
-              link: 'company.new',
+              name: 'View Companies',
+              link: 'company',
             }
           ]
         },

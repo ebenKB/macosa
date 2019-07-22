@@ -35,9 +35,14 @@ Router.map(function() {
       resetNamespace: true,
     },function() {
       this.route('new');
+      this.route('edit', { path: '/:id'});
     });
   });
   this.route('user', function() {});
+
+  // this.route('company', function() {
+  //   this.route('edit');
+  // });
 });
 
 export default Router;

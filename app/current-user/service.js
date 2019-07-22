@@ -10,15 +10,15 @@ export default Service.extend({
   store: service(),
 
   load() {
-    const userId = get(this, 'session.data.authenticated.user._id');
+    const userId = get(this, 'session.data.authenticated.user_id');
     // check if the userId actually exists
     if (!isEmpty(userId)) {
       return get(this, 'store').findRecord('user', userId)
         .then((user) => {
-          set(this, 'user', user);
+          // set(this, 'user', user);
+          this.set('user', user);
         });
     } else {
-      // console.log('sorry the user is empty');
       return RSVP.resolve();
     }
   }
