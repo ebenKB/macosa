@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import UserValidator from '../../validations/user';
-import { get } from '@ember/object';
+import { get, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
@@ -12,7 +12,6 @@ export default Controller.extend({
   actions: {
     createNewUser(changeset) {
       if (get(changeset, 'isValid')) {
-        this.isSaving = true;
         // create a new user
         const user = get(this, 'store').createRecord('user',{
           email: get(changeset, 'email'),
@@ -23,13 +22,18 @@ export default Controller.extend({
           password_confirmation: get(changeset, 'password_confirmation'),
           access_token: get(changeset, 'access_token'),
         });
-        user.save()
-          .then(() => {
+        // check if the user password is confirmed
+        if (this._confirmPassword(get(changeset, 'password'),
+          get(changeset, 'password_confirmation'))) {
+          set(this, 'isSaving', true);
+          user.save()
+            .then(() => {
             //authenticate the session for the user
-            this.isSaving = false;
-
-            this.transitionToRoute('login'); // depracated feature
-          });
+              set(this, 'isSaving', false);
+              this.transitionToRoute('login'); // depracated feature
+            })
+            .catch(() => set(this, 'isSaving', false));
+        } else alert('password missmatch');
       } else alert('some fields are not valid');
     },
 
@@ -40,5 +44,9 @@ export default Controller.extend({
     validate(changeset) {
       console.log('you want to validate the changeset');
     }
+  },
+  _confirmPassword(pass, pass2) {
+    console.log('these are the passord', pass, pass2);
+    return pass === pass2;
   }
 });

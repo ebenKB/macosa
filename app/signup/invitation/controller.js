@@ -37,7 +37,7 @@ export default Controller.extend({
 
   // add admin privileges to the user
   _setAdmin(changeset) {
-    set(changeset, 'is_admin',true);
+    set(changeset, 'is_admin', true);
   },
 
   // remove admin priviliges from the user

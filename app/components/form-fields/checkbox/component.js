@@ -6,12 +6,11 @@ export default Component.extend({
 
   didUpdateAttrs() {
     this._super(...arguments);
-    console.log('this is the state of checked...', this.check);
   },
 
   actions: {
     change() {
-      get(this, 'didChange')();
+      get(this, 'perform')();
     }
   }
 });
