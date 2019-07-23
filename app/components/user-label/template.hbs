@@ -13,16 +13,16 @@
     <FormFields::Checkbox
       @label="Admin"
       @check={{check}}
-      @didChange={{action "didCheck" }}
+      @didChange={{action "didCheck"}}
     />
     <FormFields::Checkbox
       @label="Regular user"
       @check={{true}}
-      @didChange={{action "didCheck" }}
+      @didChange={{action "didCheck"}}
       @disabled={{true}}
     />
     <span>
-      <a href="" {{action "resetUser" }} >Reset Password</a>
+      <a href="" {{action "resetUser"}} >Reset Password</a>
     </span>
     <span>
       <a href="" class="danger" {{action "deleteUser" }} >Delete User</a>

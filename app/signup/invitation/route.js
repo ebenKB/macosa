@@ -9,5 +9,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
       email: '',
       is_admin: null,
     });
-  }
+  },
 });

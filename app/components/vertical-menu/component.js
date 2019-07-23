@@ -27,11 +27,15 @@ export default Component.extend({
           ]
         },
         {
-          name: 'Marketing',
+          name: 'Orders',
           submenus: [
             {
-              name: 'New Sales',
-              link: 'company.new',
+              name: 'View orders',
+              link: 'order',
+            },
+            {
+              name: 'New order',
+              link: 'order',
             }
           ]
         }

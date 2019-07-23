@@ -1,6 +1,6 @@
 <Layout 
     @aside={{help}}>
-    {{#with (changeset model (action "validate")) as |changesetObj|}}
+    {{#with (changeset model InvitationValidator (action "validate")) as |changesetObj|}}
       <McForm
         @heading="Invite new user"
         @role="Send invite"

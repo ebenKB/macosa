@@ -10,6 +10,7 @@ export default Controller.extend({
   actions: {
     perform() {
       console.log('you want to perfom an action');
+      this.transitionToRoute('signup.invitation');
     },
 
     updateUser(user) {

@@ -37,11 +37,17 @@ Router.map(function() {
       this.route('new');
       this.route('edit', { path: '/:id'});
     });
-  });
-  this.route('user', function() {});
 
-  // this.route('company', function() {
-  //   this.route('edit');
+    this.route('order', {
+      resetNamespace: true,
+    }, function() {
+      this.route('new');
+    });
+  });
+  // this.route('user', function() {});
+
+  // this.route('order', function() {
+  //   this.route('new');
   // });
 });
 

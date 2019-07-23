@@ -5,6 +5,7 @@ import { get, set } from '@ember/object';
 export default Controller.extend({
   is_admin: false,
   InvitationValidator,
+
   help: 'Add a new company as a client or partner. This compnay will be added to your '
       + 'company lists. If you want to edit an existing company, go to Edit Company from the menu',
 
@@ -30,8 +31,9 @@ export default Controller.extend({
       }
     },
 
-    validate() {
-      console.log('you want to validate the changeset');
+    validate(changeset) {
+      // const changesetObj = new Changeset(changeset, InvitationValidator);
+      // changesetObj.validate();
     }
   },
 

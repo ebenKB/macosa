@@ -10,6 +10,7 @@
 @import 'mc-form.css';
 @import 'user-label.css';
 @import 'company-list-view.css';
+
 /* include custom fonts */
 @font-face {
   font-family: "openSans";

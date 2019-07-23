@@ -36,9 +36,8 @@ export default Controller.extend({
     },
 
     createNewCompany(changeset) {
-      set(changeset, 'owner_id', get(this, 'appOwner').owner);
-
       if (changeset.get('isValid')) {
+        set(changeset, 'owner_id', get(this, 'appOwner').owner);
         set(this, 'isSaving', true);
         changeset.save()
           .then(() => {
