@@ -27,8 +27,10 @@ export default Controller.extend({
           .then(() => {
             //authenticate the session for the user
             this.isSaving = false;
+
+            this.transitionToRoute('login'); // depracated feature
           });
-      }
+      } else alert('some fields are not valid');
     },
 
     cancel() {

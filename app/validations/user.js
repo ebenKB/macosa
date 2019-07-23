@@ -2,7 +2,7 @@ import {
   validatePresence,
   validateLength,
   // validateConfirmation,
-  // validateFormat
+  validateFormat
 } from 'ember-changeset-validations/validators';
 
 export default {
@@ -14,6 +14,15 @@ export default {
   email: [
     validatePresence(true),
     validateLength({min: 3})
+  ],
+
+  phone: [
+    validateFormat({ type: 'phone' }),
+  ],
+
+  password_confirmation: [
+    validatePresence(true),
+    validateLength({min: 4})
   ],
 
   access_token: [

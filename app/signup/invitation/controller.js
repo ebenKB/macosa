@@ -17,7 +17,7 @@ export default Controller.extend({
             alert(error);
           });
       } else {
-        console.log('the invitation is not valid');
+        alert('Please make sure all fields are valid');
       }
     },
     // set the role of the user
