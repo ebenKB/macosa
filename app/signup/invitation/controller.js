@@ -11,7 +11,11 @@ export default Controller.extend({
   actions: {
     newInvitation(changeset) {
       if (get(changeset, 'isValid')) {
-        changeset.save();
+        changeset.save()
+          .catch((err) => {
+            const [error] = err.errors;
+            alert(error);
+          });
       } else {
         console.log('the invitation is not valid');
       }

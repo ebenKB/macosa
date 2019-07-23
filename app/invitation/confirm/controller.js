@@ -7,7 +7,7 @@ export default Controller.extend({
   session: service(),
   UserValidator,
   confirmPass: null,
-  isSaving: true,
+  isSaving: false,
 
   actions: {
     createNewUser(changeset) {
