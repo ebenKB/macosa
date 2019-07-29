@@ -17,10 +17,6 @@ Router.map(function() {
     this.route('confirm', { path: '/:token'});
   });
 
-  // this.route('invitations', function() {
-  //   this.route('confirm', { path: '/:token'});
-  // });
-
   this.route('password', function() {
     this.route('reset');
     this.route('new', { path: '/:token'});
@@ -29,6 +25,9 @@ Router.map(function() {
   this.route('authenticated', { path: ''}, function() {
     this.route('user', {
       resetNamespace: true,
+      path: '/users'
+    }, function() {
+      this.route('new');
     });
 
     this.route('company', {
@@ -38,17 +37,22 @@ Router.map(function() {
       this.route('edit', { path: '/:id'});
     });
 
-    this.route('order', {
-      resetNamespace: true,
-    }, function() {
-      this.route('new');
-    });
+    // this.route('order', {
+    //   resetNamespace: true,
+    //   path: '/orders'
+    // }, function() {
+    //   this.route('new');
+    // });
   });
-  // this.route('user', function() {});
+  this.route('customer');
+  this.route('contact', { path: '/contacts'});
 
-  // this.route('order', function() {
-  //   this.route('new');
-  // });
+  this.route('order', {
+    path: '/orders'
+  }, function() {
+    this.route('new');
+  });
+
 });
 
 export default Router;

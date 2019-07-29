@@ -10,6 +10,7 @@
 @import 'mc-form.css';
 @import 'user-label.css';
 @import 'company-list-view.css';
+@import 'embedded-form-wrapper.css';
 
 /* include custom fonts */
 @font-face {
@@ -38,7 +39,7 @@ body {
   padding-right: 10px;
 }
 
-a.danger {
+a.danger, .danger, .required {
   color: var(--red);
 }
 
@@ -75,7 +76,7 @@ a:hover {
   font-weight: 900;
 }
 
-.left {
+.left.vpane {
   background: var(--black);
 }
 
@@ -98,6 +99,10 @@ a:hover {
 
 .align-end {
   align-self: end;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 @media only screen and (max-width: 768px) {

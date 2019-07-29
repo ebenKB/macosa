@@ -1,11 +1,11 @@
 <div>
-  {{#ui-dropdown class="selection" onChange=(action (mut changeset.type_id))}}
+  {{#ui-dropdown class="selection" onChange=(action (mut changeset.type_id)) placeholder=placeholder }}
     <div class="default text">{{heading}}</div>
     <i class="dropdown icon"></i>
     <div class="menu">
-      <div class="item">
+      {{!-- <div class="item">
         -- Select an option --
-      </div>
+      </div> --}}
       {{#each options as |op|}}
         <div data-value={{op.id}} class="item">
           {{op.name}}

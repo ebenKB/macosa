@@ -13,9 +13,11 @@ export default Controller.extend({
     newInvitation(changeset) {
       if (get(changeset, 'isValid')) {
         changeset.save()
+          .then(() => this.transitionToRoute('signup.invitation'))
           .catch((err) => {
-            const [error] = err.errors;
-            alert(error);
+            console.log(err);
+            // const [error] = err.errors;
+            // alert(error);
           });
       } else {
         alert('Please make sure all fields are valid');

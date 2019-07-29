@@ -19,11 +19,13 @@
 }
 
 .header-caption {
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
+  padding: 20px 60px;
 }
 
 .mc-form__body {
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
+  padding: 20px 60px;
 }
 
 /* override semantic ui button size  */
@@ -41,6 +43,10 @@
   display: grid;
   grid-template-columns: 170px 1fr;
   align-items: center;
+}
+
+.mc__form .ui.form .embedded-form__wrapper .field {
+  grid-template-columns: 1fr 1fr;
 }
 
 /* override text input size for semantic ui */

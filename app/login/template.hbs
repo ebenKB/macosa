@@ -2,34 +2,37 @@
   @heading="Login to Macosa"
   @footNote="New to Macosa? ask your administrator to invite you."
 >
-  <form action="" class="ui form">
-    <div class="field">
-      <label for="">Email</label>
-      {{input
-        class=classNames
-        type=type
-        placeholder="Enter your email"
-        value=email
-      }}
-    </div>
-    <div class="field">
-      <label for="">Password</label>
-      {{input
-        class=classNames
-        type="password"
-        placeholder="Enter your password"
-        value=password
-      }}
-    </div>
-    <div class="field form-actions text-right">
-      {{#link-to "password.reset"}}
-        Forgot password
-      {{/link-to}}
-    </div>
-    <FormFields::Submit
-      @title="Login"
-      @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
-      @perform={{action "authenticate"}}
-    />
-  </form>
+{{#if hasError}}
+  <div class="danger m-t-10 m-b-10">{{error}}</div>
+{{/if}}
+<form action="" class="ui form">
+  <div class="field">
+    <label for="">Email</label>
+    {{input
+      class=classNames
+      type=type
+      placeholder="Enter your email"
+      value=email
+    }}
+  </div>
+  <div class="field">
+    <label for="">Password</label>
+    {{input
+      class=classNames
+      type="password"
+      placeholder="Enter your password"
+      value=password
+    }}
+  </div>
+  <div class="field form-actions text-right">
+    {{#link-to "password.reset"}}
+      Forgot password
+    {{/link-to}}
+  </div>
+  <FormFields::Submit
+    @title="Login"
+    @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
+    @perform={{action "authenticate"}}
+  />
+</form>
 </Forms::UserForm>

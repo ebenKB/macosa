@@ -1,0 +1,12 @@
+.embedded-form__wrapper .embedded-form__header {
+  background: rgba(237, 244, 247, 0.5);
+  padding: 15px 10px;
+}
+
+.embedded-form__wrapper .ui.input {
+  margin-left: 0;
+}
+
+.embedded-form__action {
+  padding: 10px;
+}

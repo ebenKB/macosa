@@ -5,4 +5,6 @@ export default Component.extend({
   property: null,
   changeset: null,
   dataValue: null,
+  placeholder: 'Select an option',
+  key: 'type_id',
 });

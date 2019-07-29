@@ -1,0 +1,27 @@
+<div class="">
+  <div class="grid columns-14__2">
+    <div class="inline field">
+      <FormFields::Dropdown 
+        @options={{options}}
+        @changeset={{changeObj}}
+        @property={{property}}
+        @classNames=""
+      />
+      <div class="ui right labeled input inline field">
+        <FormFields::Amount
+          @placeholder="Amount"
+          @changeObj={{changeObj}}
+          @property="amount"
+          @classNames=""
+          @didValidate={{action "validate"}}
+          @options={{currency}}
+        />
+      </div>
+    </div>
+    <div class="embedded-form__action text-right">
+      {{svg-jar "trash" width="12px" height="12px"}}
+    </div>
+  </div>
+</div>
+
+

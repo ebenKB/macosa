@@ -27,3 +27,38 @@
   box-shadow: 0 1px 3px 0 #bfbfbf;
   /* color: var(--white); */
 }
+
+.ui.input.figures {
+  width: 60%;
+  margin-left: 40%;
+  float: right;
+}
+
+.ui.input.figures input {
+  text-align: right;
+}
+
+.ui.selection.dropdown {
+  padding: 1.15em;
+  width: 60%;
+}
+
+.amount .ui.selection.dropdown {
+  min-width: 5.8em;
+  background: #f6fafb;
+  /* border-radius: 0; */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.amount.figures .ui.dropdown:not(.button) > .default.text{
+  color: var(--black);
+}
+
+.ui.form .amount.figures input[type="number"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.embedded-form__wrapper .ui.selection.dropdown {
+  width: 100%;
+}

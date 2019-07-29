@@ -27,7 +27,7 @@ export default Controller.extend({
     },
 
     attemptDelete() {
-      set(this, 'didAttemptDelete', true);
+      // set(this, 'didAttemptDelete', true);
     },
 
     cancelDelete(){

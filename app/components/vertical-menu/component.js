@@ -23,6 +23,14 @@ export default Component.extend({
             {
               name: 'View Companies',
               link: 'company',
+            },
+            {
+              name: 'Contacts',
+              link: 'contact',
+            },
+            {
+              name: 'Customers',
+              link: 'customer'
             }
           ]
         },
@@ -35,10 +43,10 @@ export default Component.extend({
             },
             {
               name: 'New order',
-              link: 'order',
+              link: 'order.new',
             }
           ]
-        }
+        },
       ]
     );
   }

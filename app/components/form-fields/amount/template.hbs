@@ -1,0 +1,25 @@
+<div class="amount figures ui left labeled input {{classNames}}">
+  {{!-- <div class="ui dropdown label">
+    <div class="text">GHC</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">.com</div>
+      <div class="item">.net</div>
+      <div class="item">.org</div>
+    </div>
+  </div> --}}
+    <FormFields::Dropdown
+      @placeholder="GHC"
+      @options={{options}}
+      @property={{property}}
+      @changeset={{changeObj}}
+    />
+    <FormFields::Input
+      @property={{property}}
+      @placeholder={{placeholder}}
+      @type={{type}}
+      @changeset={{changeObj}}
+      @classNames={{classNames}}
+      @didValidate={{action "validate"}}
+    />
+</div>
