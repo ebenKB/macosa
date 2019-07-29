@@ -7,7 +7,7 @@ export default DS.Model.extend({
   website: DS.attr('string'),
   address: DS.attr('string'),
   // type_id: DS.belongsTo('type'),
-  type_id: DS.attr(),
+  type_id: DS.attr('string'),
   background: DS.attr('string'),
   owner_id: DS.attr()
 });

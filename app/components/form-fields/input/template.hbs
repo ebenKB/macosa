@@ -1,12 +1,25 @@
-  {{input
+  {{!-- {{input
       class=classNames
       type=type
       placeholder=placeholder
       keyUp=(action "validate" changeset)
       value=(get changeset property)
       changeset=changeset
+  }} --}}
+
+
+  {{input
+      class=classNames
+      type=type
+      placeholder=placeholder
+      keyUp=(action "validate" changeset)
+      onChange=(action (mut (get changeset property)))
+      value=(get changeset property)
+      changeset=changeset
+      property=property
   }}
 
+  
 {{!-- {{#if (get changeset.error property)}}
   <small>
     <ul style="margin:5px 0 0 0px;font-size: 13px; display: block" class="input-error">

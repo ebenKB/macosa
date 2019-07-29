@@ -1,0 +1,29 @@
+{{yield}}
+<McForm
+  @heading="Add new customer"
+  @role="Add this customer"
+  @didPerform={{action "perform"}}
+  @didDecline={{action "cancel"}}
+  @isSaving={{isSaving}}>
+  <div class="mc-divider">Customer Information</div>
+  <div class="form-group">
+    <div class="inline field">
+      <label for="company name">Customer name</label>
+      <FormFields::Input
+        @placeholder="What is the name of the company?"
+        @changeset={{changesetObj}}
+        @property="name"
+        @didValidate={{action "validate" changesetObj}}
+      />
+    </div>
+    <div class="inline field">
+      <label for="Compnany Type">Industry</label>
+      <FormFields::Dropdown 
+        @options={{industries}}
+        @changeset={{changesetObj}}
+        @property="industry"
+        @key="name"
+      />
+    </div> 
+  </div>
+</McForm>

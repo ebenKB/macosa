@@ -9,7 +9,6 @@ export default Controller.extend({
   help: 'All registerd users are displayed here',
   actions: {
     perform() {
-      console.log('you want to perfom an action');
       this.transitionToRoute('signup.invitation');
     },
 

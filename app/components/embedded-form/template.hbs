@@ -10,8 +10,8 @@
       <div class="ui right labeled input inline field">
         <FormFields::Amount
           @placeholder="Amount"
-          @changeObj={{changeObj}}
-          @property="amount"
+          @changeObj={{changesetObj}}
+          @property={{property}}
           @classNames=""
           @didValidate={{action "validate"}}
           @options={{currency}}

@@ -1,0 +1,15 @@
+{{!-- {{outlet}} --}}
+<Layout
+  @aside={{help}}
+>
+  <McWrapper
+    @heading="Customers"
+    @hasAction={{true}}
+    @actionName="Add new customer"
+    @perform={{action "newCustomer"}}
+  >
+  <CustomerListView
+    @customers={{model}}
+  />
+  </McWrapper>
+</Layout>

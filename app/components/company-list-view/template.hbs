@@ -1,23 +1,54 @@
-<div class="company-content__wrapper">
+<div class="mclist-content__wrapper">
    <div class="text-right">Found 5 companies</div>
    <div class="green mc-divider thick">Recently added</div>
+    {{#each recentCompanies as |rCompany|}}
+      <div class="company-wrapper grid">
+        <div>
+          <h3 class="company-wrapper__header">{{rCompany.name}} </h3>
+          <div class="company-details">
+            <div>
+              Phone: <span class="">{{rCompany.phone}} </span>
+            </div>
+            <div>
+              email: <span class="">{{rCompany.email}} </span>
+            </div>
+            <div>
+              website: <span class="">{{rCompany.website}} </span>
+            </div>
+          </div>
+        </div>
+        <div class="m-t-30">
+          {{rCompany.type_id.name}}
+        </div>
+        <div class="text-right align-end">
+          <div class="company-actions">
+              {{svg-jar "edit" height="20px" width="20px" class="red m-r-20"}}
+              {{svg-jar "trash" height="20px" width="20px"}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+</div>
+<div class="mc-divider thick">All</div>
+<div class="mclist-content__wrapper">
+  {{#each allCompanies as |company|}}
     <div class="company-wrapper grid">
       <div>
-        <h3 class="company-wrapper__header">Menz Gold Ghana Limited</h3>
+        <h3 class="company-wrapper__header">{{company.name}} </h3>
         <div class="company-details">
           <div>
-            Phone: <span class="">+233549894348</span>
+            Phone: <span class="">{{company.phone}} </span>
           </div>
           <div>
-            email: <span class="">email@apotica.net</span>
+            email: <span class="">{{company.email}} </span>
           </div>
           <div>
-            website: <span class="">http://apotica.net</span>
+            website: <span class="">{{company.website}} </span>
           </div>
         </div>
       </div>
       <div class="m-t-30">
-        Insurance
+        {{company.type_id.name}}
       </div>
       <div class="text-right align-end">
         <div class="company-actions">
@@ -26,107 +57,5 @@
         </div>
       </div>
     </div>
-    <div class="company-wrapper grid">
-      <div>
-        <h3 class="company-wrapper__header">Apotica Company Limited</h3>
-        <div class="company-details">
-          <div>
-            Phone: <span class="">+233549894348</span>
-          </div>
-          <div>
-            email: <span class="">email@apotica.net</span>
-          </div>
-          <div>
-            website: <span class="">http://apotica.net</span>
-          </div>
-        </div>
-      </div>
-      <div class="m-t-30">
-        IT and Technology
-      </div>
-      <div class="text-right align-end">
-        <div class="company-actions">
-            {{svg-jar "trash" height="20px" width="20px" class="red m-r-20"}}
-            {{svg-jar "edit" height="20px" width="20px"}}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mc-divider thick">All</div>
-    <div class="company-content__wrapper">
-    <div class="company-wrapper grid">
-      <div>
-        <h3 class="company-wrapper__header">MTN Ghana Limited</h3>
-        <div class="company-details">
-          <div>
-            Phone: <span class="">+233549894348</span>
-          </div>
-          <div>
-            email: <span class="">email@apotica.net</span>
-          </div>
-          <div>
-            website: <span class="">http://apotica.net</span>
-          </div>
-        </div>
-      </div>
-      <div class="m-t-30">
-        Insurance
-      </div>
-      <div class="text-right align-end">
-        <div class="company-actions">
-            {{svg-jar "trash" height="20px" width="20px" class="red m-r-20"}}
-            {{svg-jar "edit" height="20px" width="20px"}}
-        </div>
-      </div>
-    </div>
-    <div class="company-wrapper grid">
-      <div>
-        <h3 class="company-wrapper__header">Airtel Tigo</h3>
-        <div class="company-details">
-          <div>
-            Phone: <span class="">+233549894348</span>
-          </div>
-          <div>
-            email: <span class="">email@apotica.net</span>
-          </div>
-          <div>
-            website: <span class="">http://apotica.net</span>
-          </div>
-        </div>
-      </div>
-      <div class="m-t-30">
-        IT and Technology
-      </div>
-      <div class="text-right align-end">
-        <div class="company-actions">
-            {{svg-jar "trash" height="20px" width="20px" class="red m-r-20"}}
-            {{svg-jar "edit" height="20px" width="20px"}}
-        </div>
-      </div>
-    </div>
-        <div class="company-wrapper grid">
-      <div>
-        <h3 class="company-wrapper__header">Hakaernoon Int. School</h3>
-        <div class="company-details">
-          <div>
-            Phone: <span class="">+233549894348</span>
-          </div>
-          <div>
-            email: <span class="">email@apotica.net</span>
-          </div>
-          <div>
-            website: <span class="">http://apotica.net</span>
-          </div>
-        </div>
-      </div>
-      <div class="m-t-30">
-        Education
-      </div>
-      <div class="text-right align-end">
-        <div class="company-actions">
-            {{svg-jar "trash" height="20px" width="20px" class="red m-r-20"}}
-            {{svg-jar "edit" height="20px" width="20px"}}
-        </div>
-      </div>
-    </div>
+  {{/each}}
 </div>

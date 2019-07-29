@@ -1,9 +1,8 @@
-import DS from 'ember-data';
-// import AppAdapter from '../application/adapter';
+import AppAdapter from 'macosa/application/adapter';
 import config from 'macosa/config/environment';
 import { underscore } from '@ember/string';
 
-export default DS.RESTAdapter.extend({
+export default AppAdapter.extend({
   pathForType(type) {
     return underscore(type);
   },

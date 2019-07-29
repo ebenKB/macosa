@@ -8,7 +8,7 @@ export default {
     validatePresence(true),
     validateLength({min: 3}),
   ],
-  phone: [
+  amount: [
     validatePresence(true),
   ]
 };

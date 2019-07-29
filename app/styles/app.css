@@ -76,6 +76,14 @@ a:hover {
   font-weight: 900;
 }
 
+.mc-overlay {
+  height: 80vh;
+  position: absolute;
+  width: 75%;
+  background: #080808;
+  opacity: 0.15;
+  z-index: 10;
+}
 .left.vpane {
   background: var(--black);
 }

@@ -1,7 +1,17 @@
 <div class="mc__form">
-  <div class="mc-form__header">
-    <div class="header-caption ui form">
-      <h3>{{heading}} </h3>
+  <div class="mc-form__header grid">
+    <div class="grid columns-11__5 header-caption ui form">
+      <div>
+        <h3>{{heading}} </h3>
+      </div>
+      <div>
+        {{#if hasAction}}
+          <button class="ui large default fluid button ellipse" {{action "perform" }}>
+            {{svg-jar "plus" width="10px" height="10px"}}
+            {{actionName}}
+          </button>
+        {{/if}}
+      </div>
     </div>
   </div>
   <div class="mc-form__body">

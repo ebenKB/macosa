@@ -5,9 +5,10 @@ import { get } from '@ember/object';
 export default Route.extend({
   model() {
     return RSVP.hash({
-      // manufacturers: get(this, 'store').findAll('manufacturer'),
-      // businessUnits: get(this, 'store').findAll('businessUnit'),
-      // managers: get(this, 'store').findAll('accountManager'),
+      manufacturers: get(this, 'store').findAll('manufacturer'),
+      businessUnits: get(this, 'store').findAll('businessUnit'),
+      managers: get(this, 'store').findAll('accountManager'),
+      customers: get(this, 'store').findAll('customer'),
       order: get(this, 'store').createRecord('order', {
         order_no: '',
         date: '',
@@ -20,5 +21,4 @@ export default Route.extend({
       }),
     });
   },
-
 });

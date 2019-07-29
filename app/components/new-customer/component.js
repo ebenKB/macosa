@@ -2,13 +2,17 @@ import Component from '@ember/component';
 import { get } from '@ember/object';
 
 export default Component.extend({
-  changeObj: null,
-  type: 'number',
-  property: 'amount',
   actions: {
+    perform() {
+      get(this, 'perform')();
+    },
+
+    cancel() {
+      get(this, 'cancel')();
+    },
+
     validate() {
-      console.log('validating...');
-      get(this, 'didValidate')();
+
     }
   }
 });

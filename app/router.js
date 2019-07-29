@@ -37,21 +37,23 @@ Router.map(function() {
       this.route('edit', { path: '/:id'});
     });
 
-    // this.route('order', {
-    //   resetNamespace: true,
-    //   path: '/orders'
-    // }, function() {
-    //   this.route('new');
-    // });
+    this.route('order', {
+      resetNamespace: true,
+      path: '/orders'
+    }, function() {
+      this.route('new');
+    });
   });
-  this.route('customer');
-  this.route('contact', { path: '/contacts'});
-
-  this.route('order', {
-    path: '/orders'
-  }, function() {
+  this.route('customer', function() {
     this.route('new');
   });
+  this.route('contact', { path: '/contacts'});
+
+  // this.route('order', {
+  //   path: '/orders'
+  // }, function() {
+  //   this.route('new');
+  // });
 
 });
 

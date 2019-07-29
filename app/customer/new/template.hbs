@@ -1,0 +1,10 @@
+<Layout>
+  {{#with (changeset model.customer CustomerValidations) as |changesetObj|}}
+    <NewCustomer
+      @cancel={{action "cancel" }}
+      @perform={{action "perform" changesetObj}}
+      @industries={{model.industries}}
+      @changesetObj={{changesetObj}}
+    />
+  {{/with}}
+</Layout>

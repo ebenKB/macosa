@@ -42,6 +42,7 @@ export default Controller.extend({
         changeset.save()
           .then(() => {
             set(this, 'isSaving', false);
+            // set(this, 'model.name', '');
             this.transitionToRoute('/');
           })
           .catch(() => set(this, 'isSaving', false));

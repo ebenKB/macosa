@@ -86,11 +86,13 @@
           @classNames="m-l-20"
         >
         {{#each businessUnitOrders as |b_order|}}
-          {{#with (changeset b_order ) as |b_orderChangeset|}}
+        <h1> {{b_order.amount}} </h1>
+          {{#with (changeset b_order BusinessUnitValidation) as |b_orderChangeset|}}
+          <h1>{{get b_orderChangeset amount}}</h1>
           <EmbeddedForm 
             @currency={{currency}}
-            @property="currency"
-            @changeObj={{b_orderChangeset}}
+            @property="amount"
+            @changesetObj={{b_orderChangeset}}
             @validate={{action "validate" b_orderChangeset}}
           />
           {{/with}}
@@ -117,7 +119,7 @@
             <EmbeddedForm
               @property="manufacturer"
               @currency={{currency}}
-              @changeObj={{changesetObj}}
+              @changeObj={{m-orderChangeset}}
               @validate={{action "validate" m-orderChangeset}}
             />
             {{/with}}

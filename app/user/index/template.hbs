@@ -2,14 +2,11 @@
     @aside={{help}}>
   <McWrapper
     @heading="Users"
-    @role="Send invite">
-      <div class="inline">
-        <FormFields::Submit
-          @classess="ui large default fluid button ellipse"
-          @title={{title}}
-          @perform={{action "perform" }}
-        />
-      </div>
+    @role="Send invite"
+    @hasAction={{true}}
+    @actionName={{title}}
+    @perform={{action "perform" }}>
+
     {{#each model as |user| }}
       <div class="mc-divider m-b-15"></div>
       <UserLabel
