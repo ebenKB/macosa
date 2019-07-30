@@ -1,25 +1,10 @@
-{{!-- <span role="button" class="example m-l-40 action">
-  {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }} New Business Unit
-</span> --}}
-
-
-<div class="ui labeled icon bottom center pointing dropdown m-l-20">
-  {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }} Add new Business unit
-  <div class="menu">
-    <div class="header header-caption">
-      {{!-- <h4>Add new Business unit</h4> --}}
-    </div>
-    <div class="item">
-        {{yield}}
-        <div class="inline field">
-          <FormFields::Input 
-            @options={{model.types}}
-            @changeset={{changesetObj}}
-            @property="type_id"
-            @classNames="text-right"
-          />
-        </div> 
-    </div>
-    <button>Save</button>
+<div>
+  <div class="ui mc-popup  button" data-content="" data-position="top center">
+    {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }}
+    <span class="m-l-5">Add new</span>
+  </div>
+  <div class="ui popup"> 
+    <h3 class="faint">{{title}}</h3>
+    {{yield}}
   </div>
 </div>

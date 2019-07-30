@@ -21,9 +21,31 @@
       <FormFields::Dropdown 
         @options={{industries}}
         @changeset={{changesetObj}}
-        @property="industry"
+        @property="industry_id"
         @key="name"
       />
-    </div> 
+      <div>
+        <div class="ui custom-popup  button" data-content="" data-position="top center">
+          {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }}
+          <span class="m-l-5">Add new</span>
+        </div>
+        <div class="ui popup"> 
+          <h3 class="faint">New Industry</h3>
+          <IndustryForm
+            @classess="full-width ui primary basic button"
+          />
+        </div>
+      </div>
+    </div>
+
+
+    {{!-- <div class="ui custom-popup button" data-position="top center" >popup</div>
+    <div class="ui popup top left transition show">
+      <div class="ui center ">
+        <div class="columns">
+          some content here
+        </div>
+      </div>
+    </div> --}}
   </div>
 </McForm>

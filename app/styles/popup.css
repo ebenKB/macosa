@@ -1,0 +1,13 @@
+.custom-popup {
+  position: absolute;
+  top: 63.5%;
+  left: 61%;
+}
+
+.custom-popup.ui.button, .mc-popup.ui.button {
+  background: var(--white);
+}
+
+.ui.mc-popup.button {
+  padding: 0;
+}

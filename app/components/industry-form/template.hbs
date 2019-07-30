@@ -1,0 +1,12 @@
+<div class="m-b-20">
+  {{input
+    class=classNames
+    type="text"
+    placeholder="industry name"
+    onChange=(action (mut name))
+    value=name
+  }}
+</div>
+<div class={{classess}} onclick={{action "createIndustry"}} role="button">
+  Save Industry
+</div>

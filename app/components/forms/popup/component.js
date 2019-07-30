@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 export default Component.extend({
   didInsertElement() {
-    $('.action')
+    $('.mc-popup ')
       .popup({
         on: 'click'
       });

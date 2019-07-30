@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { get } from '@ember/object';
+import { get, set } from '@ember/object';
 import CustomerValidation from 'macosa/validations/customer';
 
 
@@ -12,9 +12,12 @@ export default Controller.extend({
       console.log(this.get('session'));
       this.transitionToRoute('customer');
     },
-    perform(changeset) {
-      console.log('this is the changeset we are trying to save', changeset);
-      changeset.save();
+    async perform(changeset) {
+      const industry = await get(this, 'store')
+        .peekRecord('industry', get(changeset, 'industry_id'));
+      set(changeset, 'industry_id', industry);
+      changeset.save()
+        .then(() => this.transitionToRoute('customer'));
     }
-  }
+  },
 });

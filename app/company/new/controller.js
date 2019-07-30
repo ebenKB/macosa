@@ -35,7 +35,12 @@ export default Controller.extend({
       return changeset.rollback();
     },
 
-    createNewCompany(changeset) {
+    async createNewCompany(changeset) {
+      const type = await get(this, 'store').peekRecord('type', get(changeset, 'type_id'));
+      console.log('this is the type the we found', type);
+
+      set(changeset, 'type_id', type);
+
       if (changeset.get('isValid')) {
         set(changeset, 'owner_id', get(this, 'appOwner').owner);
         set(this, 'isSaving', true);

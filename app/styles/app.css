@@ -11,6 +11,7 @@
 @import 'user-label.css';
 @import 'company-list-view.css';
 @import 'embedded-form-wrapper.css';
+@import 'popup.css';
 
 /* include custom fonts */
 @font-face {

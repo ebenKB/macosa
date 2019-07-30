@@ -2,5 +2,5 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  industry: DS.belongsTo('industry'),
+  industry_id: DS.belongsTo('industry'),
 });

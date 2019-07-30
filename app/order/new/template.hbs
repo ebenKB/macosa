@@ -75,16 +75,28 @@
       <div class="mc-divider">
         <div class="inline-flex">
           Business Units 
-          <span class="required m-l-5">*</span>
-          <Forms::Popup />
+          <span class="required m-l-5 m-r-5">*</span>
+          <Forms::Popup
+            @title="New Business unit">
+          <div class="inline field">
+            <FormFields::Input
+              @placeholder="Select the order date"
+              @changeset={{changesetObj}}
+              @property="order_date"
+              @classNames="figures"
+              @didValidate={{action "validate" changesetObj}}
+              @type="text"
+            />
+          </div>
+          <button>Save</button>
+          </Forms::Popup>
         </div>
       </div>
       <div class="form-group">
         <EmbeddedFormWrapper
           @left="Business Unit"
           @right="Amount"
-          @classNames="m-l-20"
-        >
+          @classNames="m-l-20">
         {{#each businessUnitOrders as |b_order|}}
         <h1> {{b_order.amount}} </h1>
           {{#with (changeset b_order BusinessUnitValidation) as |b_orderChangeset|}}
@@ -105,9 +117,22 @@
       <div class="mc-divider">
         Manufacturers
         <span class="required">*</span>
-        <span role="button" class="action m-l-40" {{action "addBusinessUnit"}}>
-          {{svg-jar "plus-2" width="13px" height="13px" }} New Manufacturer
-        </span>
+        <div class="inline-flex">
+          <Forms::Popup
+            @title="New Business unit">
+            <div class="inline field">
+              <FormFields::Input
+                @placeholder="Select the order date"
+                @changeset={{changesetObj}}
+                @property="order_date"
+                @classNames="figures"
+                @didValidate={{action "validate" changesetObj}}
+                @type="text"
+              />
+            </div>
+            <button>Save</button>
+          </Forms::Popup>
+        </div>
       </div>
       <div class="form-group">
         <EmbeddedFormWrapper
