@@ -1,26 +1,30 @@
-<div class="">
-  <div class="grid columns-14__2">
-    <div class="inline field">
-      <FormFields::Dropdown 
-        @options={{options}}
-        @changeset={{changeObj}}
+<div class="grid columns-14__2">
+  <div class="input inline field">
+    {{#ui-dropdown class="selection" selected="USD" onChange=(action (mut (get changesetObj relatedBy ))) placeholder=placeholder}}
+      <div class="default text">{{heading}}</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#each options as |op|}}
+          <div data-value={{op.id}} class="item" role="button" {{action "setValue" op.id}}>
+            {{get op key}}
+          </div>
+        {{/each}}
+      </div>
+    {{/ui-dropdown}}
+    <div class="ui right labeled input inline field">
+      <FormFields::Amount
+        @placeholder="Amount"
+        @amntChangeset={{changesetObj}}
+        @changeset={{generalChangeset}}
         @property={{property}}
         @classNames=""
+        @didValidate={{action "validate"}}
+        @options={{currency}}
       />
-      <div class="ui right labeled input inline field">
-        <FormFields::Amount
-          @placeholder="Amount"
-          @changeObj={{changesetObj}}
-          @property={{property}}
-          @classNames=""
-          @didValidate={{action "validate"}}
-          @options={{currency}}
-        />
-      </div>
     </div>
-    <div class="embedded-form__action text-right">
-      {{svg-jar "trash" width="12px" height="12px"}}
-    </div>
+  </div>
+  <div class="embedded-form__action text-right">
+    {{svg-jar "trash" width="12px" height="12px"}}
   </div>
 </div>
 

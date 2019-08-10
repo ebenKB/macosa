@@ -1,0 +1,9 @@
+
+  {{pikaday-input
+    format="DD/MM/YYYY"
+    onChange=(mut (get changeset property)) 
+    value=(get changeset property) 
+    class=classNames
+    placeholder="Pick an order date"
+    theme=theme
+  }}

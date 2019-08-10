@@ -54,6 +54,9 @@ export default Base.extend({
                 reject(error);
               });
             });
+        })
+        .catch((err) => {
+          reject(err);
         });
     });
   },

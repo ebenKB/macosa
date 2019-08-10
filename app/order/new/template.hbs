@@ -1,7 +1,6 @@
 <Layout 
   @aside={{help}}>
   {{#with (changeset model.order OrderValidations ) as |changesetObj|}} 
-    <h1>Amount: {{remainder }}</h1>
     <McForm
       @heading="Create a new order"
       @role="Add this order"
@@ -14,26 +13,24 @@
           <label for="company name">Order Date 
             <span class="required m-l-5" >*</span> 
           </label>
-          <FormFields::Input
-            @placeholder="Select the order date"
+          <FormFields::Datepicker
             @changeset={{changesetObj}}
             @property="order_date"
             @classNames="figures"
-            @didValidate={{action "validate" changesetObj}}
-            @type="date"
           />
         </div>
         <div class="ui right labeled input inline field">
-          <label for="company name">Amount 
+          <label for="company name">Order Amount
             <span class="required m-l-5" >*</span> 
           </label>
           <FormFields::Amount
             @placeholder="Amount"
-            @changeObj={{changesetObj}}
+            @amntChangeset={{changesetObj}}
             @property="amount"
             @classNames=""
             @didValidate={{action "validate" changesetObj}}
-            @options={{currency}}
+            @generalChangeset={{changesetObj}}
+            @options={{model.currencies}}
           />
         </div>
         <div class="ui right labeled input inline field">
@@ -42,11 +39,12 @@
           </label>
           <FormFields::Amount
             @placeholder="Amount"
-            @changeObj={{changesetObj}}
+            @amntChangeset={{changesetObj}}
+            @generalChangeset={{changesetObj}}
             @property="profit"
             @classNames=""
             @didValidate={{action "validate" changesetObj}}
-            @options={{currency}}
+            @options={{model.currencies}}
           />
         </div>
         <div class="inline field">
@@ -54,9 +52,10 @@
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{model.types}}
+            @options={{model.customers}}
             @changeset={{changesetObj}}
             @property="customer_id"
+            @key="name"
             @classNames="text-right"
           />
         </div> 
@@ -65,10 +64,11 @@
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{model.managers}}
+            @options={{model.accountManagers}}
             @changeset={{changesetObj}}
             @property="account_manager_id"
             @classNames="text-right"
+            @key="full_name"
           />
         </div> 
       </div>
@@ -77,80 +77,68 @@
           Business Units 
           <span class="required m-l-5 m-r-5">*</span>
           <Forms::Popup
-            @title="New Business unit">
-          <div class="inline field">
-            <FormFields::Input
-              @placeholder="Select the order date"
-              @changeset={{changesetObj}}
-              @property="order_date"
-              @classNames="figures"
-              @didValidate={{action "validate" changesetObj}}
-              @type="text"
-            />
-          </div>
-          <button>Save</button>
-          </Forms::Popup>
+            @title="New Business unit"
+            @changesetObj={{businessUnitChangeset}}
+            @placeholder="Enter Business unit"
+            @initPopUp={{action "initPopUp"}}
+          />
         </div>
       </div>
       <div class="form-group">
         <EmbeddedFormWrapper
           @left="Business Unit"
           @right="Amount"
-          @classNames="m-l-20">
-        {{#each businessUnitOrders as |b_order|}}
-        <h1> {{b_order.amount}} </h1>
-          {{#with (changeset b_order BusinessUnitValidation) as |b_orderChangeset|}}
-          <h1>{{get b_orderChangeset amount}}</h1>
-          <EmbeddedForm 
-            @currency={{currency}}
-            @property="amount"
-            @changesetObj={{b_orderChangeset}}
-            @validate={{action "validate" b_orderChangeset}}
-          />
-          {{/with}}
-        {{/each}}
+          @classNames="m-l-20"
+          @hasContent={{hasContent}}>
+          {{#each businessUnitOrders as |b_order|}}
+            <EmbeddedForm 
+              @currency={{model.currencies}}
+              @property="amount"
+              @relatedBy="business_unit_id"
+              @identifier="business_unit"
+              @changesetObj={{b_order}}
+              @generalChangeset={{changesetObj}}
+              @validate={{action "validate" b_order}}
+              @options={{model.businessUnits}}
+              @key="name"
+            />
+          {{/each}}
         </EmbeddedFormWrapper>
-        <div role="button" class="" {{action "addBusinessUnit"}}>
+        <div role="button" class="" {{action "addBusinessUnit" changesetObj}}>
           {{svg-jar "plus" width="10px" height="10px" }} Add New 
         </div>
       </div>
       <div class="mc-divider">
-        Manufacturers
-        <span class="required">*</span>
         <div class="inline-flex">
+          Manufacturers
+          <span class="required m-l-5 m-r-5">*</span>
           <Forms::Popup
-            @title="New Business unit">
-            <div class="inline field">
-              <FormFields::Input
-                @placeholder="Select the order date"
-                @changeset={{changesetObj}}
-                @property="order_date"
-                @classNames="figures"
-                @didValidate={{action "validate" changesetObj}}
-                @type="text"
-              />
-            </div>
-            <button>Save</button>
-          </Forms::Popup>
+            @title="New manufacturers"
+            @changeset={{changeObj}}
+            @placeholder="Enter manufacturer"/>
         </div>
       </div>
       <div class="form-group">
         <EmbeddedFormWrapper
           @left="Manufacturer"
           @right="Amount"
-        >
-        {{#each manufacturer-orders as |m-order|}}
-          {{#with (changeset m-order) as |m-orderChangeset|}}
-            <EmbeddedForm
-              @property="manufacturer"
-              @currency={{currency}}
-              @changeObj={{m-orderChangeset}}
-              @validate={{action "validate" m-orderChangeset}}
+          @classNames="m-l-20"
+          @hasContent={{hasManufacturer}}>
+          {{#each manufacturerOrders as |manufacturer|}}
+            <EmbeddedForm 
+              @currency={{model.currencies}}
+              @property="amount"
+              @relatedBy="manufacturer_id"
+              @identifier="manufacturer"
+              @changesetObj={{manufacturer}}
+              @generalChangeset={{changesetObj}}
+              @validate={{action "validate" manufacturer}}
+              @options={{model.manufacturers}}
+              @key="name"
             />
-            {{/with}}
           {{/each}}
         </EmbeddedFormWrapper>
-        <div role="button" class="" {{action "addBusinessUnit"}}>
+        <div role="button" class="" {{action "addManufacturer" changesetObj}}>
           {{svg-jar "plus" width="10px" height="10px" }} Add New 
         </div>
       </div>

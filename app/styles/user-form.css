@@ -23,6 +23,8 @@
 .ui.form input[type="password"] {
   border-radius: 0.1rem;
 }
-.ui.form input[type="text"]:focus {
+
+.ui.form input[type="text"]:focus,
+.ui.form input[type="password"]:focus {
   border-radius: 0.1rem;
 }

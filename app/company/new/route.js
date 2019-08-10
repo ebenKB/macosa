@@ -23,21 +23,8 @@ export default Route.extend({
     });
   },
 
-  // actions: {
-  //   loading(transition, originRoute) {
-  //     const controller = this.controllerFor('company.new');
-  //     controller.set('currentlyLoading', true);
-  //     transition.promise.finally(function() {
-  //       controller.set('currentlyLoading', false);
-  //     });
-  //   }
-  // },
   beforeModel() {
     return this._loadCurrentOwner();
-  },
-
-  afterModel() {
-    console.log('This is after login');
   },
 
   _loadCurrentOwner() {

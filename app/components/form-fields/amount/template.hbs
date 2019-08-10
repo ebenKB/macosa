@@ -1,15 +1,17 @@
 <div class="amount figures ui left labeled input {{classNames}}">
   <FormFields::Dropdown
-    @placeholder="GHC"
+    @placeholder="USD"
     @options={{options}}
-    @property={{property}}
-    @changeset={{changeObj}}
+    @property="currency_id"
+    @changeset={{generalChangeset}}
+    @default={{default}}
+    @key="name"
   />
   <FormFields::Input
     @property={{property}}
     @placeholder={{placeholder}}
     @type={{type}}
-    @changeset={{changeObj}}
+    @changeset={{amntChangeset}}
     @classNames={{classNames}}
     @didValidate={{action "validate"}}
   />

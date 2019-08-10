@@ -13,7 +13,7 @@
       type=type
       placeholder=placeholder
       keyUp=(action "validate" changeset)
-      onChange=(action (mut (get changeset property)))
+      change=(mut (get changeset property))
       value=(get changeset property)
       changeset=changeset
       property=property

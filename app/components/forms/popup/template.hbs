@@ -1,10 +1,26 @@
 <div>
   <div class="ui mc-popup  button" data-content="" data-position="top center">
     {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }}
-    <span class="m-l-5">Add new</span>
+    <span class="m-l-5" role="button" {{action "initPopUp" model}}>Add new</span>
   </div>
   <div class="ui popup"> 
     <h3 class="faint">{{title}}</h3>
-    {{yield}}
+    <div class="inline field">
+      <FormFields::Input
+        @placeholder={{placeholder}}
+        @changeset={{changesetObj}}
+        @property={{property}}
+        @classNames={{classNames}}
+        @didValidate={{action "validate" changesetObj}}
+        @type={{type}}
+      />
+    </div>
+    <div class="inline field">
+      <FormFields::Submit
+        @classess="ui large green submit button full-width {{if isSaving "loading"}} "
+        @title={{role}}
+        @perform={{action "perform" model}}
+      />
+    </div>
   </div>
 </div>

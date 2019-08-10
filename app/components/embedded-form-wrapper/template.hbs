@@ -1,9 +1,12 @@
+
 <div class="embedded-form__wrapper">
-  <div class="embedded-form__header m-b-20">
-    <div class="grid columns-8__8">
-      <div>{{left}} </div>
-      <div>{{right}} </div>
-    </div>
+{{#if hasContent}}
+<div class="embedded-form__header m-b-20">
+  <div class="grid columns-8__8">
+    <div>{{left}} </div>
+    <div>{{right}} </div>
   </div>
-  {{yield}}
+</div>
+{{/if}}
+{{yield}}
 </div>

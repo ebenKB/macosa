@@ -1,21 +1,27 @@
 import Component from '@ember/component';
-import { get } from '@ember/object';
+import { get,set } from '@ember/object';
+import { inject as service} from '@ember/service';
+import $ from 'jquery';
 
 export default Component.extend({
+  store: service(),
+  identifier: '',
+  relatedBy: '',
+  changeset: null,
   changesetObj: null,
   amount: null,
   property: 'amount',
+  placeholder: 'Select an item',
+  key: '',
+  options: '',
   actions: {
     validate() {
       get(this, 'validate')();
+    },
+    // observe the dropdown for changes and then set the object to the changeset
+    setValue(id) {
+      const unit = this.store.peekRecord(this.identifier, id);
+      set(this, `changesetObj.${this.relatedBy}`, unit);
     }
   },
-
-  didReceiverAttrs(){
-    console.log('we have received some attributes', this.changeObj);
-  },
-
-  willRender() {
-    console.log('The company will render', this.changeObj);
-  }
 });

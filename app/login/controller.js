@@ -20,10 +20,17 @@ export default Controller.extend({
           .then(() => {
             set(this, 'isAuthenticating', false);
           })
-          .catch(() => {
+          .catch((err) => {
+            if (err == 'TypeError: Failed to fetch') {
+              const msg = 'Hmm, it seems you are OFFLINE, so we cannot process your request.';
+              this.get('notifications').showError(msg);
+              set(this, 'isAuthenticating', false);
+              this.get('session').invalidate();
+            } else {
             // show error and invalidate the session
-            this._showError('Sorry, no record matches your credentials');
-            this.get('session').invalidate();
+              this._showError('Sorry, no record matches your credentials');
+              this.get('session').invalidate();
+            }
           });
       }
     }
