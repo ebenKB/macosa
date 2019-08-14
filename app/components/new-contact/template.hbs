@@ -1,0 +1,75 @@
+<div class="faint-form">
+<div class="mc-divider">Contact Details {{number}}</div>
+<div class="form-group">
+    <div class="inline field">
+    <label for="Compnany Type">Title</label>
+    <FormFields::Dropdown 
+      @options={{titles}}
+      @changeset={{changesetObj}}
+      @property="title"
+      @key="name"
+    />
+  </div>
+  <div class="inline field">
+    <label for="company name">Firstname</label>
+    <FormFields::Input
+      @placeholder="What is the name of the company?"
+      @changeset={{changesetObj}}
+      @property="firstname"
+      @didValidate={{action "validate" changeset}}
+    />
+  </div>
+  <div class="inline field">
+    <label for="company name">Lastname</label>
+    <FormFields::Input
+      @placeholder="What is the name of the company?"
+      @changeset={{changesetObj}}
+      @property="lastname"
+      @didValidate={{action "validate" changeset}}
+    />
+  </div>
+  <div class="inline field">
+    <label for="company name">Phone</label>
+    <FormFields::Input
+      @placeholder="Provide a phone number"
+      @changeset={{changesetObj}}
+      @property="phone"
+      @didValidate={{action "validate" changeset}}
+      @type="phone"
+    />
+  </div>
+  <div class="inline field">
+    <label for="email">Email</label>
+    <FormFields::Input
+      @placeholder="Provide an email"
+      @changeset={{changesetObj}}
+      @property="email"
+      @didValidate={{action "validate" changeset}}
+      @type="email"
+    />
+  </div>
+  <div class="inline field">
+    <label for="Compnany Type">Company</label>
+    <FormFields::Dropdown 
+      @options={{model.companies}}
+      @changeset={{changesetObj}}
+      @property="company_id"
+      @key="name"
+    />
+  </div>
+  <div class="mc-divider">Background Information <span class="faint" >(bio, history, etc)</span> </div>
+  <div class="form-group">
+    <div class="">
+      <FormFields::Textarea
+        @columns=""
+        @rows={{5}}
+        @property="background"
+        @changeset={{changesetObj}}
+      />
+    </div>
+  </div>
+</div>
+<div class="text-right" role="button" {{action "perform"}}>
+  {{svg-jar "trash" width="14px" height="14px"}}
+</div>
+</div>

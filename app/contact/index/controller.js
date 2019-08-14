@@ -5,7 +5,7 @@ export default Controller.extend({
   title: 'Add New Contact',
   actions: {
     perform() {
-      console.log('action to perform');
+      this.transitionToRoute('contact.new');
     }
   }
 });

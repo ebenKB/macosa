@@ -1,0 +1,33 @@
+<div class="grid columns-13__3 order-label__wrapper">
+  <div class="grid columns-2__14 grid-gap__10">
+    <div class="ui circular labels">
+      <span class="ui yellow label">{{user.initials}} AB </span>
+    </div>
+    <div class="">
+      <div class="caption inline">
+        <p> 
+          {{#link-to "order"}}
+            $ <h2>293, 343</h2>
+          {{/link-to}}
+          <span>
+            <span>worth order from</span>
+            {{#link-to 'user'}}
+              Alicia Broker
+            {{/link-to}}
+            on 5th August, 2019
+          </span>
+        </p> 
+      </div>
+      <div class="m-b-10">This order is for MTN Ghana Limited and our margin is $ 2,300</div>
+      <p class="caption__small">
+        MTN requests that we supply them with 320 CISCO routers and 11 patch panels for ....
+        <span class="caption__small">
+          {{#link-to 'user'}}
+            Henry Potter
+          {{/link-to}}
+          is the manager in charge.  
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -42,19 +42,26 @@ Router.map(function() {
       path: '/orders'
     }, function() {
       this.route('new');
+      this.route('show', { path: '/:id'});
+    });
+
+    this.route('customer', {resetNamespace: true },function() {
+      this.route('new');
+    });
+    this.route('contact', { path: '/contacts', resetNamespace: true }, function() {
+      this.route('new');
     });
   });
-  this.route('customer', function() {
-    this.route('new');
-  });
-  this.route('contact', { path: '/contacts'});
-
-  // this.route('order', {
-  //   path: '/orders'
-  // }, function() {
+  // this.route('customer', function() {
+  //   this.route('new');
+  // });
+  // this.route('contact', { path: '/contacts'}, function() {
   //   this.route('new');
   // });
 
+  // this.route('order', function() {
+  //   this.route('show');
+  // });
 });
 
 export default Router;

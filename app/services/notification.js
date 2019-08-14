@@ -16,6 +16,10 @@ export default NotificationsService.extend({
     this.get('notifications').error(msg, this.options);
   },
 
+  showSuccess(msg) {
+    msg == null || msg == '' ? msg = 'Please provide a message' : msg ;
+    this.get('notifications').success(msg, this.options);
+  },
   init() {
     set(this, 'options', {
       autoClear: true,

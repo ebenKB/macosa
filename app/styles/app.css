@@ -87,10 +87,17 @@ a:hover {
 }
 .left.vpane {
   background: var(--black);
+  position: relative;
 }
 
 .faint {
   color: var(--faint-dark)
+}
+
+.faint-form {
+  background: rgba(246, 250, 251, 0.5);
+  padding: 30px;
+  border-radius: 5px;
 }
 
 .round-img {
@@ -112,6 +119,10 @@ a:hover {
 
 .inline-flex {
   display: inline-flex;
+}
+
+.caption__small {
+  font-size: 0.85rem;
 }
 
 @media only screen and (max-width: 768px) {

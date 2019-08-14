@@ -52,7 +52,8 @@ export default Controller.extend({
         .then(() => this.transitionToRoute('order'))
         .catch(() => {
           set(this, 'isSaving', false);
-          this.get('notifications').showError('An error occurred while saving the oder. Please try again.');
+          this.get('notifications')
+            .showError('An error occurred while saving the oder. Please try again.');
         });
     },
 

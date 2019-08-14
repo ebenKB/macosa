@@ -14,5 +14,10 @@ export default DS.Model.extend({
 
   fullname: computed('firstname', 'lastname', function() {
     return `${this.firstname} ${this.lastname}` ;
+  }),
+  initials: computed('firstname', 'lastname', function() {
+    const partA = this.firstname.split('')[0].toUpperCase();
+    const partB = this.lastname.split('')[0].toUpperCase();
+    return `${partA} ${partB}`;
   })
 });

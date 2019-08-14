@@ -10,9 +10,17 @@
 }
 
 .user-label__wrapper h2 {
-  margin: 0 0 5px 0;
   color: var(--black);
+}
+
+.user-label__wrapper h2,
+.order-label__wrapper h2{
+  margin: 0 0 5px 0;
   font-size: 1.5rem;
+}
+
+.order-label__wrapper h2 {
+  font-size: 1.15rem;
 }
 
 .user-label__wrapper span {
@@ -44,4 +52,21 @@
 .ui.checkbox input:checked ~ .box:after, .ui.checkbox input:checked ~ label:after {
   opacity: 1;
   color: #fff;
+}
+
+.user-label__wrapper .ui.circular.labels .label,
+.order-label__wrapper .ui.circular.labels .label {
+  min-width: 4em;
+  min-height: 4em;
+  padding: 1.60em 0!important;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 100%;
+  width: 4em;
+  height: 4em;
+  font-size: 1em;
+}
+
+.order-label__wrapper .caption.inline * {
+  display: inline;
 }

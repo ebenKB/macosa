@@ -1,0 +1,26 @@
+<Layout
+  @aside={{help}}
+>
+  <McForm
+    @heading="Add new contact"
+    @role="Save"
+    @didPerform={{action "perform"}}
+    @didDecline={{action "cancel"}}
+    @isSaving={{isSaving}}
+  >
+  {{#each contacts as |contact index|}}
+    <div class="m-t-20 m-b-20">
+      <NewContact
+        @model={{model}}
+        @number={{index}}
+        @changesetObj={{contact}}
+        @perform={{action "deleteContactForm" contact}}
+        @titles={{titles}}
+      />
+    </div>
+  {{/each}}
+  <div {{action "newContactForm"}}>
+    {{svg-jar "plus" width="14px" height="14px"}} Add new contact
+  </div>
+  </McForm>
+</Layout>

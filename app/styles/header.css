@@ -26,6 +26,10 @@
   border-radius: 0;
 }
 
+.header-wrapper .ui.segment {
+  background: transparent;
+}
+
 /* override semantic ui label size */
 .header-wrapper .ui.circular.label {
   min-width: 1em;

@@ -7,9 +7,11 @@
     @actionName={{title}}
     @perform={{action "perform" }}>
 
+    <span>Found {{model.length}} users</span>
     {{#each model as |user| }}
       <div class="mc-divider m-b-15"></div>
       <UserLabel
+        @user={{user}}
         @name={{user.fullname}}
         @email={{user.email}}
         @emailAlt="dashie@dropbox.com.macosa"

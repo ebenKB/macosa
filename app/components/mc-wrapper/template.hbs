@@ -4,10 +4,10 @@
       <div>
         <h3>{{heading}} </h3>
       </div>
-      <div>
+      <div class="action">
         {{#if hasAction}}
           <button class="ui large default fluid button ellipse" {{action "perform" }}>
-            {{svg-jar "plus" width="10px" height="10px"}}
+            {{svg-jar "add-button-inside-black-circle" width="15px" height="15px"}}
             {{actionName}}
           </button>
         {{/if}}

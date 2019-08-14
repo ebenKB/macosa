@@ -3,6 +3,7 @@
   height: 100vh;;
   color: #fff;
   padding: 20px;
+  position: fixed;
 }
 
 .v-menu__wrapper .content.menu .item {

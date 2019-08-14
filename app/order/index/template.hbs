@@ -1,4 +1,20 @@
-<Layout
-  @heading="orders"
+<Layout 
+    @aside={{help}}
+    @heading={{orders}}
 >
+  <McWrapper
+    @heading="Orders"
+    @role="Add order"
+    @hasAction={{true}}
+    @actionName={{title}}
+    @perform={{action "perform" }}>
+
+    <span>Found {{model.length}} 2 order(s)</span>
+    {{!-- {{#each model as |order| }} --}}
+      <div class="mc-divider m-b-15"></div>
+      <OrderCard />
+      <div class="mc-divider m-b-15"></div>
+      <OrderCard />
+    {{!-- {{/each}} --}}
+  </McWrapper>
 </Layout>

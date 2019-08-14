@@ -15,7 +15,7 @@ export default Base.extend({
       }
     });
   },
-
+  // send user credentials to the server for validtion
   authenticate(credentials) {
     const { email, password } = credentials;
     const data = JSON.stringify({
