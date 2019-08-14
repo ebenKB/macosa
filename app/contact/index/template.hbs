@@ -10,9 +10,10 @@
           @perform={{action "perform" }}
         />
       </div>
-    {{!-- {{#each model as |user| }} --}}
+    {{!-- {{#each model as |contact| }} --}}
       <div class="mc-divider m-b-15"></div>
       <ContactLabel
+        @contact={{contact}}
         @name={{user.fullname}}
         @email={{user.email}}
         @emailAlt="dashie@dropbox.com.macosa"

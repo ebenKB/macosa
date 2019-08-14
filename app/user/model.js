@@ -19,5 +19,7 @@ export default DS.Model.extend({
     const partA = this.firstname.split('')[0].toUpperCase();
     const partB = this.lastname.split('')[0].toUpperCase();
     return `${partA} ${partB}`;
-  })
+  }),
+
+  isSelected: true,
 });

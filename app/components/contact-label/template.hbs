@@ -1,6 +1,7 @@
-<div class="grid columns-1__15 user-label__wrapper">
+<div class="grid columns-1__15 user-label__wrapper {{if contact.isSelected "bg__opaque"}}">
   <div>
-    <input type="checkbox">
+    {{!-- <input type="checkbox"> --}}
+    <Input @id="admin-checkbox" @type="checkbox" @name="isAdmin" @checked={{this.isAdmin}} />
   </div>
   <div>
     <div class="grid columns-3__13 user-label__wrapper">

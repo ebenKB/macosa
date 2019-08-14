@@ -38,11 +38,19 @@ export default Component.extend({
           name: 'Orders',
           submenus: [
             {
+              name: 'Add new order',
+              link: 'order.new',
+            },
+            {
               name: 'View orders',
               link: 'order',
             },
             {
-              name: 'New order',
+              name: 'Business unit orders',
+              link: 'order.new',
+            },
+            {
+              name: 'Manufacturer orders',
               link: 'order.new',
             }
           ]
