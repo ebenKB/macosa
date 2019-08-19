@@ -2,23 +2,34 @@
     @aside={{help}}>
   <McWrapper
     @heading="Contacts"
-    @role="All contacts">
-      <div class="inline">
-        <FormFields::Submit
-          @classess="ui large default fluid button ellipse"
-          @title={{title}}
-          @perform={{action "perform" }}
-        />
+    @role="All contacts"
+    @hasAction={{true}}
+    @actionName="New contact"
+    @perform={{action "perform" }}
+  >
+    <p>Showing all contacts</p>
+    {{#if didSelect}}
+      <div class="actions__wrapper">
+      <div class="">
+        <div class="text-right" role="button" {{action "deleteContacts"}}>
+          <span>{{selectedContacts.length}}contact(s) selected</span>
+          <span class="bg__opaque">
+            {{svg-jar "trash" width="15px" height="15px"}}
+          </span>
+        </div>
       </div>
-    {{!-- {{#each model as |contact| }} --}}
+    </div>
+    {{/if}}
+    {{#each model as |contact| }}
       <div class="mc-divider m-b-15"></div>
       <ContactLabel
+        @didSelectContact={{action "didSelectContact" contact}}
         @contact={{contact}}
         @name={{user.fullname}}
         @email={{user.email}}
         @emailAlt="dashie@dropbox.com.macosa"
         @userImage="https://pbs.twimg.com/media/C1BQ_RmVEAE3ng4.jpg"
       />
-    {{!-- {{/each}} --}}
+    {{/each}}
   </McWrapper>
 </Layout>

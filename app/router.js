@@ -35,6 +35,7 @@ Router.map(function() {
     },function() {
       this.route('new');
       this.route('edit', { path: '/:id'});
+      this.route('show', {path: '/:id'});
     });
 
     this.route('order', {
@@ -62,6 +63,7 @@ Router.map(function() {
   // this.route('order', function() {
   //   this.route('show');
   // });
+  this.route('business-unit-order', { path: '/unit-orders' }, function() {});
 });
 
 export default Router;

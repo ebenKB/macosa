@@ -1,6 +1,7 @@
 
   {{pikaday-input
     format="DD/MM/YYYY"
+    yearRange="2000,currentYear"
     onChange=(mut (get changeset property)) 
     value=(get changeset property) 
     class=classNames

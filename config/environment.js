@@ -9,7 +9,7 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
@@ -33,7 +33,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.apiEndpoint = 'https://macosa-api.herokuapp.com';
+    ENV.apiEndpoint = 'https://macosa-app.herokuapp.com';
     // ENV.apiEndpoint = 'https://macosa2-api.herokuapp.com';
     ENV.apiNamespace = 'api/v1';
   }
@@ -52,7 +52,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.apiEndpoint = 'https://macosa-api.herokuapp.com';
+    ENV.apiEndpoint = 'https://macosa-app.herokuapp.com';
     ENV.apiNamespace = 'api/v1';
   }
 

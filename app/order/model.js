@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   order_no: DS.attr('number'),
-  order_date: DS.attr('string'),
+  order_date: DS.attr(''),
   description: DS.attr('string'),
   amount: DS.attr('number'),
   profit: DS.attr('number'),
