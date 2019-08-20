@@ -7,6 +7,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   amount: DS.attr('number'),
   profit: DS.attr('number'),
+  user_id: DS.belongsTo('user'),
   customer_id: DS.belongsTo('customer'),
   account_manager_id: DS.belongsTo('account-manager'),
   currency_id: DS.belongsTo('currency'),

@@ -14,7 +14,10 @@
             {{#link-to 'user'}}
               {{order.customer_id.name}}
             {{/link-to}}
-            {{order.order_date}}
+            created by 
+            <LinkTo @route="user">
+              {{order.user_id.fullname}}
+            </LinkTo>
           </span>
         </p> 
       </div>
@@ -23,9 +26,10 @@
           {{#link-to 'user'}}
             {{order.account_manager_id.full_name}}
           {{/link-to}}
-          is the manager in charge. 
+          is the manager in charge of the order
         </span>
-        Our margin is $ {{order.profit}}</div>
+        and our margin is $ {{order.profit}}.
+      </div>
       <p class="caption__small">
         {{order.summary}}
       </p>
