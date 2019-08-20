@@ -5,7 +5,7 @@ export default Controller.extend({
   title: 'Add new order',
   actions: {
     perform(){
-      console.log('you want to perform');
+      this.transitionToRoute('order.new');
     }
   }
 });

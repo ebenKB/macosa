@@ -9,12 +9,15 @@
     @actionName={{title}}
     @perform={{action "perform" }}>
 
-    <span>Found {{model.length}} 2 order(s)</span>
-    {{!-- {{#each model as |order| }} --}}
+    <span>Found {{model.length}} order(s)</span>
+    <div class="mc-divider m-b-15"></div>
+    {{#each model as |order| }}
+      <OrderCard
+        @order={{order}}
+      />
       <div class="mc-divider m-b-15"></div>
-      <OrderCard />
-      <div class="mc-divider m-b-15"></div>
-      <OrderCard />
-    {{!-- {{/each}} --}}
+    {{/each}}
   </McWrapper>
 </Layout>
+
+{{outlet}}

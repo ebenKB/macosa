@@ -33,15 +33,6 @@ export default Controller.extend({
         const currency = get(this, 'store').peekRecord('currency', get(changeset, 'currency_id'));
         set(changeset, 'currency_id', currency);
       }
-      // set business units orders
-      // this.businessUnitOrders.map((order) => {
-      //   const o = get(this, 'store').createRecord('business-unit-order', {
-      //     business_unit_id: get(order, 'business_unit_id'),
-      //     amount: get(order, 'amount'),
-      //     order_id: '',
-      //   });
-      //   return get(changeset, 'business_unit_orders_attributes').pushObject(o);
-      // });
 
       // set records for relationships
       this._setOrder(this.businessUnitOrders, 'business-unit-order',
@@ -49,7 +40,13 @@ export default Controller.extend({
       this._setOrder(this.manufacturerOrders, 'manufacturer-order',
         'manufacturer_orders_attributes', 'manufacturer_id', changeset);
       changeset.save()
-        .then(() => this.transitionToRoute('order'))
+        .then(() => {
+          // reset fields
+          set(this, 'businessUnitOrders', []);
+          set(this, 'manufacturerOrders', []);
+          set(this, 'isSaving', false);
+          this.transitionToRoute('order');
+        })
         .catch(() => {
           set(this, 'isSaving', false);
           this.get('notifications')
@@ -60,9 +57,6 @@ export default Controller.extend({
     addBusinessUnit(changeset) {
       const unit_amount = this.getRemainder(changeset, 'businessUnitOrders');
       if (unit_amount > 0) {
-        // const b_unit = get(this, 'store').createRecord('business-unit-order',
-        //   { amount: unit_amount });
-
         const b_unit = { amount: unit_amount};
         // create a new changeset object
         const unit = new Changeset(b_unit, { skipValidate: true });
@@ -76,8 +70,6 @@ export default Controller.extend({
     addManufacturer(changeset) {
       const m_order_amount = this.getRemainder(changeset, 'manufacturerOrders');
       if (m_order_amount > 0) {
-        // const manufacturer = get(this, 'store').createRecord('manufacturer',
-        //   { amount: m_order_amount});
         const manufacturer = { amount: m_order_amount };
         get(this, 'manufacturerOrders').pushObject(manufacturer);
         set(this, 'hasManufacturer', get(this, 'manufacturerOrders.length') > 0);

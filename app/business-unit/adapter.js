@@ -1,16 +1,13 @@
 import AppAdapter from 'macosa/application/adapter';
-import config from 'macosa/config/environment';
+// import config from 'macosa/config/environment';
 import { underscore } from '@ember/string';
 
 export default AppAdapter.extend({
   pathForType(type) {
-    return underscore(type);
+    // convert the model name to underscore and pluralize it
+    return `${underscore(type)}s`;
   },
-  url() {
-    return `${config.apiEndpoint}/${config.apiNamespace}/business_units`;
-  },
-
-  urlForFindAll(modelName, snapshot) {
-    return `${config.apiEndpoint}/${config.apiNamespace}/business_units`;
-  }
+  // urlForFindAll(modelName, snapshot) {
+  //   return `${config.apiEndpoint}/${config.apiNamespace}/business_units`;
+  // }
 });
