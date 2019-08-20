@@ -4,9 +4,8 @@ import { underscore } from '@ember/string';
 
 export default AppAdapter.extend({
   pathForType(type) {
-    return underscore(type);
-  },
-  urlForFindAll() {
-    return `${config.apiEndpoint}/${config.apiNamespace}/account_managers`;
+    // convert the model name to underscore and pluralize it
+    return `${underscore(type)}s`;
   }
 });
+

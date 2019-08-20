@@ -49,12 +49,21 @@ a:hover {
   color: var(--off-dark);
 }
 
+.actions__wrapper {
+  position: relative;
+  /* float: right; */
+}
+
 .bold-caption {
   font-weight: 600;
 }
 
+.actions__wrapper .bg__opaque {
+  padding: 5px;
+}
+
 .bg__opaque {
-  background: rgba(236, 216, 98, 0.5);
+  background: rgba(236, 216, 98, 0.15);
 }
 
 .main-content {

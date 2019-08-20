@@ -8,12 +8,12 @@ export default Controller.extend({
   help: 'If you want to add multiple contacts, click on Add more to add new fields ',
   isSaving: false,
   saveCompleted: false,
+  didAddContact: false,
   // ContactValidation,
 
   actions: {
     perform() {
       // this.transitionToRoute('contact.new');
-      // console.log('we want to save the contacts');
       set(this, 'isSaving', true);
       get(this, 'contacts').map((contact) => {
         // set the company for the contact
@@ -51,6 +51,13 @@ export default Controller.extend({
         ContactValidation, { skipValidation: false});
       changeset.validate();
       get(this, 'contacts').pushObject(changeset);
+
+      // show the option to delete contact form
+      if (this.contacts.length > 0) {
+        set(this, 'didAddContact', true);
+      } else {
+        set(this, 'didAddContact', true);
+      }
     },
 
     deleteContactForm(contact) {

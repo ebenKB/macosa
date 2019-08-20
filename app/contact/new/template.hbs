@@ -12,15 +12,16 @@
     <div class="m-t-20 m-b-20">
       <NewContact
         @model={{model}}
-        @number={{index}}
+        @number={{index-to-number index}}
         @changesetObj={{contact}}
         @perform={{action "deleteContactForm" contact}}
         @titles={{titles}}
+        @didAddContact={{didAddContact}}
       />
     </div>
   {{/each}}
   <div {{action "newContactForm"}}>
-    {{svg-jar "plus" width="14px" height="14px"}} Add new contact
+    {{svg-jar "add-button-inside-black-circle" width="14px" height="14px"}} Add new contact
   </div>
   </McForm>
 </Layout>

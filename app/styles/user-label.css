@@ -9,6 +9,11 @@
   color: #FFFFFF !important;
 }
 
+.user-label__wrapper {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .user-label__wrapper h2 {
   color: var(--black);
 }
