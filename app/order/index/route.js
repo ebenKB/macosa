@@ -5,6 +5,15 @@ export default Route.extend({
   queryParams: {
     user_id: {
       refreshModel: true
+    },
+    company_id: {
+      refreshModel: true,
+    },
+    account_manager_id: {
+      refreshModel: true,
+    },
+    currency_id: {
+      refreshModel: true,
     }
   },
   model(params) {

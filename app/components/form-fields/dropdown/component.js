@@ -14,6 +14,7 @@ export default Component.extend({
   property: null,
   changeset: null,
   dataValue: null,
+  isLoading: false,
   placeholder: 'Select an option',
   key: 'name',
 });

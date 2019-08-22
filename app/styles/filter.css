@@ -1,0 +1,16 @@
+.filter-title {
+  color: var(--blue);
+}
+
+.filter ul {
+  list-style: none;
+  padding-inline-start: 10px;
+}
+
+.filter ul li {
+  padding: 10px 0 10px 10px;
+}
+
+.filter ul li:hover {
+  background: var(--off-dark__light);
+}

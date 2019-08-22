@@ -12,6 +12,7 @@
 @import 'company-list-view.css';
 @import 'embedded-form-wrapper.css';
 @import 'popup.css';
+@import 'filter.css';
 
 /* include custom fonts */
 @font-face {
@@ -137,6 +138,10 @@ a:hover {
 
 .caption__small {
   font-size: 0.85rem;
+}
+
+.inline-wrapper div {
+  display: inline;
 }
 
 @media only screen and (max-width: 768px) {

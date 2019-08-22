@@ -9,7 +9,6 @@ export default Component.extend({
   default: 'USD',
   actions: {
     validate() {
-      console.log('validating...');
       get(this, 'didValidate')();
     }
   },

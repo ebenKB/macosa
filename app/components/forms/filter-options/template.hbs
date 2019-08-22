@@ -1,12 +1,36 @@
-<div>
+<div class="inline-wrapper" role="button" {{action "didClick" type}}>
   <div class="ui mc-popup  button" data-content="" data-position="top center">
-    {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }}
-    <span class="m-l-5" role="button" {{action "initPopUp" model}}>Add new</span>
+    <span class="m-l-5 filter-title" role="button" > {{title}} </span>
   </div>
   <div class="ui popup"> 
-    <h3 class="faint">{{title}}</h3>
-    <div class="inline field">
-      options here
+    {{!-- <h3 class="faint ui active loader"></h3> --}}
+    <span class={{concat (if isLoading "ui active loader ") "faint"}}></span>
+    <div class="inline field filter">
+      <ul style="list-style: none">
+        {{#each options as |op|}}
+          <li role="button" {{action "didSelectItem" op type }}>{{get op key}} </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </div>
+
+
+{{!-- <div class="ui loading dropdown">
+  Dropdown
+  Dropdown <i class="icon"></i>
+  <div class="menu">
+    <div class="item">Choice 1</div>
+    <div class="item">Choice 2</div>
+    <div class="item">Choice 3</div>
+  </div>
+</div> --}}
+
+{{!-- <div class="filter" role="button" {{action "didClick"}}>
+  <FormFields::Dropdown
+    @options={{options}}
+    @default={{default}}
+    @key={{key}}
+    @isLoading={{isLoading}}
+  />
+</div> --}}

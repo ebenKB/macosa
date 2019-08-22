@@ -1,3 +1,4 @@
+{{outlet}}
 <Layout 
     @aside={{help}}
     @heading={{orders}}
@@ -7,16 +8,57 @@
     @role="Add order"
     @hasAction={{true}}
     @actionName={{title}}
-    @perform={{action "perform" }}>
-
-    <span>Found {{model.length}} order(s)</span>
+    @perform={{action "perform" }}
+  >
+  <div class="inline-wrapper">Showing all orders
+      created by
+    <Forms::FilterOptions
+      @didClick={{action "didInit" }}
+      @didSelectItem={{action "didSelectItem"}}
+      @title={{userTitle}}
+      @options={{users}}
+      @type="user"
+      @key="fullname"
+      @isLoading={{isLoading}}
+    />
+      for
+    <Forms::FilterOptions
+      @didClick={{action "didInit"}}
+      @didSelectItem={{action "didSelectItem"}}
+      @title={{companyTitle}}
+      @type="company"
+      @options={{companies}}
+      @key="name"
+      @isLoading={{isLoading}}
+    />
+      managed by
+    <Forms::FilterOptions
+      @didClick={{action "didInit"}}
+      @didSelectItem={{action "didSelectItem"}}
+      @type="account_manager"
+      @key="full_name"
+      @options={{managers}}
+      @title={{managerTitle}}
+      @isLoading={{isLoading}}
+    />
+    in
+    <Forms::FilterOptions
+      @didClick={{action "didInit"}}
+      @didSelectItem={{action "didSelectItem"}}
+      @type="currency"
+      @key="name"
+      @options={{currencies}}
+      @title={{currencyTitle}}
+      @isLoading={{isLoading}}
+    />
+  </div>
+  <div class="mc-divider m-b-15"></div>
+  {{#each model as |order| }}
+    <OrderCard
+      @order={{order}}
+    />
     <div class="mc-divider m-b-15"></div>
-    {{#each model as |order| }}
-      <OrderCard
-        @order={{order}}
-      />
-      <div class="mc-divider m-b-15"></div>
-    {{/each}}
+  {{/each}}
   </McWrapper>
 </Layout>
 
