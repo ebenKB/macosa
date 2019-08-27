@@ -68,7 +68,11 @@
   width: 100%;
 }
 
-.mc__form .ui.grid {
+.mc-form .ui.grid {
   display: grid;
   padding: 40px 0 40px 80px;
 }
+
+.mc-form__header .grid-center {
+  align-items: center
+} 

@@ -6,7 +6,7 @@ export default Route.extend({
     user_id: {
       refreshModel: true
     },
-    company_id: {
+    customer_id: {
       refreshModel: true,
     },
     account_manager_id: {

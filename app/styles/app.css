@@ -13,6 +13,8 @@
 @import 'embedded-form-wrapper.css';
 @import 'popup.css';
 @import 'filter.css';
+@import 'order-card.css';
+@import 'order.css';
 
 /* include custom fonts */
 @font-face {

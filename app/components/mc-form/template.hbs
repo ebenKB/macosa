@@ -1,7 +1,7 @@
-<div class="mc__form">
+<div class="mc-form">
   <div class="mc-form__header">
     <div class="header-caption ui form">
-      <h3>{{heading}} </h3>
+      <h3>{{heading}}</h3>
     </div>
   </div>
   <div class="mc-form__body">
@@ -15,12 +15,12 @@
         <FormFields::Submit
           @classess="ui large default fluid submit button"
           @title="Cancel"
-          @perform={{action "decline"}} 
+          @perform={{action "decline"}}
         />
       </div>
       <div class="inline">
         <FormFields::Submit
-          @classess="ui large green fluid submit button {{if isSaving "loading" "disabled"}} "
+          @classess="ui large green fluid submit button {{if isSaving "loading disabled" }}"
           @title={{role}}
           @perform={{action "perform" }}
         />

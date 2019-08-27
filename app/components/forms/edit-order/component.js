@@ -2,9 +2,16 @@ import Component from '@ember/component';
 import { get } from '@ember/object';
 
 export default Component.extend({
+  changesetObj: null,
   actions: {
-    editItem() {
-      get(this, 'didSelect')();
+    editOrder() {
+
+    },
+    cancel() {
+      get(this, 'cancel')();
+    },
+    validate() {
+
     }
   }
 });

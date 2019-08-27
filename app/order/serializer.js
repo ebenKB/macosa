@@ -10,7 +10,7 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
       serialize: 'ids',
       deserialize: 'ids'
     },
-    business_unit_orders_attributes: { serialize: 'records', deserialize: 'ids' },
+    business_unit_orders_attributes: { serialize: 'records', deserialize: 'records' },
     manufacturer_orders_attributes: { serialize: 'records', deserialize: 'ids' }
   }
 });

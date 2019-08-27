@@ -44,6 +44,7 @@ Router.map(function() {
     }, function() {
       this.route('new');
       this.route('show', { path: '/:id'});
+      this.route('edit', { path: '/:id/edit'});
     });
 
     this.route('customer', {resetNamespace: true },function() {
@@ -65,6 +66,9 @@ Router.map(function() {
   // });
   this.route('business-unit-order', { path: '/unit-orders' }, function() {});
 
+  // this.route('order', function() {
+  //   this.route('edit');
+  // });
 });
 
 export default Router;

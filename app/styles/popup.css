@@ -17,3 +17,11 @@
   top: 30%;
   left: 66%;
 } */
+
+.ui.popup.custom {
+  background: rgb(237, 244, 247)
+}
+
+.ui.top.popup.custom:before {
+  background: rgb(237, 244, 247)
+}

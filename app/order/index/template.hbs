@@ -1,4 +1,16 @@
-{{outlet}}
+{{#if canShowOrder }}
+  {{#with (changeset selectedOrder OrderValidations ) as |changesetObj|}} 
+    <div class="edit-form__wrapper">
+      <Forms::EditOrder
+        @changesetObj={{changesetObj}}
+        @cancel={{action "cancelEdit"}}
+        @managers={{managers}}
+        @customers={{customers}}
+        @order={{selectedOrder}}
+      />
+    </div>
+  {{/with}}
+{{/if}}
 <Layout 
     @aside={{help}}
     @heading={{orders}}
@@ -10,6 +22,14 @@
     @actionName={{title}}
     @perform={{action "perform" }}
   >
+  <div class="text-right">
+    <div class="m-b-15">
+      <Forms::Sort
+        @options={{sortOptions}}
+        @perform={{action "sortItem"}}
+      />
+    </div>
+  </div>
   <div class="inline-wrapper">Showing all orders
       created by
     <Forms::FilterOptions
@@ -25,9 +45,9 @@
     <Forms::FilterOptions
       @didClick={{action "didInit"}}
       @didSelectItem={{action "didSelectItem"}}
-      @title={{companyTitle}}
-      @type="company"
-      @options={{companies}}
+      @title={{customerTitle}}
+      @type="customer"
+      @options={{customers}}
       @key="name"
       @isLoading={{isLoading}}
     />
@@ -56,6 +76,7 @@
   {{#each model as |order| }}
     <OrderCard
       @order={{order}}
+      @didSelect={{action "didSelectOrder" order}}
     />
     <div class="mc-divider m-b-15"></div>
   {{/each}}

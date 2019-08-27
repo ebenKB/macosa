@@ -1,23 +1,29 @@
 import Controller from '@ember/controller';
 import { get, set } from '@ember/object';
+import OrderValidations from 'macosa/validations/order';
 
 export default Controller.extend({
-  queryParams: ['user_id', 'company_id', 'account_manager_id', 'currency_id'],
+  OrderValidations,
+  // queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
+  queryParams: ['page'],
+  page: 12,
   userTitle: 'all users',
-  companyTitle: 'all comapnies',
+  customerTitle: 'all comapnies',
   managerTitle: 'all managers',
   currencyTitle: 'all currencies',
   isLoading: false,
   users: null,
-  companies: null,
+  customers: null,
   managers: null,
   currencies: null,
   help: 'Showing all orders for Apotica Company Limited.',
   title: 'Add new order',
   user_id: null,
   account_manager_id: null,
-  company_id: null,
+  customer_id: null,
   currency_id: null,
+  selectedorder: null,
+  ifCanShowOrder: false,
 
   actions: {
     perform(){
@@ -28,9 +34,9 @@ export default Controller.extend({
       if (type === 'user') {
         set(this, 'user_id', item.id);
         set(this, 'userTitle', item.fullname);
-      } else if (type === 'company') {
-        set(this, 'company_id', item.id);
-        set(this, 'companyTitle', item.name);
+      } else if (type === 'customer') {
+        set(this, 'customer_id', item.id);
+        set(this, 'customerTitle', item.name);
       } else if (type === 'account_manager') {
         set(this, 'account_manager_id', item.id);
         set(this, 'managerTitle', item.full_name);
@@ -49,15 +55,12 @@ export default Controller.extend({
             set(this, 'users', data);
             set(this, 'isLoading', false);
           });
-      } else if (type === 'company' && this.companies === null) {
-        // load company records
+      } else if (type === 'customer') {
+        // load customer records
         set(this, 'isLoading', true);
-        get(this, 'store').findAll('company')
-          .then((data) => {
-            set(this, 'companies', data);
-            set(this, 'isLoading', false);
-          });
-      } else if (type === 'account_manager' && this.managers === null) {
+        this.getCustomers()
+          .then(() => set(this, 'isLoading', false));
+      } else if (type === 'account_manager') {
         // load account managers
         set(this, 'isLoading', true);
         get(this, 'store').findAll('account-manager')
@@ -75,5 +78,58 @@ export default Controller.extend({
           });
       }
     },
+    sortItem(key) {
+      console.log('we want to sort item by key:', key);
+    },
+
+    didSelectOrder(order) {
+      set(this, 'selectedOrder', order);
+      set(this, 'canShowOrder', true);
+      this.getManagers();
+      this.getCustomers();
+    },
+    cancelEdit() {
+      set(this, 'canShowOrder', false);
+    }
+  },
+  init() {
+    this._super();
+    set(this, 'sortOptions', [
+      {
+        name: 'Newest to Oldest',
+        key: 1
+      },
+      {
+        name: 'Oldest to Newest',
+        key: -1,
+      }
+    ]);
+  },
+
+  getManagers(){
+    return new Promise((resolve, reject) => {
+      if (this.managers === null) {
+        get(this, 'store').findAll('account-manager')
+          .then((data) => {
+            set(this, 'managers', data);
+            set(this, 'isLoading', false);
+            resolve(true);
+          })
+          .catch((err) => reject(err));
+      } else resolve(true);
+    });
+  },
+  getCustomers() {
+    return new Promise((resolve, reject) => {
+      if (this.customers === null) {
+        get(this, 'store').findAll('customer')
+          .then((data) => {
+            set(this, 'customers', data);
+            set(this, 'isLoading', false);
+            resolve(true);
+          })
+          .catch((err) => reject(err));
+      } else resolve(true);
+    });
   }
 });

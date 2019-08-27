@@ -1,0 +1,7 @@
+.order-item .action {
+  display: none;
+}
+
+.order-item:hover .action {
+  display: block;
+}

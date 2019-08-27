@@ -1,0 +1,17 @@
+<div class="inline-wrapper">
+  <div class="ui mc-popup custom  button" data-content="" data-position="top center">
+    <span class="m-l-5 filter-title" role="button" >
+      <span>{{svg-jar "sort-by-alphabet" width="18px" height="18px"}} </span>
+    </span>
+  </div>
+  <div class="ui popup custom"> 
+    <span class={{concat (if isLoading "ui active loader ") "faint"}}></span>
+    <div class="inline field filter">
+      <ul class="text-left">
+        {{#each options as |op|}}
+          <li role="button" {{action "didSelectItem" op.key}}>{{op.name}} </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

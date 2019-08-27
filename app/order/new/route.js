@@ -12,7 +12,7 @@ export default Route.extend({
       currencies: get(this, 'store').findAll('currency'),
       order: get(this, 'store').createRecord('order', {
         order_no: '',
-        order_date: new Date(),
+        date: new Date(),
         description: '',
         amount: 0,
         profit: 0,

@@ -1,11 +1,15 @@
-.mc__form {
+.mc-form {
   width: 65%;
   border-radius: 5px;
   margin: auto;
   box-shadow: 0 1px 3px 0 #bfbfbf;
 }
 
-.mc__form .action {
+.edit-form .mc-form {
+  background: var(--white);
+}
+
+.mc-form .action {
   fill: green;
 }
 
@@ -32,28 +36,28 @@
 }
 
 /* override semantic ui button size  */
-.mc__form .ui.fluid.button {
+.mc-form .ui.fluid.button {
   width: auto;
 }
 
-.mc__form .button-group.inline.fields {
+.mc-form .button-group.inline.fields {
   margin: 0 0 0 60%;
   display: inline-flex;
   padding: 20px;
 }
 
-.mc__form .ui.form .field {
+.mc-form .ui.form .field {
   display: grid;
   grid-template-columns: 170px 1fr;
   align-items: center;
 }
 
-.mc__form .ui.form .embedded-form__wrapper .field {
+.mc-form .ui.form .embedded-form__wrapper .field {
   grid-template-columns: 1fr 1fr;
 }
 
 /* override text input size for semantic ui */
-.mc__form .ui.form input[type="text"] {
+.mc-form .ui.form input[type="text"] {
   padding: 1rem;
 }
 
@@ -63,4 +67,8 @@
 
 .mc-form__roles div {
   padding: 2.5px 0;
+}
+
+.mc-form__header h3 {
+  margin: 0;
 }

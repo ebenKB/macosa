@@ -3,8 +3,8 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   actions: {
-    editItem() {
-      get(this, 'didSelect')();
+    didSelectItem(key) {
+      get(this, 'perform')(key);
     }
   }
 });

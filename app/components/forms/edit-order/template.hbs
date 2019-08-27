@@ -1,0 +1,95 @@
+{{yield}}
+<div class="ui container edit-form p-t-80 p-b-80">
+  <McForm
+  @heading="Edit an existing order"
+  @role="Edit order"
+  @didPerform={{action "editOrder"}}
+  @didDecline={{action "cancel"}}
+  @isSaving={{isSaving}}>
+    <div class="mc-divider">Order Details</div>
+    <div class="form-group">
+      <div class="inline field">
+        <label for="company name">Order Date 
+          <span class="required m-l-5" >*</span>
+        </label>
+        <FormFields::Datepicker
+          @changeset={{changesetObj}}
+          @property="date"
+          @classNames="figures"
+        />
+      </div>
+      <div class="ui right labeled input inline field">
+        <label for="company name">Order Amount
+          <span class="required m-l-5" >*</span> 
+        </label>
+        <FormFields::Amount
+          @placeholder="Amount"
+          @amntChangeset={{changesetObj}}
+          @property="amount"
+          @classNames=""
+          @didValidate={{action "validate" changesetObj}}
+          @generalChangeset={{changesetObj}}
+          {{!-- @options={{model.currencies}} --}}
+        />
+      </div>
+      <div class="ui right labeled input inline field">
+        <label for="company name">Profit 
+          <span class="required m-l-5" >*</span> 
+        </label>
+        <FormFields::Amount
+          @placeholder="Amount"
+          @amntChangeset={{changesetObj}}
+          @generalChangeset={{changesetObj}}
+          @property="profit"
+          @classNames=""
+          @didValidate={{action "validate" changesetObj}}
+          @options={{model.currencies}}
+        />
+      </div>
+      <div class="inline field">
+        <label for="Compnany Type">Customer
+          <span class="required m-l-5">*</span>
+        </label>
+        <FormFields::Dropdown 
+          @options={{customers}}
+          @changeset={{changesetObj}}
+          @property="customer_id"
+          @key="name"
+          @classNames="text-right"
+          @default={{order.customer_id.name}}
+        />
+      </div> 
+      <div class="inline field">
+        <label for="Compnany Type">Account Manager
+          <span class="required m-l-5">*</span>
+        </label>
+        <FormFields::Dropdown 
+          @options={{managers}}
+          @changeset={{changesetObj}}
+          @property="account_manager_id"
+          @classNames="text-right"
+          @key="full_name"
+          @default={{order.account_manager_id.full_name}}
+        />
+      </div> 
+    </div>
+    <div class="mc-divider">Oder description <span class="faint" >( what is the order about? )</span> </div>
+    <div class="form-group">
+      <div class="">
+        <FormFields::Textarea
+          @columns=""
+          @rows={{5}}
+          @property="description"
+          @changeset={{changesetObj}}
+          @placeholder="Enter the description"
+        />
+      </div>
+    </div> 
+    business unit orders
+    {{#each order.business_unit_orders as |b_unit|}}
+    unit
+      {{b_unit.amount}}
+      {{b_unit.business_unit_id.name}}
+    {{/each}}
+  </McForm>
+</div>

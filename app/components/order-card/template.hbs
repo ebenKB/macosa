@@ -3,36 +3,44 @@
     <div class="ui circular labels">
       <span class="ui yellow label">{{user.initials}} $</span>
     </div>
-    <div class="">
-      <div class="caption inline">
-        <p> 
-          {{#link-to "order"}}
-            $ <h2>{{order.amount}}</h2>
-          {{/link-to}}
-          <span>
-            <span>worth order from </span>
-            {{#link-to 'user'}}
-              {{order.customer_id.name}}
+    <div class="order-item grid columns-15__1">
+      <div>
+        <div class="caption inline">
+          <p> 
+            {{#link-to "order"}}
+              $ <h2>{{order.amount}}</h2>
             {{/link-to}}
-            created by 
-            <LinkTo @route="user">
-              {{order.user_id.fullname}}
-            </LinkTo>
+            <span>
+              <span>worth order from </span>
+              {{#link-to 'user'}}
+                {{order.customer_id.name}}
+              {{/link-to}}
+              created by 
+              <LinkTo @route="user">
+                {{order.user_id.fullname}}
+              </LinkTo>
+            </span>
+          </p> 
+        </div>
+        <div class="m-b-10"> 
+          <span class="">
+            {{#link-to 'user'}}
+              {{order.account_manager_id.full_name}}
+            {{/link-to}}
+            is the manager in charge of the order
           </span>
-        </p> 
+          and our margin is $ {{order.profit}}.
+        </div>
+        <p class="caption__small">
+          {{order.summary}}
+        </p>
       </div>
-      <div class="m-b-10"> 
-        <span class="">
-          {{#link-to 'user'}}
-            {{order.account_manager_id.full_name}}
-          {{/link-to}}
-          is the manager in charge of the order
-        </span>
-        and our margin is $ {{order.profit}}.
+      <div class="action" role="button" {{action "editItem"}}>
+        {{svg-jar "edit" width="18px" height="18px"}}
+        {{!-- <LinkTo @route="order.edit" @model={{order.id}}>
+          {{svg-jar "edit" width="18px" height="18px"}}
+        </LinkTo> --}}
       </div>
-      <p class="caption__small">
-        {{order.summary}}
-      </p>
     </div>
   </div>
 </div>

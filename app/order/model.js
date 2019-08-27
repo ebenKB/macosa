@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   order_no: DS.attr('number'),
-  order_date: DS.attr('mydate'),
+  date: DS.attr('mydate'),
   description: DS.attr('string'),
   amount: DS.attr('number'),
   profit: DS.attr('number'),
