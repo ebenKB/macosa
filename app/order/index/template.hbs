@@ -80,8 +80,10 @@
     />
     <div class="mc-divider m-b-15"></div>
   {{/each}}
-    <button classs="ui button default" onclick={{action "previous"}}>Previous</button>
-    <button classs="ui button primary" onclick={{action "next"}}>Next</button>
+    <div class="text-right">
+      <button class="ui button default" onclick={{action "previous"}}>Previous</button>
+      <button class="ui button blue" onclick={{action "next"}}>Next</button>
+    </div>
   </McWrapper>
 </Layout>
 

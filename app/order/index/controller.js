@@ -32,12 +32,12 @@ export default Controller.extend({
 
     next() {
       set(this, 'page', (get(this, 'page') + 1));
-      console.log(get(this, 'page'));
     },
 
     previous() {
-      set(this, 'page', (get(this, 'page') - 1));
-      console.log(get(this, 'page'));
+      if (get(this, 'page') > 1) {
+        set(this, 'page', (get(this, 'page') - 1));
+      }
     },
     didSelectItem(item, type) {
       if (type === 'user') {
