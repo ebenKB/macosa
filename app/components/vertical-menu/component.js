@@ -47,11 +47,11 @@ export default Component.extend({
             },
             {
               name: 'Business unit orders',
-              link: 'order.new',
+              link: 'business-unit-order',
             },
             {
               name: 'Manufacturer orders',
-              link: 'order.new',
+              link: 'manufacturer-order',
             }
           ]
         },

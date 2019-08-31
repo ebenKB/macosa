@@ -6,7 +6,7 @@ export default Controller.extend({
   OrderValidations,
   // queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
   queryParams: ['page'],
-  page: 12,
+  page: 1,
   userTitle: 'all users',
   customerTitle: 'all comapnies',
   managerTitle: 'all managers',
@@ -30,6 +30,15 @@ export default Controller.extend({
       this.transitionToRoute('order.new');
     },
 
+    next() {
+      set(this, 'page', (get(this, 'page') + 1));
+      console.log(get(this, 'page'));
+    },
+
+    previous() {
+      set(this, 'page', (get(this, 'page') - 1));
+      console.log(get(this, 'page'));
+    },
     didSelectItem(item, type) {
       if (type === 'user') {
         set(this, 'user_id', item.id);

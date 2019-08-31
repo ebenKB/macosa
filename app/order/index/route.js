@@ -14,6 +14,9 @@ export default Route.extend({
     },
     currency_id: {
       refreshModel: true,
+    },
+    page: {
+      refreshModel: true,
     }
   },
   model(params) {

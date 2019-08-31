@@ -13,6 +13,7 @@ export default DS.Model.extend({
   currency_id: DS.belongsTo('currency'),
   business_unit_orders_attributes: DS.hasMany('business-unit-order', { async: false}),
   manufacturer_orders_attributes: DS.hasMany('manufacturer-order', { async: false}),
+
   summary: computed('description', function() {
     return `${this.description.split(' ').splice(0, 40).join(' ')}`;
   })
