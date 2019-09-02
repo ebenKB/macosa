@@ -55,6 +55,9 @@ export default Controller.extend({
       }
     },
 
+    didDelete() {
+      
+    },
     didInit(type) {
       // load user records
       if (type === 'user' && this.users === null) {

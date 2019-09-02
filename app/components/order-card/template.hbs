@@ -43,7 +43,7 @@
         <span class="success m-b-10" role="button" {{action "editItem"}}>
           {{svg-jar "edit" width="18px" height="18px"}}
         </span>
-        <span class="danger">
+        <span class="danger" role="button" onclick={{action "didDelete"}}>
           {{svg-jar "trash" class="danger" width="18px" height="18px"}}
         </span>
         {{!-- <LinkTo @route="order.edit" @model={{order.id}}>

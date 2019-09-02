@@ -5,6 +5,9 @@ export default Component.extend({
   actions: {
     editItem() {
       get(this, 'didSelect')();
+    },
+    didDelete() {
+      get(this, 'didDelete')();
     }
   }
 });
