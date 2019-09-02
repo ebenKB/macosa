@@ -24,6 +24,7 @@ export default Controller.extend({
   currency_id: null,
   selectedorder: null,
   ifCanShowOrder: false,
+  didDelete: false,
 
   actions: {
     perform(){
@@ -56,7 +57,7 @@ export default Controller.extend({
     },
 
     didDelete() {
-      
+
     },
     didInit(type) {
       // load user records
