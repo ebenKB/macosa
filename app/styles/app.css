@@ -15,6 +15,7 @@
 @import 'filter.css';
 @import 'order-card.css';
 @import 'order.css';
+@import 'mc-modal.css';
 
 /* include custom fonts */
 @font-face {

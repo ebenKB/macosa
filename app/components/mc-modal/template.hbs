@@ -1,0 +1,14 @@
+{{#if canShowModal}}
+  <div class="mc-modal__wrapper">
+    <div class="mc-modal">
+      <div class="caption">
+        {{svg-jar "warning" width="35px" height="35px"}}
+        <h3> {{message}} </h3>
+      </div>
+      <div class="actions m-t-50">
+        <button onclick={{action "decline"}} class="ui default button">Cancel</button>
+        <button onclick={{action "perform"}} class="ui green button">Continue</button>
+      </div>
+    </div>
+  </div>
+{{/if}}
