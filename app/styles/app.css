@@ -1,6 +1,7 @@
 @import 'grid.css';
 @import '_variables.css';
 @import 'util.css';
+@import 'animations.css';
 @import 'vertical-menu.css';
 @import 'vmenu-semantic-ui__override.css';
 @import 'semantic-ui__override.css';

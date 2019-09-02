@@ -24,6 +24,7 @@ export default Controller.extend({
   currency_id: null,
   selectedorder: null,
   ifCanShowOrder: false,
+  didDelete: false,
 
   actions: {
     perform(){

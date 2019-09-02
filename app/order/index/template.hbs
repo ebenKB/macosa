@@ -11,7 +11,9 @@
     </div>
   {{/with}}
 {{/if}}
-{{!-- <McModal /> --}}
+{{#if didDelete}}
+  <McModal />
+{{/if}}
 <Layout 
     @aside={{help}}
     @heading={{orders}}
