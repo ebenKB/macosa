@@ -9,10 +9,12 @@ export default Service.extend({
   store: service(),
 
   load() {
+    console.log('we are in the load');
     // const owner_id = localStorage.getItem('owner_id');
     const { owner } = get(this, 'session');
     if (owner != null && owner != 'undefined') {
-      return set(this, 'owner', owner.id);
+      set(this, 'owner', owner.id);
+      return owner;
     } else {
       return RSVP.resolve();
     }

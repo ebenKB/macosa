@@ -44,7 +44,7 @@ body {
   padding-right: 10px;
 }
 
-a.danger, .danger, .required {
+a.danger, .danger, .required, .svg.danger {
   color: var(--red);
 }
 

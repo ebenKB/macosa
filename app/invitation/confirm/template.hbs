@@ -79,7 +79,7 @@
           </div>
           <FormFields::Submit
             @title="OK, Let's go"
-            @classess="ui large green fluid button {{if isSaving "loading"}}"
+            @classess="ui large green fluid button {{if isSaving "loading disabled"}}"
             @perform={{action "createNewUser" changeset}}
           />
         {{/with}}

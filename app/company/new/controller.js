@@ -27,7 +27,7 @@ export default Controller.extend({
     validate(changeset) {
       // changeset.validate();
       // console.log('you want to validate');
-      console.log(changeset);
+      // console.log(changeset);
     },
 
     cancel(changeset) {
@@ -37,20 +37,24 @@ export default Controller.extend({
 
     async createNewCompany(changeset) {
       const type = await get(this, 'store').peekRecord('type', get(changeset, 'type_id'));
-      console.log('this is the type the we found', type);
-
       set(changeset, 'type_id', type);
 
       if (changeset.get('isValid')) {
-        set(changeset, 'owner_id', get(this, 'appOwner').owner);
+        const owner = get(this.appOwner.load(), '_id');
+        set(changeset, 'owner_id', owner);
         set(this, 'isSaving', true);
         changeset.save()
           .then(() => {
             set(this, 'isSaving', false);
-            // set(this, 'model.name', '');
+            const msg = 'Success! You added a new company';
+            this.get('notifications').showSuccess(msg);
             this.transitionToRoute('/');
           })
-          .catch(() => set(this, 'isSaving', false));
+          .catch(() => {
+            const msg = 'Error! An error occurred while creating the company';
+            this.get('notifications').showError(msg);
+            set(this, 'isSaving', false);
+          });
       }
     }
   }

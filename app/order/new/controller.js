@@ -17,13 +17,18 @@ export default Controller.extend({
     async createNewOrder(changeset) {
       set(this, 'isSaving', true);
       // set records for manager
-      const manager = this.store.peekRecord('account_manager',
-        get(changeset, 'account_manager_id'));
-      set(changeset,'account_manager_id', manager);
+      console.log('this is the id', this.account_manager_id);
+      if (get(changeset, 'account_manager_id')) {
+        const manager = this.store.peekRecord('account_manager',
+          get(changeset, 'account_manager_id'));
+        set(changeset,'account_manager_id', manager);
+      }
 
       // set records customer
-      const customer = this.store.peekRecord('customer', get(changeset, 'customer_id'));
-      set(changeset, 'customer_id', customer);
+      if (get(changeset, 'customer_id')) {
+        const customer = this.store.peekRecord('customer', get(changeset, 'customer_id'));
+        set(changeset, 'customer_id', customer);
+      }
 
       // set records for currency. If no currency is selected, set the currency to the default i.e USD
       if (typeof(changeset) == 'object') {
@@ -50,7 +55,7 @@ export default Controller.extend({
         .catch(() => {
           set(this, 'isSaving', false);
           this.get('notifications')
-            .showError('An error occurred while saving the oder. Please try again.');
+            .showError('An error occurred while creating the oder. Please try again.');
         });
     },
 

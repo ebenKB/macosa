@@ -14,7 +14,7 @@
     </div>
     <FormFields::Submit
       @title="Get recovery link"
-      @classess="ui large green fluid submit button {{if isAuthenticating "loading"}}"
+      @classess="ui large green fluid submit button {{if isAuthenticating "loading disabled"}}"
       @perform={{action "resetPassword"}}
     />
   </form>

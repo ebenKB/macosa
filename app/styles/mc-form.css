@@ -9,8 +9,12 @@
   background: var(--white);
 }
 
-.mc-form .action {
+.mc-form .action .success{
   fill: green;
+}
+
+.mc-form .action .danger {
+  fill: var(--red);
 }
 
 .mc-form__header {

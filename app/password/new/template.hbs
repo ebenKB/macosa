@@ -23,7 +23,7 @@
     </div>
     <FormFields::Submit
       @title="Reset password"
-      @classess="ui large green fluid submit button {{if isSaving "loading"}}"
+      @classess="ui large green fluid submit button {{if isSaving "loading disabled"}}"
       @perform={{action "updatePassword"}}
     />
   </form>

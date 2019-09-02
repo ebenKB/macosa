@@ -22,7 +22,7 @@ export default Component.extend({
             },
             {
               name: 'View Companies',
-              link: 'company',
+              link: 'company.index',
             },
             {
               name: 'Contacts',

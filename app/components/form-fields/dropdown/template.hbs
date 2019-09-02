@@ -1,4 +1,4 @@
-{{#ui-dropdown class=(concat (if isLoading "loading ") "selection") selected=default onChange=(action (mut (get changeset property))) placeholder=placeholder }}
+{{#ui-dropdown class=(concat (if isLoading "loading disabled") "selection") selected=default onChange=(action (mut (get changeset property))) placeholder=placeholder }}
   <div class="default text">{{default}}</div>
   <i class="dropdown icon"></i>
   <div class="menu">
