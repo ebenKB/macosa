@@ -9,10 +9,12 @@ export default Service.extend({
   store: service(),
 
   load() {
-    console.log('we are in the load');
+    console.log('in the load function');
     // const owner_id = localStorage.getItem('owner_id');
     const { owner } = get(this, 'session');
+    console.log('this is the owner that we loaded from the session', owner);
     if (owner != null && owner != 'undefined') {
+      console.log('this is the owner that we loaded from the session', owner);
       set(this, 'owner', owner.id);
       return owner;
     } else {

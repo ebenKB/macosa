@@ -1,15 +1,14 @@
 import Component from '@ember/component';
-import { set } from '@ember/object';
+import { get, set } from '@ember/object';
 
 export default Component.extend({
-  canShowModal: true,
+  canShowModal: false,
   message: 'Are you sure you want to continue ?',
   actions: {
     perform() {
-      console.log('you want to perform an action');
+      get(this, 'perform')();
     },
     decline() {
-      console.log('you want to decline the action');
       set(this, 'canShowModal',false);
     }
   }

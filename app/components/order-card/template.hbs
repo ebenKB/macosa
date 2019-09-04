@@ -35,20 +35,17 @@
           {{order.summary}}
         </p>
         <div class="caption__small">
-         <span class="m-r-10">{{svg-jar "choices" width="12px" height="12px"}} 5 business unit orders</span>
-         <span class="m-r-10">{{svg-jar "manufacturer" width="12px" height="12px"}} 5 manufacturer orders</span>
+         <span class="m-r-10">{{svg-jar "choices" width="12px" height="12px"}} {{order.business_unit_orders_attributes.length}} business unit order(s)</span>
+         <span class="m-r-10">{{svg-jar "manufacturer" width="12px" height="12px"}} {{order.manufacturer_orders_attributes.length}} manufacturer order(s)</span>
         </div>
       </div>
       <div class="action" >
-        <span class="success m-b-10" role="button" {{action "editItem"}}>
-          {{svg-jar "edit" width="18px" height="18px"}}
-        </span>
-        <span class="danger" role="button" onclick={{action "didDelete"}}>
+        <div class="success m-r-20" role="button" {{action "editItem"}}>
+          {{svg-jar "list" width="18px" height="18px"}}
+        </div>
+        <div class="danger" role="button" onclick={{action "didDelete"}}>
           {{svg-jar "trash" class="danger" width="18px" height="18px"}}
-        </span>
-        {{!-- <LinkTo @route="order.edit" @model={{order.id}}>
-          {{svg-jar "edit" width="18px" height="18px"}}
-        </LinkTo> --}}
+        </div>
       </div>
     </div>
   </div>

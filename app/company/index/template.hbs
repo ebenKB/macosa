@@ -1,12 +1,30 @@
+{{#if canShowModal}}
+  <McModal
+    @canShowModal={{ canShowModal }}
+    @perform={{action "confirmDelete"}}
+    @message="Are you sure you want to delete this company?"
+  />
+{{/if}}
 <Layout
   @aside={{help}}
 >
   <McWrapper
     @heading="Companies"
+    @role="Add order"
+    @hasAction={{true}}
+    @actionName={{title}}
+    @perform={{action "addCompany" }}
   >
   <CompanyListView 
     @recentCompanies={{model}}
     @allCompanies={{model}}
-  />
+  >
+  {{#each model as |company|}}
+    <CompanyListViewItem
+      @company={{company}}
+      @delete={{action "didDelete" company}}
+    />
+  {{/each}}
+  </CompanyListView>
   </McWrapper>
 </Layout>

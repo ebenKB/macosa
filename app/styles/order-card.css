@@ -1,7 +1,8 @@
 .order-item .action {
-  display: none;
+  display: inline-flex;
+  visibility: hidden;
 }
 
 .order-item:hover .action {
-  display: block;
+  visibility: visible;
 }

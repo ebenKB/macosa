@@ -7,17 +7,21 @@
 }
 
 .mc-modal {
-  height: 40vh;
+  height: 300px;
   position: fixed;
   z-index: 99;
   text-align: center;
-  margin: 5% 25%;
-  width: 50%;
+  margin: 5% 35%;
+  width: 30%;
   background: #f4f9fa;
   border-radius: 5px;
   animation: dropdown 0.3s ease-in-out 0s 1 forwards normal;
 }
 
 .mc-modal .caption {
-  padding: 80px 20px 20px 20px
+  padding: 50px 20px 20px 20px
+}
+
+.mc-modal.hide {
+
 }

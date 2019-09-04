@@ -40,15 +40,18 @@ export default Controller.extend({
       set(changeset, 'type_id', type);
 
       if (changeset.get('isValid')) {
-        const owner = get(this.appOwner.load(), '_id');
-        set(changeset, 'owner_id', owner);
+        // get the current owner of the app
+        // const owner = get(this.appOwner.load(), '_id');
+        // set(changeset, 'owner_id', owner);
         set(this, 'isSaving', true);
+
+        // persist the record to the databse
         changeset.save()
           .then(() => {
             set(this, 'isSaving', false);
             const msg = 'Success! You added a new company';
             this.get('notifications').showSuccess(msg);
-            this.transitionToRoute('/');
+            this.transitionToRoute('company.index');
           })
           .catch(() => {
             const msg = 'Error! An error occurred while creating the company';

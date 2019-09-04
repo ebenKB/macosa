@@ -1,6 +1,6 @@
 <div class="grid columns-14__2">
   <div class="input inline field">
-    {{#ui-dropdown class="selection" selected="USD" onChange=(action (mut (get changesetObj relatedBy ))) placeholder=placeholder}}
+    {{#ui-dropdown class="selection" selected=default onChange=(action (mut (get changesetObj relatedBy ))) placeholder=placeholder}}
       <div class="default text">{{heading}}</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -20,6 +20,7 @@
         @classNames=""
         @didValidate={{action "validate"}}
         @options={{currency}}
+        @default={{default}}
       />
     </div>
   </div>

@@ -11,6 +11,7 @@ export default Component.extend({
   changesetObj: null,
   amount: null,
   property: 'amount',
+  default: 'USD',
   placeholder: 'Select an item',
   key: '',
   options: '',

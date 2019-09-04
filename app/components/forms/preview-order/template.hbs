@@ -1,11 +1,15 @@
-{{yield}}
+<McModal
+  @canShowModal={{canShowModal}}
+  @message={{title}}
+  @perform={{action "confirmDelete"}}
+/>
 <div class="ui container edit-form p-t-80 p-b-80">
   <McForm
-  @heading="Edit an existing order"
-  @role="Edit order"
-  @didPerform={{action "editOrder"}}
+  @heading="Preview order"
+  @role=""
   @didDecline={{action "cancel"}}
-  @isSaving={{isSaving}}>
+  @isSaving={{isSaving}}
+  @canPerform={{false}}>
     <div class="mc-divider">Order Details</div>
     <div class="form-group">
       <div class="inline field">
@@ -29,7 +33,6 @@
           @classNames=""
           @didValidate={{action "validate" changesetObj}}
           @generalChangeset={{changesetObj}}
-          {{!-- @options={{model.currencies}} --}}
         />
       </div>
       <div class="ui right labeled input inline field">
@@ -85,14 +88,41 @@
         />
       </div>
     </div> 
-    business unit orders
-    {{#each order.business_unit_orders as |b_unit|}}
-    unit
-      {{b_unit.amount}}
-      {{b_unit.business_unit_id.name}}
-    {{/each}}
-    <div class="action m-t-40 m-b-40" role="button">
-      This order is no more needed. <span class="danger">Delete order</span>
+    <div class="m-b-20">This is order has {{order.business_unit_orders_attributes.length}} business unit order(s) and
+      {{order.manufacturer_orders_attributes.length}} manufacturer order(s)</div>
+    <div class="embedded-caption">
+    <div class="embedded-caption__header grid equal-columns__2 m-b-20">
+      <div><h5>Business unit</h5></div>
+      <div><h5>Amount</h5></div>
+    </div>
+    <div class="grid equal-columns__2">
+      {{#each order.business_unit_orders_attributes as |b_unit_order|}}
+        <div>{{b_unit_order.business_unit_id.name}} </div>
+        <div>{{b_unit_order.amount}}</div>
+      {{/each}}
+    </div>
+    </div>
+    <div class="embedded-caption m-t-20">
+      <div class="embedded-caption__header grid equal-columns__2 m-t-20 m-b-20">
+        <div><h5>Manufacturer</h5></div>
+        <div><h5>Amount</h5></div>
+      </div>
+      <div class="grid equal-columns__2">
+        {{#each order.manufacturer_orders_attributes as |m_order|}}
+          <div>{{m_order.manufacturer_id.name}}</div>
+          <div>{{m_order.amount}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="action m-t-40 m-b-40" role="button" {{action "deleteOrder"}}>
+      <span>
+        You can <span class="danger">Delete this order</span> or if you want to make changes,
+        <span class="success">
+          <LinkTo @route="order.edit" @model={{order.id}}>
+            Edit this order
+          </LinkTo>
+        </span>
+      </span>
     </div>
   </McForm>
 </div>

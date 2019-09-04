@@ -2,16 +2,11 @@ import Component from '@ember/component';
 import { get } from '@ember/object';
 
 export default Component.extend({
-  changesetObj: null,
+  company: null,
   actions: {
-    editOrder() {
-
-    },
-    cancel() {
-      get(this, 'cancel')();
-    },
-    validate() {
-
+    delete() {
+      console.log('this is the company');
+      get(this, 'delete')();
     }
   }
 });

@@ -50,6 +50,9 @@
   padding: 20px;
 }
 
+.mc-form .button-group.inline.fields.single{
+  margin: 0 0 0 80%;
+}
 .mc-form .ui.form .field {
   display: grid;
   grid-template-columns: 170px 1fr;

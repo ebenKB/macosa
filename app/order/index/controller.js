@@ -22,9 +22,10 @@ export default Controller.extend({
   account_manager_id: null,
   customer_id: null,
   currency_id: null,
-  selectedorder: null,
+  selectedOrder: null,
   ifCanShowOrder: false,
   didDelete: false,
+  b_units: null,
 
   actions: {
     perform(){
@@ -40,7 +41,14 @@ export default Controller.extend({
         set(this, 'page', (get(this, 'page') - 1));
       }
     },
-    didSelectItem(item, type) {
+    /**
+     *
+     * @param {*} item the item that the user has select
+     * @param {*} type the type of item that has been selected
+     * waits for a user to select an item and then sets the paramters(item, type)
+     */
+    didSelectItem(item, type) { // REVIEW THIS CODE FOR DEPRACTION
+      console.log('these are the params', item, type);
       if (type === 'user') {
         set(this, 'user_id', item.id);
         set(this, 'userTitle', item.fullname);
@@ -56,9 +64,22 @@ export default Controller.extend({
       }
     },
 
-    didDelete() {
-
+    // when a user clicks a delete button
+    didDelete(order) {
+      set(this, 'didDelete', true);
+      set(this, 'selectedOrder', order);
     },
+
+    // when a user confirms a delete action
+    confirmDelete(item) {
+      item.destroyRecord();
+    },
+
+    /**
+     * this function fetches records that is used to filter the query parameters for quering records from the api
+     * It takes the type of records the user wants to fetch and then makes the request to the api
+     * @param {*} type the type of item the user wants to fetch
+     */
     didInit(type) {
       // load user records
       if (type === 'user' && this.users === null) {
@@ -91,16 +112,23 @@ export default Controller.extend({
           });
       }
     },
+
     sortItem(key) {
       console.log('we want to sort item by key:', key);
     },
 
+    /**
+     *
+     * @param {*} order - the order that user has selected
+     * sets the order as the currently selected order
+     */
     didSelectOrder(order) {
       set(this, 'selectedOrder', order);
       set(this, 'canShowOrder', true);
       this.getManagers();
       this.getCustomers();
     },
+
     cancelEdit() {
       set(this, 'canShowOrder', false);
     }
@@ -119,6 +147,7 @@ export default Controller.extend({
     ]);
   },
 
+  // get all managers
   getManagers(){
     return new Promise((resolve, reject) => {
       if (this.managers === null) {
@@ -132,6 +161,7 @@ export default Controller.extend({
       } else resolve(true);
     });
   },
+  // get all customers
   getCustomers() {
     return new Promise((resolve, reject) => {
       if (this.customers === null) {

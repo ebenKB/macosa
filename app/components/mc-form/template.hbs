@@ -10,7 +10,7 @@
     </form>
   </div>
   <div class="mc-form__footer ">
-    <div class="button-group inline fields">
+    <div class="button-group inline fields {{unless canPerform "single"}}">
       <div class="inline" >
         <FormFields::Submit
           @classess="ui large default fluid submit button"
@@ -18,13 +18,15 @@
           @perform={{action "decline"}}
         />
       </div>
-      <div class="inline">
-        <FormFields::Submit
-          @classess="ui large green fluid submit button {{if isSaving "loading disabled" }}"
-          @title={{role}}
-          @perform={{action "perform" }}
-        />
-      </div>
+      {{#if canPerform}}
+        <div class="inline">
+          <FormFields::Submit
+            @classess="ui large green fluid submit button {{if isSaving "loading disabled"}}"
+            @title={{role}}
+            @perform={{action "perform" }}
+          />
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>
