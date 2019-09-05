@@ -4,6 +4,7 @@ import { get } from '@ember/object';
 
 export default Route.extend({
   model({id}) {
+    console.log('this is the id', id);
     let order = get(this, 'store').peekRecord('order', id);
 
     if (order == null) {

@@ -1,15 +1,19 @@
-<Layout>
+<Layout
+  @aside={{help}}
+>
   <McModal
     @canShowModal={{canShowModal}}
     @message={{title}}
   />
-  <div class="ui container edit-form p-t-80 p-b-80">
-    {{#with (changeset model.order OrderValidations ) as |changesetObj|}}
+  <div class="ui edit-form p-t-80 p-b-80">
+    {{#with (changeset model.order OrderValidations) as |changesetObj|}}
       <McForm
-      @heading="Edit an existing order"
-      @role="Edit order"
-      @didDecline={{action "cancel"}}
-      @isSaving={{isSaving}}>
+        @heading="Edit an existing order"
+        @role="Edit order"
+        @didDecline={{action "cancel"}}
+        @isSaving={{isSaving}}
+        @didPerform={{action "editOrder" changesetObj}}
+      >
         <div class="mc-divider">Order Details</div>
         <div class="form-group">
           <div class="inline field">
@@ -98,18 +102,20 @@
             @classNames="m-l-20"
             @hasContent={{hasContent}}>
             {{#each model.order.business_unit_orders_attributes as |b_unit_order|}}
-              <EmbeddedForm 
-                @currency={{model.currencies}}
-                @property="amount"
-                @relatedBy="business_unit_id"
-                @identifier="business_unit"
-                @changesetObj={{b_unit_order}}
-                @generalChangeset={{changesetObj}}
-                @validate={{action "validate" b_unit_order}}
-                @options={{model.b_units}}
-                @default={{b_unit_order.business_unit_id.name}}
-                @key="name"
-              />
+              {{!-- {{#with (changeset b_unit_order BusinessUnitOrder) as |bOrderChangeset|}} --}}
+                <EmbeddedForm 
+                  @currency={{model.currencies}}
+                  @property="amount"
+                  @relatedBy="business_unit_id"
+                  @identifier="business_unit"
+                  @changesetObj={{bOrderChangeset}}
+                  @generalChangeset={{changesetObj}}
+                  @validate={{action "validate" b_unit_order}}
+                  @options={{model.b_units}}
+                  @default={{b_unit_order.business_unit_id.name}}
+                  @key="name"
+                />
+              {{!-- {{/with}} --}}
             {{/each}}
           </EmbeddedFormWrapper>
         </div>
@@ -123,18 +129,20 @@
               @classNames="m-l-20"
               @hasContent={{hasContent}}>
               {{#each model.order.manufacturer_orders_attributes as |m_order|}}
-                <EmbeddedForm 
-                  @currency={{model.currencies}}
-                  @property="amount"
-                  @relatedBy="business_unit_id"
-                  @identifier="business_unit"
-                  @changesetObj={{m_order}}
-                  @generalChangeset={{changesetObj}}
-                  @validate={{action "validate" m_order}}
-                  @options={{model.manufacturers}}
-                  @default={{m_order.manufacturer_id.name}}
-                  @key="name"
-                />
+                {{!-- {{#with (changeset m_order BusinessUnitOrder) as |mOrderChangeset|}} --}}
+                  <EmbeddedForm 
+                    @currency={{model.currencies}}
+                    @property="amount"
+                    @relatedBy="business_unit_id"
+                    @identifier="business_unit"
+                    @changesetObj={{mOrderChangeset}}
+                    @generalChangeset={{changesetObj}}
+                    @validate={{action "validate" m_order}}
+                    @options={{model.manufacturers}}
+                    @default={{m_order.manufacturer_id.name}}
+                    @key="name"
+                  />
+                {{!-- {{/with}} --}}
               {{/each}}
             </EmbeddedFormWrapper>
           </div>

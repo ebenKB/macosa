@@ -17,7 +17,6 @@ export default Controller.extend({
     async createNewOrder(changeset) {
       set(this, 'isSaving', true);
       // set records for manager
-      console.log('this is the id', this.account_manager_id);
       if (get(changeset, 'account_manager_id')) {
         const manager = this.store.peekRecord('account_manager',
           get(changeset, 'account_manager_id'));
@@ -39,9 +38,11 @@ export default Controller.extend({
         set(changeset, 'currency_id', currency);
       }
 
-      // set records for relationships
+      // set records for relationships - embed business unit orders
       this._setOrder(this.businessUnitOrders, 'business-unit-order',
         'business_unit_orders_attributes', 'business_unit_id', changeset);
+
+      // embed manufacturer orders
       this._setOrder(this.manufacturerOrders, 'manufacturer-order',
         'manufacturer_orders_attributes', 'manufacturer_id', changeset);
       changeset.save()
@@ -51,6 +52,7 @@ export default Controller.extend({
           set(this, 'manufacturerOrders', []);
           set(this, 'isSaving', false);
           this.transitionToRoute('order');
+          this.get('notifications').showSuccess('One new order has been added');
         })
         .catch(() => {
           set(this, 'isSaving', false);
@@ -116,7 +118,7 @@ export default Controller.extend({
   },
 
   /**
-   * @param {*} order the order that we want to set to the changeset
+   * @param {*} order the associations that we want to set to the changeset(order)
    * @param {*} record the name of the record in the order model
    * @param {*} type the type of the relation.
    * @param {*} relatedBy the name of the relation
@@ -124,12 +126,16 @@ export default Controller.extend({
    */
   _setOrder(order, record, type, relatedBy, changeset) {
     const obj = this;
+    // get all the records in the association object
     order.map((nOder) => {
       const o = get(obj, 'store').createRecord(record, {
         amount: get(nOder, 'amount'),
         order_id: '',
       });
+
+      // get the name of the association in the record and set the id to the record
       set(o, relatedBy, get(nOder, relatedBy));
+      console.log('trying to set the relation', type, record, relatedBy);
       return get(changeset, type).pushObject(o);
     });
   }

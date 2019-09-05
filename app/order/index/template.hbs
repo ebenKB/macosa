@@ -1,5 +1,5 @@
 {{#if canShowOrder }}
-  {{#with (changeset selectedOrder OrderValidations ) as |changesetObj|}} 
+  {{!-- {{#with (changeset selectedOrder OrderValidations ) as |changesetObj|}} --}}
     <div class="edit-form__wrapper">
       <Forms::PreviewOrder
         @changesetObj={{changesetObj}}
@@ -7,10 +7,11 @@
         @managers={{managers}}
         @customers={{customers}}
         @order={{selectedOrder}}
+        @id={{order.id}}
         @b_units={{b_units}}
       />
     </div>
-  {{/with}}
+  {{!-- {{/with}} --}}
 {{/if}}
 {{#if didDelete}}
   <McModal

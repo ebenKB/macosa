@@ -5,7 +5,7 @@ export default Component.extend({
   changesetObj: null,
   canShowModal: false,
   order: null,
-  title: 'Are you sure you want to delete this order?',
+  title: 'Are you sure you want to delete this order ?',
   actions: {
     editOrder() {
     },
@@ -21,7 +21,7 @@ export default Component.extend({
       // this.order.destroyRecord();
       console.log('you have confired the delete for the order', this.order);
     },
-  
+
     cancel() {
       get(this, 'cancel')();
     },

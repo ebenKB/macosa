@@ -2,8 +2,8 @@
   {{pikaday-input
     format="DD/MM/YYYY"
     yearRange="2000,currentYear"
-    onChange=(mut (get changeset property)) 
-    value=(get changeset property) 
+    onSelection=(action 'setValue')
+    value=(get changeset property)
     class=classNames
     placeholder="Pick an order date"
     theme=theme

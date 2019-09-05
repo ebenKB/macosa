@@ -48,7 +48,6 @@ export default Controller.extend({
      * waits for a user to select an item and then sets the paramters(item, type)
      */
     didSelectItem(item, type) { // REVIEW THIS CODE FOR DEPRACTION
-      console.log('these are the params', item, type);
       if (type === 'user') {
         set(this, 'user_id', item.id);
         set(this, 'userTitle', item.fullname);

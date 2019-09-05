@@ -5,7 +5,11 @@
   box-shadow: 0 1px 3px 0 #bfbfbf;
 }
 
-.edit-form .mc-form {
+/* .edit-form .mc-form .transparent {
+  background: var(--white);
+} */
+
+.edit-form.transparent .mc-form {
   background: var(--white);
 }
 
