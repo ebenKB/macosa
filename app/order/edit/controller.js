@@ -11,7 +11,8 @@ export default Controller.extend({
   help: 'Update on order, business unit order or manufacturer orders related to this order',
   actions: {
     editOrder(order) {
-      order.save();
+      console.log('this is the changeset to update', order);
+      // order.save();
     },
     cancel() {
 

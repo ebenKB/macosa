@@ -4,7 +4,6 @@ import { get } from '@ember/object';
 
 export default Route.extend({
   model({id}) {
-    console.log('this is the id', id);
     let order = get(this, 'store').peekRecord('order', id);
 
     if (order == null) {
@@ -14,6 +13,7 @@ export default Route.extend({
     const manufacturers = get(this, 'store').findAll('manufacturer');
     const customers = get(this, 'store').findAll('customer');
     const managers = get(this, 'store').findAll('account-manager');
+
     return RSVP.hash({
       order,
       b_units,

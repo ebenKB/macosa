@@ -115,7 +115,7 @@
       </div>
     </div>
     <div class="action m-t-40 m-b-40" role="button" {{action "deleteOrder"}}>
-      <span><h2>ID: {{order.id}}</h2>
+      <span>
         You can <span class="danger">Delete this order</span> or if you want to make changes,
         <span class="success">
           <LinkTo @route="order.edit" @model={{order.id}}>

@@ -102,7 +102,7 @@
             @classNames="m-l-20"
             @hasContent={{hasContent}}>
             {{#each model.order.business_unit_orders_attributes as |b_unit_order|}}
-              {{!-- {{#with (changeset b_unit_order BusinessUnitOrder) as |bOrderChangeset|}} --}}
+              {{#with (changeset b_unit_order BusinessUnitOrder) as |bOrderChangeset|}}
                 <EmbeddedForm 
                   @currency={{model.currencies}}
                   @property="amount"
@@ -115,7 +115,7 @@
                   @default={{b_unit_order.business_unit_id.name}}
                   @key="name"
                 />
-              {{!-- {{/with}} --}}
+              {{/with}}
             {{/each}}
           </EmbeddedFormWrapper>
         </div>
@@ -129,7 +129,7 @@
               @classNames="m-l-20"
               @hasContent={{hasContent}}>
               {{#each model.order.manufacturer_orders_attributes as |m_order|}}
-                {{!-- {{#with (changeset m_order BusinessUnitOrder) as |mOrderChangeset|}} --}}
+                {{#with (changeset m_order ManufacturerOrder) as |mOrderChangeset|}}
                   <EmbeddedForm 
                     @currency={{model.currencies}}
                     @property="amount"
@@ -142,7 +142,7 @@
                     @default={{m_order.manufacturer_id.name}}
                     @key="name"
                   />
-                {{!-- {{/with}} --}}
+                {{/with}}
               {{/each}}
             </EmbeddedFormWrapper>
           </div>
