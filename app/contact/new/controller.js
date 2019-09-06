@@ -42,7 +42,7 @@ export default Controller.extend({
       }
     },
     cancel() {
-
+      this.transitionToRoute('contact.index');
     },
 
     newContactForm() {

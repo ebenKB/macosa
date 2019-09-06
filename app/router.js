@@ -54,21 +54,7 @@ Router.map(function() {
       this.route('new');
     });
   });
-  // this.route('customer', function() {
-  //   this.route('new');
-  // });
-  // this.route('contact', { path: '/contacts'}, function() {
-  //   this.route('new');
-  // });
-
-  // this.route('order', function() {
-  //   this.route('show');
-  // });
   this.route('business-unit-order', { path: '/unit-orders' }, function() {});
-
-  // this.route('order', function() {
-  //   this.route('edit');
-  // });
   this.route('manufacturer-order', function() {});
 
 });
