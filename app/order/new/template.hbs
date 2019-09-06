@@ -31,6 +31,7 @@
             @didValidate={{action "validate" changesetObj}}
             @generalChangeset={{changesetObj}}
             @options={{model.currencies}}
+            @type="text"
           />
         </div>
         <div class="ui right labeled input inline field">
@@ -45,6 +46,7 @@
             @classNames=""
             @didValidate={{action "validate" changesetObj}}
             @options={{model.currencies}}
+            @type="text"
           />
         </div>
         <div class="inline field">
@@ -101,6 +103,7 @@
               @validate={{action "validate" b_order}}
               @options={{model.businessUnits}}
               @key="name"
+              @type="text"
             />
           {{/each}}
         </EmbeddedFormWrapper>
@@ -135,6 +138,7 @@
               @validate={{action "validate" manufacturer}}
               @options={{model.manufacturers}}
               @key="name"
+              @type="text"
             />
           {{/each}}
         </EmbeddedFormWrapper>

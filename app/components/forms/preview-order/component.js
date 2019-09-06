@@ -4,7 +4,9 @@ import { get, set } from '@ember/object';
 export default Component.extend({
   changesetObj: null,
   canShowModal: false,
+  canPerform: false,
   order: null,
+  role: '',
   title: 'Are you sure you want to delete this order ?',
   actions: {
     editOrder() {
@@ -20,6 +22,10 @@ export default Component.extend({
     confirmDelete(){
       // this.order.destroyRecord();
       console.log('you have confired the delete for the order', this.order);
+    },
+
+    didPerform() {
+      get(this, 'didPerform')();
     },
 
     cancel() {

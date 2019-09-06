@@ -30,9 +30,10 @@ export default Controller.extend({
       // console.log(changeset);
     },
 
-    cancel(changeset) {
+    cancel() {
       // console.log('you want to cancel');
-      return changeset.rollback();
+      // return changeset.rollback();
+      this.transitionToRoute('company.index');
     },
 
     async createNewCompany(changeset) {

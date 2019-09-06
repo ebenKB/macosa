@@ -70,6 +70,7 @@
 /* override text input size for semantic ui */
 .mc-form .ui.form input[type="text"] {
   padding: 1rem;
+  border-radius: 5px;
 }
 
 .mc-form__roles {

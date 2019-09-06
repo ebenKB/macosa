@@ -60,10 +60,12 @@
   color: var(--black);
 }
 
-.ui.form .amount.figures input[type="number"] {
+.ui.form .amount.figures input[type="number"],
+.ui.form .amount.figures input[type="text"]  {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .embedded-form__wrapper .ui.selection.dropdown {
   width: 100%;
 }
