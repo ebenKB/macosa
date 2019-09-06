@@ -1,4 +1,4 @@
-<div class="grid columns-14__2">
+<div class="grid {{if hasIcon "columns-14__2"}}">
   <div class="input inline field">
     {{#ui-dropdown class="selection" selected=default onChange=(action (mut (get changesetObj relatedBy ))) placeholder=placeholder}}
       <div class="default text">{{heading}}</div>
@@ -24,9 +24,11 @@
       />
     </div>
   </div>
-  <div class="embedded-form__action text-right">
-    {{svg-jar "trash" width="12px" height="12px"}}
-  </div>
+  {{#if hasIcon}}
+    <div class="embedded-form__action text-right">
+      {{svg-jar "trash" width="12px" height="12px"}}
+    </div>
+  {{/if}}
 </div>
 
 

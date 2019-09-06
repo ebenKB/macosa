@@ -1,10 +1,15 @@
+{{#if didEdit}}
+  <McModal
+    @canShowModal={{didEdit}}
+    @message={{title}}
+    @perform={{action "saveOrder"}}
+    @isPerforming={{isUpdating}}
+    @confirmTitle="Yes"
+  />
+{{/if}}
 <Layout
   @aside={{help}}
 >
-  <McModal
-    @canShowModal={{canShowModal}}
-    @message={{title}}
-  />
   <div class="ui edit-form p-t-80 p-b-80">
     {{#with (changeset model.order OrderValidations) as |changesetObj|}}
       <McForm
@@ -101,21 +106,22 @@
             @right="Amount"
             @classNames="m-l-20"
             @hasContent={{hasContent}}>
-            {{#each model.order.business_unit_orders_attributes as |b_unit_order|}}
-              {{#with (changeset b_unit_order BusinessUnitOrder) as |bOrderChangeset|}}
-                <EmbeddedForm 
+            {{#each (changeset-get  changesetObj "business_unit_orders_attributes") as |b_unit_order|}}
+              {{!-- {{#with (changeset b_unit_order BusinessUnitOrder) as |bOrderChangeset|}} --}}
+                <EmbeddedForm
                   @currency={{model.currencies}}
                   @property="amount"
                   @relatedBy="business_unit_id"
                   @identifier="business_unit"
-                  @changesetObj={{bOrderChangeset}}
+                  @changesetObj={{b_unit_order}}
                   @generalChangeset={{changesetObj}}
                   @validate={{action "validate" b_unit_order}}
                   @options={{model.b_units}}
                   @default={{b_unit_order.business_unit_id.name}}
                   @key="name"
+                  @hasIcon={{false}}
                 />
-              {{/with}}
+              {{!-- {{/with}} --}}
             {{/each}}
           </EmbeddedFormWrapper>
         </div>
@@ -128,21 +134,22 @@
               @right="Amount"
               @classNames="m-l-20"
               @hasContent={{hasContent}}>
-              {{#each model.order.manufacturer_orders_attributes as |m_order|}}
-                {{#with (changeset m_order ManufacturerOrder) as |mOrderChangeset|}}
+              {{#each (changeset-get changesetObj "manufacturer_orders_attributes") as |m_order|}}
+                {{!-- {{#with (changeset m_order ManufacturerOrder) as |mOrderChangeset|}} --}}
                   <EmbeddedForm 
                     @currency={{model.currencies}}
                     @property="amount"
                     @relatedBy="business_unit_id"
                     @identifier="business_unit"
-                    @changesetObj={{mOrderChangeset}}
+                    @changesetObj={{m_order}}
                     @generalChangeset={{changesetObj}}
                     @validate={{action "validate" m_order}}
                     @options={{model.manufacturers}}
                     @default={{m_order.manufacturer_id.name}}
                     @key="name"
+                    @hasIcon={{false}}
                   />
-                {{/with}}
+                {{!-- {{/with}} --}}
               {{/each}}
             </EmbeddedFormWrapper>
           </div>

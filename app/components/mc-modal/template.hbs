@@ -7,7 +7,7 @@
       </div>
       <div class="actions m-t-50">
         <button onclick={{action "decline"}} class="ui default button">Cancel</button>
-        <button onclick={{action "perform"}} class="ui green button">Continue</button>
+        <button onclick={{action "perform"}} class="ui green button {{if isPerforming "loading"}} ">{{confirmTitle}}</button>
       </div>
     </div>
   </div>

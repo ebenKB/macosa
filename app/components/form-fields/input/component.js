@@ -2,7 +2,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
   placeholder: null,
-  disabled: null,
+  disabled: false,
   type: '',
   name: null,
   classNames: 'ui input',

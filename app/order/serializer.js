@@ -6,6 +6,11 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
       serialize: 'ids',
       deserialize: 'ids'
     },
+    // customer_id: {
+    //   serialize: 'records',
+    //   deserialize: 'ids'
+    // },
+
     currency_id: {
       serialize: 'ids',
       deserialize: 'ids'

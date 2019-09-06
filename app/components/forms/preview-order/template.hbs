@@ -6,10 +6,12 @@
 <div class="ui container edit-form transparent p-t-80 p-b-80">
   <McForm
   @heading="Preview order"
-  @role=""
+  @role={{role}}
   @didDecline={{action "cancel"}}
   @isSaving={{isSaving}}
-  @canPerform={{false}}>
+  @canPerform={{canPerform}}
+  @didPerform={{action 'didPerform'}}
+  >
     <div class="mc-divider">Order Details</div>
     <div class="form-group">
       <div class="inline field">
@@ -96,7 +98,7 @@
       <div><h5>Amount</h5></div>
     </div>
     <div class="grid equal-columns__2">
-      {{#each order.business_unit_orders_attributes as |b_unit_order|}}
+      {{#each (changeset-get order "business_unit_orders_attributes")  as |b_unit_order|}}
         <div>{{b_unit_order.business_unit_id.name}} </div>
         <div>{{b_unit_order.amount}}</div>
       {{/each}}
