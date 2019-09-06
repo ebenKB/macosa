@@ -1,10 +1,10 @@
 import Component from '@ember/component';
 import { get,set } from '@ember/object';
 import { inject as service} from '@ember/service';
-import $ from 'jquery';
 
 export default Component.extend({
   store: service(),
+  hasIcon: true,
   identifier: '',
   relatedBy: '',
   changeset: null,
