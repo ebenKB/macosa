@@ -1,6 +1,6 @@
 {{#if canShowOrder }}
   {{#with (changeset selectedOrder OrderValidations ) as |changesetObj|}}
-    <div class="edit-form__wrapper">
+    <div class="preview-form__wrapper">
       <Forms::PreviewOrder
         @changesetObj={{changesetObj}}
         @cancel={{action "cancelEdit"}}
