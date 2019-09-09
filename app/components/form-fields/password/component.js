@@ -10,7 +10,6 @@ export default Component.extend({
   property: null,
   actions: {
     onChange(changeset) {
-      console.log('the password has changed');
       this.get('onChange')(changeset);
     }
   }

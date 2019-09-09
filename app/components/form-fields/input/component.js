@@ -19,8 +19,4 @@ export default Component.extend({
       this.get('didValidate')();
     }
   },
-
-  didReceiveAttrs() {
-    console.log('the input has received atts', this.changeset);
-  }
 });

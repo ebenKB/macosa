@@ -14,7 +14,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your your first name"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="firstname"
             />
           </div>
@@ -23,7 +23,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your last name"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="lastname"
             />
           </div>
@@ -32,7 +32,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Enter your email"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="email"
             />
           </div>
@@ -41,7 +41,7 @@
             <FormFields::Input 
               @changeset={{changeset}} 
               @placeholder="Which company are you from?"
-              @onChange={{action "validate" changeset}}
+              @didValidate={{action "validate" changeset}}
               @property="name"
             />
           </div>
@@ -70,7 +70,7 @@
           </div>
           <FormFields::Submit
             @title="Create New Account"
-            @classess="ui large green fluid submit button"
+            @classess="ui large green fluid submit button {{if isSaving "loading"}}"
             @perform={{action "createOwner" changeset}}
           />
         {{/with}}
