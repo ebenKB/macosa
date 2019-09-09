@@ -73,6 +73,10 @@
   border-radius: 5px;
 }
 
+.mc-form .ui.form input._500 {
+  width: 500px
+}
+
 .mc-form__roles {
   margin-left: 29%;
 }

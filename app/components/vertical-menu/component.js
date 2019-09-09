@@ -31,6 +31,14 @@ export default Component.extend({
             {
               name: 'Customers',
               link: 'customer'
+            },
+            {
+              name: 'View Types',
+              link: 'type.index',
+            },
+            {
+              name: 'New Comapny type',
+              link: 'type.new',
             }
           ]
         },

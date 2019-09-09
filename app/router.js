@@ -50,13 +50,27 @@ Router.map(function() {
     this.route('customer', {resetNamespace: true },function() {
       this.route('new');
     });
+
     this.route('contact', { path: '/contacts', resetNamespace: true }, function() {
       this.route('new');
     });
-  });
-  this.route('business-unit-order', { path: '/unit-orders' }, function() {});
-  this.route('manufacturer-order', function() {});
 
+    this.route('type',{
+      resetNamespace: true
+    },function() {
+      this.route('new');
+    });
+
+    this.route('business-unit-order', {
+      resetNamespace: true,
+      path: '/unit-orders'
+    }, function() {});
+
+    this.route('manufacturer-order', {
+      resetNamespace: true
+    },
+    function() {});
+  });
 });
 
 export default Router;

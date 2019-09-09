@@ -70,6 +70,10 @@ a:hover {
   background: rgba(236, 216, 98, 0.15);
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .main-content {
   padding: 40px;
 }

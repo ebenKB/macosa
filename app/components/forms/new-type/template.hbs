@@ -1,0 +1,21 @@
+
+<div class="grid columns-14__2 grid-center">
+  <div class="embedded-caption m-b-20">
+    <div>What type of company do you want to create ?</div>
+    <div class="m-t-20  m-b-20">
+      <FormFields::Input
+        @placeholder="Enter company type"
+        @changeset={{changesetObj}}
+        @property="name"
+        @didValidate={{action "validate" changeset}}
+        @type="name"
+        @classNames=" _500"
+      />
+    </div>
+  </div>
+  {{#if didAddType}}
+    <div class="text-right" role="button" {{action "perform"}}>
+      {{svg-jar "trash" width="14px" height="14px"}}
+    </div>
+  {{/if}}
+</div>

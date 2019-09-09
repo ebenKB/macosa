@@ -24,12 +24,4 @@ export default Route.extend({
       }),
     });
   },
-  // actions: {
-  //   loading(transition, originRoute) {
-  //     const controller = this.controllerFor('order');
-  //     controller.set('currentlyLoading', true);
-
-  //     return true; // allows the loading template to be shown
-  //   }
-  // }
 });

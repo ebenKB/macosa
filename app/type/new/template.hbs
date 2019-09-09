@@ -1,0 +1,27 @@
+<Layout
+  @aside={{help}}
+>
+  <McForm
+    @heading="Create a new company type"
+    @role="Save"
+    @didPerform={{action "perform"}}
+    @didDecline={{action "cancel"}}
+    @isSaving={{isSaving}}
+  >
+  {{#each types as |type|}}
+    <Forms::NewType
+      @model={{model}}
+      @number={{index-to-number index}}
+      @changesetObj={{type}}
+      @didRemoveForm={{action "deleteTypeForm" type}}
+      @titles={{titles}}
+      @didAddContact={{didAddContact}}
+      @didAddType={{didAddForm}}
+    />
+  {{/each}}
+  {{!-- <div class="mc-divider"><span class="faint" > </span> </div> --}}
+  <div {{action "newTypeForm"}} role="button" class="m-t-40 clickable">
+    {{svg-jar "add-button-inside-black-circle" width="14px" height="14px"}} Add new company type
+  </div>
+  </McForm>
+</Layout>
