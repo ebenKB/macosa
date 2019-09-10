@@ -51,7 +51,7 @@
   <div class="inline field">
     <label for="Compnany Type">Company</label>
     <FormFields::Dropdown 
-      @options={{model.companies}}
+      @options={{companyOptions}}
       @changeset={{changesetObj}}
       @property="company_id"
       @key="name"

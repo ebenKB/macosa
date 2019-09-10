@@ -71,6 +71,10 @@ Router.map(function() {
     },
     function() {});
   });
+
+  this.route('account-manager', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

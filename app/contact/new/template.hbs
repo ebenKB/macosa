@@ -11,7 +11,7 @@
   {{#each contacts as |contact index|}}
     <div class="m-t-20 m-b-20">
       <NewContact
-        @model={{model}}
+        @companyOptions={{companies}}
         @number={{index-to-number index}}
         @changesetObj={{contact}}
         @perform={{action "deleteContactForm" contact}}

@@ -63,6 +63,7 @@ export default Controller.extend({
     deleteContactForm(contact) {
       if (get(this, 'contacts').length > 1) {
         get(this, 'contacts').removeObject(contact);
+        get(this, 'store').deleteRecord(contact); // delete the contact from the data store
       }
     }
   },
@@ -83,5 +84,8 @@ export default Controller.extend({
     changeset.validate();
     changesetObj.pushObject(changeset);
     set(this, 'contacts', changesetObj);
+
+    // set companies
+    set(this, 'companies', get(this, 'store').findAll('company'));
   }
 });

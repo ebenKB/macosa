@@ -25,14 +25,13 @@ export default Controller.extend({
   },
   actions: {
     validate(changeset) {
-      // changeset.validate();
-      // console.log('you want to validate');
-      // console.log(changeset);
+      changeset.validate();
     },
 
     cancel() {
       // console.log('you want to cancel');
       // return changeset.rollback();
+      get(this, 'model').company.destroyRecord();
       this.transitionToRoute('company.index');
     },
 

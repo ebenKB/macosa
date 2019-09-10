@@ -39,7 +39,7 @@ export default Component.extend({
             {
               name: 'New Comapny type',
               link: 'type.new',
-            }
+            },
           ]
         },
         {
@@ -63,6 +63,15 @@ export default Component.extend({
             }
           ]
         },
+        {
+          name: 'Manage Account',
+          submenus: [
+            {
+              name: 'New Account Manager',
+              link: 'account-manager.new',
+            }
+          ]
+        }
       ]
     );
   }

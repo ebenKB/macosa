@@ -1,0 +1,27 @@
+
+
+<Layout
+  @aside={{help}}
+>
+  <McForm
+    @heading="Create new account manager"
+    @role="Save"
+    @didPerform={{action "perform"}}
+    @didDecline={{action "cancel"}}
+    @isSaving={{isSaving}}
+  >
+  {{#each managers as |manager|}}
+    <Forms::NewManager
+      @cancel={{action "cancel" }}
+      @perform={{action "perform" manager}}
+      @industries={{model.industries}}
+      @changesetObj={{manager}}
+      @isSaving={{isSaving}}
+      @didAddManagerForm={{didAddManager}}
+    />
+  {{/each}}
+  <div {{action "newManagerForm"}}>
+    {{svg-jar "add-button-inside-black-circle" width="14px" height="14px"}} Add new
+  </div>
+  </McForm>
+</Layout>

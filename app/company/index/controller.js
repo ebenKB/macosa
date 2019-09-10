@@ -5,7 +5,7 @@ export default Controller.extend({
   help: 'Showing all companies. If you want details about a company, please click it.',
   canShowModal: false,
   selectedCompany: null,
-  title: 'Add new company',
+  title: 'Add new',
 
   actions: {
     didDelete(company) {

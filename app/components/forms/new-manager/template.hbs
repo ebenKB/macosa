@@ -1,0 +1,17 @@
+<div class="mc-divider">Account Manager Information</div>
+  <div class="form-group">
+    <div class="inline field">
+      <label for="company name">Name of manager</label>
+      <FormFields::Input
+        @placeholder="What is the name of the account manager?"
+        @changeset={{changesetObj}}
+        @property="full_name"
+        @didValidate={{action "validate" changesetObj}}
+      />
+    </div>
+     {{#if didAddManagerForm}}
+      <div class="text-right" role="button" {{action "perform"}}>
+        {{svg-jar "trash" width="14px" height="14px"}}
+      </div>
+    {{/if}}
+</div>
