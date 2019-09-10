@@ -11,6 +11,7 @@ export default Component.extend({
   store: Ember.inject.service(),
   // data: store(),
   IndustryValidation,
+  isSaving: false,
 
   name: 'indust',
   didInsertElement() {
@@ -24,9 +25,9 @@ export default Component.extend({
       get(this, 'perform')();
     },
 
-    createIndustry() {
-      console.log('we want to create a new industry');
-    },
+    // createIndustry() {
+    //   console.log('we want to create a new industry');
+    // },
 
     cancel() {
       get(this, 'cancel')();
@@ -38,7 +39,6 @@ export default Component.extend({
   },
   init() {
     this._super(...arguments);
-    console.log('the component will init');
     // const model = this.store.createRecord({ name: ''});
     // let validator = get(this, 'validate');
     // this.changeset = new Changeset(model, validator);

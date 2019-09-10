@@ -107,6 +107,11 @@ export default Controller.extend({
     set(this, 'businessUnitOrders', []);
     set(this, 'manufacturerOrders', []);
     set(this, 'currency', [{id: 'GHC', name: 'GHC'}, {id: '$', name: '$'}]);
+    set(this, 'manufacturers', get(this, 'store').findAll('manufacturer'));
+    set(this, 'businessUnits', get(this, 'store').findAll('business-unit'));
+    set(this, 'accountManagers', get(this, 'store').findAll('account-manager'));
+    set(this, 'customers', get(this, 'store').findAll('customer'));
+    set(this, 'currencies', get(this, 'store').findAll('currency'));
   },
 
   getRemainder(changeset, item) {

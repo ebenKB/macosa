@@ -5,7 +5,10 @@
 }
 
 .custom-popup.ui.button, .mc-popup.ui.button {
-  background: var(--white);
+  background: #fafcfc;
+  position: absolute;
+  left: 75%;
+  top: 20%;
 }
 
 .ui.mc-popup.button {

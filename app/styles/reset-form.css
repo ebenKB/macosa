@@ -1,0 +1,21 @@
+
+
+  .message__wrapper {
+    padding: 20px 20px;
+    background: var(--green__light);
+    margin-top: 120px;
+    border-radius: 5px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    animation: dropdown 0.3s ease-in-out 0s 1 forwards normal;
+  }
+  
+  .message__wrapper .caption {
+    font-size: 1.65rem;
+    font-weight: 700;
+  }
+  
+  .message__wrapper p {
+    font-size: 1.4rem;
+  }

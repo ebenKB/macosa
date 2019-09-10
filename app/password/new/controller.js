@@ -21,6 +21,7 @@ export default Controller.extend({
           body: JSON.stringify({
             password: this.password,
             password_confirmation: this.password_confirmation,
+            token: get(this, 'token'),
           }),
           dataType: JSON,
         };

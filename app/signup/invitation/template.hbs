@@ -4,6 +4,7 @@
       <McForm
         @heading="Invite new user"
         @role="Send invite"
+        @isSaving={{isSaving}}
         @didPerform={{action "newInvitation" changesetObj}}>
         <div class="mc-divider">User Information</div>
         <div class="form-group">

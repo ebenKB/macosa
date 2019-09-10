@@ -5,6 +5,7 @@ import { get, set } from '@ember/object';
 export default Controller.extend({
   is_admin: false,
   InvitationValidator,
+  isSaving: false,
 
   help: 'Add a new company as a client or partner. This compnay will be added to your '
       + 'company lists. If you want to edit an existing company, go to Edit Company from the menu',
@@ -12,12 +13,16 @@ export default Controller.extend({
   actions: {
     newInvitation(changeset) {
       if (get(changeset, 'isValid')) {
+        set(this, 'isSaving', true);
         changeset.save()
-          .then(() => this.transitionToRoute('signup.invitation'))
-          .catch((err) => {
-            console.log(err);
-            // const [error] = err.errors;
-            // alert(error);
+          .then(() => {
+            set(this, 'isSaving', false);
+            get(this, 'notifications').showSuccess('Invitation has been sent to ');
+            this.transitionToRoute('signup.invitation');
+          })
+          .catch(() => {
+            set(this, 'isSaving', false);
+            get(this, 'notifications').showError('An error occured while sending invitation');
           });
       } else {
         alert('Please make sure all fields are valid');
@@ -34,8 +39,7 @@ export default Controller.extend({
     },
 
     validate(changeset) {
-      // const changesetObj = new Changeset(changeset, InvitationValidator);
-      // changesetObj.validate();
+      changeset.validate();
     }
   },
 

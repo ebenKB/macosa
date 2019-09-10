@@ -31,7 +31,7 @@
             @classNames=""
             @didValidate={{action "validate" changesetObj}}
             @generalChangeset={{changesetObj}}
-            @options={{model.currencies}}
+            @options={{currencies}}
             @type="text"
           />
         </div>
@@ -46,7 +46,7 @@
             @property="profit"
             @classNames=""
             @didValidate={{action "validate" changesetObj}}
-            @options={{model.currencies}}
+            @options={{currencies}}
             @type="text"
           />
         </div>
@@ -55,7 +55,7 @@
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{model.customers}}
+            @options={{customers}}
             @changeset={{changesetObj}}
             @property="customer_id"
             @key="name"
@@ -67,7 +67,7 @@
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{model.accountManagers}}
+            @options={{accountManagers}}
             @changeset={{changesetObj}}
             @property="account_manager_id"
             @classNames="text-right"
@@ -95,14 +95,14 @@
           @hasContent={{hasContent}}>
           {{#each businessUnitOrders as |b_order|}}
             <EmbeddedForm 
-              @currency={{model.currencies}}
+              @currency={{currencies}}
               @property="amount"
               @relatedBy="business_unit_id"
               @identifier="business_unit"
               @changesetObj={{b_order}}
               @generalChangeset={{changesetObj}}
               @validate={{action "validate" b_order}}
-              @options={{model.businessUnits}}
+              @options={{businessUnits}}
               @key="name"
               @type="text"
             />
@@ -130,14 +130,14 @@
           @hasContent={{hasManufacturer}}>
           {{#each manufacturerOrders as |manufacturer|}}
             <EmbeddedForm 
-              @currency={{model.currencies}}
+              @currency={{currencies}}
               @property="amount"
               @relatedBy="manufacturer_id"
               @identifier="manufacturer"
               @changesetObj={{manufacturer}}
               @generalChangeset={{changesetObj}}
               @validate={{action "validate" manufacturer}}
-              @options={{model.manufacturers}}
+              @options={{manufacturers}}
               @key="name"
               @type="text"
             />

@@ -1,12 +1,14 @@
 import Controller from '@ember/controller';
-import { get } from '@ember/object';
+import { get, set } from '@ember/object';
 import config from 'macosa/config/environment';
 
 export default Controller.extend({
+  isSending: false,
+  didReset: false,
   actions: {
     resetPassword(){
-      // console.log(get(this, 'model').email);
-    // specify the request options
+      set(this, 'isSending', true);
+      // specify the request options
       const reqOptions = {
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +22,8 @@ export default Controller.extend({
       };
       fetch(`${config.apiEndpoint}/${config.apiNamespace}/users/password_reset`, reqOptions)
         .then(() => {
-          console.log('we did a fetch');
+          set(this, 'isSending', false);
+          set(this, 'didReset', true);
         });
     }
   }
