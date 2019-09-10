@@ -30,6 +30,7 @@ export default Controller.extend({
         };
         fetch(`${config.apiEndpoint}/${config.apiNamespace}/users/password_update?token=${token}`, reqOptions)
           .then(() => {
+            get(this, 'notifications').showSuccess('Success! Your password has been reset');
             this.transitionToRoute('login');
           });
       } else {
