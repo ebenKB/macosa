@@ -2,13 +2,16 @@
 import Controller from '@ember/controller';
 import { get } from '@ember/object';
 import config from 'macosa/config/environment';
+import {inject as service} from '@ember/service';
 
 export default Controller.extend({
+  session: service(),
   password: '',
   password_confirmation: null,
   isSaving: false,
 
   actions: {
+    // update user passwords with new passwords
     updatePassword() {
       if (this.password === this.password_confirmation) {
         const token = get(this, 'model');
@@ -27,10 +30,10 @@ export default Controller.extend({
         };
         fetch(`${config.apiEndpoint}/${config.apiNamespace}/users/password_update?token=${token}`, reqOptions)
           .then(() => {
-            console.log('we sent a put request');
+            this.transitionToRoute('login');
           });
       } else {
-        console.log('the passwords are different');
+        // the passwords do not match
       }
     },
   }
