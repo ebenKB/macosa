@@ -7,10 +7,12 @@ import Changeset from 'ember-changeset';
 export default Controller.extend({
   didAddManager: false,
   isSaving: false,
+  help: 'You can add a new account manager by providing the full' +
+    'name in the form. Click "Save when you are done" ',
 
   actions: {
     cancel() {
-      this.transitionToRoute('account-manager.new');
+      this.transitionToRoute('account-manager.index');
     },
     perform() {
       set(this, 'isSaving', true);
@@ -36,15 +38,13 @@ export default Controller.extend({
             this._didAddManager();
           }
         });
-    }
-  },
-
-  deleteManagerForm(manager) {
-    if (get(this, 'managers').length > 1) {
-      get(this, 'managers').removeObject(manager);
-      this._didAddManager();
-      manager.destroyRecord();
-    }
+    },
+    deleteManagerForm(manager) {
+      if (get(this, 'managers').length > 1) {
+        get(this, 'managers').removeObject(manager);
+        this._didAddManager();
+      }
+    },
   },
 
   init() {

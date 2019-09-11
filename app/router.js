@@ -70,10 +70,12 @@ Router.map(function() {
       resetNamespace: true
     },
     function() {});
-  });
 
-  this.route('account-manager', function() {
-    this.route('new');
+    this.route('account-manager', {
+      resetNamespace: true
+    },function() {
+      this.route('new');
+    });
   });
 });
 

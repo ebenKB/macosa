@@ -76,12 +76,11 @@ export default Controller.extend({
   _batchSave(types){
     return new Promise((resolve, reject) => {
       try {
-        for (const t of types){
+        for (const t of types) {
           t.save();
         }
         resolve(true);
       } catch (err){
-        console.log('an error occured ', err);
         reject(false);
       }
     });

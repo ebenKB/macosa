@@ -133,9 +133,12 @@ a:hover {
 }
 
 .embedded-caption {
-  background: var(--bg__faint);
   border-radius: 5px;
   padding: 10px;
+}
+
+.embedded-caption.opaque {
+  background: var(--bg__faint);
 }
 
 .green {

@@ -1,17 +1,40 @@
-<div class="mc-divider">Account Manager Information</div>
-  <div class="form-group">
-    <div class="inline field">
-      <label for="company name">Name of manager</label>
+{{!-- <div class="mc-divider">Account Manager Information</div>
+<div class="form-group">
+  <div class="inline field">
+    <label for="company name">Name of manager</label>
+    <FormFields::Input
+      @placeholder="What is the name of the account manager?"
+      @changeset={{changesetObj}}
+      @property="full_name"
+      @didValidate={{action "validate" changesetObj}}
+    />
+  </div>
+    {{#if didAddManagerForm}}
+    <div class="text-right" role="button" {{action "perform"}}>
+      {{svg-jar "trash" width="14px" height="14px"}}
+    </div>
+  {{/if}}
+</div> --}}
+
+
+
+
+<div class="grid columns-14__2 grid-center">
+  <div class="embedded-caption m-b-20">
+    <div>What is the name of the account manager you want to create ?</div>
+    <div class="m-t-20  m-b-20">
       <FormFields::Input
         @placeholder="What is the name of the account manager?"
         @changeset={{changesetObj}}
         @property="full_name"
         @didValidate={{action "validate" changesetObj}}
+        @classNames=" _500"
       />
     </div>
-     {{#if didAddManagerForm}}
-      <div class="text-right" role="button" {{action "perform"}}>
-        {{svg-jar "trash" width="14px" height="14px"}}
-      </div>
-    {{/if}}
+  </div>
+  {{#if didAddManagerForm}}
+    <div class="text-right" role="button" {{action "perform"}}>
+      {{svg-jar "trash" width="14px" height="14px"}}
+    </div>
+  {{/if}}
 </div>
