@@ -86,7 +86,8 @@ export default Controller.extend({
     },
 
     cancel(changeset) {
-      changeset.rollback();
+      // changeset.rollback();
+      this.transitionToRoute('order.index');
     },
 
     validate() {

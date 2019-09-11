@@ -1,5 +1,5 @@
 {{outlet}}
-<Layout 
+<ContentPane 
   @aside={{help}}>
   {{#with (changeset model.order OrderValidations ) as |changesetObj|}} 
     <McForm
@@ -161,4 +161,4 @@
       </div>
     </McForm>
   {{/with}}
-</Layout>
+</ContentPane>
