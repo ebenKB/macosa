@@ -3,6 +3,7 @@ import { get, set } from '@ember/object';
 import OrderValidations from 'macosa/validations/order';
 import BusinessUnitOrder from 'macosa/validations/manufacturer-order';
 import ManufacturerOrder from 'macosa/validations/business-unit-order';
+import help from 'macosa/help/order/edit';
 
 export default Controller.extend({
   OrderValidations,
@@ -12,7 +13,7 @@ export default Controller.extend({
   isUpdating: false,
   newOrder: null,
   title: 'Are you sure you want to save the changes?',
-  help: 'Update on order, business unit order or manufacturer orders related to this order',
+  // help: 'Update on order, business unit order or manufacturer orders related to this order',
   actions: {
     editOrder(order) {
       set(this, 'didEdit', true); // this will always show the confirmation modal
@@ -54,5 +55,9 @@ export default Controller.extend({
     validate() {
       console.log('we want to validate the obkect');
     }
+  },
+  init() {
+    this._super();
+    set(this, 'help', help);
   }
 });

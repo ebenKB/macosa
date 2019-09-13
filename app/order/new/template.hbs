@@ -1,18 +1,18 @@
-{{outlet}}
+{{!-- {{outlet}} --}}
 <ContentPane 
   @aside={{help}}>
-  {{#with (changeset model.order OrderValidations ) as |changesetObj|}} 
+  {{#with (changeset model.order OrderValidations) as |changesetObj|}} 
     <McForm
       @heading="Create a new order"
       @role="Add this order"
       @didPerform={{action "createNewOrder" changesetObj}}
       @didDecline={{action "cancel" changesetObj}}
       @isSaving={{isSaving}}>
-      <div class="mc-divider">Order Details</div>
+      <div class="mc-divider caption"> <h4>Order Details</h4> </div>
       <div class="form-group">
         <div class="inline field">
           <label for="company name">Order Date 
-            <span class="required m-l-5" >*</span> 
+            <span class="required m-l-5">*</span> 
           </label>
           <FormFields::Datepicker
             @changeset={{changesetObj}}
@@ -75,16 +75,23 @@
           />
         </div> 
       </div>
+      {{#if error}}
+        <div class="embedded-action error"> 
+          <span>
+            {{svg-jar "cancel" width="15px" height="15px" class="m-r-10" }}
+          </span> {{errorMessage}}
+        </div>
+      {{/if}}
       <div class="mc-divider">
-        <div class="inline-flex">
-          Business Units 
+        <div class="inline-flex caption">
+          <h4>Business Units </h4>
           <span class="required m-l-5 m-r-5">*</span>
           <Forms::Popup
             @title="New Business unit"
-            @changesetObj={{businessUnitChangeset}}
+            @changesetObj={{bUnit}}
             @placeholder="Enter Business unit"
-            @initPopUp={{action "initPopUp"}}
-          />
+            @initPopUp={{action "initPopUp" "business_unit"}}
+            @perform={{action "saveEmbeddedItem" bUnit}}/>
         </div>
       </div>
       <div class="form-group">
@@ -108,18 +115,20 @@
             />
           {{/each}}
         </EmbeddedFormWrapper>
-        <div role="button" class="" {{action "addBusinessUnit" changesetObj}}>
-          {{svg-jar "plus" width="10px" height="10px" }} Add New 
+        <div id="b_1" role="button" class="embedded-action" {{action "addBusinessUnit" changesetObj}} data-content="some error is here...">
+          {{svg-jar "add-button-inside-black-circle" width="12px" height="12px" }} Add New
         </div>
       </div>
       <div class="mc-divider">
-        <div class="inline-flex">
-          Manufacturers
+        <div class="inline-flex caption">
+          <h4>Manufacturers</h4>
           <span class="required m-l-5 m-r-5">*</span>
           <Forms::Popup
-            @title="New manufacturers"
-            @changeset={{changeObj}}
-            @placeholder="Enter manufacturer"/>
+            @title="New manufacturer"
+            @changesetObj={{manufacturer}}
+            @placeholder="Enter manufacturer"
+            @initPopUp={{action "initPopUp" "manufacturer"}}
+            @perform={{action "saveEmbeddedItem" manufacturer}}/>
         </div>
       </div>
       <div class="form-group">
@@ -143,11 +152,16 @@
             />
           {{/each}}
         </EmbeddedFormWrapper>
-        <div role="button" class="" {{action "addManufacturer" changesetObj}}>
-          {{svg-jar "plus" width="10px" height="10px" }} Add New 
+        <div role="button" class="embedded-action" {{action "addManufacturer" changesetObj}}>
+          {{svg-jar "add-button-inside-black-circle" width="12px" height="12px" }} Add New 
         </div>
       </div>
-      <div class="mc-divider">Oder description <span class="faint" >( what is the order about? )</span> </div>
+      <div class="mc-divider caption">
+        Order description
+        <span class="faint">
+          (what is the order about?)
+        </span> 
+      </div>
       <div class="form-group">
         <div class="">
           <FormFields::Textarea

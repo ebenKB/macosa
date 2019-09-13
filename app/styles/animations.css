@@ -12,6 +12,20 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 11;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 @keyframes dropdown {
   0% {
     transform: translateY(-200px)

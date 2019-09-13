@@ -1,13 +1,25 @@
 .mc-form {
+  position: relative;
   width: 65%;
   border-radius: 5px;
   margin: auto;
-  box-shadow: 0 1px 3px 0 #bfbfbf;
+  /* box-shadow: 0 1px 3px 0 #bfbfbf; */
+  box-shadow: 0 1px 5px 0 #becdd1;
 }
 
 /* .edit-form .mc-form .transparent {
   background: var(--white);
 } */
+
+.mc-form .date-picker__icon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+.preview-form__wrapper .edit-form {
+  margin-right: 32% !important;
+}
 
 .edit-form.transparent .mc-form {
   background: var(--white);

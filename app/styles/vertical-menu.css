@@ -11,5 +11,9 @@
 }
 
 .v-menu__wrapper a {
+  color: var(--off-dark);
+}
+
+.v-menu__wrapper .caption a {
   color: #fff;
 }

@@ -8,6 +8,7 @@ export default Controller.extend({
   company_type_id: '',
   appOwner: service(),
   isSaving: false,
+  didValidate: false,
   // eslint-disable-next-line max-len
   help: 'Add a new company as a client or partner. This compnay will be added to your company lists.',
 
@@ -26,11 +27,13 @@ export default Controller.extend({
   actions: {
     validate(changeset) {
       changeset.validate();
+
+      if (!this.didValidate) {
+        set(this, 'didValidate', true);
+      }
     },
 
     cancel() {
-      // console.log('you want to cancel');
-      // return changeset.rollback();
       get(this, 'model').company.destroyRecord();
       this.transitionToRoute('company.index');
     },
@@ -39,7 +42,7 @@ export default Controller.extend({
       const type = await get(this, 'store').peekRecord('type', get(changeset, 'type_id'));
       set(changeset, 'type_id', type);
 
-      if (changeset.get('isValid')) {
+      if (this.didValidate && changeset.get('isValid')) {
         // get the current owner of the app
         // const owner = get(this.appOwner.load(), '_id');
         // set(changeset, 'owner_id', owner);
@@ -58,6 +61,8 @@ export default Controller.extend({
             this.get('notifications').showError(msg);
             set(this, 'isSaving', false);
           });
+      } else {
+        get(this, 'notifications').showError('Company is not valid');
       }
     }
   }

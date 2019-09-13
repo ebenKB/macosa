@@ -5,13 +5,15 @@
 }
 
 .custom-popup.ui.button, .mc-popup.ui.button {
-  background: #fafcfc;
+  background: #fff;
   left: 75%;
   top: 20%;
 }
 
 .ui.mc-popup.button {
   padding: 0;
+  font-size: 0.9rem;
+  color: #2768f5;
 }
 
 /* .embed__form .ui.mc-popup.button {

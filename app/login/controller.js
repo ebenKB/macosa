@@ -27,6 +27,7 @@ export default Controller.extend({
               set(this, 'isAuthenticating', false);
               this.get('session').invalidate();
             } else {
+              console.log('this is the errro', err)
             // show error and invalidate the session
               this._showError('Sorry, no record matches your credentials');
               this.get('session').invalidate();

@@ -15,7 +15,7 @@
   font-size: 1.0em;
   font-weight: bold;
   text-transform: none;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 
 .ui.form .field .ui.input {
@@ -57,7 +57,7 @@
 }
 
 .amount.figures .ui.dropdown:not(.button) > .default.text{
-  color: var(--black);
+  color: var(--dark);
 }
 
 .ui.form .amount.figures input[type="number"],

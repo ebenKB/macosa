@@ -10,3 +10,12 @@
 .embedded-form__action {
   padding: 10px;
 }
+
+/* .embedded-action.error::before {
+  background: red;
+  padding: 10px;
+  content: attr(data-content);
+  font-size:14px;
+  color:black;
+  border-radius: 5px;
+} */

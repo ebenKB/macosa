@@ -26,7 +26,9 @@ export default Component.extend({
     $('.mc-popup ')
       .popup({
         on: 'click',
-        // position: 'bottom center',
+        exclusive: true,
+        transition: 'slide up',
+        position: 'bottom center',
       });
   },
 });

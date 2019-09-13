@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { get, set } from '@ember/object';
 import OrderValidations from 'macosa/validations/order';
+import help from 'macosa/help/order/index';
 
 export default Controller.extend({
   OrderValidations,
@@ -16,7 +17,6 @@ export default Controller.extend({
   customers: null,
   managers: null,
   currencies: null,
-  help: 'Showing all orders for Apotica Company Limited.',
   title: 'Add new order',
   user_id: null,
   account_manager_id: null,
@@ -144,6 +144,8 @@ export default Controller.extend({
         key: -1,
       }
     ]);
+
+    set(this, 'help', help);
   },
 
   // get all managers

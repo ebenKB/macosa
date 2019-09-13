@@ -1,6 +1,6 @@
 <ContentPane 
   @aside={{help}}>
-  {{#with (changeset model.company (action "validate")) as |changesetObj|}}
+  {{#with (changeset model.company CompanyValidations) as |changesetObj|}}
     <McForm
       @heading="Add new company"
       @role="Add this company"

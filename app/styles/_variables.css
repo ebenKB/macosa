@@ -6,8 +6,10 @@
   --off-dark: #a7a4a4;
   --off-dark__light: rgba(167, 164, 164, 0.15);
   --faint-dark: rgba(78, 92, 110, 0.5);
+  --faint-light: rgba(78, 92, 110, 0.5);
   --red: red;
   --blue: rgb(28, 136, 224);
-  --green: green;
+  --mc-light-blue: #68C8FF;
+  --green: #21BA45;
   --green__light: #b5f7c4;
 }

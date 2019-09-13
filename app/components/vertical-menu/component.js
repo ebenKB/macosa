@@ -14,7 +14,7 @@ export default Component.extend({
     set(this, 'menus',
       [
         {
-          name: 'Macosa',
+          name: 'Company',
           submenus: [
             {
               name: 'Add new Company',
@@ -23,14 +23,6 @@ export default Component.extend({
             {
               name: 'View Companies',
               link: 'company.index',
-            },
-            {
-              name: 'Contacts',
-              link: 'contact',
-            },
-            {
-              name: 'Customers',
-              link: 'customer'
             },
             {
               name: 'View Types',
@@ -43,7 +35,25 @@ export default Component.extend({
           ]
         },
         {
-          name: 'Orders',
+          name: 'Contact',
+          submenus: [
+            {
+              name: 'All contacts',
+              link: 'contact.index'
+            }
+          ]
+        },
+        {
+          name: 'Customers',
+          submenus: [
+            {
+              name: 'All customers',
+              link: 'customer.index'
+            }
+          ]
+        },
+        {
+          name: 'Customer Orders',
           submenus: [
             {
               name: 'Add new order',
@@ -51,7 +61,7 @@ export default Component.extend({
             },
             {
               name: 'View orders',
-              link: 'order',
+              link: 'order.index',
             },
             {
               name: 'Business unit orders',
@@ -60,6 +70,19 @@ export default Component.extend({
             {
               name: 'Manufacturer orders',
               link: 'manufacturer-order',
+            }
+          ]
+        },
+        {
+          name: 'Supplier Orders',
+          submenus: [
+            {
+              name: 'Add new',
+              link: 'order.index',
+            },
+            {
+              name: 'View all',
+              link: 'order.index',
             }
           ]
         },

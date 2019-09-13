@@ -18,6 +18,7 @@
 @import 'order.css';
 @import 'mc-modal.css';
 @import 'reset-form.css';
+@import 'notifications.css';
 
 /* include custom fonts */
 @font-face {
@@ -32,11 +33,17 @@
 body {
   font-family: "openSans", "helveticaNeue";
   color: var(--dark);
-  background: rgba(246, 250, 250, 0.5) !important;
+  /* background: rgba(246, 250, 250, 0.5) !important; */
+  background: #fff;
 }
 
 .full-width {
   width: 100%;
+}
+
+aside p {
+  font-size: 0.90rem;
+  font-weight: 300;
 }
 
 .icon-text svg {
@@ -47,8 +54,12 @@ body {
   padding-right: 10px;
 }
 
-a.danger, .danger, .required, .svg.danger {
+a.danger, .danger, .svg.danger {
   color: var(--red);
+}
+
+.required {
+  color: rgba(255, 0, 0, 0.6);
 }
 
 a:hover {
@@ -117,6 +128,10 @@ a:hover {
   color: var(--faint-dark)
 }
 
+.very.faint {
+  color: var(--faint-light);
+}
+
 .faint-form {
   background: rgba(246, 250, 251, 0.5);
   padding: 30px;
@@ -139,6 +154,18 @@ a:hover {
 
 .embedded-caption.opaque {
   background: var(--bg__faint);
+}
+
+.embedded-action {
+  width: 100px;
+}
+
+.embedded-action.error {
+  background:var(--mc-red);
+  padding: 40px 20px;
+  width: 80%;
+  margin: auto 0;
+  /* animation: fadeOut 3s ease-in-out 0.1s 1 forwards normal; */
 }
 
 .green {

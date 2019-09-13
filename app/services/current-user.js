@@ -24,7 +24,6 @@ export default Service.extend({
             'The application will restart in 3 seconds';
           this.get('notifications').showError(msg);
           setTimeout(() => {
-            console.log('Restarting app');
             // this.route.transitionto('login');
           }, 500);
         });

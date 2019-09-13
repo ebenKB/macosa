@@ -10,10 +10,10 @@
 <ContentPane
   @aside={{help}}
 >
-  <div class="ui edit-form p-t-80 p-b-80">
+  <div class="ui edit-form p-b-80">
     {{#with (changeset model.order OrderValidations) as |changesetObj|}}
       <McForm
-        @heading="Edit an existing order"
+        @heading={{concat "Edit order for " model.order.customer_id.name}}
         @role="Edit order"
         @didDecline={{action "cancel"}}
         @isSaving={{isSaving}}

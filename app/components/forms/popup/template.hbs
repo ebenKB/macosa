@@ -1,10 +1,10 @@
 <div>
-  <div class="ui mc-popup  button" data-content="" data-position="top center">
-    {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }}
+  <div class="ui mc-popup  button" data-content="">
+    {{!-- {{svg-jar "plus-2" width="13px" height="13px" class="custom button" }} --}}
     <span class="m-l-5" role="button" {{action "initPopUp" model}}>Add new</span>
   </div>
   <div class="ui popup"> 
-    <h3 class="faint">{{title}}</h3>
+    <h3 class="faint ">{{title}}</h3>
     <div class="inline field">
       <FormFields::Input
         @placeholder={{placeholder}}

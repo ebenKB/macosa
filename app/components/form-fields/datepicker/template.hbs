@@ -8,3 +8,22 @@
     placeholder="Pick an order date"
     theme=theme
   }}
+
+  <span class="date-picker__icon">
+    {{svg-jar "calendar" width="18px" height="18px" fill="#000"}}
+  </span>
+
+  {{!-- <div class="date-picker figures">
+    <div class="icon"> <b>X</b></div>
+    <div>
+      {{pikaday-input
+        format="DD/MM/YYYY"
+        yearRange="2000,currentYear"
+        onSelection=(action 'setValue')
+        value=(get changeset property)
+        class=classNames
+        placeholder="Pick an order date"
+        theme=theme
+      }}
+    </div>
+  </div> --}}

@@ -1,3 +1,8 @@
-{{!-- {{yield}} --}}
-
-<div> {{data}}</div>
+<div class="aside">
+  {{#each data as |help|}}
+    <div class="mc-divider m-b-10">
+      <h5>{{help.key}}</h5>
+    </div>
+    <p>{{help.value}}</p>
+  {{/each}}
+</div>
