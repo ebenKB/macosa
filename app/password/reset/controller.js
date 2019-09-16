@@ -4,7 +4,6 @@ import config from 'macosa/config/environment';
 
 export default Controller.extend({
   isSending: false,
-  didReset: false,
   actions: {
     resetPassword(){
       set(this, 'isSending', true);
@@ -23,7 +22,7 @@ export default Controller.extend({
       fetch(`${config.apiEndpoint}/${config.apiNamespace}/users/password_reset`, reqOptions)
         .then(() => {
           set(this, 'isSending', false);
-          set(this, 'didReset', true);
+          this.transitionToRoute('password.action');
         });
     }
   }

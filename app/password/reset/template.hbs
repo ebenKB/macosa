@@ -1,45 +1,28 @@
-{{#if didReset}}
-  <div class="ui container reset-form">
-    <div class="message__wrapper success">
-      <p class="caption">
-        If an account exists with this email, we will send you a link to reset your password.
-      </p>
-      <p>If you don't receive this email, please check your spam.
-      <span>
-        Click here to     
-        {{#link-to "login"}}
-          login
-        {{/link-to}}
-      </span>
-      </p>
+
+<Forms::User-Form
+  @heading="Reset your password"
+  @footNote="We will send you a link to reset your password"
+>
+  <form action="" class="ui form">
+    <div class="field">
+      <label for="">Email</label>
+      {{input
+        class=classNames
+        type=type
+        placeholder="Enter your email"
+        value=model.email
+      }}
     </div>
+    <FormFields::Submit
+      @title="Get recovery link"
+      @classess="ui large green fluid submit button {{if isSending "loading disabled"}}"
+      @perform={{action "resetPassword"}}
+    />
+  </form>
+  <div class="field text-center m-t-20">
+    <span>Already have an account?</span>
+    {{#link-to "login"}}
+      login
+    {{/link-to}}
   </div>
-    {{else}}
-  <Forms::User-Form
-    @heading="Reset your password"
-    @footNote="We will send you a link to reset your password"
-  >
-    <form action="" class="ui form">
-      <div class="field">
-        <label for="">Email</label>
-        {{input
-          class=classNames
-          type=type
-          placeholder="Enter your email"
-          value=model.email
-        }}
-      </div>
-      <FormFields::Submit
-        @title="Get recovery link"
-        @classess="ui large green fluid submit button {{if isSending "loading disabled"}}"
-        @perform={{action "resetPassword"}}
-      />
-    </form>
-    <div class="field text-center m-t-20">
-      <span>Already have an account?</span>
-      {{#link-to "login"}}
-        login
-      {{/link-to}}
-    </div>
-  </Forms::User-Form>
-{{/if}}
+</Forms::User-Form>

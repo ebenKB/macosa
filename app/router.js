@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('password', function() {
     this.route('reset');
     this.route('new', { path: '/:token'});
+    this.route('action', { path: '/reset/action'});
   });
 
   this.route('authenticated', { path: ''}, function() {
