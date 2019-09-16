@@ -10,6 +10,7 @@
   --red: red;
   --blue: rgb(28, 136, 224);
   --mc-light-blue: #68C8FF;
+  --mc-form_bg-light: rgba(237, 244, 247, 0.5);
   --green: #21BA45;
   --green__light: #b5f7c4;
 }

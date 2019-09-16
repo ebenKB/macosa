@@ -14,108 +14,73 @@
   >
     <div class="mc-divider">Order Details</div>
     <div class="form-group">
-      <div class="inline field">
+      <div class="ui right labeled input inline field">
         <label for="company name">Order Date 
-          <span class="required m-l-5" >*</span>
         </label>
-        <FormFields::Datepicker
-          @changeset={{changesetObj}}
-          @property="date"
-          @classNames="figures"
-        />
+        <div class="ui label small">{{moment-format order.date "ddd, MMM d YYYY"}}</div> 
       </div>
       <div class="ui right labeled input inline field">
-        <label for="company name">Order Amount
-          <span class="required m-l-5" >*</span> 
+        <label for="company name">Order Amount 
         </label>
-        <FormFields::Amount
-          @placeholder="Amount"
-          @amntChangeset={{changesetObj}}
-          @property="amount"
-          @classNames=""
-          @didValidate={{action "validate" changesetObj}}
-          @generalChangeset={{changesetObj}}
-        />
+        <div class="ui label small">{{changeset-get order "currency_id.name "}} {{order.amount}}</div>
       </div>
       <div class="ui right labeled input inline field">
-        <label for="company name">Profit 
-          <span class="required m-l-5" >*</span> 
+        <label for="company name">Profit  
         </label>
-        <FormFields::Amount
-          @placeholder="Amount"
-          @amntChangeset={{changesetObj}}
-          @generalChangeset={{changesetObj}}
-          @property="profit"
-          @classNames=""
-          @didValidate={{action "validate" changesetObj}}
-          @options={{model.currencies}}
-        />
+        <div class="ui label small">{{order.profit}}</div>
       </div>
-      <div class="inline field">
-        <label for="Compnany Type">Customer
-          <span class="required m-l-5">*</span>
+      <div class="ui right labeled input inline field">
+        <label for="Customer">Customer
         </label>
-        <FormFields::Dropdown 
-          @options={{customers}}
-          @changeset={{changesetObj}}
-          @property="customer_id"
-          @key="name"
-          @classNames="text-right"
-          @default={{order.customer_id.name}}
-        />
+        <div class="ui label small">
+          {{changeset-get order "customer_id.name"}}
+        </div>
       </div> 
-      <div class="inline field">
-        <label for="Compnany Type">Account Manager
-          <span class="required m-l-5">*</span>
+      <div class="ui right labeled input inline field">
+        <label for="Compnany Type">
+          Account Manager
         </label>
-        <FormFields::Dropdown 
-          @options={{managers}}
-          @changeset={{changesetObj}}
-          @property="account_manager_id"
-          @classNames="text-right"
-          @key="full_name"
-          @default={{order.account_manager_id.full_name}}
-        />
+        <div class="ui label small">
+          {{changeset-get order "account_manager_id.full_name"}}
+        </div>
       </div> 
     </div>
-    <div class="mc-divider">Oder description <span class="faint" >( what is the order about? )</span> </div>
-    <div class="form-group">
-      <div class="">
-        <FormFields::Textarea
-          @columns=""
-          @rows={{5}}
-          @property="description"
-          @changeset={{changesetObj}}
-          @placeholder="Enter the description"
-        />
+    <div class="mc-divider faint">Oder description </div>
+    <div class="form-groups m-t-20 m-b-20">
+      <div class="ui label">
+        {{get changesetObj "description"}}
       </div>
     </div> 
     <div class="m-b-20">This is order has {{order.business_unit_orders_attributes.length}} business unit order(s) and
       {{order.manufacturer_orders_attributes.length}} manufacturer order(s)</div>
-    <div class="embedded-caption">
-    <div class="embedded-caption__header grid equal-columns__2 m-b-20">
-      <div><h5>Business unit</h5></div>
-      <div><h5>Amount</h5></div>
-    </div>
-    <div class="grid equal-columns__2">
-      {{#each (changeset-get order "business_unit_orders_attributes") as |b_unit_order|}}
-        <div>{{b_unit_order.business_unit_id.name}} </div>
-        <div>{{b_unit_order.amount}}</div>
-      {{/each}}
-    </div>
-    </div>
-    <div class="embedded-caption m-t-20">
-      <div class="embedded-caption__header grid equal-columns__2 m-t-20 m-b-20">
-        <div><h5>Manufacturer</h5></div>
-        <div><h5>Amount</h5></div>
+    {{#if (changeset-get order "business_unit_orders_attributes")}}
+      <div class="embedded-caption">
+        <div class="embedded-caption__header grid equal-columns__2 m-b-20">
+          <div><h5>Business unit</h5></div>
+          <div><h5>Amount</h5></div>
+        </div>
+        <div class="grid equal-columns__2">
+          {{#each (changeset-get order "business_unit_orders_attributes") as |b_unit_order|}}
+            <div>{{b_unit_order.business_unit_id.name}} </div>
+            <div>{{b_unit_order.amount}}</div>
+          {{/each}}
+        </div>
       </div>
-      <div class="grid equal-columns__2">
-        {{#each order.manufacturer_orders_attributes as |m_order|}}
-          <div>{{m_order.manufacturer_id.name}}</div>
-          <div>{{m_order.amount}}</div>
-        {{/each}}
+    {{/if}}
+    {{#if (changeset-get order "manufacturer_orders_attributes")}}
+      <div class="embedded-caption m-t-20">
+        <div class="embedded-caption__header grid equal-columns__2 m-t-20 m-b-20">
+          <div><h5>Manufacturer</h5></div>
+          <div><h5>Amount</h5></div>
+        </div>
+        <div class="grid equal-columns__2">
+          {{#each order.manufacturer_orders_attributes as |m_order|}}
+            <div>{{m_order.manufacturer_id.name}}</div>
+            <div>{{m_order.amount}}</div>
+          {{/each}}
+        </div>
       </div>
-    </div>
+    {{/if}}
     <div class="action m-t-40 m-b-40" role="button" {{action "deleteOrder"}}>
       <span>
         You can <span class="danger">Delete this order</span> or if you want to make changes,

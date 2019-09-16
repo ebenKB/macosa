@@ -2,12 +2,10 @@ import DS from 'ember-data';
 
 export default DS.Transform.extend({
   deserialize(serialized) {
-    console.log('IN THE DESERIALIZE', serialized);
-    return serialized;
+    return prettyDate(serialized);
   },
 
   serialize(deserialized) {
-    console.log('this is the date', deserialized);
     if (deserialized === null)
       return deserialized;
 
@@ -17,10 +15,21 @@ export default DS.Transform.extend({
       date = `${deserialized.getFullYear()}-${(deserialized.getMonth() + 1)}-${deserialized.getDate()}`;
     } catch (err){
       const mDate = deserialized.split('T')[0];
-      console.log('this is mDate', mDate);
       date = mDate;
     }
-    console.log('returning this date: ', date);
     return date;
   }
 });
+
+function prettyDate(d) {
+  // formate of the date YYYY/MM/DD
+  let date = null;
+
+  try {
+    date = `${d.getFullYear()}-${(d.getMonth() + 1)}-${d.getDate()}`;
+  } catch (err){
+    const mDate = d.split('T')[0];
+    date = mDate;
+  }
+  return date;
+}

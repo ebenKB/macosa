@@ -42,6 +42,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-moment": "^8.0.0",
     "ember-pikaday": "^2.4.0",
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",

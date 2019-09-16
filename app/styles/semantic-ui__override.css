@@ -78,3 +78,13 @@
 .mc-form__header .grid-center {
   align-items: center
 } 
+
+.preview-form__wrapper .ui.label {
+  background: var(--mc-form_bg-light);
+  line-height: 1.5;
+}
+
+.preview-form__wrapper .ui.label.small {
+  width: 70%;
+  margin-left: 30% !important;
+}
