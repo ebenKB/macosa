@@ -9,20 +9,17 @@ export default Controller.extend({
   appOwner: service(),
   isSaving: false,
   didValidate: false,
+  isLoading: true,
   // eslint-disable-next-line max-len
   help: 'Add a new company as a client or partner. This compnay will be added to your company lists.',
 
   init() {
     this._super(...arguments);
-    set(this, 'types', [{
-      name: 'Finance',
-      dataValue: 'Finance'
-    },
-
-    {
-      name: 'Education',
-      dataValue: 'Education',
-    }]);
+    get(this, 'store').findAll('type')
+      .then((data) => {
+        set(this, 'types', data);
+        set(this, 'isLoading', false);
+      });
   },
   actions: {
     validate(changeset) {

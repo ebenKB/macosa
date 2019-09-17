@@ -37,8 +37,8 @@
       />
     </div>
   </div>
-  <div class="inline-wrapper">Showing all orders
-      created by
+  <div class="inline-wrapper small caption">Showing {{model.length}} 
+      oders created by
     <Forms::FilterOptions
       @didClick={{action "didInit" }}
       @didSelectItem={{action "didSelectItem"}}
@@ -78,6 +78,10 @@
       @title={{currencyTitle}}
       @isLoading={{isLoading}}
     />
+    <span>You can </span> 
+    <span role="button" class="clickable primary action" onclick={{action "resetFilters"}}>
+      reset all filters
+    </span>
   </div>
   <div class="mc-divider m-b-15"></div>
   {{#each model as |order| }}
@@ -88,9 +92,11 @@
     />
     <div class="mc-divider m-b-15"></div>
   {{/each}}
-    <div class="text-right">
-      <button class="ui button default" onclick={{action "previous"}}>Previous</button>
-      <button class="ui button blue" onclick={{action "next"}}>Next</button>
-    </div>
+  {{#infinity-loader 
+    infinityModel=model
+    hideOnInfinity=true
+  }}
+    <div class="ui active centered inline loader"></div>
+  {{/infinity-loader}}
   </McWrapper>
 </ContentPane>

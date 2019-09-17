@@ -12,6 +12,7 @@ export default ([
   },
   {
     key: 'Manufacturers',
-    value: 'These are the manufacturers that are directly related with the order.',
+    value: 'These are the manufacturers that are directly related with the order.'
+      + 'Please note that every order must belong to at leat one manufacturer.',
   }
 ]);

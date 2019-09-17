@@ -22,13 +22,12 @@ export default Controller.extend({
           })
           .catch((err) => {
             if (err == 'TypeError: Failed to fetch') {
-              const msg = 'Hmm, it seems you are OFFLINE, so we cannot process your request.';
+              const msg = 'Hmm, we could not process your request. Please check whether you are not OFFLINE';
               this.get('notifications').showError(msg);
               set(this, 'isAuthenticating', false);
               this.get('session').invalidate();
             } else {
-              console.log('this is the errro', err)
-            // show error and invalidate the session
+              // show error and invalidate the session
               this._showError('Sorry, no record matches your credentials');
               this.get('session').invalidate();
             }

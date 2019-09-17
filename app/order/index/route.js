@@ -1,7 +1,10 @@
 import Route from '@ember/routing/route';
 import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  infinity: service(),
+
   queryParams: {
     user_id: {
       refreshModel: true
@@ -21,6 +24,15 @@ export default Route.extend({
   },
   model(params) {
     // return get(this, 'store').findAll('order');
-    return get(this, 'store').query('order', params);
-  }
+    // return get(this, 'store').query('order', params);
+    const perPage = 10;
+    // check if there are query params
+    if (params.user_id || params.account_manager_id || params.manager_id || params.currency_id) {
+      return this.infinity.model('order',
+        {perPage, user_id: params.user_id, account_manager_id: params.account_manager_id,
+          customer_id: params.customer_id, currency_id: params.currency_id});
+    } else { // fetch records without any query params
+      return this.infinity.model('order', {perPage});
+    }
+  },
 });

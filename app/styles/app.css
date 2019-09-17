@@ -188,6 +188,14 @@ a:hover {
   display: inline;
 }
 
+.small.caption {
+  font-size: 0.9rem;
+}
+
+.primary.action {
+  color: var(--blue);
+  text-decoration: underline;
+}
 @media only screen and (max-width: 768px) {
   /* override layout for smaller viewport */
 .mc-wrapper.grid.columns-2__14 {

@@ -7,7 +7,6 @@ export default Controller.extend({
   OrderValidations,
   // queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
   queryParams: ['page'],
-  page: 1,
   userTitle: 'all users',
   customerTitle: 'all comapnies',
   managerTitle: 'all managers',
@@ -28,7 +27,7 @@ export default Controller.extend({
   b_units: null,
 
   actions: {
-    perform(){
+    perform() {
       this.transitionToRoute('order.new');
     },
 
@@ -47,7 +46,7 @@ export default Controller.extend({
      * @param {*} type the type of item that has been selected
      * waits for a user to select an item and then sets the paramters(item, type)
      */
-    didSelectItem(item, type) { // REVIEW THIS CODE FOR DEPRACTION
+    didSelectItem(item, type) {
       if (type === 'user') {
         set(this, 'user_id', item.id);
         set(this, 'userTitle', item.fullname);
@@ -130,6 +129,20 @@ export default Controller.extend({
 
     cancelEdit() {
       set(this, 'canShowOrder', false);
+    },
+
+    resetFilters() {
+      // reset all filters
+      set(this, 'userTitle', 'all users');
+      set(this, 'customerTitle', 'all companies');
+      set(this, 'managerTitle', 'all managers');
+      set(this, 'currencyTitle', 'all currencies');
+
+      // reset all query params
+      set(this, 'user_id', null);
+      set(this, 'customer_id', null);
+      set(this, 'manager_id', null);
+      set(this, 'account_manager_id', null);
     }
   },
   init() {
@@ -146,6 +159,7 @@ export default Controller.extend({
     ]);
 
     set(this, 'help', help);
+    set(this, 'filters', [{filter: this.filterTitle}]);
   },
 
   // get all managers
@@ -162,6 +176,7 @@ export default Controller.extend({
       } else resolve(true);
     });
   },
+
   // get all customers
   getCustomers() {
     return new Promise((resolve, reject) => {

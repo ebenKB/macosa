@@ -1,4 +1,10 @@
-{{!-- {{outlet}} --}}
+{{!-- {{#if canShowModal}}
+  <McModal
+    @canShowModal={{ canShowModal }}
+    @perform={{action "confirmDelete"}}
+    @message="Are you sure you want to save this order?"
+  />
+{{/if}} --}}
 <ContentPane 
   @aside={{help}}>
   {{#with (changeset model.order OrderValidations) as |changesetObj|}} 
@@ -51,7 +57,7 @@
           />
         </div>
         <div class="inline field">
-          <label for="Compnany Type">Customer
+          <label for="Customer">Customer
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
@@ -61,7 +67,8 @@
             @key="name"
             @classNames="text-right"
           />
-        </div> 
+        </div>
+        <h2>Debug this line: {{accountManagers.length}} </h2>
         <div class="inline field">
           <label for="Compnany Type">Account Manager
             <span class="required m-l-5">*</span>

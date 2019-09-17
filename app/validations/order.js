@@ -21,9 +21,9 @@ export default {
     validateLength({min: 3}),
   ],
 
-  date: [
-    validateFormat({type: 'date'})
-  ]
+  // date: [
+  //   validateFormat({type: 'date'})
+  // ]
 };
 
 // order_no: DS.attr('number'),

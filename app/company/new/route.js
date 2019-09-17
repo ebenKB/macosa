@@ -9,7 +9,6 @@ export default Route.extend({
 
   model() {
     return RSVP.hash({
-      types: get(this, 'store').findAll('type'),
       company: get(this, 'store').createRecord('company', {
         name: '',
         email: '',

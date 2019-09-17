@@ -18,20 +18,30 @@ export default Controller.extend({
   isSaving: false,
   businessUnitChangeset: null,
   manufacturerChangeset: null,
+  customer: null,
+  manager: null,
+  canShowModal: true,
   actions: {
     async createNewOrder(changeset) {
       set(this, 'isSaving', true);
-      // set records for manager
-      if (get(changeset, 'account_manager_id')) {
-        const manager = this.store.peekRecord('account_manager',
-          get(changeset, 'account_manager_id'));
-        set(changeset,'account_manager_id', manager);
+      /**
+       * check if the account manager object has been append to the order
+       * if not set records for manager
+       */
+      if (get(changeset, 'account_manager_id')
+        && typeof(get(changeset, 'account_manager_id')) != 'object') {
+        set(this, 'manager', this.store.peekRecord('account_manager',
+          get(changeset, 'account_manager_id')));
+        set(changeset,'account_manager_id', get(this, 'manager'));
       }
 
-      // set records customer
-      if (get(changeset, 'customer_id')) {
-        const customer = this.store.peekRecord('customer', get(changeset, 'customer_id'));
-        set(changeset, 'customer_id', customer);
+      /**
+       * check if the customer object has been appended to the order
+       * if not set records customer
+       */
+      if (get(changeset, 'customer_id') && typeof(get(changeset, 'customer_id')) != 'object') {
+        set(this, 'customer', this.store.peekRecord('customer', get(changeset, 'customer_id')));
+        set(changeset, 'customer_id', get(this, 'customer'));
       }
 
       // set records for currency. If no currency is selected, set the currency to the default i.e USD
@@ -129,14 +139,6 @@ export default Controller.extend({
       }
     },
     initPopUp(model) {
-      console.log('we are initializing the popup and this is the model', model);
-      // if (model == 'business_unit') {
-      //   this.businessUnitChangeset = new Changeset({ name: '' }, { skipValidate: true });
-      // } else {
-      //   this.manufacturerChangeset = new Changeset({ name: ''}, {skipValidate: false});
-      // }
-
-
       if (model === 'business_unit') {
         const unit = this.store.createRecord('business_unit', { name: '' });
         set(this, 'bUnit', new Changeset(unit,

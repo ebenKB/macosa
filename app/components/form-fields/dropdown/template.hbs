@@ -1,11 +1,13 @@
 {{#ui-dropdown class=(concat (if isLoading "loading disabled") "selection") selected=default onChange=(action (mut (get changeset property))) placeholder=placeholder }}
-  <div class="default text">{{default}}</div>
+  <div class="default text"></div>
   <i class="dropdown icon"></i>
   <div class="menu">
     {{#each options as |op|}}
-      <div data-value={{op.id}} class="item">
-        {{get op key}} 
-      </div>
+      {{#if (get op key)}}
+        <div data-value={{op.id}} class="item">
+          {{get op key}} 
+        </div>
+      {{/if}}
     {{/each}}
   </div>
 {{/ui-dropdown}}
