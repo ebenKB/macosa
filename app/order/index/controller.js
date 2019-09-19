@@ -5,8 +5,8 @@ import help from 'macosa/help/order/index';
 
 export default Controller.extend({
   OrderValidations,
-  // queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
-  queryParams: ['page'],
+  queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
+  // queryParams: ['page'],
   userTitle: 'all users',
   customerTitle: 'all comapnies',
   managerTitle: 'all managers',
@@ -81,12 +81,14 @@ export default Controller.extend({
     didInit(type) {
       // load user records
       if (type === 'user' && this.users === null) {
-        set(this, 'isLoading', true);
-        get(this, 'store').findAll('user')
-          .then((data) => {
-            set(this, 'users', data);
-            set(this, 'isLoading', false);
-          });
+        if (this.users === null) {
+          set(this, 'isLoading', true);
+          get(this, 'store').findAll('user')
+            .then((data) => {
+              set(this, 'users', data);
+              set(this, 'isLoading', false);
+            });
+        }
       } else if (type === 'customer') {
         // load customer records
         set(this, 'isLoading', true);
@@ -94,20 +96,24 @@ export default Controller.extend({
           .then(() => set(this, 'isLoading', false));
       } else if (type === 'account_manager') {
         // load account managers
-        set(this, 'isLoading', true);
-        get(this, 'store').findAll('account-manager')
-          .then((data) => {
-            set(this, 'managers', data);
-            set(this, 'isLoading', false);
-          });
+        if (this.managers === null) {
+          set(this, 'isLoading', true);
+          get(this, 'store').findAll('account-manager')
+            .then((data) => {
+              set(this, 'managers', data);
+              set(this, 'isLoading', false);
+            });
+        }
       } else if (type === 'currency' && this.currencies === null) {
         // load account currecies
-        set(this, 'isLoading', true);
-        get(this, 'store').findAll('currency')
-          .then((data) => {
-            set(this, 'currencies', data);
-            set(this, 'isLoading', false);
-          });
+        if (this.currencies === null) {
+          set(this, 'isLoading', true);
+          get(this, 'store').findAll('currency')
+            .then((data) => {
+              set(this, 'currencies', data);
+              set(this, 'isLoading', false);
+            });
+        }
       }
     },
 
@@ -141,7 +147,7 @@ export default Controller.extend({
       // reset all query params
       set(this, 'user_id', null);
       set(this, 'customer_id', null);
-      set(this, 'manager_id', null);
+      set(this, 'currency_id', null);
       set(this, 'account_manager_id', null);
     }
   },
@@ -157,7 +163,6 @@ export default Controller.extend({
         key: -1,
       }
     ]);
-
     set(this, 'help', help);
     set(this, 'filters', [{filter: this.filterTitle}]);
   },

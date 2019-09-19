@@ -5,7 +5,8 @@
 
 .v-menu__wrapper .ui.menu {
   font-family:  "helveticaNeue", "openSans";
-  font-size: 1.15rem;
+  /* font-size: 1.15rem; */
+  font-size: 1.05rem;
 }
 
 .ui.vertical.menu .menu .item {
