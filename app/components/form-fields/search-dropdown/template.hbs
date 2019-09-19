@@ -1,0 +1,11 @@
+{{#ui-dropdown class="selection" selected=gender2 onChange=(action (mut gender2)) as |execute mapper|}}
+  <div class="default text">Gender</div>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    {{#each genders as |gender|}}
+      <div data-value="{{map-value mapper gender}}" class="item">
+        {{gender.text}}
+      </div>
+    {{/each}}
+  </div>
+{{/ui-dropdown}}

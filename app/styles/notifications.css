@@ -9,7 +9,7 @@
 }
 
 ._c-notification--success_of6y9q {
-  border: 1px solid var(--green);
+  border: 1px solid var(--mc-green);
   color: #4e5b6d;
   padding: 5px;
 }
@@ -35,5 +35,5 @@
 }
 
 ._c-notification--success_of6y9q ._c-notification__countdown_of6y9q {
-  background-color:  var(--green);
+  background-color:  var(--mc-green);
 }

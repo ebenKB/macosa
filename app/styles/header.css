@@ -1,6 +1,6 @@
 /* override semantic ui for the header  */
 .header-wrapper .ui.menu:not(.vertical)  .right.menu {
-    margin-left: 90% !important;
+    /* margin-left: 90% !important; */
 }
 
 .header-wrapper svg {

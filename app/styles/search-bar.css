@@ -1,0 +1,15 @@
+.search-bar {
+  position: relative;
+  width: 400px;
+}
+
+.search-bar .search-options{
+  position: absolute;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 2.5px;
+  background: var(--white);
+  box-shadow: 0 1px 5px 0 #becdd1;
+  z-index: 99;
+}

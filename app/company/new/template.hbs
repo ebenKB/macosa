@@ -2,8 +2,8 @@
   @aside={{help}}>
   {{#with (changeset model.company CompanyValidations) as |changesetObj|}}
     <McForm
-      @heading="Save"
-      @role="Add this company"
+      @heading="Create new company"
+      @role="Save"
       @didPerform={{action "createNewCompany" changesetObj}}
       @didDecline={{action "cancel" changesetObj}}
       @isSaving={{isSaving}}>

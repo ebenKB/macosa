@@ -88,3 +88,24 @@
   width: 70%;
   margin-left: 30% !important;
 }
+
+.mc-form .ui.checkbox label, .ui.checkbox + label {
+  color: var(--faint-dark);
+}
+
+.mc-form .ui.checkbox input:focus ~ label {
+  color: var(--faint-dark);
+}
+
+.mc-form .ui.checkbox label:hover, .ui.checkbox + label:hover {
+  color: var(--faint-dark);
+}
+
+.mc-form .user-label__wrapper .ui.checkbox input:checked ~ .box:before, .ui.checkbox input:checked ~ label:before {
+  background: rgba(4, 149, 242, 0.5);
+  border-color: rgba(4, 149, 242, 0.5);
+}
+
+.header-wrapper .ui.grid {
+  display: grid !important;
+}

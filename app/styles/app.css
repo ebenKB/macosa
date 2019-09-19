@@ -19,6 +19,7 @@
 @import 'mc-modal.css';
 @import 'reset-form.css';
 @import 'notifications.css';
+@import 'search-bar.css';
 
 /* include custom fonts */
 @font-face {
@@ -109,6 +110,10 @@ a:hover {
   border-bottom: 3px solid rgba(34, 36, 38, 0.1);
   padding: 10px 0;
   font-weight: 900;
+}
+
+.mc-divider.thick.green {
+  border-bottom: 3px solid var(--mc-green);
 }
 
 .mc-overlay {

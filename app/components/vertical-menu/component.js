@@ -78,11 +78,11 @@ export default Component.extend({
           submenus: [
             {
               name: 'Add new',
-              link: 'order.index',
+              link: 'supplier-order.new',
             },
             {
               name: 'View all',
-              link: 'order.index',
+              link: 'supplier-order.index',
             }
           ]
         },

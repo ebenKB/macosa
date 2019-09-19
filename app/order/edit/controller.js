@@ -12,12 +12,11 @@ export default Controller.extend({
   didEdit: false,
   isUpdating: false,
   newOrder: null,
+  // bUnitOrders: null,
   title: 'Are you sure you want to save the changes?',
   // help: 'Update on order, business unit order or manufacturer orders related to this order',
   actions: {
     editOrder(order) {
-      set(this, 'didEdit', true); // this will always show the confirmation modal
-
       //set the customer id incase it has changed
       const customer_id = get(order, 'customer_id');
 
@@ -27,14 +26,15 @@ export default Controller.extend({
         set(order, 'customer_id', customer);
       }
 
-      // const bUnit = get(order, 'business_unit_orders_attributes');
-      // bUnit.map((d) => {
-      //   console.log('this is the amount', d.business_unit_id);
-      //   return null;
-      // });
-
+      // check if the model has changed
       if ((get(order, 'isDirty'))) {
-        set(this, 'didEdit', true);
+        this._validateSubUnitOrders(order).then(() => {
+          set(this, 'didEdit', true); // this will always show the confirmation modal
+        })
+          .catch(() => {
+            get(this, 'notifications')
+              .showError('Sorry! the total price for orders does not tally');
+          });
       }
       set(this, 'newOrder', order);
     },
@@ -45,6 +45,7 @@ export default Controller.extend({
         .then(() => {
           set(this, 'isUpdating', false);
           set(this, 'didEdit', false);
+          get(this, 'notifications').showSuccess('The order has been updated');
         });
     },
 
@@ -53,11 +54,39 @@ export default Controller.extend({
     },
 
     validate() {
-      console.log('we want to validate the obkect');
+      // console.log('we want to validate the obkect');
     }
   },
   init() {
     this._super();
     set(this, 'help', help);
+  },
+
+  _validateSubUnitOrders(order) {
+    return new Promise((resolve, reject) => {
+      // validate the business unit orders
+      const bUnitOrders = get(order, 'business_unit_orders_attributes');
+      let subTotal = 0;
+      bUnitOrders.map((d) => {
+        return subTotal += parseFloat((get(d, 'amount')));
+      });
+      if (subTotal == get(order, 'amount')) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+
+      // validate the manufacturer orders
+      const mOrders = get(order, 'manufacturer_orders_attributes');
+      subTotal = 0;
+      mOrders.map((d) => {
+        return subTotal += parseFloat((get(d, 'amount')));
+      });
+      if (subTotal == get(order, 'amount')) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    });
   }
 });

@@ -1,0 +1,101 @@
+<ContentPane 
+  @aside={{help}}>
+  {{#with (changeset model OrderValidations) as |changesetObj|}} 
+    <McForm
+      @heading="New supplier order"
+      @role="Save"
+      @didPerform={{action "createNewOrder" changesetObj}}
+      @didDecline={{action "cancel" changesetObj}}
+      @isSaving={{isSaving}}>
+      <div class="mc-divider caption"> <h4>Supplier order Details</h4> </div>
+      <div class="form-group">
+        <div class="inline field">
+          <label for="Customer">Order #
+            <span class="required m-l-5">*</span>
+          </label>
+          <FormFields::Dropdown 
+            @options={{customers}}
+            @changeset={{changesetObj}}
+            @property="customer_id"
+            @key="name"
+            @classNames="text-right"
+          />
+        </div>
+        <div class="inline field">
+          <label for="company name">Order Date 
+            <span class="required m-l-5">*</span> 
+          </label>
+          <FormFields::Datepicker
+            @changeset={{changesetObj}}
+            @property="date"
+            @classNames="figures"
+          />
+        </div>
+        <div class="ui right labeled input inline field">
+          <label for="company name">Order Amount
+            <span class="required m-l-5" >*</span> 
+          </label>
+          <FormFields::Amount
+            @placeholder="Amount"
+            @amntChangeset={{changesetObj}}
+            @property="amount"
+            @classNames=""
+            @didValidate={{action "validate" changesetObj}}
+            @generalChangeset={{changesetObj}}
+            @options={{currencies}}
+            @type="text"
+          />
+        </div>
+        <div class="ui right labeled input inline field">
+          <label for="company name">Profit 
+            <span class="required m-l-5" >*</span> 
+          </label>
+          <FormFields::Amount
+            @placeholder="Amount"
+            @amntChangeset={{changesetObj}}
+            @generalChangeset={{changesetObj}}
+            @property="profit"
+            @classNames=""
+            @didValidate={{action "validate" changesetObj}}
+            @options={{currencies}}
+            @type="text"
+          />
+        </div>
+        <div class="inline field">
+          <label for="Customer">Who is the supplier?
+            <span class="required m-l-5">*</span>
+          </label>
+          <FormFields::Dropdown 
+            @options={{customers}}
+            @changeset={{changesetObj}}
+            @property="customer_id"
+            @key="name"
+            @classNames="text-right"
+          />
+        </div>
+      </div>
+      <div class="mc-divider caption">
+        Order description
+        <span class="faint">
+          (what is the order about?)
+        </span> 
+      </div>
+      <div class="form-group">
+        <div class="">
+          <FormFields::Textarea
+            @columns=""
+            @rows={{5}}
+            @property="description"
+            @changeset={{changesetObj}}
+            @placeholder="Enter the description"
+          />
+        </div>
+      </div>
+      <div>
+        <FormFields::Checkbox
+        @label="Has this order been delivered?"
+        />
+      </div>
+    </McForm>
+  {{/with}}
+</ContentPane>
