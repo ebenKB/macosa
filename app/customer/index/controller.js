@@ -15,5 +15,5 @@ export default Controller.extend({
       // set(this, 'isMainForm', true);
       this.transitionToRoute('customer');
     }
-  }
+  },
 });

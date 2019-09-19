@@ -1,9 +1,10 @@
 <McForm
-  @heading="Add new"
-  @role="Add this customer"
+  @heading="Create new customer"
+  @role="Save"
   @didPerform={{action "perform"}}
   @didDecline={{action "cancel"}}
-  @isSaving={{isSaving}}>
+  @isSaving={{isSaving}}
+  @help={{help}}>
   <div class="mc-divider">Customer Information</div>
   <div class="form-group">
     <div class="inline field">

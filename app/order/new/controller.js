@@ -20,52 +20,123 @@ export default Controller.extend({
   manufacturerChangeset: null,
   customer: null,
   manager: null,
-  canShowModal: true,
+  didAttemptSave: false,
+  newOrder: null,
   actions: {
     async createNewOrder(changeset) {
+      set(this, 'didAttemptSave', true);
+      // /**
+      //  * check if the account manager object has been append to the order
+      //  * if not set records for manager
+      //  */
+      // if (get(changeset, 'account_manager_id')
+      //   && typeof(get(changeset, 'account_manager_id')) != 'object') {
+      //   set(this, 'manager', this.store.peekRecord('account_manager',
+      //     get(changeset, 'account_manager_id')));
+      //   set(changeset,'account_manager_id', get(this, 'manager'));
+      // }
+
+      // /**
+      //  * check if the customer object has been appended to the order
+      //  * if not set records customer
+      //  */
+      // if (get(changeset, 'customer_id') && typeof(get(changeset, 'customer_id')) != 'object') {
+      //   set(this, 'customer', this.store.peekRecord('customer', get(changeset, 'customer_id')));
+      //   set(changeset, 'customer_id', get(this, 'customer'));
+      // }
+
+      // // set records for currency. If no currency is selected, set the currency to the default i.e USD
+      // if (typeof(changeset) == 'object') {
+      //   const currency = get(this, 'store').peekRecord('currency', 1);
+      //   set(changeset, 'currency_id', currency);
+      // } else {
+      //   const currency = get(this, 'store').peekRecord('currency', get(changeset, 'currency_id'));
+      //   set(changeset, 'currency_id', currency);
+      // }
+
+      // // set records for relationships - embed business unit orders
+      // this._setOrder(this.businessUnitOrders, 'business-unit-order',
+      //   'business_unit_orders_attributes', 'business_unit_id', changeset);
+
+      // // embed manufacturer orders
+      // this._setOrder(this.manufacturerOrders, 'manufacturer-order',
+      //   'manufacturer_orders_attributes', 'manufacturer_id', changeset);
+
+      // set the new order to save
+      set(this, 'newOrder', changeset);
+      // changeset.validate()
+      //   .then(() => {
+      //     if (changeset.get('isValid')) {
+      //       changeset.save()
+      //         .then(() => {
+      //           // reset fields
+      //           set(this, 'businessUnitOrders', []);
+      //           set(this, 'manufacturerOrders', []);
+      //           set(this, 'isSaving', false);
+      //           this.transitionToRoute('order');
+      //           this.get('notifications').showSuccess('One new order has been added');
+      //         })
+      //         .catch(() => {
+      //           set(this, 'isSaving', false);
+      //           this.get('notifications')
+      //             .showError('An error occurred while creating the oder. Please try again.');
+      //         });
+      //     } else {
+      //       set(this, 'isSaving', false);
+      //       get(this, 'notifications').showError('Order is not valid');
+      //     }
+      //   });
+    },
+    confirmSave() {
       set(this, 'isSaving', true);
+      // hide the modal afer confirming the save action
+      set(this, 'didAttemptSave', false);
+
       /**
        * check if the account manager object has been append to the order
        * if not set records for manager
        */
-      if (get(changeset, 'account_manager_id')
-        && typeof(get(changeset, 'account_manager_id')) != 'object') {
+      if (get(this.newOrder, 'account_manager_id')
+        && typeof(get(this.newOrder, 'account_manager_id')) != 'object') {
         set(this, 'manager', this.store.peekRecord('account_manager',
-          get(changeset, 'account_manager_id')));
-        set(changeset,'account_manager_id', get(this, 'manager'));
+          get(this.newOrder, 'account_manager_id')));
+        set(this.newOrder,'account_manager_id', get(this, 'manager'));
       }
 
       /**
        * check if the customer object has been appended to the order
        * if not set records customer
        */
-      if (get(changeset, 'customer_id') && typeof(get(changeset, 'customer_id')) != 'object') {
-        set(this, 'customer', this.store.peekRecord('customer', get(changeset, 'customer_id')));
-        set(changeset, 'customer_id', get(this, 'customer'));
+      if (get(this.newOrder, 'customer_id') 
+        && typeof(get(this.newOrder, 'customer_id')) != 'object') {
+        set(this, 'customer', this.store.peekRecord('customer', get(this.newOrder, 'customer_id')));
+        set(this.newOrder, 'customer_id', get(this, 'customer'));
       }
 
       // set records for currency. If no currency is selected, set the currency to the default i.e USD
-      if (typeof(changeset) == 'object') {
-        const currency = get(this, 'store').peekRecord('currency', 1);
-        set(changeset, 'currency_id', currency);
+      if (typeof(this.newOrder) == 'object') {
+        const currency = get(this, 'store')
+          .peekRecord('currency', 1);
+        set(this.newOrder, 'currency_id', currency);
       } else {
-        const currency = get(this, 'store').peekRecord('currency', get(changeset, 'currency_id'));
-        set(changeset, 'currency_id', currency);
+        const currency = get(this, 'store')
+          .peekRecord('currency', get(this.newOrder, 'currency_id'));
+        set(this.newOrder, 'currency_id', currency);
       }
 
       // set records for relationships - embed business unit orders
       this._setOrder(this.businessUnitOrders, 'business-unit-order',
-        'business_unit_orders_attributes', 'business_unit_id', changeset);
+        'business_unit_orders_attributes', 'business_unit_id', this.newOrder);
 
       // embed manufacturer orders
       this._setOrder(this.manufacturerOrders, 'manufacturer-order',
-        'manufacturer_orders_attributes', 'manufacturer_id', changeset);
-      changeset.validate()
+        'manufacturer_orders_attributes', 'manufacturer_id', this.newOrder);
+      this.newOrder.validate()
         .then(() => {
-          if (changeset.get('isValid')) {
-            changeset.save()
+          if (this.newOrder.get('isValid')) {
+            this.newOrder.save()
               .then(() => {
-                // reset fields
+              // reset fields
                 set(this, 'businessUnitOrders', []);
                 set(this, 'manufacturerOrders', []);
                 set(this, 'isSaving', false);

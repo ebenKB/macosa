@@ -1,10 +1,10 @@
-{{!-- {{#if canShowModal}}
+{{#if didAttemptSave}}
   <McModal
-    @canShowModal={{ canShowModal }}
-    @perform={{action "confirmDelete"}}
+    @canShowModal={{ didAttemptSave }}
+    @perform={{action "confirmSave"}}
     @message="Are you sure you want to save this order?"
   />
-{{/if}} --}}
+{{/if}}
 <ContentPane 
   @aside={{help}}>
   {{#with (changeset model.order OrderValidations) as |changesetObj|}} 

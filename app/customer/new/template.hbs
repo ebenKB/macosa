@@ -1,4 +1,6 @@
-<Layout>
+<ContentPane
+@aside={{help}}
+>
   {{#with (changeset model.customer CustomerValidations) as |changesetObj|}}
     <NewCustomer
       @cancel={{action "cancel" }}
@@ -8,4 +10,4 @@
       @isSaving={{isSaving}}
     />
   {{/with}}
-</Layout>
+</ContentPane>

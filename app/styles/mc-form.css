@@ -1,6 +1,7 @@
 .mc-form {
   position: relative;
   width: 65%;
+  /* width: 80%; */
   border-radius: 5px;
   margin: auto;
   /* box-shadow: 0 1px 3px 0 #bfbfbf; */
@@ -25,11 +26,13 @@
   background: var(--white);
 }
 
-.mc-form .action .success{
+.mc-form .action .success,
+.mclist-content__wrapper .action .success {
   fill: green;
 }
 
-.mc-form .action .danger {
+.mc-form .action .danger,
+.mclist-content__wrapper .action .danger {
   fill: var(--red);
 }
 
@@ -62,6 +65,7 @@
 
 .mc-form .button-group.inline.fields {
   margin: 0 0 0 60%;
+  /* margin: 0 0 0 60%; */
   display: inline-flex;
   padding: 20px;
 }

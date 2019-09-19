@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';
+import help from 'macosa/help/customer/new';
 
 export default Controller.extend({
   session: service('session'),
@@ -25,4 +26,9 @@ export default Controller.extend({
         });
     }
   },
+
+  init() {
+    this._super();
+    set(this, 'help', help);
+  }
 });
