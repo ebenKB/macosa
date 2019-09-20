@@ -20,6 +20,7 @@
 @import 'reset-form.css';
 @import 'notifications.css';
 @import 'search-bar.css';
+@import 'activity-card.css';
 
 /* include custom fonts */
 @font-face {

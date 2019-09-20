@@ -8,6 +8,10 @@
   --faint-dark: rgba(78, 92, 110, 0.5);
   --faint-light: rgba(78, 92, 110, 0.5);
   --red: red;
+  --red__dark: #d84040;
+  --yellow: rgba(247, 247, 41, 1);
+  --yellow__light: rgba(247, 247, 41, 0.2);
+  --red__light:rgba(255,0,0,0.1);
   --blue: rgb(28, 136, 224);
   --mc-light-blue: #68C8FF;
   --mc-form_bg-light: rgba(237, 244, 247, 0.5);
