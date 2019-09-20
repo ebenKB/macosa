@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { set, get } from '@ember/object';
 import CompanyValidations from '../../validations/company';
 import { inject as service } from '@ember/service';
+import help from 'macosa/help/company/new';
 
 export default Controller.extend({
   CompanyValidations,
@@ -20,6 +21,8 @@ export default Controller.extend({
         set(this, 'types', data);
         set(this, 'isLoading', false);
       });
+
+    set(this, 'help', help);
   },
   actions: {
     validate(changeset) {

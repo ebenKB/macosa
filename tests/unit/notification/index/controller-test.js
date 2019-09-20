@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Transform | mydate', function(hooks) {
+module('Unit | Controller | notification/index', function(hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.
   test('it exists', function(assert) {
-    let transform = this.owner.lookup('transform:mydate');
-    assert.ok(transform);
+    let controller = this.owner.lookup('controller:notification/index');
+    assert.ok(controller);
   });
 });

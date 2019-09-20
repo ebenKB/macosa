@@ -83,6 +83,9 @@ Router.map(function() {
     },function() {
       this.route('new');
     });
+    this.route('notification', {
+      resetNamespace: true,
+    },function() {});
   });
 });
 

@@ -1,32 +1,36 @@
-<div class="activity-wrapper m-b-20">
-  <div class="activity-card success">
-    <span class="activity-title success m-r-8">
-      WON
-    </span>
-    <span>
-      The deal was marked active bt Emmanuel Nketia.
-    </span>
+{{#if (eq key "DELETED")}}
+  <div class="activity-wrapper m-b-10">
+    <div class="activity-card alert">
+      <div class="activity-title alert m-r-8">
+        DELETED
+      </div>
+      <div>
+        The {{activity.recipient_type}} with id {{activity.recipient_id}} was {{key}} by {{activity.user_id.name}}.
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="activity-wrapper m-b-20">
-  <div class="activity-card alert">
-    <span class="activity-title alert m-r-8">
-      DELETED
-    </span>
-    <span>
-      The deal was marked active bt Emmanuel Nketia.
-    </span>
-  </div>
-</div>
-
-<div class="activity-wrapper m-b-20">
-  <div class="activity-card warning">
-    <span class="activity-title warning m-r-8">
-      UPDATED
-    </span>
-    <span>
-      The deal was marked active bt Emmanuel Nketia.
-    </span>
-  </div>
-</div>
+  {{else}}
+    {{#if (eq key "UPDATED")}}
+      <div class="activity-wrapper m-b-10">
+        <div class="activity-card success">
+          <div class="activity-title success m-r-8">
+            UPDATED
+          </div>
+          <div>
+            The {{activity.recipient_type}} {{activity.recipient_id}} was marked active bt Emmanuel Nketia.
+          </div>
+        </div>
+      </div>
+      {{else}}
+        <div class="activity-wrapper m-b-10">
+          <div class="activity-card default">
+            <div class="activity-title default m-r-8">
+              {{key}}
+            </div>
+            <div>
+              The {{activity.recipient_type}} {{activity.recipient_id}} was marked active bt Emmanuel Nketia.
+            </div>
+          </div>
+        </div>
+    {{/if}}
+{{/if}}

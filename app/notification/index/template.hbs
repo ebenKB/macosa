@@ -1,0 +1,25 @@
+<ContentPane
+  @aside={{help}}
+>
+  <div class="content-pane notifications-main__content">
+    <div class="caption mc-form__header header-caption">
+      <h3>Show all activities created by 
+        <LinkTo @route="login">everyone</LinkTo>
+      </h3>
+    </div>
+    <div class="notification-body">
+      {{#each model as |n|}}
+        <Forms::ActivityCard
+          @key={{n.key}}
+          @activity={{n}}
+        />
+      {{/each}}
+      {{#infinity-loader 
+        infinityModel=model
+        hideOnInfinity=true
+      }}
+        <div class="ui active centered inline large loader"></div>
+      {{/infinity-loader}}
+    </div>
+</div>
+</ContentPane>

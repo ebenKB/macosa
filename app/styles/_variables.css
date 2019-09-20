@@ -10,11 +10,11 @@
   --red: red;
   --red__dark: #d84040;
   --yellow: rgba(247, 247, 41, 1);
-  --yellow__light: rgba(247, 247, 41, 0.2);
-  --red__light:rgba(255,0,0,0.1);
+  --yellow__light: rgba(247, 247, 41, 0.08);
+  --red__light:rgba(255,0,0,0.08);
   --blue: rgb(28, 136, 224);
   --mc-light-blue: #68C8FF;
   --mc-form_bg-light: rgba(237, 244, 247, 0.5);
-  --mc-green: #20a43f;
+  --mc-green: #393;
   --green__light: #b5f7c4;
 }
