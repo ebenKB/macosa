@@ -77,10 +77,6 @@ export default Component.extend({
           name: 'Supplier Orders',
           submenus: [
             {
-              name: 'Add new',
-              link: 'supplier-order.new',
-            },
-            {
               name: 'View all',
               link: 'supplier-order.index',
             }

@@ -190,6 +190,10 @@ a:hover {
   font-size: 0.85rem;
 }
 
+.caption__medium {
+  font-size: 1.2rem;
+}
+
 .inline-wrapper div {
   display: inline;
 }
@@ -202,6 +206,11 @@ a:hover {
   color: var(--blue);
   text-decoration: underline;
 }
+
+.success.action {
+  color: var(--mc-green);
+}
+
 @media only screen and (max-width: 768px) {
   /* override layout for smaller viewport */
 .mc-wrapper.grid.columns-2__14 {

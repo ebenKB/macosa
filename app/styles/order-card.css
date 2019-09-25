@@ -1,8 +1,8 @@
-.order-item .action {
+.order-item .action-wrapper {
   display: inline-flex;
   visibility: hidden;
 }
 
-.order-item:hover .action {
+.order-item:hover .action-wrapper {
   visibility: visible;
 }

@@ -8,17 +8,17 @@
   }} --}}
 
 
-  {{input
-      class=classNames
-      type=type
-      placeholder=placeholder
-      keyUp=(action "validate" changeset)
-      change=(mut (get changeset property))
-      value=(get changeset property)
-      changeset=changeset
-      property=property
-      disabled=disabled
-  }}
+{{input
+  class=classNames
+  type=type
+  placeholder=placeholder
+  keyUp=(action "validate" changeset)
+  change=(mut (get changeset property))
+  value=(get changeset property)
+  changeset=changeset
+  property=property
+  disabled=disabled
+}}
 
   
 {{!-- {{#if (get changeset.error property)}}

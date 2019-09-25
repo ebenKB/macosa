@@ -1,6 +1,13 @@
+{{#if didCreateOrder}}
+  <McModal
+    @canShowModal={{ didCreateOrder }}
+    @perform={{action "saveOrder"}}
+    @message="Are you sure you want to save this order?"
+  />
+{{/if}}
 <ContentPane 
   @aside={{help}}>
-  {{#with (changeset model OrderValidations) as |changesetObj|}} 
+  {{#with (changeset model.supplier_order OrderValidations) as |changesetObj|}} 
     <McForm
       @heading="New supplier order"
       @role="Save"
@@ -13,13 +20,11 @@
           <label for="Customer">Order #
             <span class="required m-l-5">*</span>
           </label>
-          <FormFields::Dropdown 
-            @options={{customers}}
-            @changeset={{changesetObj}}
-            @property="customer_id"
-            @key="name"
-            @classNames="text-right"
-          />
+          {{#if (get changesetObj "order_id")}}
+            <div class="ui input label caption__medium figures text-right">
+              {{get changesetObj "order_id"}}
+            </div>
+          {{/if}}
         </div>
         <div class="inline field">
           <label for="company name">Order Date 
@@ -27,7 +32,7 @@
           </label>
           <FormFields::Datepicker
             @changeset={{changesetObj}}
-            @property="date"
+            @property="order_date"
             @classNames="figures"
           />
         </div>
@@ -46,29 +51,14 @@
             @type="text"
           />
         </div>
-        <div class="ui right labeled input inline field">
-          <label for="company name">Profit 
-            <span class="required m-l-5" >*</span> 
-          </label>
-          <FormFields::Amount
-            @placeholder="Amount"
-            @amntChangeset={{changesetObj}}
-            @generalChangeset={{changesetObj}}
-            @property="profit"
-            @classNames=""
-            @didValidate={{action "validate" changesetObj}}
-            @options={{currencies}}
-            @type="text"
-          />
-        </div>
         <div class="inline field">
           <label for="Customer">Who is the supplier?
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{customers}}
+            @options={{model.suppliers}}
             @changeset={{changesetObj}}
-            @property="customer_id"
+            @property="supplier_id"
             @key="name"
             @classNames="text-right"
           />
@@ -94,6 +84,10 @@
       <div>
         <FormFields::Checkbox
         @label="Has this order been delivered?"
+        @changeset={{changesetObj}}
+        @property={{status}}
+        @perform={{action "didChanageStatus" changesetObj}}
+        @check={{didChangeOrderStatus}}
         />
       </div>
     </McForm>

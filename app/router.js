@@ -36,7 +36,7 @@ Router.map(function() {
     },function() {
       this.route('new');
       this.route('edit', { path: '/:id'});
-      this.route('show', {path: '/:id'});
+      this.route('show', { path: '/:id'});
     });
 
     this.route('order', {
@@ -46,6 +46,9 @@ Router.map(function() {
       this.route('new');
       this.route('show', { path: '/:id'});
       this.route('edit', { path: '/:id/edit'});
+      this.route('supplier', {path: '/:id'}, function() {
+        this.route('new');
+      });
     });
 
     this.route('customer', {resetNamespace: true },function() {
@@ -69,8 +72,7 @@ Router.map(function() {
 
     this.route('manufacturer-order', {
       resetNamespace: true
-    },
-    function() {});
+    },function() {});
 
     this.route('account-manager', {
       resetNamespace: true
@@ -78,11 +80,12 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('supplier-order',{
-      resetNamespace: true
-    },function() {
-      this.route('new');
+    this.route('supplier-order', {
+      resetNamespace: true,
+    }, function() {
+      this.route('new', { path: '/:id'});
     });
+
     this.route('notification', {
       resetNamespace: true,
     },function() {});

@@ -31,7 +31,6 @@ export default Route.extend({
         {perPage, user_id: params.user_id, account_manager_id: params.account_manager_id,
           customer_id: params.customer_id, currency_id: params.currency_id});
     } else { // fetch records without any query params
-      this.infinity.model.flush;
       return this.infinity.model('order', {perPage, infinityCache: 60000});
       // return get(this, 'store').peekAll('order');
     }

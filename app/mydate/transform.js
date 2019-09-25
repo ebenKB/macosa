@@ -6,7 +6,7 @@ export default DS.Transform.extend({
   },
 
   serialize(deserialized) {
-    if (deserialized === null)
+    if (deserialized === null || deserialized === undefined)
       return deserialized;
 
     // formate of the date YYYY/MM/DD
@@ -22,6 +22,9 @@ export default DS.Transform.extend({
 });
 
 function prettyDate(d) {
+  if (d === null || d === undefined)
+    return null;
+
   // formate of the date YYYY/MM/DD
   let date = null;
 

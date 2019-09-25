@@ -19,6 +19,7 @@
               <LinkTo @route="user">
                 {{order.user_id.fullname}}
               </LinkTo>
+              on {{moment-format order.date "ddd, MMM d YYYY"}}
             </span>
           </p> 
         </div>
@@ -35,11 +36,16 @@
           {{order.summary}}
         </p>
         <div class="caption__small">
-         <span class="m-r-10">{{svg-jar "choices" width="12px" height="12px"}} {{order.business_unit_orders_attributes.length}} business unit order(s)</span>
-         <span class="m-r-10">{{svg-jar "manufacturer" width="12px" height="12px"}} {{order.manufacturer_orders_attributes.length}} manufacturer order(s)</span>
+          <span class="faint m-r-10">{{svg-jar "choices" width="12px" height="12px"}} {{order.business_unit_orders_attributes.length}} business unit order(s)</span>
+          <span class="faint m-r-10">{{svg-jar "manufacturer" width="12px" height="12px"}} {{order.manufacturer_orders_attributes.length}} manufacturer order(s)</span>
+          <LinkTo @route="supplier-order.new" @model={{order.id}}>
+            <span class="clickable action faint">
+              <span>{{svg-jar "plus-faint" width="12px" height="12px"}} </span> New Supplier order 
+            </span>
+          </LinkTo>
         </div>
       </div>
-      <div class="action" >
+      <div class="action-wrapper">
         <div class="success m-r-20" role="button" {{action "editItem"}}>
           {{svg-jar "list" width="18px" height="18px"}}
         </div>

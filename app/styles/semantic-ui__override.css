@@ -109,3 +109,7 @@
 .header-wrapper .ui.grid {
   display: grid !important;
 }
+
+.ui.label.caption__medium {
+  font-size: 1.2rem;
+}

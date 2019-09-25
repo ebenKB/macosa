@@ -4,10 +4,11 @@ const { Model } = DS;
 export default Model.extend({
   amount: DS.attr('number'),
   supplier_id: DS.belongsTo('manufacturer'),
-  date: DS.attr('myDate'),
+  order_id: DS.attr('string'),
+  order_date: DS.attr('mydate'),
   description: DS.attr('string'),
 
   // etoa - estimated time of arrival
-  etoa: DS.attr('myDate'),
-  status: DS.attr('boolean')
+  eta: DS.attr('mydate'),
+  delivered: DS.attr('boolean')
 });
