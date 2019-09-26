@@ -20,6 +20,6 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
    * @param {*} modelName the model name that we want to use to generate the payload key
    */
   payloadKeyFromModelName(modelName) {
-    return `${underscore(modelName)}s`;
+    return `${underscore(modelName)}`;
   }
 });

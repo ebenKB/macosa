@@ -1,0 +1,100 @@
+<McModal
+  @canShowModal={{canShowModal}}
+  @message={{title}}
+  @perform={{action "confirmDelete"}}
+/>
+<div class="ui container edit-form transparent p-t-80 p-b-80">
+  <McForm
+  @heading="Preview supplier order"
+  @role={{role}}
+  @didDecline={{action "cancel"}}
+  @isSaving={{isSaving}}
+  @canPerform={{canPerform}}
+  @didPerform={{action 'didPerform'}}
+  >
+  <div class="mc-divider">Order Details</div>
+  <div class="form-group">
+    <div class="ui right labeled input inline field">
+      <label for="company name">
+        Order Date 
+      </label>
+      <div class="ui label small">{{moment-format order.date "ddd, MMM d YYYY"}}</div> 
+    </div>
+    <div class="ui right labeled input inline field">
+      <label for="company name">
+        Order Amount 
+      </label>
+      <div class="ui label small">{{changeset-get order "currency_id.name"}} {{order.amount}}</div>
+    </div>
+    <div class="ui right labeled input inline field">
+      <label for="company name">
+        Profit  
+      </label>
+      <div class="ui label small">{{order.profit}}</div>
+    </div>
+    <div class="ui right labeled input inline field">
+      <label for="Customer">
+        Customer
+      </label>
+      <div class="ui label small">
+        {{changeset-get order "customer_id.name"}}
+      </div>
+    </div> 
+    <div class="ui right labeled input inline field">
+      <label for="Compnany Type">
+        Account Manager
+      </label>
+      <div class="ui label small">
+        {{changeset-get order "account_manager_id.full_name"}}
+      </div>
+    </div> 
+  </div>
+  <div class="mc-divider faint">Oder description </div>
+  <div class="form-groups m-t-20 m-b-20">
+    <div class="ui label">
+      {{get changesetObj "description"}}
+    </div>
+  </div> 
+  <div class="m-b-20">This is order has {{order.business_unit_orders_attributes.length}} business unit order(s) and
+    {{order.manufacturer_orders_attributes.length}} manufacturer order(s)
+  </div>
+  {{#if (changeset-get order "business_unit_orders_attributes")}}
+    <div class="embedded-caption">
+      <div class="embedded-caption__header grid equal-columns__2 m-b-20">
+        <div><h5>Business unit</h5></div>
+        <div><h5>Amount</h5></div>
+      </div>
+      <div class="grid equal-columns__2">
+        {{#each (changeset-get order "business_unit_orders_attributes") as |b_unit_order|}}
+          <div>{{b_unit_order.business_unit_id.name}} </div>
+          <div>{{b_unit_order.amount}}</div>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+  {{#if (changeset-get order "manufacturer_orders_attributes")}}
+    <div class="embedded-caption m-t-20">
+      <div class="embedded-caption__header grid equal-columns__2 m-t-20 m-b-20">
+        <div><h5>Manufacturer</h5></div>
+        <div><h5>Amount</h5></div>
+      </div>
+      <div class="grid equal-columns__2">
+        {{#each order.manufacturer_orders_attributes as |m_order|}}
+          <div>{{m_order.manufacturer_id.name}}</div>
+          <div>{{m_order.amount}}</div>
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+  <div class="action m-t-40 m-b-40" role="button" {{action "deleteOrder"}}>
+    <span>
+      You can <span class="danger">Delete this order</span> or if you want to make changes,
+      <span class="success">
+        <LinkTo @route="order.edit" @model={{order.id}}>
+          Edit this order
+        </LinkTo>
+      </span>
+    </span>
+  </div>
+  </McForm>
+</div>

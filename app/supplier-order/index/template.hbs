@@ -1,1 +1,39 @@
-<h1>show all suplier orders here</h1>
+{{#if didAttemptDelete}}
+  <McModal
+    @canShowModal={{didAttemptDelete}}
+    @perform={{action "confirmDelete" confirmDelete}}
+    @message="Are you sure you want to delete this item?"
+  />
+{{/if}}
+{{#if canPreviewOrder}}
+  <Forms::PreviewSupplierOrder />
+{{/if}}
+<ContentPane
+  @aside={{help}}
+>
+  <McWrapper
+    @heading="Supplier orders"
+    @role="Add order"
+    @hasAction={{false}}
+    @actionName={{title}}
+    @perform={{action "perform" }}
+  >
+  <div class="faint"> Showing all supplier orders</div>
+  <div class="mc-divider m-b-15"></div>
+  {{!-- {{#each model as |order| }} --}}
+    <SupplierOrderCard
+      @order={{model}}
+      @order={{order}}
+      @didSelect={{action "didSelectOrder" order}}
+      @didDelete={{action "didDelete" order}}
+    />
+    <div class="mc-divider m-b-15"></div>
+  {{!-- {{/each}} --}}
+  {{!-- {{#infinity-loader 
+    infinityModel=model
+    hideOnInfinity=true
+  }}
+    <div class="ui active centered inline large loader"></div>
+  {{/infinity-loader}} --}}
+  </McWrapper>
+</ContentPane>

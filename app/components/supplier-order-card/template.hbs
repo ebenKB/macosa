@@ -1,0 +1,52 @@
+<div class="grid order-label__wrapper">
+  <div class="grid columns-2__14 grid-gap__10">
+    <div class="ui circular labels">
+      <span class="ui yellow label">{{user.initials}} $</span>
+    </div>
+    <div class="order-item grid columns-15__1">
+      <div>
+        <div class="caption inline">
+          <p> 
+            {{#link-to "order"}}
+              $ <h2>{{order.amount}}9000</h2>
+            {{/link-to}}
+            <span>
+              <span>worth order from </span>
+              {{#link-to 'user'}}
+                {{order.customer_id.name}} Name
+              {{/link-to}}
+              created by 
+              <LinkTo @route="user">
+                {{order.user_id.fullname}} Fullname
+              </LinkTo>
+              on {{moment-format order.date "ddd, MMM d YYYY"}}
+            </span>
+          </p> 
+        </div>
+        <div class="m-b-10"> 
+          <span class="">
+            {{#link-to 'user'}}
+              {{order.account_manager_id.full_name}} Fullname
+            {{/link-to}}
+            is the manager in charge of the order
+          </span>
+          and our margin is $ {{order.profit}}.
+        </div>
+        <p class="caption__small">
+          {{order.summary}} Summary
+        </p>
+        <div class="caption__small">
+          <span class="faint m-r-10">{{svg-jar "manufacturer" width="12px" height="12px"}} 99 {{order.manufacturer_orders_attributes.length}} manufacturers</span>
+        </div>
+      </div>
+      <div class="action-wrapper">
+        <div class="success m-r-20" role="button" {{action "editItem"}}>
+          {{svg-jar "list" width="18px" height="18px"}}
+        </div>
+        <div class="danger" role="button" onclick={{action "didDelete"}}>
+          {{svg-jar "trash" class="danger" width="18px" height="18px"}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ export default Controller.extend({
   didChangeOrderStatus: false,
   didCreateOrder: false,
   currentOrder: null,
+  isSaving: false,
 
   actions: {
     validate(changeset) {
@@ -25,12 +26,16 @@ export default Controller.extend({
     saveOrder() {
       // hide the modal
       set(this, 'didCreateOrder', false);
+      set(this, 'isSaving', true);
+
       this.currentOrder.save()
         .then(() => {
+          set(this, 'isSaving', false);
           get(this, 'notifications').showSuccess('An order has been added for the supplier');
         })
         .catch(() => {
           set(this, 'didCreateOrder', false);
+          set(this, 'isSaving', false);
           get(this, 'notifications').showError('An error occurred while creating the order');
         });
     },

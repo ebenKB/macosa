@@ -11,6 +11,7 @@ export default Route.extend({
         order_date: new Date(),
       }),
       suppliers: get(this, 'store').findAll('manufacturer'),
+      order_id,
     });
   }
 });
