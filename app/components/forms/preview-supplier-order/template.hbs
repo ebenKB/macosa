@@ -13,7 +13,7 @@
     @didPerform={{action 'didPerform'}}
   >
   <div class="mc-divider">
-    Showing details for an order created on
+    Showing details for a supplier order created on
     <span class="action primary">{{moment-format order.date "ddd, MMM d YYYY"}}</span>
   </div>
   <div class="form-group">
@@ -54,42 +54,21 @@
       </span>
     </div>
   </div>
-  <div class="mc-divider faint">Oder description</div>
-  <div class="form-groups m-t-20 m-b-20">
-    <div class="ui label">
-      {{order.description}}
-    </div>
-  </div> 
-  <div class="m-b-20">This is order has {{order.business_unit_orders_attributes.length}}business unit order(s) and
-    {{order.manufacturer_orders_attributes.length}} manufacturer order(s)
-  </div>
-  {{#if (changeset-get order "business_unit_orders_attributes")}}
-    <div class="embedded-caption">
-      <div class="embedded-caption__header grid equal-columns__2 m-b-20">
-        <div><h5>Business unit</h5></div>
-        <div><h5>Amount</h5></div>
+  {{#if order.description}}
+    <div class="mc-divider faint">Oder description</div>
+    <div class="form-groups m-t-20 m-b-20">
+      <div class="ui label">
+        {{order.description}}
       </div>
-      <div class="grid equal-columns__2">
-        {{#each (changeset-get order "business_unit_orders_attributes") as |b_unit_order|}}
-          <div>{{b_unit_order.business_unit_id.name}}name </div>
-          <div>{{b_unit_order.amount}}name</div>
-        {{/each}}
-      </div>
-    </div>
+    </div> 
   {{/if}}
-  {{#if (changeset-get order "manufacturer_orders_attributes")}}
-    <div class="embedded-caption m-t-20">
-      <div class="embedded-caption__header grid equal-columns__2 m-t-20 m-b-20">
-        <div><h5>Manufacturer</h5></div>
-        <div><h5>Amount</h5></div>
+  {{#if order.comments}}
+    <div class="mc-divider faint">Comments</div>
+    <div class="form-groups m-t-20 m-b-20">
+      <div class="ui label">
+        {{order.comments}}
       </div>
-      <div class="grid equal-columns__2">
-        {{#each order.manufacturer_orders_attributes as |m_order|}}
-          <div>{{m_order.manufacturer_id.name}}</div>
-          <div>{{m_order.amount}}</div>
-        {{/each}}
-      </div>
-    </div>
+    </div> 
   {{/if}}
   <div class="action m-t-40 m-b-40">
     <span>
