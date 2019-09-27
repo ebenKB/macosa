@@ -6,7 +6,16 @@
   />
 {{/if}}
 {{#if canPreviewOrder}}
-  <Forms::PreviewSupplierOrder />
+  <div class="preview-form__wrapper">
+    <Forms::PreviewSupplierOrder
+      @cancel={{action "cancelPreview"}}
+      @didConfirmDelete={{action "confirmDelete"}}
+      {{!-- @managers={{managers}} --}}
+      {{!-- @customers={{customers}} --}}
+      @order={{selectedOrder}}
+      {{!-- @b_units={{b_units}} --}}
+    />
+  </div>
 {{/if}}
 <ContentPane
   @aside={{help}}
@@ -18,22 +27,23 @@
     @actionName={{title}}
     @perform={{action "perform" }}
   >
-  <div class="faint"> Showing all supplier orders</div>
+  <div class="faint"> Showing {{model.length}} supplier order(s)</div>
   <div class="mc-divider m-b-15"></div>
-  {{!-- {{#each model as |order| }} --}}
+  {{#each model as |order| }}
     <SupplierOrderCard
-      @order={{model}}
       @order={{order}}
       @didSelect={{action "didSelectOrder" order}}
       @didDelete={{action "didDelete" order}}
     />
     <div class="mc-divider m-b-15"></div>
-  {{!-- {{/each}} --}}
-  {{!-- {{#infinity-loader 
+  {{/each}}
+  {{#infinity-loader 
     infinityModel=model
     hideOnInfinity=true
   }}
     <div class="ui active centered inline large loader"></div>
-  {{/infinity-loader}} --}}
+  {{/infinity-loader}}
   </McWrapper>
 </ContentPane>
+
+

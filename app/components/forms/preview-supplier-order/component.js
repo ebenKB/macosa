@@ -1,16 +1,26 @@
 import Component from '@ember/component';
+import { get, set } from '@ember/object';
 
 export default Component.extend({
+  canShowModal: false,
+  title: 'Are you sure you want delete this order?',
   actions: {
     didPerform() {
-      console.log('you want to perform an action');
+      get(this, 'perform')();
     },
 
     confirmDelete() {
+      get(this, 'didConfirmDelete')();
       console.log('we want to CONFIRM that the order can be deleted');
     },
+
+    deleteOrder() {
+      // get(this, 'didDelete')();
+      set(this, 'canShowModal', true);
+    },
+
     cancel() {
-      console.log('this is a cancel action');
+      get(this, 'cancel')();
     }
   }
 });

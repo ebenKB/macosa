@@ -1,29 +1,40 @@
 import Controller from '@ember/controller';
 import help from 'macosa/help/supplier-order/show';
 import { set } from '@ember/object';
+import OrderValidations from 'macosa/validations/order';
 
 export default Controller.extend({
+  OrderValidations,
   didAttemptDelete: false,
-  canPreviewOrder: true,
+  canPreviewOrder: false,
+  selectedOrder: null,
 
   actions: {
     perform() {
 
     },
-    didSelectOrder() {
-      console.log('you have selected an order');
+
+    didSelectOrder(order) {
+      set(this, 'selectedOrder', order);
+      set(this, 'canPreviewOrder', true);
     },
 
     didDelete() {
-      console.log('IN THE DELTE: We want delete an order');
       set(this, 'didAttemptDelete', true);
     },
+
     confirmDelete() {
-      console.log('we want to confirm the DELETE ACTION');
+      if (this.selectedOrder !== null) {
+        this.selectedOrder.destroyRecord();
+      }
+    },
+
+    cancelPreview() {
+      set(this, 'canPreviewOrder', false);
     }
   },
 
-  init(){
+  init() {
     this._super();
     set(this, 'help', help);
   }

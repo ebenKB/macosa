@@ -3,6 +3,7 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   actions: {
+    // set the order that has been selected
     editItem() {
       get(this, 'didSelect')();
     },

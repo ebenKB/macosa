@@ -19,7 +19,7 @@ export default Component.extend({
     },
 
     // confirm delete for an order
-    confirmDelete(){
+    confirmDelete() {
       // this.order.destroyRecord();
       console.log('you have confired the delete for the order', this.order);
     },

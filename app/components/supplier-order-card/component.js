@@ -7,8 +7,10 @@ export default Component.extend({
       console.log('you want to delete an item');
       get(this, 'didDelete')();
     },
+
+    // set the order when the user selects an order
     editItem() {
-      console.log('you want to edit an item');
+      get(this, 'didSelect')();
     }
   }
 });

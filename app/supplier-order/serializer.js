@@ -3,7 +3,7 @@ import { underscore } from '@ember/string';
 
 export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {
-    supplier_id: {
+    manufacturer_id: {
       serialize: 'ids',
       deserialize: 'ids',
     },

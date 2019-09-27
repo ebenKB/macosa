@@ -15,6 +15,8 @@ export default DS.Model.extend({
   manufacturer_orders_attributes: DS.hasMany('manufacturer-order', { async: false}),
 
   summary: computed('description', function() {
-    return `${this.description.split(' ').splice(0, 40).join(' ')}`;
+    if (this.description !== null) {
+      return `${this.description.split(' ').splice(0, 40).join(' ')}`;
+    }
   })
 });

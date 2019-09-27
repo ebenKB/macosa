@@ -16,8 +16,8 @@ export default Controller.extend({
       set(this, 'didCreateOrder', true);
       const order = get(this, 'store').peekRecord('order', get(changeset, 'order_id'));
       // set the records for the supplier association
-      const supplier = get(this, 'store').peekRecord('manufacturer', get(changeset, 'supplier_id'));
-      set(changeset, 'supplier_id', supplier);
+      const supplier = get(this, 'store').peekRecord('manufacturer', get(changeset, 'manufacturer_id'));
+      set(changeset, 'manufacturer_id', supplier);
       set(changeset,'order_id', order);
       set(this, 'currentOrder', changeset);
     },
