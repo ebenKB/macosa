@@ -85,7 +85,7 @@ Router.map(function() {
       resetNamespace: true,
     }, function() {
       this.route('edit', {path: '/:id'});
-      this.route('new', { path: '/:id'});
+      this.route('new', { path: '/new/:id'});
     });
 
     this.route('notification', {
