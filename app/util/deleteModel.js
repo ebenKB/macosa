@@ -11,7 +11,7 @@ class DeleteModel{
     const options = {
       method: 'DELETE',
     };
-    fetch(`${config.apiEndpoint}/${config.apiNamespace}/${get(snapshot, 'modelName')}s/${get(snapshot, 'id')}?delete=soft`, options)
+    fetch(`${config.apiEndpoint}/${config.apiNamespace}/${get(snapshot, 'modelName')}s/${get(snapshot, 'id')}?delete=normal`, options)
       .then((response) => {
         response.json()
           .then((d) => {

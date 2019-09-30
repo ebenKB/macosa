@@ -21,6 +21,7 @@
 @import 'notifications.css';
 @import 'search-bar.css';
 @import 'activity-card.css';
+@import 'ui-loader.css';
 
 /* include custom fonts */
 @font-face {

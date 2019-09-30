@@ -49,6 +49,7 @@ Router.map(function() {
       this.route('supplier', {path: '/:id'}, function() {
         this.route('new');
       });
+      this.route('loading');
     });
 
     this.route('customer', {resetNamespace: true },function() {
