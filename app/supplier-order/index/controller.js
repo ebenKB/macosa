@@ -26,6 +26,7 @@ export default Controller.extend({
     confirmDelete() {
       if (this.selectedOrder !== null) {
         this.selectedOrder.destroyRecord();
+        // this.selectedOrder.softDelete();
       }
     },
 

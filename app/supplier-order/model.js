@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
+
 const { Model } = DS;
 
 export default Model.extend({
@@ -17,5 +18,5 @@ export default Model.extend({
     if (this.description !== null) {
       return `${this.description.split(' ').splice(0, 40).join(' ')}`;
     }
-  })
+  }),
 });
