@@ -46,9 +46,9 @@ Router.map(function() {
       this.route('new');
       this.route('show', { path: '/:id'});
       this.route('edit', { path: '/:id/edit'});
-      this.route('supplier', {path: '/:id'}, function() {
-        this.route('new');
-      });
+      // this.route('supplier', {path: '/:id'}, function() {
+      //   this.route('new');
+      // });
       this.route('loading');
     });
 
@@ -84,8 +84,8 @@ Router.map(function() {
     this.route('supplier-order', {
       resetNamespace: true,
     }, function() {
-      this.route('new', { path: '/:id'});
       this.route('edit', {path: '/:id'});
+      this.route('new', { path: '/:id'});
     });
 
     this.route('notification', {
