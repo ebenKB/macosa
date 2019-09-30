@@ -83,11 +83,11 @@
       </div>
       <div>
         <FormFields::Checkbox
-        @label="Has this order been delivered?"
-        @changeset={{changesetObj}}
-        @property={{status}}
-        @perform={{action "didChanageStatus" changesetObj}}
-        @check={{didChangeOrderStatus}}
+          @label="Has this order been delivered?"
+          @changeset={{changesetObj}}
+          @property={{status}}
+          @perform={{action "didChanageStatus" changesetObj}}
+          @check={{didChangeOrderStatus}}
         />
       </div>
     </McForm>
