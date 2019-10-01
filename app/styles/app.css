@@ -21,6 +21,7 @@
 @import 'notifications.css';
 @import 'search-bar.css';
 @import 'activity-card.css';
+@import 'aside.css';
 @import 'ui-loader.css';
 
 /* include custom fonts */
@@ -33,6 +34,7 @@
   font-family: "maisonNeue";
   src: url("/fonts/maisonneueweb-book-webfont.woff2") format("woff2");
 }
+
 body {
   font-family: "openSans", "helveticaNeue";
   color: var(--dark);
@@ -126,6 +128,7 @@ a:hover {
   opacity: 0.15;
   z-index: 10;
 }
+
 .left.vpane {
   background: var(--black);
   position: relative;

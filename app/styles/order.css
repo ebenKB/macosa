@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   position: fixed;
-  z-index: 99;
+  z-index: 101;
   overflow-y: scroll;
   overflow-x: hidden;
 }

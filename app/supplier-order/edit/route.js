@@ -3,6 +3,7 @@ import { get } from '@ember/object';
 
 export default Route.extend({
   model(params) {
+    console.log('this is the params that we have:', params);
     const order = get(this, 'store').peekRecord('supplier-order', params);
     let error = null;
 

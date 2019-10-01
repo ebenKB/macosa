@@ -1,0 +1,5 @@
+.aside {
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

@@ -20,9 +20,9 @@
           <label for="Customer">Order #
             <span class="required m-l-5">*</span>
           </label>
-          {{#if (get changesetObj "order_id")}}
+          {{#if (get model "order_id")}}
             <div class="ui input label caption__medium figures text-right">
-              {{get changesetObj "order_id"}}
+              {{get model "order_id"}}
             </div>
           {{/if}}
         </div>

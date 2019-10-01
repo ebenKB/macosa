@@ -15,7 +15,9 @@
               <LinkTo @route="user">
                 {{order.manufacturer_id.name}}
               </LinkTo>
-              on {{moment-format order.date "ddd, MMM d YYYY"}}
+              {{#if (get order "order_date")}}
+                on {{moment-format (get order "order_date") "ddd, MMM d YYYY"}}
+              {{/if}}
             </span>
           </p> 
         </div>

@@ -11,7 +11,7 @@
   @aside={{help}}
 >
   <div class="ui edit-form p-b-80">
-    {{#with (changeset model.order OrderValidations) as |changesetObj|}}
+    {{#with (changeset model OrderValidations) as |changesetObj|}}
       <McForm
         @heading={{concat "Edit order for " model.order.customer_id.name}}
         @role="Edit order"

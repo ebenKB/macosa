@@ -1,3 +1,16 @@
+.header-wrapper {
+  padding: 0 20px 0 0;
+    position: fixed;
+    width: 89%;
+    background: #fff;
+    z-index: 99;
+}
+
+.header-fix {
+  height: 74px;
+  background: red;
+}
+
 /* override semantic ui for the header  */
 .header-wrapper .ui.menu:not(.vertical)  .right.menu {
     /* margin-left: 90% !important; */

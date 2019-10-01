@@ -18,7 +18,9 @@
       <label for="company name">
         Order Date 
       </label>
-      <div class="ui label small">{{moment-format order.date "ddd, MMM d YYYY"}}</div> 
+      {{#if order.date}}
+        <div class="ui label small">{{moment-format order.date "ddd, MMM d YYYY"}}</div> 
+      {{/if}}
     </div>
     <div class="ui right labeled input inline field">
       <label for="company name">

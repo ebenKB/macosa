@@ -1,14 +1,22 @@
 .loader-wrapper {
-  margin-top: -48px;
-  padding: 2.5px;
-  text-align: center;
-  width: 100%;
+    margin-top: -45px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 244px;
+
+    /* margin-top: -50px;
+    padding: 2.5px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    margin-left: -13px; */
 }
 
 .custom-loader {
   display: block;
   background: var(--mc-green__light);
-  border-radius: 5px;
+  border-radius: 2.5px;
   height: 8px;
   margin: 5px;
   width: 1.5%;

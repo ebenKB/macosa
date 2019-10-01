@@ -5,7 +5,9 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   infinity: service(),
   model() {
-    // const perPage = 10;
-    return this.infinity.model('supplier-order');
+    return this.infinity.model('supplier-order')
+      .catch((err) => {
+        console.log('This is the error that has occured', err);
+      });
   }
 });

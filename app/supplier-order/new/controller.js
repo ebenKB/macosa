@@ -12,11 +12,17 @@ export default Controller.extend({
     validate(changeset) {
       changeset.validate();
     },
+
     createNewOrder(changeset) {
+      const { order_id } = get(this, 'model');
       set(this, 'didCreateOrder', true);
-      const order = get(this, 'store').peekRecord('order', get(changeset, 'order_id'));
+      let order = get(this, 'store').peekRecord('order', order_id);
+      if (order === null) {
+        order = get(this, 'store').findRecord('order', order_id);
+      }
       // set the records for the supplier association
-      const supplier = get(this, 'store').peekRecord('manufacturer', get(changeset, 'manufacturer_id'));
+      const supplier = get(this, 'store')
+        .peekRecord('manufacturer', get(changeset, 'manufacturer_id'));
       set(changeset, 'manufacturer_id', supplier);
       set(changeset,'order_id', order);
       set(this, 'currentOrder', changeset);

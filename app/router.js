@@ -84,6 +84,7 @@ Router.map(function() {
     this.route('supplier-order', {
       resetNamespace: true,
     }, function() {
+      this.route('loading');
       this.route('edit', {path: '/:id'});
       this.route('new', { path: '/new/:id'});
     });
@@ -92,6 +93,10 @@ Router.map(function() {
       resetNamespace: true,
     },function() {});
   });
+
+  // this.route('supplier-order', function() {
+  //   this.route('loading');
+  // });
 });
 
 export default Router;
