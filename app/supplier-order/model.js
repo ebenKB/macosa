@@ -9,6 +9,7 @@ export default Model.extend({
   order_id: DS.belongsTo('order'),
   order_date: DS.attr('mydate'),
   description: DS.attr('string'),
+  comment: DS.attr('string'),
 
   // etoa - estimated time of arrival
   eta: DS.attr('mydate'),

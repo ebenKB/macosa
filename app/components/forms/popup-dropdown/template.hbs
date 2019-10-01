@@ -1,0 +1,15 @@
+<div class="ui mc-popup  button" data-content="">
+  <span class="m-l-5" role="button" {{action "initPopUp" model}}>Add new</span>
+</div>
+<div class="ui popup"> 
+  <div class="inline field">
+    <FormFields::Dropdown 
+      @options={{options}}
+      @changeset={{changesetObj}}
+      @property="manufacturer_id"
+      @key="name"
+      @classNames="text-right"
+      @default=""
+    />
+  </div>
+</div>

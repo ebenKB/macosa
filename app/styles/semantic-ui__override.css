@@ -113,3 +113,8 @@
 .ui.label.caption__medium {
   font-size: 1.2rem;
 }
+
+.ui.labels .label.medium,
+.ui.label.medium {
+  font-size: 1rem;
+}
