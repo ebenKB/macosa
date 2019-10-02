@@ -8,7 +8,7 @@ export default Route.extend({
   model() {
     return this.infinity.model('supplier-order')
       .catch((err) => {
-        get(this, 'notification').showError('an error occured');
+        get(this, 'notifications').showError('an error occured');
       });
   }
 });
