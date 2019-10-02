@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { get, set } from '@ember/object';
+import help from 'macosa/help/supplier-order/edit';
 
 export default Controller.extend({
   changeset: null,
@@ -8,7 +9,7 @@ export default Controller.extend({
 
   actions: {
     cancel() {
-      console.log('we want to cancel the edit');
+      this.transitionToRoute('supplier-order.index');
     },
 
     editOrder(changeset) {
@@ -19,19 +20,27 @@ export default Controller.extend({
     confirmUpdate() {
       set(this, 'isSaving', true);
       set(this, 'didUpdateModel', false);
-      get(this, 'changeset').save()
-        .then(() => {
-          set(this, 'isSaving', false);
-        })
-        .catch(() => set(this, 'isSaving', false));
+      if (this.changeset.get('isValid')) {
+        get(this, 'changeset').save()
+          .then(() => {
+            set(this, 'isSaving', false);
+            get(this, 'notifications').showSuccess('One record has been updated');
+            this.transitionToRoute('supplier-order');
+          })
+          .catch(() => {
+            set(this, 'isSaving', false);
+            get(this, 'notifications').showError('error while updating record');
+          });
+      }
     },
 
-    validate() {
-      console.log('we want to validate the order');
+    validate(changeset) {
+      changeset.validate();
     }
   },
   init() {
     this._super();
+    set(this, 'help', help);
     // set(this, 'manufacturers', get(this, 'store').findAll('manufacturer'));
   }
 });

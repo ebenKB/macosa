@@ -32,6 +32,16 @@
                   @classNames="figures"
                 />
               </div> 
+                <div class="inline field">
+                <label for="company name">Estimated time of arrival
+                  <span class="required m-l-5" >*</span>
+                </label>
+                <FormFields::Datepicker
+                  @changeset={{changesetObj}}
+                  @property="eta"
+                  @classNames="figures"
+                />
+              </div> 
               <div class="ui right labeled input inline field">
                 <label for="company name">Order Amount
                   <span class="required m-l-5" >*</span> 
@@ -58,7 +68,7 @@
                 <FormFields::Textarea
                   @columns=""
                   @rows={{5}}
-                  @property="comment"
+                  @property="comments"
                   @changeset={{changesetObj}}
                   @placeholder="Enter the description"
                 />

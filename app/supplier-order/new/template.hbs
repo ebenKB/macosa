@@ -56,11 +56,12 @@
             <span class="required m-l-5">*</span>
           </label>
           <FormFields::Dropdown 
-            @options={{model.suppliers}}
+            @options={{suppliers}}
             @changeset={{changesetObj}}
             @property="manufacturer_id"
             @key="name"
             @classNames="text-right"
+            @isLoading={{if (eq suppliers null) true}}
           />
         </div>
       </div>
@@ -78,6 +79,23 @@
             @property="description"
             @changeset={{changesetObj}}
             @placeholder="Enter the description"
+          />
+        </div>
+      </div>
+      <div class="mc-divider caption">
+        Do you have any comments?
+        <span class="faint">
+          (write comments here)
+        </span> 
+      </div>
+      <div class="form-group">
+        <div class="">
+          <FormFields::Textarea
+            @columns=""
+            @rows={{5}}
+            @property="comments"
+            @changeset={{changesetObj}}
+            @placeholder="Please write your comments"
           />
         </div>
       </div>

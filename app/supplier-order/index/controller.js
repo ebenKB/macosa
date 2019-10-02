@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import help from 'macosa/help/supplier-order/show';
-import { set } from '@ember/object';
+import { get, set } from '@ember/object';
 import OrderValidations from 'macosa/validations/order';
 
 export default Controller.extend({
@@ -26,7 +26,7 @@ export default Controller.extend({
     confirmDelete() {
       if (this.selectedOrder !== null) {
         this.selectedOrder.destroyRecord();
-        // this.selectedOrder.softDelete();
+        get(this, 'notifications').showSuccess('One record has been removed');
       }
     },
 

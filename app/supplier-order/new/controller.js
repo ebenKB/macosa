@@ -38,6 +38,7 @@ export default Controller.extend({
         .then(() => {
           set(this, 'isSaving', false);
           get(this, 'notifications').showSuccess('An order has been added for the supplier');
+          this.transitionToRoute('supplier-order');
         })
         .catch(() => {
           set(this, 'didCreateOrder', false);
@@ -64,5 +65,10 @@ export default Controller.extend({
   init() {
     this._super();
     set(this, 'help', help);
+    let data = get(this, 'store').peekAll('manufacturer');
+    if (data === null) {
+      data = get(this, 'store').findAll('manufacturer')
+    }
+    set(this, 'suppliers', data);
   }
 });

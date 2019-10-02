@@ -8,8 +8,9 @@ export default Route.extend({
     return RSVP.hash({
       supplier_order: get(this, 'store').createRecord('supplier-order', {
         order_date: new Date(),
+        eta: null,
       }),
-      suppliers: get(this, 'store').findAll('manufacturer'),
+      // suppliers: get(this, 'store').findAll('manufacturer'),
       order_id,
     });
   }
