@@ -6,8 +6,7 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   website: DS.attr('string'),
   address: DS.attr('string'),
-  type_id: DS.belongsTo('type', { inverse: null }),
-  // type_id: DS.attr('string'),
+  type_id: DS.belongsTo('type', { inverse: null, async: true }),
   background: DS.attr('string'),
   owner_id: DS.attr()
 });

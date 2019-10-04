@@ -7,18 +7,18 @@
     <div class="p-t-20 p-b-20">
       <a href="#" class="icon-text"> 
         <span class="caption">
-          {{#link-to "authenticated.index"}}
+          <LinkTo @route="authenticated.index">
             Home
-          {{/link-to}}
+          </LinkTo>
         </span>
       </a>
     </div>
     <div class="p-t-20">
       <a href="#" class="content menu icon-text"> 
         <span>
-          {{#link-to "notification.index"}}
-           Latest Activities
-          {{/link-to}}
+          <LinkTo @route="notification.index">
+            Latest Activities
+          </LinkTo>
         </span>
       </a>
     </div>
@@ -31,9 +31,9 @@
         </a>
         <div class="content menu">
           {{#each menu.submenus as |sub|}}
-            {{#link-to sub.link  class="item"}}
+            <LinkTo @route={{sub.link}} class="item">
               {{sub.name}}
-            {{/link-to}}
+            </LinkTo>
           {{/each}}
         </div>
       </div>

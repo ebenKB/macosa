@@ -21,11 +21,4 @@ export default Route.extend(ApplicationRouteMixin, {
     return get(this, 'currentUser').load()
       .catch(() => get(this, 'session').invalidate());
   },
-
-  // actions: {
-  //   willTransition(transition) {
-  //     // transition.targetName returns the public / private route that was aimed to be visited last
-  //     this.set('session.previousRouteName', transition.targetName);
-  //   }
-  // }
 });

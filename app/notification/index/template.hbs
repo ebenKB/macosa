@@ -3,9 +3,24 @@
 >
   <div class="content-pane notifications-main__content">
     <div class="caption mc-form__header header-caption">
-      <h3>Show all activities created by 
-        <LinkTo @route="login">everyone</LinkTo>
+      <div class="inline-wrapper big caption">
+      <h3>Showing all activities created by 
+        <Forms::FilterOptions
+          @didClick={{action "didInit"}}
+          @didSelectItem={{action "didSelectItem"}}
+          @title={{userTitle}}
+          @options={{users}}
+          @type="user"
+          @key="fullname"
+          @isLoading={{isLoading}}
+          @classNames="big"
+          @hasDefault={{true}}
+          @default="Everyone"
+          @performDefault={{action "resetFilters"}}
+        />
+        using {{filterTitle}}.
       </h3>
+      </div>
     </div>
     <div class="notification-body">
       {{#each model as |n|}}

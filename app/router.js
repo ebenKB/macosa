@@ -35,7 +35,7 @@ Router.map(function() {
       resetNamespace: true,
     },function() {
       this.route('new');
-      this.route('edit', { path: '/:id'});
+      this.route('edit', { path: '/:id/edit'});
       this.route('show', { path: '/:id'});
     });
 
@@ -56,7 +56,10 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('contact', { path: '/contacts', resetNamespace: true }, function() {
+    this.route('contact', {
+      resetNamespace: true,
+      path: '/contacts',
+    }, function() {
       this.route('new');
     });
 
@@ -93,10 +96,6 @@ Router.map(function() {
       resetNamespace: true,
     },function() {});
   });
-
-  // this.route('supplier-order', function() {
-  //   this.route('loading');
-  // });
 });
 
 export default Router;

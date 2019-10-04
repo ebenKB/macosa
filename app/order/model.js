@@ -7,12 +7,12 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   amount: DS.attr('number'),
   profit: DS.attr('number'),
-  user_id: DS.belongsTo('user'),
-  customer_id: DS.belongsTo('customer'),
-  account_manager_id: DS.belongsTo('account-manager'),
-  currency_id: DS.belongsTo('currency'),
-  business_unit_orders_attributes: DS.hasMany('business-unit-order', { async: false}),
-  manufacturer_orders_attributes: DS.hasMany('manufacturer-order', { async: false}),
+  user_id: DS.belongsTo('user', {async: true}),
+  customer_id: DS.belongsTo('customer', { async: true}),
+  account_manager_id: DS.belongsTo('account-manager', {async: true}),
+  currency_id: DS.belongsTo('currency', {async: true}),
+  business_unit_orders_attributes: DS.hasMany('business-unit-order', { async: true}),
+  manufacturer_orders_attributes: DS.hasMany('manufacturer-order', { async: true}),
 
   summary: computed('description', function() {
     if (this.description !== null) {

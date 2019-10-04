@@ -35,6 +35,6 @@ export default Controller.extend({
 
   init() {
     this._super();
-    set(this, 'selectedContacts', []);
+    // set(this, 'selectedContacts', []);
   }
 });

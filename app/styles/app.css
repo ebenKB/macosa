@@ -190,6 +190,10 @@ a:hover {
   display: inline-flex;
 }
 
+.big {
+  font-size: 1.25rem;
+}
+
 .caption__small {
   font-size: 0.85rem;
 }
@@ -204,6 +208,10 @@ a:hover {
 
 .small.caption {
   font-size: 0.9rem;
+}
+
+.big.caption {
+  font-size: 1.25rem;
 }
 
 .primary.action {

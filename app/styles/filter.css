@@ -8,9 +8,14 @@
 }
 
 .filter ul li {
-  padding: 10px 0 10px 10px;
+  padding: 10px;
 }
 
 .filter ul li:hover {
   background: var(--off-dark__light);
+}
+
+.inline.field.filter ul {
+  margin: auto;
+  padding-inline-start: 0;
 }

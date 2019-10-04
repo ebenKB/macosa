@@ -3,6 +3,7 @@ import ContactValidation from 'macosa/validations/contact';
 import { get,set } from '@ember/object';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
+import help from 'macosa/help/contact/new';
 
 export default Controller.extend({
   help: 'If you want to add multiple contacts, click on Add more to add new fields ',
@@ -42,6 +43,7 @@ export default Controller.extend({
       }
     },
     cancel() {
+      get(this, 'model').deleteRecord();
       this.transitionToRoute('contact.index');
     },
 
@@ -87,5 +89,6 @@ export default Controller.extend({
 
     // set companies
     set(this, 'companies', get(this, 'store').findAll('company'));
+    set(this, 'help', help);
   }
 });

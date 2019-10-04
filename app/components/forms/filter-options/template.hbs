@@ -1,12 +1,14 @@
 <div class="inline-wrapper" role="button" {{action "didClick" type}}>
   <div class="ui mc-popup button" data-content="" data-position="">
-    <span class="m-l-5 filter-title" role="button" > {{title}} </span>
+    <span class={{concat "m-l-5 filter-title " "big"}} role="button" > {{title}} </span>
   </div>
   <div class="ui popup"> 
-    {{!-- <h3 class="faint ui active loader"></h3> --}}
     <span class={{concat (if isLoading "ui active loader ") "faint"}}></span>
     <div class="inline field filter">
       <ul style="list-style: none">
+       {{#if hasDefault}}
+         <li role="button" onclick={{action "setDefault"}}>{{default}}</li>
+       {{/if}}
         {{#each options as |op|}}
           <li role="button" {{action "didSelectItem" op type }}>{{get op key}} </li>
         {{/each}}

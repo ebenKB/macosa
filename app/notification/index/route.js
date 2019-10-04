@@ -3,8 +3,16 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   infinity: service(),
-  model() {
-    // return get(this, 'store').findAll('notification');
-    return this.infinity.model('notification', {infinityCache: 60000});
+  queryParams: {
+    user_id: {
+      refreshModel: true,
+    }
+  },
+  model(params) {
+    if (params.user_id !== null) {
+      return this.infinity.model('notification', {infinityCache: 60000, user_id: params.user_id});
+    } else {
+      return this.infinity.model('notification', {infinityCache: 60000});
+    }
   },
 });

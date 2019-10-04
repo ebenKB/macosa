@@ -1,27 +1,26 @@
-<div class="grid columns-1__15 user-label__wrapper {{if contact.isSelected "bg__opaque"}}">
-  <div>
-    <Input @id={{contact.id}} @type="checkbox" @name="isSelected" @click={{action "selectContact"}} @checked={{contact.isSelected}}/>
-  </div>
-  <div>
-    <div class="grid columns-3__13 order-label__wrapper">
-    <div class="ui circular labels">
-      <span class="ui yellow label">{{contact.initials}}</span>
+{{#if contact}}
+  <div class="grid columns-1__15 user-label__wrapper {{if contact.isSelected "bg__opaque"}}">
+    <div>
+      <Input @id={{contact.id}} @type="checkbox" @name="isSelected" @click={{action "selectContact"}} @checked={{contact.isSelected}}/>
     </div>
-    <div class="">
-      <div class="caption inline">
-        <p>
-          <h2>{{contact.fullname}}</h2>
-          <span>
-            from {{#link-to "company.show" 99999}} {{contact.company_id.name}} {{/link-to}}
-          </span>
-        </p>
+    <div>
+      <div class="grid columns-3__13 order-label__wrapper">
+      <div class="ui circular labels">
+        <span class="ui yellow label">{{contact.initials}}</span>
       </div>
-      <span>{{contact.email}}</span>
-      <span>{{contact.phone}}</span>
-    </div>
+      <div class="">
+        <div class="caption inline">
+          <p>
+            <h2>{{contact.fullname}}</h2>
+            <span>
+              from {{#link-to "company.show" 99999}} {{contact.company_id.name}} {{/link-to}}
+            </span>
+          </p>
+        </div>
+        <span>{{contact.email}}</span>
+        <span>{{contact.phone}}</span>
+      </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-
+{{/if}}

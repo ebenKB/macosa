@@ -5,8 +5,10 @@ import { get } from '@ember/object';
 export default Component.extend({
   // title: 'Filter options',
   key: '',
+  classNames: null,
   default: 'selected',
   title: 'all users',
+  hasDefault: true,
   isLoading: false,
   type: '',
 
@@ -20,6 +22,11 @@ export default Component.extend({
     },
     didSelectItem(item, type) {
       get(this, 'didSelectItem')(item, type);
+    },
+
+    setDefault() {
+      // console.log('we want to set the default');
+      get(this, 'performDefault')();
     }
   },
   didInsertElement() {
