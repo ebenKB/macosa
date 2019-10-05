@@ -16,7 +16,7 @@ export default Controller.extend({
   customers: null,
   managers: null,
   currencies: null,
-  title: 'Add new order',
+  title: 'Add new',
   user_id: null,
   account_manager_id: null,
   customer_id: null,
