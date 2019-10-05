@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  infinity: service(),
   model() {
-    console.log('calling the contact index model hook')
-    return get(this, 'store').findAll('contact');
+    return this.infinity.model('contact', {infinityCache: 60000});
   }
 });

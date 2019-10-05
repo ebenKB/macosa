@@ -12,23 +12,23 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin,{
     return 'notification';
   },
 
-  normalize(model, hash, prop) {
-    hash.key = this._pretifyKey(hash.key);
-    return this._super(...arguments);
-  },
+  // normalize(model, hash, prop) {
+  //   hash.key = this._pretifyKey(hash.key);
+  //   return this._super(...arguments);
+  // },
 
-  _pretifyKey(key) {
-    const newkey = key.split('.')[1];
-    let hashkey = null;
+  // _pretifyKey(key) {
+  //   const newkey = key.split('.')[1];
+  //   let hashkey = null;
 
-    // change the key to the past tense
-    if (newkey === 'update' || newkey === 'create') {
-      hashkey = `${newkey}d`;
-    } else if (newkey === 'destroy') {
-      hashkey = 'destroyed';
-    } else {
-      hashkey = newkey;
-    }
-    return hashkey.toUpperCase();
-  }
+  //   // change the key to the past tense
+  //   if (newkey === 'update' || newkey === 'create') {
+  //     hashkey = `${newkey}d`;
+  //   } else if (newkey === 'destroy') {
+  //     hashkey = 'destroyed';
+  //   } else {
+  //     hashkey = newkey;
+  //   }
+  //   return hashkey.toUpperCase();
+  // }
 });

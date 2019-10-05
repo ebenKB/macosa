@@ -43,7 +43,8 @@ export default Controller.extend({
       }
     },
     cancel() {
-      get(this, 'model').deleteRecord();
+      // get(this, 'model').deleteRecord();
+      // get(this, 'contact').deleteRecord();
       this.transitionToRoute('contact.index');
     },
 

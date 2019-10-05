@@ -1,36 +1,71 @@
+
+{{!-- {{#if (eq key "DELETED")}}  
+  <div class="activity-wrapper m-b-10">
+    <div class="activity-card alert">
+      <div class="activity-title alert m-r-8">
+      </div>
+      <div>
+        The
+        {{activity.recipient_type}} with id {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
+      </div>
+    </div>
+  </div>
+{{else}}
+  {{#if (eq key "UPDATED")}}
+    <div class="activity-wrapper m-b-10">
+      <div class="activity-card success">
+        <div class="activity-title success m-r-8">
+        </div>
+        <div>
+          The {{activity.recipient_type}} {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <div class="activity-wrapper m-b-10">
+      <div class="activity-card default">
+        <div class="activity-title default m-r-8">
+          {{key}}
+        </div>
+        <div>
+          The {{activity.recipient_type}} {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
+        </div>
+      </div>
+    </div>
+  {{/if}}
+{{/if}} --}}
 {{#if (eq key "DELETED")}}
   <div class="activity-wrapper m-b-10">
     <div class="activity-card alert">
       <div class="activity-title alert m-r-8">
-        DELETED
+        {{key}}
       </div>
       <div>
-        The {{activity.recipient_type}} with id {{activity.recipient_id}} was {{key}} by {{activity.user_id.name}}.
+        The
+        {{activity.recipient_type}} with id {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
       </div>
     </div>
   </div>
-  {{else}}
-    {{#if (eq key "UPDATED")}}
-      <div class="activity-wrapper m-b-10">
-        <div class="activity-card success">
-          <div class="activity-title success m-r-8">
-            UPDATED
-          </div>
-          <div>
-            The {{activity.recipient_type}} {{activity.recipient_id}} was marked active bt Emmanuel Nketia.
-          </div>
+  {{else if (eq key "UPDATED")}}
+    <div class="activity-wrapper m-b-10">
+      <div class="activity-card success">
+        <div class="activity-title success m-r-8">
+          {{key}}
+        </div>
+        <div>
+          The {{activity.recipient_type}} {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
         </div>
       </div>
-      {{else}}
-        <div class="activity-wrapper m-b-10">
-          <div class="activity-card default">
-            <div class="activity-title default m-r-8">
-              {{key}}
-            </div>
-            <div>
-              The {{activity.recipient_type}} {{activity.recipient_id}} was marked active bt Emmanuel Nketia.
-            </div>
-          </div>
+    </div>
+  {{else}}
+    <div class="activity-wrapper m-b-10">
+      <div class="activity-card default">
+        <div class="activity-title default m-r-8">
+          {{key}}
         </div>
-    {{/if}}
+        <div>
+          The {{activity.recipient_type}} {{activity.recipient_id}} was {{to-lower key }} by {{ changeset-get activity "user_id.fullname"}}.
+        </div>
+      </div>
+    </div>
 {{/if}}

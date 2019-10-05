@@ -52,7 +52,9 @@ Router.map(function() {
       this.route('loading');
     });
 
-    this.route('customer', {resetNamespace: true },function() {
+    this.route('customer', {
+      resetNamespace: true
+    },function() {
       this.route('new');
     });
 

@@ -39,12 +39,8 @@ export default Component.extend({
           submenus: [
             {
               name: 'All contacts',
-              link: 'contact'
+              link: 'contact.index'
             },
-            {
-              name: 'Create new',
-              link: 'contact.new',
-            }
           ]
         },
         {
@@ -67,14 +63,14 @@ export default Component.extend({
               name: 'View orders',
               link: 'order.index',
             },
-            // {
-            //   name: 'Business unit orders',
-            //   link: 'business-unit-order.index',
-            // },
-            // {
-            //   name: 'Manufacturer orders',
-            //   link: 'manufacturer-order.index',
-            // }
+            {
+              name: 'Business unit orders',
+              link: 'business-unit-order.index',
+            },
+            {
+              name: 'Manufacturer orders',
+              link: 'manufacturer-order.index',
+            }
           ]
         },
         {

@@ -24,10 +24,12 @@
     </div>
     <div class="notification-body">
       {{#each model as |n|}}
-        <Forms::ActivityCard
-          @key={{n.key}}
-          @activity={{n}}
-        />
+        {{#if (not-eq null n)}}
+          <Forms::ActivityCard
+            @key={{get-key n.key}}
+            @activity={{n}}
+          />
+        {{/if}}
       {{/each}}
       {{#infinity-loader 
         infinityModel=model
@@ -36,5 +38,5 @@
         <div class="ui active centered inline large loader"></div>
       {{/infinity-loader}}
     </div>
-</div>
+  </div>
 </ContentPane>

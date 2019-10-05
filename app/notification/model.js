@@ -2,7 +2,7 @@ import DS from 'ember-data';
 const { Model } = DS;
 
 export default Model.extend({
-  user_id: DS.attr('string'), // the user who performed the action
+  user_id: DS.belongsTo('user', { async: true}), // the user who performed the action
   trackable_type: DS.attr('string'), // the model that performed the action
   owner_type: DS.attr('string'),
   owner_id: DS.attr('string'),
