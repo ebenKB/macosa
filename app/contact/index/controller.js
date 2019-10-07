@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { get, set } from '@ember/object';
+import help from 'macosa/help/contact/index';
 
 export default Controller.extend({
   help: 'Showing all contacts',
@@ -35,6 +36,7 @@ export default Controller.extend({
 
   init() {
     this._super();
+    set(this, 'help', help);
     // set(this, 'selectedContacts', []);
   }
 });
