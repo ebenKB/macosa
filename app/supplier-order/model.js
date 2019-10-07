@@ -18,4 +18,7 @@ export default Model.extend({
       return `${this.description.split(' ').splice(0, 40).join(' ')}`;
     }
   }),
+
+  // add a transient property to track the state of the model
+  is_deleted: false
 });

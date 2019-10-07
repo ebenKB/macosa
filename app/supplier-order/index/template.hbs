@@ -3,6 +3,7 @@
     @canShowModal={{didAttemptDelete}}
     @perform={{action "confirmDelete" confirmDelete}}
     @message="Are you sure you want to delete this item?"
+    @isPerforming={{isSaving}}
   />
 {{/if}}
 {{#if canPreviewOrder}}
@@ -30,12 +31,14 @@
   <div class="faint"> Showing {{model.length}} supplier order(s)</div>
   <div class="mc-divider m-b-15"></div>
   {{#each model as |order| }}
-    <SupplierOrderCard
-      @order={{order}}
-      @didSelect={{action "didSelectOrder" order}}
-      @didDelete={{action "didDelete" order}}
-    />
-    <div class="mc-divider m-b-15"></div>
+    {{#unless (get order "is_deleted")}}
+      <SupplierOrderCard
+        @order={{order}}
+        @didSelect={{action "didSelectOrder" order}}
+        @didDelete={{action "didDelete" order}}
+      />
+      <div class="mc-divider m-b-15"></div>
+    {{/unless}}
   {{/each}}
   {{#infinity-loader 
     infinityModel=model

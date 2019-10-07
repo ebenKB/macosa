@@ -10,6 +10,7 @@ export default Component.extend({
 
     // set the order when the user selects an order
     editItem() {
+      console.log('we have selected an item');
       get(this, 'didSelect')();
     }
   }
