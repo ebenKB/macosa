@@ -20,7 +20,7 @@
 }
 
 .preview-form__wrapper .edit-form {
-  margin-right: 32% !important;
+  /* margin-right: 32% !important; */
 }
 
 .edit-form.transparent .mc-form {
@@ -38,7 +38,7 @@
 }
 
 .mc-form__header {
-  background: rgba(237, 244, 247, 0.5);
+  background: rgba(237, 244, 247, 1);
   padding: 10px 0;
   border-radius: 8px 8px 0 0;
   border-bottom: 1px solid #d9e2e8;
@@ -57,6 +57,7 @@
 .mc-form__body {
   /* padding: 20px 30px; */
   padding: 20px 60px;
+  background: var(--mc-white);
 }
 
 /* override semantic ui button size  */

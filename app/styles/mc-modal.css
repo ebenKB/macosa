@@ -4,6 +4,7 @@
   width: 100vw;
   position: fixed;
   z-index: 98;
+  left: 0;
 }
 
 .mc-modal {
@@ -11,7 +12,7 @@
   position: fixed;
   z-index: 99;
   text-align: center;
-  margin: 5% 21%;
+  margin: 5% 35%;
   width: 30%;
   background: #f4f9fa;
   border-radius: 5px;

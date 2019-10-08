@@ -1,8 +1,22 @@
-<div class="mc-wrapper grid columns-2__14" id="mc-wrapper">
+{{!-- <div class="mc-wrapper grid columns-2__14" id="mc-wrapper">
   <div class="left vpane"> 
     <VerticalMenu />
   </div>
   <div class="main">
     {{yield}}
   </div>
-</div>
+</div> --}}
+
+
+<div class="mc-parent__wrapper">
+  <MainHeader />
+  <div class="mc-wrapper grid columns-3__13" id="mc-wrapper">
+    <div class="left vpane"> 
+      <VerticalMenu />
+    </div>
+    <div class="main">
+      {{!-- right content is here --}}
+      {{yield}}
+    </div>
+  </div>
+  </div>

@@ -23,7 +23,7 @@ Router.map(function() {
     this.route('action', { path: '/reset/action'});
   });
 
-  this.route('authenticated', { path: ''}, function() {
+  this.route('authenticated', { path: '/'}, function() {
     this.route('user', {
       resetNamespace: true,
       path: '/users'

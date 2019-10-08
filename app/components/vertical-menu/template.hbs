@@ -1,26 +1,11 @@
 <div class="v-menu__wrapper">
-  <div class="logo">
-    {{!-- <img src="/highrise_logo.png" alt="" class="ui centered medium image"> --}}
-    <p style="font-size: 40px; padding: 20px 0">Logo</p>
-  </div>
   <div class="ui vertical accordion text menu">
-    <div class="p-t-20 p-b-20">
-      <a href="#" class="icon-text"> 
-        <span class="caption">
-          <LinkTo @route="authenticated.index">
-            Home
-          </LinkTo>
-        </span>
-      </a>
-    </div>
     <div class="p-t-20">
-      <a href="#" class="content menu icon-text"> 
-        <span>
-          <LinkTo @route="notification.index">
-            Latest Activities
-          </LinkTo>
-        </span>
-      </a>
+      <span>
+        <LinkTo @route="authenticated.index" class="content menu icon-text active">
+          Latest Activities
+        </LinkTo>
+      </span>
     </div>
     <div class="mc-divider"></div>
     {{#each menus as |menu| }}
@@ -38,5 +23,16 @@
         </div>
       </div>
     {{/each}}
+    <div class="mc-divider"></div>
+    <div class="p-t-20">
+      <span>
+        <LinkTo @route="authenticated.index" class="content menu icon-text">
+        <span>
+          {{svg-jar "trash" width="14px" height="14px"}}
+        </span>
+          Trash can
+        </LinkTo>
+      </span>
+    </div>
   </div>    
 </div>

@@ -1,0 +1,13 @@
+.mc-wrapper{
+
+}
+
+.mc-wrapper,
+.mc-heading__content {
+  width: 70%;
+  margin: auto;
+}
+.mc-heading {
+  background: var(--mc-light-blue);
+  padding: 20px 10px;
+}
