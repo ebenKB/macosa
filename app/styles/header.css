@@ -1,9 +1,8 @@
 .header-wrapper {
-  padding: 0 20px 0 0;
-    position: fixed;
-    width: 89%;
-    background: #fff;
-    z-index: 99;
+  position: fixed;
+  width: 100%;
+  background: var(--mc-light-blue);
+  z-index: 99;
 }
 
 .header-fix {
@@ -17,7 +16,8 @@
 }
 
 .header-wrapper svg {
-  fill: var(--off-dark);
+  /* fill: var(--off-dark); */
+  fill: #fdfdfd;
 }
 
 /* override semantic ui for header */

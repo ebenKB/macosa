@@ -5,7 +5,8 @@
 }
 
 .custom-popup.ui.button, .mc-popup.ui.button {
-  background: #fff;
+  /* background: #fff; */
+  background: transparent;
   left: 75%;
   top: 20%;
 }

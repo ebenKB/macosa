@@ -1,6 +1,7 @@
 /* override the color for the accordion in the vertical menu */
 .v-menu__wrapper .ui.accordion .title:not(.ui) {
-  color: var(--off-dark);
+  /* color: var(--off-dark); */
+  color: var(--dark);
 }
 
 .v-menu__wrapper .ui.menu {
@@ -10,12 +11,12 @@
 }
 
 .ui.vertical.menu .menu .item {
-  color: var(--off-dark);
+  color: var(--dark);
   font-family: "openSans", "helveticaNeue";
 }
 
 .ui.vertical.menu .item .menu .active.item {
-  color: #fff;
+  color: var(--dark);
   font-family: "openSans", "helveticaNeue";
 }
 
@@ -24,5 +25,20 @@
 }
 
 .ui.vertical.menu .item .menu a.item:hover, .ui.vertical.menu .item .menu .link.item:hover {
-  color: #fff;
+  color: var(--off-dark);
 }
+
+.ui.secondary.menu {
+  width: 70%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: 40%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    z-index: 99999;
+  }
+}
+
