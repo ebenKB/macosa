@@ -6,12 +6,14 @@ import Delete from 'macosa/util/deleteModel';
 import OrderValidations from 'macosa/validations/order';
 
 export default Controller.extend({
+  queryParams: ['manufacturer_id'],
   session: service(),
   OrderValidations,
   didAttemptDelete: false,
   canPreviewOrder: false,
   selectedOrder: null,
   isSaving: false,
+  supplierTitle: 'All Suppliers',
 
   actions: {
     perform() {
@@ -34,8 +36,7 @@ export default Controller.extend({
       const {token} = get(this, 'session.data.authenticated');
       const { id } = this.selectedOrder;
       Delete.softDelete('supplier_orders', id, token)
-        .then((d) => {
-          console.log('this is the response from the api', d);
+        .then(() => {
           set(this, 'isSaving', false);
           get(this, 'notifications').showSuccess('One item has been removed');
           set(this.selectedOrder, 'is_deleted', true);
@@ -46,11 +47,28 @@ export default Controller.extend({
 
     cancelPreview() {
       set(this, 'canPreviewOrder', false);
+    },
+
+    didInit() {
+      console.log('we want to init the application');
+    },
+
+    didSelectItem(item, type) {
+      if (type === 'supplier') {
+        set(this, 'manufacturer_id', item.id);
+        set(this, 'supplierTitle', item.name);
+      }
+    },
+
+    resetFilter() {
+      set(this, 'supplierTitle', 'All suppliers');
+      set(this, 'manufacturer_id', null);
     }
   },
 
   init() {
     this._super();
     set(this, 'help', help);
+    set(this, 'suppliers', get(this, 'store').findAll('manufacturer'));
   }
 });

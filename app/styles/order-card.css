@@ -3,6 +3,12 @@
   visibility: hidden;
 }
 
+.action-wrapper.opaque {
+  background: #f6fafb;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .order-item:hover .action-wrapper {
   visibility: visible;
 }

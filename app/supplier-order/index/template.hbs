@@ -11,10 +11,7 @@
     <Forms::PreviewSupplierOrder
       @cancel={{action "cancelPreview"}}
       @didConfirmDelete={{action "confirmDelete"}}
-      {{!-- @managers={{managers}} --}}
-      {{!-- @customers={{customers}} --}}
       @order={{selectedOrder}}
-      {{!-- @b_units={{b_units}} --}}
     />
   </div>
 {{/if}}
@@ -28,7 +25,20 @@
     @actionName={{title}}
     @perform={{action "perform" }}
   >
-  <div class="faint"> Showing {{model.length}} supplier order(s)</div>
+  <div class=" inline-wrapper small caption faint"> Showing {{model.length}} supplier order(s) created for 
+    <Forms::FilterOptions
+      @didClick={{action "didInit"}}
+      @didSelectItem={{action "didSelectItem"}}
+      @title={{supplierTitle}}
+      @type="supplier"
+      @options={{suppliers}}
+      @key="name"
+      @isLoading={{isLoading}}
+      @hasDefault={{true}}
+      @default="All suppliers"
+      @performDefault={{action "resetFilter"}}
+    />
+  </div>
   <div class="mc-divider m-b-15"></div>
   {{#each model as |order| }}
     {{#unless (get order "is_deleted")}}
@@ -48,5 +58,4 @@
   {{/infinity-loader}}
   </McWrapper>
 </ContentPane>
-
 

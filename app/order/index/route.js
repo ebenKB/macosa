@@ -26,12 +26,13 @@ export default Route.extend({
     // return get(this, 'store').query('order', params);
     const perPage = 10;
     // check if there are query params
-    if (params.user_id || params.account_manager_id || params.manager_id || params.currency_id) {
+    if (params.user_id || params.account_manager_id || params.manager_id
+      || params.currency_id || params.customer_id) {
       return this.infinity.model('order',
         {perPage, user_id: params.user_id, account_manager_id: params.account_manager_id,
           customer_id: params.customer_id, currency_id: params.currency_id});
     } else { // fetch records without any query params
-      return this.infinity.model('order', {perPage, infinityCache: 60000});
+      return this.infinity.model('order', {perPage});
       // return get(this, 'store').peekAll('order');
     }
   },

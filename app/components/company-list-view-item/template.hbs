@@ -19,14 +19,13 @@
   <div class="text-right align-end">
     <div class="action company-actions">
       <span class="success edit">
-        <LinkTo @route="company.edit" @model={{company.id}}>
+        <LinkTo @route="company.edit" @model={{company.id}} class="success edit">
           {{svg-jar "edit" height="20px" width="20px" class="red m-r-20"}}
         </LinkTo>
       </span>
-      <span class="danger">
+      <span class="danger" role="button" onclick={{action "delete"}}>
         {{svg-jar "trash" height="20px" width="20px"}}
       </span>
     </div>
   </div>
 </div>
-

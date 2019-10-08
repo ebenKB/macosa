@@ -1,9 +1,13 @@
-{{#if canShowModal}}
+{{#if didAttemptDelete }}
   <McModal
-    @canShowModal={{ canShowModal }}
+    @canShowModal={{ didAttemptDelete }}
     @perform={{action "confirmDelete"}}
     @message="Are you sure you want to delete this company?"
+    @isPerforming={{isSaving}}
   />
+{{/if}}
+{{#if canPreviewCompany}}
+  <Forms::PreviewCompany />
 {{/if}}
 <ContentPane
   @aside={{help}}
@@ -20,10 +24,12 @@
     @allCompanies={{model}}
   >
   {{#each model as |company|}}
-    <CompanyListViewItem
-      @company={{company}}
-      @delete={{action "didDelete" company}}
-    />
+    {{#unless (get company "is_deleted")}}
+      <CompanyListViewItem
+        @company={{company}}
+        @delete={{action "didDelete" company}}
+      />
+    {{/unless}}
   {{/each}}
   </CompanyListView>
   </McWrapper>

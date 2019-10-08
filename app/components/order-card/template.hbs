@@ -43,16 +43,28 @@
               <span>{{svg-jar "plus-faint" width="12px" height="12px"}} </span> New Supplier order 
             </span>
           </LinkTo>
+          <span class="m-l-40 action-wrapper opaque">
+            <span>
+              <span class="success m-r-20" role="button" {{action "editItem"}}>
+                {{svg-jar "list" width="12px" height="12px"}}
+              </span>
+            </span>
+            <span>
+              <span class="danger" role="button" onclick={{action "didDelete"}}>
+                {{svg-jar "trash" class="danger" width="12px" height="12px"}}
+              </span>
+            </span>
+          </span>
         </div>
       </div>
-      <div class="action-wrapper">
+      {{!-- <div class="action-wrapper">
         <div class="success m-r-20" role="button" {{action "editItem"}}>
           {{svg-jar "list" width="18px" height="18px"}}
         </div>
         <div class="danger" role="button" onclick={{action "didDelete"}}>
           {{svg-jar "trash" class="danger" width="18px" height="18px"}}
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>

@@ -8,5 +8,8 @@ export default DS.Model.extend({
   address: DS.attr('string'),
   type_id: DS.belongsTo('type', { inverse: null, async: true }),
   background: DS.attr('string'),
-  owner_id: DS.attr()
+  owner_id: DS.attr(),
+
+  // add a transient property to track the state of the company
+  is_deleted: false,
 });

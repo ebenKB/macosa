@@ -2,8 +2,13 @@ import Controller from '@ember/controller';
 import { get, set } from '@ember/object';
 import OrderValidations from 'macosa/validations/order';
 import help from 'macosa/help/order/index';
+import {inject as service} from '@ember/service';
+import SoftDelete from 'macosa/util/deleteModel';
+import Token from 'macosa/util/token';
+
 
 export default Controller.extend({
+  session: service(),
   OrderValidations,
   queryParams: ['user_id', 'customer_id', 'account_manager_id', 'currency_id'],
   // queryParams: ['page'],
@@ -11,7 +16,7 @@ export default Controller.extend({
   customerTitle: 'all comapnies',
   managerTitle: 'all managers',
   currencyTitle: 'all currencies',
-  isLoading: false,
+  // isLoading: false,
   users: null,
   customers: null,
   managers: null,
@@ -24,6 +29,7 @@ export default Controller.extend({
   selectedOrder: null,
   ifCanShowOrder: false,
   didDelete: false,
+  isSaving: false,
   b_units: null,
 
   actions: {
@@ -69,8 +75,19 @@ export default Controller.extend({
     },
 
     // when a user confirms a delete action
-    confirmDelete(item) {
-      item.destroyRecord();
+    confirmDelete() {
+      set(this, 'isSaving', true);
+      // const {token} = get(this, 'session.data.authenticated');
+      const token = Token.getToken(this.session);
+      const { id } = get(this, 'selectedOrder');
+
+      SoftDelete.softDelete('orders', id, token)
+        .then(() => {
+          set(this, 'didDelete', false);
+          set(this, 'isSaving', false);
+          set(this.selectedOrder, 'is_deleted', true);
+          get(this, 'store').unloadRecord(this.selectedOrder);
+        });
     },
 
     /**

@@ -18,5 +18,8 @@ export default DS.Model.extend({
     if (this.description !== null) {
       return `${this.description.split(' ').splice(0, 40).join(' ')}`;
     }
-  })
+  }),
+
+  // add a transient property to determine the state of the model
+  is_deleted: false,
 });

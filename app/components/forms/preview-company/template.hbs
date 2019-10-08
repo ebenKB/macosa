@@ -1,0 +1,86 @@
+<McModal
+  @canShowModal={{canShowModal}}
+  @message={{title}}
+  @perform={{action "confirmDelete"}}
+/>
+<div class="ui container edit-form transparent p-t-80 p-b-80">
+  <McForm
+    @heading="Preview supplier order"
+    @role={{role}}
+    @didDecline={{action "cancel"}}
+    @isSaving={{isSaving}}
+    @canPerform={{canPerform}}
+    @didPerform={{action 'didPerform'}}
+  >
+  <div class="mc-divider">
+    Showing details for a supplier order created on
+    {{#if order.date}}
+      <span class="action primary">{{moment-format order.date "ddd, MMM d YYYY"}}</span>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <div class="ui right labeled input inline field">
+      <label for="company name">
+        Order Amount
+      </label>
+      <div class="ui label small">{{changeset-get order "order_id.currency_id.name"}} {{order.amount}}</div>
+    </div>
+    <div class="ui right labeled input inline field">
+      <label for="Customer">
+        Customer
+      </label>
+      <div class="ui label small">
+        {{changeset-get order "order_id.customer_id.name"}}
+      </div>
+    </div> 
+    <div class="ui right labeled input inline field">
+      <label for="Customer">
+        Manufacturer
+      </label>
+      <div class="ui label small">
+        {{changeset-get order "manufacturer_id.name"}}
+      </div>
+    </div> 
+    <div class="m-t-20">
+      <span class="faint">
+        This order was created by
+        <span class="action ui primary">
+          {{changeset-get order "order_id.user_id.fullname"}}
+        </span>
+      </span>
+      <span class="faint">
+        and managed by
+        <span class="action ui primary">
+          {{changeset-get order "order_id.account_manager_id.full_name"}}
+        </span>
+      </span>
+    </div>
+  </div>
+  {{#if order.description}}
+    <div class="mc-divider faint">Oder description</div>
+    <div class="form-groups m-t-20 m-b-20">
+      <div class="ui label">
+        {{order.description}}
+      </div>
+    </div> 
+  {{/if}}
+  {{#if order.comments}}
+    <div class="mc-divider faint">Comments</div>
+    <div class="form-groups m-t-20 m-b-20">
+      <div class="ui label">
+        {{order.comments}}
+      </div>
+    </div> 
+  {{/if}}
+  <div class="action m-t-40 m-b-40">
+    <span>
+      You can <span class="clickable danger" role="button" {{action "deleteOrder"}} >Delete this order</span> or if you want to make changes,
+      <span class="success">
+        <LinkTo @route="supplier-order.edit" @model={{order.id}}>
+          Edit this order
+        </LinkTo>
+      </span>
+    </span>
+  </div>
+  </McForm>
+</div>
