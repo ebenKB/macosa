@@ -11,7 +11,7 @@ export default Controller.extend({
   isSaving: false,
   selectedUser: null,
 
-  title: 'Invite a new user',
+  title: 'Invite user',
   help: 'All registerd users are displayed here',
   actions: {
     perform() {
