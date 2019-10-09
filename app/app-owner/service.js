@@ -9,8 +9,10 @@ export default Service.extend({
   store: service(),
 
   load() {
+    console.log('calling the app owner service');
     // const owner_id = localStorage.getItem('owner_id');
     const { owner } = get(this, 'session');
+    console.log('this is the owner that we are returning to ther user', owner);
     if (owner != null && owner != 'undefined') {
       set(this, 'owner', owner.id);
       return owner;

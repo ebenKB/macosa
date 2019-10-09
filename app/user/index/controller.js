@@ -13,6 +13,7 @@ export default Controller.extend({
     },
 
     updateUser(user) {
+      console.log('we want to update a user');
       this.toggleProperty('check');
       if (this.check === true) {
         set(user, 'is_admin', true);

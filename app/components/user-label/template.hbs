@@ -6,27 +6,38 @@
     <div>
       <h2>{{name}}</h2>
       <span>{{email}}</span>
-      <span> {{emailAlt}} </span>
+      <span>{{emailAlt}}</span>
     </div>
   </div>
   <div class="">
-    <FormFields::Checkbox
-      @label="Admin"
-      @check={{check}}
-      @didChange={{action "didCheck"}}
-    />
-    <FormFields::Checkbox
-      @label="Regular user"
-      @check={{true}}
-      @didChange={{action "didCheck"}}
-      @disabled={{true}}
-    />
-    <span>
-      <a href="" {{action "resetUser"}} >Reset Password</a>
-    </span>
-    <span>
-      <a href="" class="danger" {{action "deleteUser" }} >Delete User</a>
-    </span>
+    {{#if (is-owner user.id user.owner_id)}}
+      <div class="ui yellow label m-t-40 m-b-40">Account owner</div>
+    {{/if}}
+    {{#if (can-revoke-rights user.id currentUser.user.id user.owner_id)}}
+      <FormFields::Checkbox
+        @label="Admin"
+        @check={{check}}
+        @perform={{action "didCheck"}}
+        @disabled={{false}}
+      />
+      {{else}}
+      <FormFields::Checkbox
+        @label="Admin"
+        @check={{check}}
+        @perform={{action "didCheck"}}
+        @disabled={{true}}
+      />
+    {{/if}}
+    {{#if (is-current-user user.id currentUser.user.id)}}
+      <span>
+        <a href="" {{action "resetUser"}}>Reset Password</a>
+      </span>
+    {{/if}}
+    {{#if (can-revoke-rights user.id currentUser.user.id user.owner_id)}}
+      <span>
+        <a href="" class="danger" {{action "deleteUser"}}>Delete User</a>
+      </span>
+    {{/if}}
   </div>
 </div>
 <Modal::Confirmation

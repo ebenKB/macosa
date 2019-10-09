@@ -106,6 +106,14 @@
   border-color: rgba(4, 149, 242, 0.5);
 }
 
+.mc-form .user-label__wrapper .ui.label {
+  margin: 0.90em 0 0.9em 0
+}
+
+.mc-form .user-label__wrapper .ui.yellow.labels .label, .ui.yellow.label {
+  background-color: rgba(251, 189, 8, 0.5) !important;
+}
+
 .header-wrapper .ui.grid {
   display: grid !important;
 }
