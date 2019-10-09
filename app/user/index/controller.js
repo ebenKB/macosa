@@ -5,7 +5,7 @@ export default Controller.extend({
   check: false,
   didAttemptDelete: false,
 
-  title: 'Invite a new user',
+  title: 'Invite user',
   help: 'All registerd users are displayed here',
   actions: {
     perform() {
