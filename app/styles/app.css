@@ -194,6 +194,10 @@ a:hover {
   font-size: 1.25rem;
 }
 
+.caption svg {
+  fill: #848d9a;
+}
+
 .caption__small {
   font-size: 0.85rem;
 }
