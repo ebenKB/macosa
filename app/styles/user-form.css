@@ -8,6 +8,7 @@
 .user-form__body {
   box-shadow: 0 1px 3px 0 #bfbfbf;
   border-radius: 2.5px;
+  background: #fff;
 }
 
 .user-form__header {

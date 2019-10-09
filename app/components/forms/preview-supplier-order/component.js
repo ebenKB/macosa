@@ -3,7 +3,7 @@ import { get, set } from '@ember/object';
 
 export default Component.extend({
   canShowModal: false,
-  title: 'Are you sure you want delete this order?',
+  title: 'Are you sure you want Remove this order?',
   actions: {
     didPerform() {
       get(this, 'perform')();

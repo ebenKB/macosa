@@ -5,6 +5,7 @@
   position: fixed;
   z-index: 98;
   left: 0;
+  top: 20px;
 }
 
 .mc-modal {
