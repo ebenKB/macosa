@@ -7,7 +7,7 @@ export default Component.extend({
   canPerform: false,
   order: null,
   role: '',
-  title: 'Are you sure you want to delete this order ?',
+  title: 'Are you sure you want to Remove this order ?',
   actions: {
     editOrder() {
     },

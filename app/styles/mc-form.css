@@ -54,8 +54,7 @@
 }
 
 .mc-form__body {
-  /* padding: 20px 30px; */
-  padding: 20px 60px;
+  padding: 20px;
   background: var(--mc-white);
 }
 
@@ -66,7 +65,6 @@
 
 .mc-form .button-group.inline.fields {
   margin: 0 0 0 60%;
-  /* margin: 0 0 0 60%; */
   display: inline-flex;
   padding: 20px;
 }

@@ -118,3 +118,7 @@
 .ui.label.medium {
   font-size: 1rem;
 }
+
+.v-menu__wrapper .ui.accordion.menu .item .title > .dropdown.icon {
+  margin: 0.21425em 1.5em 0em 1em;
+}
