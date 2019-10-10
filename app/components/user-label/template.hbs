@@ -16,7 +16,7 @@
     {{#if (can-revoke-rights user.id currentUser.user.id user.owner_id)}}
       <FormFields::Checkbox
         @label="Admin"
-        @check={{check}}
+        @check={{user.is_admin}}
         @perform={{action "didCheck"}}
         @disabled={{false}}
       />
@@ -28,11 +28,12 @@
         @disabled={{true}}
       />
     {{/if}}
-    {{#if (is-current-user user.id currentUser.user.id)}}
-      <span>
-        <a href="" {{action "resetUser"}}>Reset Password</a>
-      </span>
-    {{/if}}
+    <FormFields::Checkbox
+      @label="Regular user"
+      @check={{true}}
+      @perform={{action "didCheck"}}
+      @disabled={{true}}
+    />
     {{#if (can-revoke-rights user.id currentUser.user.id user.owner_id)}}
       <span>
         <a href="" class="danger" {{action "deleteUser"}}>Delete User</a>
@@ -40,8 +41,3 @@
     {{/if}}
   </div>
 </div>
-<Modal::Confirmation
-  @canShowModal={{didAttemptDelete}}
-  @didConfirm={{action "confirmDelete"}}
-  @didDecline={{action "cancelDelete"}}
-/>

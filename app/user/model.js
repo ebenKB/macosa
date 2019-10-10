@@ -22,4 +22,5 @@ export default DS.Model.extend({
   }),
 
   isSelected: true,
+  is_deleted: false,
 });

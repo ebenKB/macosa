@@ -4,8 +4,15 @@
       <div class="caption">
         {{svg-jar "warning" width="35px" height="35px"}}
         <h3> {{message}} </h3>
+        {{!-- {{#if hasInput}}
+          <div class="modal-input">
+            <FormFields::Input
+              @placeholder="Enter the name of the user"
+            />
+          </div>
+        {{/if}} --}}
       </div>
-      <div class="actions m-t-50">
+      <div class="actions m-t-50 {{if hasInput "m-t-20"}}">
         <button onclick={{action "decline"}} class="ui default button">Cancel</button>
         <button onclick={{action "perform"}} class="ui green button {{if isPerforming "loading"}} ">{{confirmTitle}}</button>
       </div>

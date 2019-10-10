@@ -1,3 +1,11 @@
+{{#if didAttemptDelete}}
+  <McModal
+    @canShowModal={{didAttemptDelete}}
+    @perform={{action "confirmDelete" confirmDelete}}
+    @message="Are you sure you want to delete this item?"
+    @isPerforming={{isSaving}}
+  />
+{{/if}}
 <ContentPane 
     @aside={{help}}>
   <McWrapper
@@ -9,21 +17,19 @@
 
     <span>Found {{model.length}} users</span>
     {{#each model as |user| }}
-      <div class="mc-divider m-b-15"></div>
-      <UserLabel
-        @user={{user}}
-        @name={{user.fullname}}
-        @email={{user.email}}
-        @emailAlt="dashie@dropbox.com.macosa"
-        @userImage="https://pbs.twimg.com/media/C1BQ_RmVEAE3ng4.jpg"
-        @didCheckBox={{action "updateUser" user}}
-        @attemptDelete={{action "attemptDelete"}}
-        @check={{user.is_admin}}
-        @didAttemptDelete={{didAttemptDelete}}
-        @didCancelDelete={{action "cancelDelete"}}
-        @didDeleteUser={{action "deleteUser" user}}
-        @didConfirmDelete={{action "destroyUser" user}}
-      />
+      {{#unless (get user "is_deleted")}}
+        <div class="mc-divider m-b-15"></div>
+        <UserLabel
+          @user={{user}}
+          @name={{user.fullname}}
+          @email={{user.email}}
+          @emailAlt="dashie@dropbox.com.macosa"
+          @userImage="https://pbs.twimg.com/media/C1BQ_RmVEAE3ng4.jpg"
+          @didCheckBox={{action "updateUser" user}}
+          @check={{user.is_admin}}
+          @didAttemptDelete={{action "didAttemptDelete" user}}
+        />
+      {{/unless}}
     {{/each}}
   </McWrapper>
 </ContentPane>

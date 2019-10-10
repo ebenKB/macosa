@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   currentUser: service(),
-  check: true,
+  // check: true,
   // didAttemptDelete: false,
 
   didUpdateAttrs() {
@@ -21,18 +21,7 @@ export default Component.extend({
     },
 
     deleteUser() {
-      console.log('you want to delete the user');
-      get(this, 'attemptDelete')();
-    },
-
-    confirmDelete() {
-      console.log('you want to delete the user');
-      get(this, 'didConfirmDelete')();
-    },
-
-    cancelDelete() {
-      console.log('The delete action was cancelled');
-      get(this, 'didCancelDelete')();
+      get(this, 'didAttemptDelete')();
     },
 
     resetUser() {
