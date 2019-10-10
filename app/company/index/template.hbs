@@ -7,7 +7,11 @@
   />
 {{/if}}
 {{#if canPreviewCompany}}
-  <Forms::PreviewCompany />
+  <div class="preview-form__wrapper">
+    <Forms::PreviewCompany
+      @cancel={{action "cancelPreview"}}
+    />
+  </div>
 {{/if}}
 <ContentPane
   @aside={{help}}

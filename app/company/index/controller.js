@@ -10,7 +10,7 @@ export default Controller.extend({
   didAttemptDelete: false,
   isSaving: false,
   selectedCompany: null,
-  canPreviewCompany: true,
+  canPreviewCompany: false,
   title: 'Add new',
 
   actions: {
@@ -35,6 +35,9 @@ export default Controller.extend({
       //     set(this, 'canShowModal', false);
       //     get(this, 'notifications').showSuccess('One company has been removed');
       //   });
+    },
+    cancelPreview(){
+
     },
     addCompany() {
       this.transitionToRoute('company.new');
