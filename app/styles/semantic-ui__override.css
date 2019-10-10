@@ -101,6 +101,10 @@
   color: var(--faint-dark);
 }
 
+.user-label__wrapper:hover {
+  background: var(--mc-form_bg-light);
+}
+
 .mc-form .user-label__wrapper .ui.checkbox input:checked ~ .box:before, .ui.checkbox input:checked ~ label:before {
   background: rgba(4, 149, 242, 0.5);
   border-color: rgba(4, 149, 242, 0.5);
