@@ -16,7 +16,7 @@
 }
 
 .ui.vertical.menu .item .menu .active.item {
-  color: var(--dark);
+  color: var(--blue);
   font-family: "openSans", "helveticaNeue";
 }
 
