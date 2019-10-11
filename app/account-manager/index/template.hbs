@@ -1,3 +1,46 @@
-{{!-- <ContentPane>
-  <h3>show all account managers here</h3>
-</ContentPane> --}}
+{{#if didAttemptDelete}}
+  <McModal
+    @canShowModal={{didAttemptDelete}}
+    @perform={{action "confirmDelete" confirmDelete}}
+    @message={{alertMessage}}
+    @isPerforming={{isSaving}}
+  />
+{{/if}}
+<ContentPane
+  @aside={{help}}>
+  <McWrapper
+    @heading="Account managers"
+    @role="All account manager"
+    @hasAction={{true}}
+    @actionName="Add new"
+    @perform={{action "perform" }}
+  >
+    <div class="grid columns-10__6">
+      <p>Showing all account managers</p>
+      {{#if didSelect}}
+        <div class="floating action-wrapper">
+          <div class="">
+            <div class="text-right" role="button" {{action "deleteAccounts"}}>
+              <span class="m-r-10">{{selectedAccounts.length}} account(s) selected</span>
+              <span class="bg__opaque">
+                {{svg-jar "trash" width="15px" height="15px"}}
+              </span>
+            </div>
+          </div>
+      </div>
+      {{/if}}
+    </div>
+    {{#each model as |manager| }}
+      {{#unless (get manager "is_deleted")}}
+        {{#if (not-eq '' manager.full_name)}}
+          <div class="mc-divider m-b-15"></div>
+          <Forms::AccountManagerLabel
+            @didSelectAccount={{action "didSelectAccount" manager}}
+            @name={{manager.fullname}}
+            @account={{manager}}
+          />
+        {{/if}}
+      {{/unless}}
+    {{/each}}
+  </McWrapper>
+</ContentPane>

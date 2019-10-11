@@ -1,5 +1,5 @@
 import config from 'macosa/config/environment';
-// import { get } from '@ember/object';
+import { get } from '@ember/object';
 // import { underscore } from '@ember/string';
 import fetch from 'fetch';
 
@@ -26,7 +26,6 @@ class DeleteModel{
   // }
 
   softDelete(modelName, id, token) {
-    console.log('in the soft delete');
     return new Promise((resolve, reject) => {
       const options = {
         method: 'DELETE',
@@ -37,12 +36,17 @@ class DeleteModel{
       };
       fetch(`${config.apiEndpoint}/${config.apiNamespace}/${modelName}/${id}?type=normal`, options)
         .then((response) => {
-          response.json()
-            .then((d) => {
-              console.log('fetch is done');
-              resolve(d);
-            })
-            .catch((err) => reject(err));
+          if (response.ok) {
+            resolve('success');
+          } else {
+            response.json()
+              .then((data) => {
+                reject(data);
+              })
+              .catch((err) => {
+                reject(err);
+              });
+          }
         });
     });
   }

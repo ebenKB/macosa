@@ -19,3 +19,19 @@
   color:black;
   border-radius: 5px;
 } */
+
+.floating.action-wrapper {
+  border-radius: 5px;
+  /* position: fixed; */
+  background: var(--bg__faint);
+  width: 200px;
+  padding: 10px 10px;
+  margin: auto;
+  /* font-family: sans-serif;
+  top: 252px;
+  
+  z-index: 100;
+  text-align: right; */
+  float: right;
+  /* left: 1078px; */
+}

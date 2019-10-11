@@ -1,0 +1,21 @@
+{{!-- {{#if account}} --}}
+  <div class="grid columns-1__15 user-label__wrapper {{if account.isSelected "bg__opaque"}}" onclick={{action "selectAccount"}}>
+    <div>
+      <Input @id={{account.id}} @type="checkbox" @name="isSelected" @checked={{account.is_selected}}/>
+    </div>
+    <div>
+      <div class="grid columns-3__13 order-label__wrapper grid-center">
+      <div class="ui circular labels">
+        <span class="ui yellow label">{{account.initials}}</span>
+      </div>
+      <div class="">
+        <div class="caption inline">
+          <p>
+            <h2>{{account.full_name}}</h2>
+          </p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+{{!-- {{/if}} --}}
