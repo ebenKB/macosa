@@ -23,9 +23,6 @@ export default Service.extend({
           const msg = 'An error occured while processing your request.' +
             'The application will restart in 3 seconds';
           this.get('notifications').showError(msg);
-          setTimeout(() => {
-            // this.route.transitionto('login');
-          }, 500);
         });
     } else {
       return RSVP.resolve();

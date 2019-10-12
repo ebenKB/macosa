@@ -1,7 +1,9 @@
 .header-wrapper {
   position: fixed;
   width: 100%;
-  background: var(--mc-light-blue);
+  /* background: var(--mc-light-blue); */
+  /* background: #36383a; */
+  background: rgb(21, 32, 43);
   z-index: 99;
 }
 
