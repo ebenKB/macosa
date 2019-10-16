@@ -1,5 +1,5 @@
 <div class="grid order-label__wrapper">
-  <div class="grid columns-2__14 grid-gap__10">
+  <div class="grid columns-2__14 grid-gap__10 clickable" role="button" {{action "editItem"}}>
     <div class="ui circular labels">
       <span class="ui yellow label">{{user.initials}} $</span>
     </div>
@@ -57,14 +57,6 @@
           </span>
         </div>
       </div>
-      {{!-- <div class="action-wrapper">
-        <div class="success m-r-20" role="button" {{action "editItem"}}>
-          {{svg-jar "list" width="18px" height="18px"}}
-        </div>
-        <div class="danger" role="button" onclick={{action "didDelete"}}>
-          {{svg-jar "trash" class="danger" width="18px" height="18px"}}
-        </div>
-      </div> --}}
     </div>
   </div>
 </div>
