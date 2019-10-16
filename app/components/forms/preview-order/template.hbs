@@ -32,7 +32,7 @@
       <label for="company name">
         Profit  
       </label>
-      <div class="ui label small">{{order.profit}}</div>
+      <div class="ui label small">{{changeset-get order "currency_id.name"}} {{order.profit}}</div>
     </div>
     <div class="ui right labeled input inline field">
       <label for="Customer">
