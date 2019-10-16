@@ -7,7 +7,9 @@
   />
 {{/if}}
 {{#if canPreviewCompany}}
-  <Forms::PreviewCompany />
+  <div class="preview-form__wrapper">
+    <Forms::PreviewCompany />
+  </div>
 {{/if}}
 <ContentPane
   @aside={{help}}

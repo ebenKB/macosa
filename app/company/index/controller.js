@@ -10,7 +10,7 @@ export default Controller.extend({
   didAttemptDelete: false,
   isSaving: false,
   selectedCompany: null,
-  canPreviewCompany: true,
+  canPreviewCompany: false,
   title: 'Add new',
 
   actions: {

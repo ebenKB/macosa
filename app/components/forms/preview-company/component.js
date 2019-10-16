@@ -3,11 +3,15 @@ import Component from '@ember/component';
 export default Component.extend({
   actions: {
     confirmDelete() {
-      console.log('confirm Delte')
+      console.log('confirm Delte');
     },
 
-    cacnel() {
-      console.log('we want to cancel')
+    cancel() {
+      console.log('we want to cancel');
+    },
+
+    didPerform() {
+      console.log('we want to perform an action');
     }
   }
 });
