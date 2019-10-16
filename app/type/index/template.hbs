@@ -1,7 +1,19 @@
-{{outlet}}
-
-<ContentPane>
+<ContentPane
+  @aside={{help}}
+>
+  <McWrapper
+    @heading="Company types"
+    @role="Add new"
+    @hasAction={{true}}
+    @actionName={{title}}
+    @perform={{action "addCompanyType" }}
+  >
   {{#each model as |type|}}
-    <div> {{type.name}} </div>
+    {{#if type.name}}
+      <Forms::CompanyTypeCard
+        @companyType={{type}}
+      />
+    {{/if}}
   {{/each}}
+  </McWrapper>
 </ContentPane>

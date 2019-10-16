@@ -1,0 +1,24 @@
+<div class="mc-divider"></div>
+<div class="mclist-content__wrapper">
+  <div class="two mc-card__wrapper grid">
+    <div>
+      <div class="company-details">
+        <div>
+          <span class="">{{companyType.name}} </span>
+        </div>
+      </div>
+    </div>
+    <div class="text-right align-end">
+      <div class="action mc-actions">
+        <span class="success edit">
+          {{!-- <LinkTo @route="company.edit" @model={{company.id}} class="success edit"> --}}
+            {{svg-jar "edit" height="14px" width="14px" class="red m-r-20"}}
+          {{!-- </LinkTo> --}}
+        </span>
+        <span class="danger" role="button" onclick={{action "delete"}}>
+          {{svg-jar "trash" height="14px" width="14px"}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

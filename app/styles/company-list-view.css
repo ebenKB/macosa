@@ -12,10 +12,19 @@
   color: var(--blue);
 }
 
-.company-wrapper .company-actions {
+.mc-card__wrapper .mc-actions,
+.company-wrapper .mc-actions {
   display: none;
 }
 
-.company-wrapper:hover .company-actions {
+.mc-card__wrapper:hover .mc-actions,
+.company-wrapper:hover .mc-actions {
   display: block;
+}
+
+.two.mc-card__wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 10px;
+  padding: 20px 10px;
 }
