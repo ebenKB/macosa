@@ -8,7 +8,6 @@ export default Controller.extend({
   actions: {
     perform(changeset) {
       set(this, 'isSaving', true);
-      console.log('we want to perfrom an action');
       changeset.save()
         .then(() => {
           set(this, 'isSaving', false);
