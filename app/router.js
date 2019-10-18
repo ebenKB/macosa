@@ -69,6 +69,7 @@ Router.map(function() {
       resetNamespace: true
     },function() {
       this.route('new');
+      this.route('edit', { path: '/:id'});
     });
 
     this.route('business-unit-order', {

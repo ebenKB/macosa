@@ -1,0 +1,20 @@
+<ContentPane
+  @aside={{help}}
+>
+  {{#with (changeset model TypeValidation) as |changeset|}}
+    <McForm
+      @heading="Edit company type"
+      @role="Save"
+      @didPerform={{action "perform" changeset}}
+      @didDecline={{action "cancel"}}
+      @isSaving={{isSaving}}
+    >
+      <Forms::NewType
+        @model={{model}}
+        @number={{index-to-number index}}
+        @changesetObj={{changeset}}
+        @titles={{titles}}
+      />
+    </McForm>
+  {{/with}}
+</ContentPane>
