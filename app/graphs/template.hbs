@@ -1,0 +1,42 @@
+<ContentPane
+@aside={{help}}
+>
+  <McWrapper
+    @hasAction={{false}}
+  >
+  <div class="filter-options">
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          {{ui-radio name="type" label="Bar Graph" value="bar" current=type onChange=(action (mut type))}}
+        </div>
+        <div class="field">
+          {{ui-radio name="type" label="Pie chart" value="pie" current=type onChange=(action (mut type))}}
+        </div>
+        <div class="field">
+          {{ui-radio name="type" label="Line Graph" value="line" current=type onChange=(action (mut type))}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui label">
+  Type - {{type}}
+</div>
+  <div class="m-t-40">
+    {{ember-chart 
+      type=type 
+      data=chartdata
+      options=options
+      height=150
+    }}
+  </div>
+    <div class="m-t-40">
+    {{ember-chart 
+      type=type 
+      data=profitdata
+      options=options
+      height=150
+    }}
+  </div>
+  </McWrapper>
+</ContentPane>

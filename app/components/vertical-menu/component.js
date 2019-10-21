@@ -90,6 +90,19 @@ export default Component.extend({
               link: 'account-manager.new',
             }
           ]
+        },
+        {
+          name: 'Graphs',
+          submenus: [
+            {
+              name: 'Orders',
+              link: 'graphs'
+            },
+            {
+              name: 'Supplier Orders',
+              link: 'graphs'
+            }
+          ]
         }
       ]
     );

@@ -98,6 +98,10 @@ Router.map(function() {
     this.route('notification', {
       resetNamespace: true,
     },function() {});
+
+    this.route('graphs', {
+      resetNamespace: true
+    });
   });
 });
 

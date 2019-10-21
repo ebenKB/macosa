@@ -3,6 +3,7 @@ import { get } from '@ember/object';
 
 export default Component.extend({
   actionName: '',
+  classNames: null,
   hasAction: false,
   actions: {
     perform() {
