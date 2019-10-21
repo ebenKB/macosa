@@ -4,6 +4,8 @@ import help from 'macosa/help/graph/index';
 
 export default Controller.extend({
   type: 'bar',
+  amountLabel: 'Order Amount',
+  profitLabel: 'Profit Margin',
 
   actions: {
     change(){
@@ -14,7 +16,7 @@ export default Controller.extend({
     return {
       labels: get(this, 'model').mapBy('date'),
       datasets: [{
-        label: 'Order Amount',
+        label: this.amountLabel,
         data: get(this, 'model').mapBy('amount'),
         backgroundColor: get(this, 'model').map(() => {
           return this.getColour();
@@ -27,7 +29,7 @@ export default Controller.extend({
     return {
       labels: get(this, 'model').mapBy('date'),
       datasets: [{
-        label: 'Profit Margin',
+        label: this.profitLabel,
         data: get(this, 'model').mapBy('profit'),
         backgroundColor: get(this, 'model').map(() => {
           return this.getColour();
@@ -94,10 +96,16 @@ export default Controller.extend({
     this._super();
     set(this, 'help', help);
     set(this, 'options', {
+      type: this.type,
+      responsive: true,
+      // title: {
+      //   display: true,
+      //   text: this.amountLabel,
+      // },
       yAxes: [{
         scales: {
           yAxes: [{
-            display: false,
+            display: true,
             ticks: {
               min: 0,
               beginAtZero: true,
@@ -108,6 +116,7 @@ export default Controller.extend({
         }
       }],
       xAxes: [{
+        barValueSpacing: 200,
         barPercentage: 1,
         barThickness: 16,
         maxBarThickness: 8,
