@@ -1,0 +1,9 @@
+.chart-selection__wrapper {
+  width: 600px;
+}
+
+.selection__content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}

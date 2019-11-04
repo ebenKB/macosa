@@ -5,7 +5,16 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   infinity: service(),
-  model() {
+  queryParams: {
+    to: {
+      refreshModel: true,
+    },
+
+    from: {
+      refreshModel: true,
+    }
+  },
+  model(params) {
     // return ({
     //   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     //   datasets: [{
@@ -30,6 +39,20 @@ export default Route.extend({
     //     borderWidth: 1
     //   }]
     // });
-    return this.infinity.model('order');
+    // return this.infinity.model('order');
+    // return get(this, 'store').findAll('order');
+
+    // check if the user wants to fetch between date intervals
+    /**
+     * to -- is the date where the query should end
+     * from -- is the date where the query should start
+     */
+    if (params.to != null && params.from != null) {
+      return get(this, 'store').query('order',
+      params
+      );
+    } else {
+      return get(this, 'store').findAll('order');
+    }
   }
 });

@@ -1,0 +1,28 @@
+{{yield}}
+<div class="chart-selection__wrapper">
+  <div class="selection__content">
+    <div class="m-t-10 m-b-10">
+      <p>From:</p>
+      {{pikaday-input
+        format="DD/MM/YYYY"
+        yearRange="2000,currentYear"
+        onSelection=(action 'setFromValue')
+        class=classNames
+        placeholder="Pick an order date"
+      }}
+      {{!-- <span class="date-picker__icon">
+        {{svg-jar "calendar" width="18px" height="18px" fill="#000"}}
+      </span> --}}
+    </div>
+    <div class="m-b-10 m-t-10">
+      <p>To:</p>
+      {{pikaday-input
+        format="DD-MM-YYYY"
+        yearRange="2000,currentYear"
+        onSelection=(action 'setToValue')
+        class=classNames
+        placeholder="Pick an order date"
+      }}
+    </div>
+  </div>
+</div>

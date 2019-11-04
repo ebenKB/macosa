@@ -4,27 +4,36 @@ import help from 'macosa/help/graph/index';
 
 export default Controller.extend({
   type: 'bar',
+  queryParams: ['to', 'from'],
   amountLabel: 'Order Amount',
   profitLabel: 'Profit Margin',
+  groupByMonth: 'month',
+  to: null,
+  from: null,
 
   actions: {
     change(){
       console.log('The radio has changed');
     }
   },
-  chartdata: computed('model', function() {
+
+  monthOrdersAmountGroupData: computed('model', function() {
+    const datasets = get(this, 'monthOrdersAmountGroup');
     return {
-      labels: get(this, 'model').mapBy('date'),
-      datasets: [{
-        label: this.amountLabel,
-        data: get(this, 'model').mapBy('amount'),
-        backgroundColor: get(this, 'model').map(() => {
-          return this.getColour();
-        }),
-      }]
+      labels: ['Jan.', 'Feb.', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct.', 'Nov', 'Dec.'],
+      datasets
     };
   }),
 
+  monthOrdersProfitGroupData: computed('model', function() {
+    const datasets = get(this, 'monthOrdersProfitGroup');
+    return {
+      labels: ['Jan.', 'Feb.', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct.', 'Nov', 'Dec.'],
+      datasets
+    };
+  }),
+
+  // monthGroupChart:
   profitdata: computed('model', function() {
     return {
       labels: get(this, 'model').mapBy('date'),
@@ -38,45 +47,59 @@ export default Controller.extend({
     };
   }),
 
-  monthOrders: computed('model', function() {
+  // group the data by month
+  monthOrdersAmountGroup: computed('model', function() {
+    const monthTotals = Array(12).fill(0);
+    const data = get(this, 'model');
+    data.map(d => {
+      // console.log('these are the params', d.date, d.amount);
+      if (d.date != null) {
+        const localDate = new Date(d.date);
+        const month = localDate.getMonth();
+        // console.log('This is the month number', month);
 
-    // const totals = Array(12).fill(0);
-    const mmOrders = Array(12).fill([
-      {
-        month: 'Jan',
-        total: 0
+        // add the total to the month array of total
+        monthTotals[(month - 1)] = monthTotals[(month - 1)] + d.amount;
       }
-    ]);
-    // const months = [];
-    // create an array for the months
-    for (let i = 0; i < 12; i++) {
-      mmOrders[(i + 1)].month = i + 1;
-    }
+      return null;
+    });
 
-    let m;
-    for (const d of get(this, 'model').content) {
-      m = 0;
-      const date = get(d, 'date');
-      if (get(d, 'date')) {
-        m = (this.getMonth(date) + 1);
-        mmOrders[ m ].total = (mmOrders[m].total += (get(d, 'amount')));
+    const datasets = [{
+      label: 'Monthly orders',
+      data: monthTotals,
+      backgroundColor: get(this, 'model').map(() => {
+        return this.getColour();
+      }),
+    }];
+    // console.log('This is the Has we are returning', datasets);
+    return datasets;
+  }),
+
+  monthOrdersProfitGroup: computed('model', function() {
+    const monthTotals = Array(12).fill(0);
+    const data = get(this, 'model');
+    data.map(d => {
+      // console.log('these are the params', d.date, d.amount);
+      if (d.date != null) {
+        const localDate = new Date(d.date);
+        const month = localDate.getMonth();
+        // console.log('This is the month number', month);
+
+        // add the total to the month array of total
+        monthTotals[(month - 1)] = monthTotals[(month - 1)] + d.profit;
       }
-      // mmOrders.addObject({
-      //   total: totals[ m ],
-      //   month: m,
-      // });
+      return null;
+    });
 
-      // mmOrders[m] = {
-      //   total: totals[ m ],
-      //   month: months[m],
-      // };
-
-      // mmOrders[m].total = totals[m];
-
-    }
-
-    // mmOrders[m].month = m;
-    return mmOrders;
+    const datasets = [{
+      label: 'Monthly Profit',
+      data: monthTotals,
+      backgroundColor: get(this, 'model').map(() => {
+        return this.getColour();
+      }),
+    }];
+    // console.log('This is the Has we are returning', datasets);
+    return datasets;
   }),
 
   getColour() {
