@@ -5,6 +5,7 @@ export default Component.extend({
   classNames: null,
   property: null,
   from: null,
+  to: null,
 
   actions: {
     setToValue(val) {
@@ -14,9 +15,10 @@ export default Component.extend({
       set(this, 'from', this.formatDate(val));
     }
   },
-  formatDate(val) {
-    const date = new Date(val);
-    const newDate = `${(date.getMonth() + 1)}-${(date.getDay())}-${date.getFullYear()}`;
+  formatDate(date) {
+    // const date = new Date(val);
+    console.log('This is the day', date);
+    const newDate = `${date.getFullYear()}-${(date.getMonth() + 1)}-${(date.getDate())}`;
     return newDate;
   }
 });

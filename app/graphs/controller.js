@@ -59,7 +59,7 @@ export default Controller.extend({
         // console.log('This is the month number', month);
 
         // add the total to the month array of total
-        monthTotals[(month - 1)] = monthTotals[(month - 1)] + d.amount;
+        monthTotals[(month)] = monthTotals[(month)] + d.amount;
       }
       return null;
     });
@@ -86,7 +86,7 @@ export default Controller.extend({
         // console.log('This is the month number', month);
 
         // add the total to the month array of total
-        monthTotals[(month - 1)] = monthTotals[(month - 1)] + d.profit;
+        monthTotals[(month)] = monthTotals[(month)] + d.profit;
       }
       return null;
     });

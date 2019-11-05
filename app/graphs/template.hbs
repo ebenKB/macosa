@@ -3,7 +3,7 @@
 >
   <McWrapper
     @hasAction={{false}}
-    @classNames="full-content"
+    @classNames=""
   >
   <div class="filter-options">
     <div class="">
@@ -26,7 +26,8 @@
       </div>
     </div>
   </div>
-  <div class="m-t-40">
+  <div class="mc-divider m-t-20 m-b-15">Customer orders</div>
+  <div class="m-t-60 m-b-60">
     {{ember-chart 
       type=type 
       data=monthOrdersAmountGroupData
@@ -34,7 +35,7 @@
       height=150
     }}
   </div>
-    <div class="m-t-40">
+    <div class="m-t-60 m-b-60">
     {{ember-chart 
       type="pie" 
       data=monthOrdersAmountGroupData
@@ -42,7 +43,8 @@
       height=150
     }}
   </div>
-  <div class="m-t-40">
+  <div class="mc-divider m-b-15">Profit from customer orders</div>
+  <div class="m-t-60 m-b-60">
     {{ember-chart 
       type=type 
       data=monthOrdersProfitGroupData
@@ -50,7 +52,7 @@
       height=150
     }}
   </div>
-    <div class="m-t-40">
+    <div class="m-t-60 m-b-60">
     {{ember-chart 
       type="pie" 
       data=monthOrdersProfitGroupData

@@ -11,7 +11,7 @@ export default Route.extend({
     },
 
     from: {
-      refreshModel: true,
+      refreshModel: false,
     }
   },
   model(params) {
