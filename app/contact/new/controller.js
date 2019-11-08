@@ -70,7 +70,6 @@ export default Controller.extend({
       }
     }
   },
-
   init() {
     this._super();
     set(this, 'titles', [
