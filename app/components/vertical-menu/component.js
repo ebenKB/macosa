@@ -96,12 +96,8 @@ export default Component.extend({
           submenus: [
             {
               name: 'Orders',
-              link: 'graphs'
+              link: 'graph.order'
             },
-            {
-              name: 'Supplier Orders',
-              link: 'graphs'
-            }
           ]
         }
       ]

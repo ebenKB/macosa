@@ -99,8 +99,16 @@ Router.map(function() {
       resetNamespace: true,
     },function() {});
 
+    this.route('graph', {
+      resetNamespace: true,
+    },function() {
+      this.route('order');
+    });
+
     this.route('graphs', {
       resetNamespace: true
+    }, function(){
+      this.route('order', {path: 'graph'});
     });
   });
 });

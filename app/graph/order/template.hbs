@@ -1,0 +1,102 @@
+<ContentPane
+  @aside={{help}}
+>
+  <McWrapper
+    @hasAction={{false}}
+    @classNames=""
+  >
+  <div class="filter-options">
+    <div class="">
+      <div class="m-t-15 m-b-15">
+        Showing all records for sales and profit
+      </div> 
+    </div>
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          {{ui-radio name="type" label="Yearly" value="year"  current=type onChange=(action "selectMonth")}}
+        </div>
+        <div class="field">
+          {{ui-radio name="type" label="Monthly" value="month" current=type onChange=(action (mut type ))}}
+        </div>
+        <Forms::ChartSelection
+          @from={{from}}
+          @to={{to}}
+          @checkDate={{action "checkIfValidMonthDate"}}
+        />
+      </div>
+    </div>
+  </div>
+  <div class="mc-divider m-t-20 m-b-15">Customer orders</div>
+  {{#unless (not-eq validMonthDate false)}}
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="bar"
+        data=monthOrdersAmountGroupData
+        options=options
+        height=150
+      }}
+    </div>
+      <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="pie" 
+        data=monthOrdersAmountGroupData
+        options=options
+        height=150
+      }}
+    </div>
+    <div class="mc-divider m-b-15">Profit from customer orders</div>
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="bar" 
+        data=monthOrdersProfitGroupData
+        options=options
+        height=150
+      }}
+    </div>
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="pie" 
+        data=monthOrdersProfitGroupData
+        options=options
+        height=150
+      }}
+    </div>
+  {{/unless}}
+  {{#if validMonthDate }}
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="bar"
+        data=monthOrdersData
+        options=options
+        height=150
+      }}
+    </div>
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="pie" 
+        data=monthOrdersData
+        options=options
+        height=150
+      }}
+    </div>
+    <div class="mc-divider m-b-15">Profit from customer orders</div>
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="bar" 
+        data=profitdata
+        options=options
+        height=150
+      }}
+    </div>
+    <div class="m-t-60 m-b-60">
+      {{ember-chart 
+        type="pie" 
+        data=profitdata
+        options=options
+        height=150
+      }}
+    </div>
+  {{/if}}
+  </McWrapper>
+</ContentPane>
