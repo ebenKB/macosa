@@ -13,12 +13,12 @@
     </div>
     <div class="ui form">
       <div class="grouped inline fields">
-        <div class="field">
+        {{!-- <div class="field">
           {{ui-radio name="type" label="Yearly" value="year"  current=type onChange=(action "selectMonth")}}
         </div>
         <div class="field">
           {{ui-radio name="type" label="Monthly" value="month" current=type onChange=(action (mut type ))}}
-        </div>
+        </div> --}}
         <Forms::ChartSelection
           @from={{from}}
           @to={{to}}
