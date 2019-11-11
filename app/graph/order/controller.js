@@ -17,26 +17,26 @@ export default Controller.extend({
       console.log('The radio has changed');
     },
     checkIfValidMonthDate() {
-        if(this.from === null || this.to === null) {
-          set(this, 'isValidMonthDate', false);
-        }else {
-          const from = new Date(this.from);
-          const td = new Date(this.to);
-          console.log('We are checking the valid month date:');
-          const fDay = from.getDay();
-          const fYear = from.getYear();
-          const fMonth = from.getMonth();
-    
-          const tDay = td.getDay();
-          const tMonth = td.getMonth();
-          const tYear = td.getYear();
-    
-          if (fMonth === tMonth && fYear === fYear) {
-            set(this, 'validMonthDate', true);
-          } else {
-            set(this, 'validMonthDate', false);
-          }
+      if (this.from === null || this.to === null) {
+        set(this, 'isValidMonthDate', false);
+      } else {
+        const from = new Date(this.from);
+        const td = new Date(this.to);
+        console.log('We are checking the valid month date:');
+        const fDay = from.getDay();
+        const fYear = from.getYear();
+        const fMonth = from.getMonth();
+
+        const tDay = td.getDay();
+        const tMonth = td.getMonth();
+        const tYear = td.getYear();
+
+        if (fMonth === tMonth && fYear === fYear) {
+          set(this, 'validMonthDate', true);
+        } else {
+          set(this, 'validMonthDate', false);
         }
+      }
     },
     selectMonth(val){
       console.log('This is the month radion buttion', val);
@@ -58,21 +58,43 @@ export default Controller.extend({
   //   };
   // }),
 
-  // monthOrdersData: computed('model', function() {
-  //   let daysOfMonth = Array.fill(31);
-  //   let 
-  //   const data = get(this, 'model');
-  //   data.map((d) => {
-  //     const date = d.date;
-  //     if (data != null) {
-  //       const day = date.getDay();
-  //       const month = date.getMonth(); // NB: month array index starts from 0
-  //       const year = date.getYear();
-  //       daysOfMonth[day] = date;
-  //     }
-  //   });
-  //   return null;
-  // }),
+  monthOrdersData: computed('model', function() {
+    return this.prepareMonthlyData('amount');
+    // const daysOfMonth = Array(31).fill('');
+    // const dailyRecs = Array(31).fill(0);
+    // const data = get(this, 'model');
+    // let day;
+    // data.map((d) => {
+    //   const date = new Date(d.date);
+    //   if (date != null) {
+    //     day = date.getDate();
+    //     // const month = date.getMonth(); // NB: month array index starts from 0
+    //     // const year = date.getYear();
+    //     daysOfMonth[(day - 1)] = day;
+
+    //     // add the order to the appropriate array index
+    //     dailyRecs[(day - 1)] = (dailyRecs[day] + d.amount);
+    //   }
+    //   return dailyRecs[(day - 1)];
+    // });
+
+    // const mapData = {
+    //   labels: daysOfMonth,
+    //   datasets: [{
+    //     label: 'Daily orders',
+    //     data: dailyRecs,
+    //     backgroundColor: dailyRecs.map(() => {
+    //       return this.getColour();
+    //     }),
+    //   }]
+    // };
+    // console.log('This is what we are returning ...', mapData);
+    // return mapData;
+  }),
+
+  monthOrdersProfitData: computed('model', function() {
+    return this.prepareMonthlyData('profit');
+  }),
 
   monthOrdersAmountGroupData: computed('model', function() {
     const datasets = get(this, 'monthOrdersAmountGroup');
@@ -160,10 +182,52 @@ export default Controller.extend({
   }),
 
   getColour() {
-    const r = Math.random() * (255 - 0) + 0;
-    const g = Math.random() * (255 - 0) + 0;
-    const b = Math.random() * (255 - 0) + 0;
+    const r = parseInt(Math.random() * (255 - 0) + 0);
+    const g = parseInt(Math.random() * (255 - 0) + 0);
+    const b = parseInt(Math.random() * (255 - 0) + 0);
     return `rgb(${r},${g},${b})`;
+  },
+
+  /**
+   * @param {*} type the type of data that we want to prepare
+   * e.g amount or profit.
+   * The type should be either the amount or profit property on the model.
+   */
+  prepareMonthlyData(type) {
+    const daysOfMonth = Array(31).fill('');
+    const dailyRecs = Array(31).fill(0);
+    const data = get(this, 'model');
+    let day;
+    data.map((d) => {
+      const date = new Date(d.date);
+      if (date != null) {
+        day = date.getDate();
+        // const month = date.getMonth(); // NB: month array index starts from 0
+        // const year = date.getYear();
+        daysOfMonth[(day - 1)] = day;
+
+        // add the order to the appropriate array index
+        const newVal = get(d, type);
+        dailyRecs[(day - 1)] = (dailyRecs[day] + newVal);
+      }
+
+      return dailyRecs[(day - 1)];
+    });
+
+    // fill the month array with the days
+    const dayNames = daysOfMonth.map((d, i) => i + 1);
+
+    const mapData = {
+      labels: dayNames,
+      datasets: [{
+        label: 'Daily orders',
+        data: dailyRecs,
+        backgroundColor: dailyRecs.map(() => {
+          return this.getColour();
+        }),
+      }]
+    };
+    return mapData;
   },
 
   getMonth(date) {

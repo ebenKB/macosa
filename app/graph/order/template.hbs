@@ -72,27 +72,11 @@
         height=150
       }}
     </div>
-    <div class="m-t-60 m-b-60">
-      {{ember-chart 
-        type="pie" 
-        data=monthOrdersData
-        options=options
-        height=150
-      }}
-    </div>
     <div class="mc-divider m-b-15">Profit from customer orders</div>
     <div class="m-t-60 m-b-60">
       {{ember-chart 
         type="bar" 
-        data=profitdata
-        options=options
-        height=150
-      }}
-    </div>
-    <div class="m-t-60 m-b-60">
-      {{ember-chart 
-        type="pie" 
-        data=profitdata
+        data=monthOrdersProfitData
         options=options
         height=150
       }}

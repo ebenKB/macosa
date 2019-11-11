@@ -1,3 +1,64 @@
-{{!-- {{outlet}} --}}
-
-<h1>show orders graphs here</h1>
+<ContentPane
+  @aside={{help}}
+>
+  <McWrapper
+    @hasAction={{false}}
+    @classNames=""
+  >
+  <div class="filter-options">
+    <div class="">
+      <div class="m-t-15 m-b-15">
+        Showing all records for sales and profit
+      </div> 
+    </div>
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          {{ui-radio name="type" label="Yearly" value="bar" current=type onChange=(action (mut type))}}
+        </div>
+        <div class="field">
+          {{ui-radio name="type" label="Monthly" value="pie" current=type onChange=(action (mut type))}}
+        </div>
+        <Forms::ChartSelection
+          @from={{from}}
+          @to={{to}}
+        />
+      </div>
+    </div>
+  </div>
+  <div class="mc-divider m-t-20 m-b-15">Customer orders</div>
+  <div class="m-t-60 m-b-60">
+    {{ember-chart 
+      type=type 
+      data=monthOrdersAmountGroupData
+      options=options
+      height=150
+    }}
+  </div>
+    <div class="m-t-60 m-b-60">
+    {{ember-chart 
+      type="pie" 
+      data=monthOrdersAmountGroupData
+      options=options
+      height=150
+    }}
+  </div>
+  <div class="mc-divider m-b-15">Profit from customer orders</div>
+  <div class="m-t-60 m-b-60">
+    {{ember-chart 
+      type=type 
+      data=monthOrdersProfitGroupData
+      options=options
+      height=150
+    }}
+  </div>
+    <div class="m-t-60 m-b-60">
+    {{ember-chart 
+      type="pie" 
+      data=monthOrdersProfitGroupData
+      options=options
+      height=150
+    }}
+  </div>
+  </McWrapper>
+</ContentPane>
