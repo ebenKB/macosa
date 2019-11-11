@@ -85,7 +85,8 @@
 }
 
 /* override text input size for semantic ui */
-.mc-form .ui.form input[type="text"] {
+.mc-form .ui.form input[type="text"],
+.mc-form .ui.form input[type="email"] {
   padding: 1rem;
   border-radius: 5px;
 }

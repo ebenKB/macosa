@@ -68,6 +68,11 @@ export default Controller.extend({
         get(this, 'contacts').removeObject(contact);
         get(this, 'store').deleteRecord(contact); // delete the contact from the data store
       }
+    },
+
+    didValidate(changeset) {
+      changeset.validate();
+      console.log("validating")
     }
   },
   init() {

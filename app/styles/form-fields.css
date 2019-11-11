@@ -21,3 +21,28 @@ input[type=text] {
 .ui.form .field > label {
     color: var(--dark);
 }
+
+.input-wrapper {
+  width: 100% !important;
+}
+
+.input-wrapper ul {
+  padding-inline-start: 0;
+  margin-block-start: 0;
+}
+
+.input-wrapper ul li {
+  list-style: none;
+  color: var(--red);
+  text-align: left;
+}
+
+.input-wrapper input[type="text"],
+.input-wrapper input[type="email"] {
+  width: 100% !important;
+}
+
+input + .input-error {
+  border: 1px solid red;
+  color: red;
+}

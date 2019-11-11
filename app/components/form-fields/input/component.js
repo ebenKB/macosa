@@ -16,6 +16,7 @@ export default Component.extend({
     // }
 
     validate() {
+      console.log('Calling the validator');
       this.get('didValidate')();
     }
   },

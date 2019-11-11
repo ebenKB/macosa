@@ -13,7 +13,7 @@ export default Component.extend({
 
     },
     validate() {
-
+      get(this, 'validate')();
     }
   }
 });

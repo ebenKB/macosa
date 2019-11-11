@@ -8,25 +8,38 @@
   }} --}}
 
 
-{{input
-  class=classNames
-  type=type
-  placeholder=placeholder
-  keyUp=(action "validate" changeset)
-  change=(mut (get changeset property))
-  value=(get changeset property)
-  changeset=changeset
-  property=property
-  disabled=disabled
-}}
+<div class="input-wrapper">
+  {{input
+    class=classNames
+    type=type
+    placeholder=placeholder
+    keyUp=(action "validate" changeset)
+    change=(mut (get changeset property))
+    value=(get changeset property)
+    changeset=changeset
+    property=property
+    disabled=disabled
+  }}
+
+  {{#if changeset.isDirty}}
+    <div>
+      <ul style="margin:5px 0 0 0px;font-size: 11.5px; display: block" class="input-error">
+        {{#each (get (get changeset.error property) "validation") as |message|}}
+          <li>{{message}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+</div>
 
   
 {{!-- {{#if (get changeset.error property)}}
-  <small>
-    <ul style="margin:5px 0 0 0px;font-size: 13px; display: block" class="input-error">
+  <div>
+    <ul style="margin:5px 0 0 0px;font-size: 11.5px; display: block" class="input-error">
       {{#each (get (get changeset.error property) "validation") as |message|}}
         <li>{{message}}</li>
       {{/each}}
     </ul>
-  </small>
-{{/if}} --}}
+  </div>
+{{/if}}
+</div> --}}
